@@ -220,7 +220,7 @@
 <p>We define some custom classes in celloracle.</p>
 <span class="target" id="module-celloracle"></span><dl class="class">
 <dt id="celloracle.Oracle">
-<em class="property">class </em><code class="sig-prename descclassname">celloracle.</code><code class="sig-name descname">Oracle</code><a class="reference internal" href="../_modules/celloracle/trajectory/oracle_core.html#Oracle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.Oracle" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">celloracle.</code><code class="sig-name descname">Oracle</code><a class="headerlink" href="#celloracle.Oracle" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">celloracle.trajectory.modified_VelocytoLoom_class.modified_VelocytoLoom</span></code></p>
 <p>Oracle is the main class in CellOracle. Oracle object imports scRNA-seq data (anndata) and TF information to infer cluster-specific GRNs. It can predict the future gene expression patterns and cell state transitions in response to  the perturbation of TFs. Please see the CellOracle paper for details.
 The code of the Oracle class was made of the three components below.</p>
@@ -264,7 +264,7 @@ The code of the Oracle class was made of the three components below.</p>
 
 <dl class="method">
 <dt id="celloracle.Oracle.addTFinfo_dictionary">
-<code class="sig-name descname">addTFinfo_dictionary</code><span class="sig-paren">(</span><em class="sig-param">TFdict</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/trajectory/oracle_core.html#Oracle.addTFinfo_dictionary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.Oracle.addTFinfo_dictionary" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">addTFinfo_dictionary</code><span class="sig-paren">(</span><em class="sig-param">TFdict</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.Oracle.addTFinfo_dictionary" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add new TF info to pre-existing TFdict.
 Values in the old TF dictionary will remain.</p>
 <dl class="field-list simple">
@@ -276,13 +276,13 @@ Values in the old TF dictionary will remain.</p>
 
 <dl class="method">
 <dt id="celloracle.Oracle.copy">
-<code class="sig-name descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/trajectory/oracle_core.html#Oracle.copy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.Oracle.copy" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.Oracle.copy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deepcopy itself.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="celloracle.Oracle.fit_GRN_for_simulation">
-<code class="sig-name descname">fit_GRN_for_simulation</code><span class="sig-paren">(</span><em class="sig-param">GRN_unit='cluster'</em>, <em class="sig-param">alpha=1</em>, <em class="sig-param">use_cluster_specific_TFdict=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/trajectory/oracle_core.html#Oracle.fit_GRN_for_simulation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.Oracle.fit_GRN_for_simulation" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">fit_GRN_for_simulation</code><span class="sig-paren">(</span><em class="sig-param">GRN_unit='cluster'</em>, <em class="sig-param">alpha=1</em>, <em class="sig-param">use_cluster_specific_TFdict=False</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.Oracle.fit_GRN_for_simulation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Do GRN inference.
 Please see the paper of CellOracle paper for details.</p>
 <p>GRN can be constructed for the entire population or each clusters.
@@ -303,7 +303,7 @@ If you select a higher value, it will reduce the chance of overfitting.</p></li>
 
 <dl class="method">
 <dt id="celloracle.Oracle.get_cluster_specific_TFdict_from_Links">
-<code class="sig-name descname">get_cluster_specific_TFdict_from_Links</code><span class="sig-paren">(</span><em class="sig-param">links_object</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/trajectory/oracle_core.html#Oracle.get_cluster_specific_TFdict_from_Links"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.Oracle.get_cluster_specific_TFdict_from_Links" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_cluster_specific_TFdict_from_Links</code><span class="sig-paren">(</span><em class="sig-param">links_object</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.Oracle.get_cluster_specific_TFdict_from_Links" title="Permalink to this definition">¶</a></dt>
 <dd><p>Extract TF and its target gene information from Links object.
 This function can be used to reconstruct GRNs based on pre-existing GRNs saved in Links object.</p>
 <dl class="field-list simple">
@@ -315,7 +315,7 @@ This function can be used to reconstruct GRNs based on pre-existing GRNs saved i
 
 <dl class="method">
 <dt id="celloracle.Oracle.get_links">
-<code class="sig-name descname">get_links</code><span class="sig-paren">(</span><em class="sig-param">cluster_name_for_GRN_unit=None</em>, <em class="sig-param">alpha=10</em>, <em class="sig-param">bagging_number=20</em>, <em class="sig-param">verbose_level=1</em>, <em class="sig-param">test_mode=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/trajectory/oracle_core.html#Oracle.get_links"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.Oracle.get_links" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_links</code><span class="sig-paren">(</span><em class="sig-param">cluster_name_for_GRN_unit=None</em>, <em class="sig-param">alpha=10</em>, <em class="sig-param">bagging_number=20</em>, <em class="sig-param">verbose_level=1</em>, <em class="sig-param">test_mode=False</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.Oracle.get_links" title="Permalink to this definition">¶</a></dt>
 <dd><p>Makes GRN for each cluster and returns results as a Links object.
 Several preprocessing should be done before using this function.</p>
 <dl class="field-list simple">
@@ -337,7 +337,7 @@ if [verbose_level == 0], no progress bar will be shown.</p></li>
 
 <dl class="method">
 <dt id="celloracle.Oracle.import_TF_data">
-<code class="sig-name descname">import_TF_data</code><span class="sig-paren">(</span><em class="sig-param">TF_info_matrix=None</em>, <em class="sig-param">TF_info_matrix_path=None</em>, <em class="sig-param">TFdict=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/trajectory/oracle_core.html#Oracle.import_TF_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.Oracle.import_TF_data" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">import_TF_data</code><span class="sig-paren">(</span><em class="sig-param">TF_info_matrix=None</em>, <em class="sig-param">TF_info_matrix_path=None</em>, <em class="sig-param">TFdict=None</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.Oracle.import_TF_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load data about potential-regulatory TFs.
 You can import either TF_info_matrix or TFdict.
 For more information on how to make these files, please see the motif analysis module within the celloracle tutorial.</p>
@@ -354,7 +354,7 @@ For more information on how to make these files, please see the motif analysis m
 
 <dl class="method">
 <dt id="celloracle.Oracle.import_anndata_as_normalized_count">
-<code class="sig-name descname">import_anndata_as_normalized_count</code><span class="sig-paren">(</span><em class="sig-param">adata</em>, <em class="sig-param">cluster_column_name=None</em>, <em class="sig-param">embedding_name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/trajectory/oracle_core.html#Oracle.import_anndata_as_normalized_count"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.Oracle.import_anndata_as_normalized_count" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">import_anndata_as_normalized_count</code><span class="sig-paren">(</span><em class="sig-param">adata</em>, <em class="sig-param">cluster_column_name=None</em>, <em class="sig-param">embedding_name=None</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.Oracle.import_anndata_as_normalized_count" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load scRNA-seq data. scRNA-seq data should be prepared as an anndata object.
 Preprocessing (cell and gene filtering, dimensional reduction, clustering, etc.) should be done before loading data.
 The method will import NORMALIZED and LOG TRANSFORMED data but NOT SCALED and NOT CENTERED data.
@@ -375,7 +375,7 @@ Dimensional reduction (or 2D trajectory graph) should be in anndata.obsm.</p></l
 
 <dl class="method">
 <dt id="celloracle.Oracle.import_anndata_as_raw_count">
-<code class="sig-name descname">import_anndata_as_raw_count</code><span class="sig-paren">(</span><em class="sig-param">adata</em>, <em class="sig-param">cluster_column_name=None</em>, <em class="sig-param">embedding_name=None</em>, <em class="sig-param">transform='natural_log'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/trajectory/oracle_core.html#Oracle.import_anndata_as_raw_count"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.Oracle.import_anndata_as_raw_count" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">import_anndata_as_raw_count</code><span class="sig-paren">(</span><em class="sig-param">adata</em>, <em class="sig-param">cluster_column_name=None</em>, <em class="sig-param">embedding_name=None</em>, <em class="sig-param">transform='natural_log'</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.Oracle.import_anndata_as_raw_count" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load scRNA-seq data. scRNA-seq data should be prepared as an anndata object.
 Preprocessing (cell and gene filtering, dimensional reduction, clustering, etc.) should be done before loading data.
 The method imports RAW GENE COUNTS because unscaled and uncentered gene expression data are required for the GRN inference and simulation.
@@ -396,7 +396,7 @@ Dimensional reduction (or 2D trajectory graph) should be in anndata.obsm.</p></l
 
 <dl class="method">
 <dt id="celloracle.Oracle.plot_mc_result_as_kde">
-<code class="sig-name descname">plot_mc_result_as_kde</code><span class="sig-paren">(</span><em class="sig-param">n_time</em>, <em class="sig-param">args={}</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/trajectory/oracle_core.html#Oracle.plot_mc_result_as_kde"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.Oracle.plot_mc_result_as_kde" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">plot_mc_result_as_kde</code><span class="sig-paren">(</span><em class="sig-param">n_time</em>, <em class="sig-param">args={}</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.Oracle.plot_mc_result_as_kde" title="Permalink to this definition">¶</a></dt>
 <dd><p>Pick up one timepoint in the cell state-transition simulation and plot as a kde plot.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -411,7 +411,7 @@ See seaborn documentation for details (<a class="reference external" href="https
 
 <dl class="method">
 <dt id="celloracle.Oracle.plot_mc_result_as_trajectory">
-<code class="sig-name descname">plot_mc_result_as_trajectory</code><span class="sig-paren">(</span><em class="sig-param">cell_name</em>, <em class="sig-param">time_range</em>, <em class="sig-param">args={}</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/trajectory/oracle_core.html#Oracle.plot_mc_result_as_trajectory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.Oracle.plot_mc_result_as_trajectory" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">plot_mc_result_as_trajectory</code><span class="sig-paren">(</span><em class="sig-param">cell_name</em>, <em class="sig-param">time_range</em>, <em class="sig-param">args={}</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.Oracle.plot_mc_result_as_trajectory" title="Permalink to this definition">¶</a></dt>
 <dd><p>Pick up several timepoints in the cell state-transition simulation and plot as a line plot.
 This function can be used to visualize how cell-state changes after perturbation focusing on a specific cell.</p>
 <dl class="field-list simple">
@@ -428,7 +428,7 @@ See matplotlib documentation for details (<a class="reference external" href="ht
 
 <dl class="method">
 <dt id="celloracle.Oracle.plot_mc_resutls_as_sankey">
-<code class="sig-name descname">plot_mc_resutls_as_sankey</code><span class="sig-paren">(</span><em class="sig-param">cluster_use</em>, <em class="sig-param">start=0</em>, <em class="sig-param">end=-1</em>, <em class="sig-param">order=None</em>, <em class="sig-param">font_size=10</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/trajectory/oracle_core.html#Oracle.plot_mc_resutls_as_sankey"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.Oracle.plot_mc_resutls_as_sankey" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">plot_mc_resutls_as_sankey</code><span class="sig-paren">(</span><em class="sig-param">cluster_use</em>, <em class="sig-param">start=0</em>, <em class="sig-param">end=-1</em>, <em class="sig-param">order=None</em>, <em class="sig-param">font_size=10</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.Oracle.plot_mc_resutls_as_sankey" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot the simulated cell state-transition as a Sankey-diagram after groping by the cluster.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -447,7 +447,7 @@ if you set [end=-1], the final step of Markov simulation will be used.</p></li>
 
 <dl class="method">
 <dt id="celloracle.Oracle.prepare_markov_simulation">
-<code class="sig-name descname">prepare_markov_simulation</code><span class="sig-paren">(</span><em class="sig-param">verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/trajectory/oracle_core.html#Oracle.prepare_markov_simulation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.Oracle.prepare_markov_simulation" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">prepare_markov_simulation</code><span class="sig-paren">(</span><em class="sig-param">verbose=False</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.Oracle.prepare_markov_simulation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Pick up cells for Markov simulation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -458,7 +458,7 @@ if you set [end=-1], the final step of Markov simulation will be used.</p></li>
 
 <dl class="method">
 <dt id="celloracle.Oracle.run_markov_chain_simulation">
-<code class="sig-name descname">run_markov_chain_simulation</code><span class="sig-paren">(</span><em class="sig-param">n_steps=500</em>, <em class="sig-param">n_duplication=5</em>, <em class="sig-param">seed=123</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/trajectory/oracle_core.html#Oracle.run_markov_chain_simulation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.Oracle.run_markov_chain_simulation" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">run_markov_chain_simulation</code><span class="sig-paren">(</span><em class="sig-param">n_steps=500</em>, <em class="sig-param">n_duplication=5</em>, <em class="sig-param">seed=123</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.Oracle.run_markov_chain_simulation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Do Markov simlations to predict cell transition after perturbation.
 The transition probability between cells has been calculated
 based on simulated gene expression values in the signal propagation process.
@@ -476,7 +476,7 @@ You can simulate the process multiple times to get a robust outcome.</p>
 
 <dl class="method">
 <dt id="celloracle.Oracle.simulate_shift">
-<code class="sig-name descname">simulate_shift</code><span class="sig-paren">(</span><em class="sig-param">perturb_condition=None</em>, <em class="sig-param">GRN_unit='cluster'</em>, <em class="sig-param">n_propagation=3</em>, <em class="sig-param">ignore_warning=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/trajectory/oracle_core.html#Oracle.simulate_shift"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.Oracle.simulate_shift" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">simulate_shift</code><span class="sig-paren">(</span><em class="sig-param">perturb_condition=None</em>, <em class="sig-param">GRN_unit='cluster'</em>, <em class="sig-param">n_propagation=3</em>, <em class="sig-param">ignore_warning=False</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.Oracle.simulate_shift" title="Permalink to this definition">¶</a></dt>
 <dd><p>Simulate signal propagation with GRNs. Please see the CellOracle paper for details.
 This function simulates a gene expression pattern in the near future.
 Simulated values will be stored in anndata.layers: [“simulated_count”]</p>
@@ -503,7 +503,7 @@ However, a higher number of propagation may cause more error/noise.</p></li>
 
 <dl class="method">
 <dt id="celloracle.Oracle.summarize_mc_results_by_cluster">
-<code class="sig-name descname">summarize_mc_results_by_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster_use</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/trajectory/oracle_core.html#Oracle.summarize_mc_results_by_cluster"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.Oracle.summarize_mc_results_by_cluster" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">summarize_mc_results_by_cluster</code><span class="sig-paren">(</span><em class="sig-param">cluster_use</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.Oracle.summarize_mc_results_by_cluster" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function summarizes the simulated cell state-transition by groping the results into each cluster.
 It returns sumarized results as a pandas.DataFrame.</p>
 <dl class="field-list simple">
@@ -516,7 +516,7 @@ You can use any arbitrary cluster information in anndata.obs.</p>
 
 <dl class="method">
 <dt id="celloracle.Oracle.to_hdf5">
-<code class="sig-name descname">to_hdf5</code><span class="sig-paren">(</span><em class="sig-param">file_path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/trajectory/oracle_core.html#Oracle.to_hdf5"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.Oracle.to_hdf5" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">to_hdf5</code><span class="sig-paren">(</span><em class="sig-param">file_path</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.Oracle.to_hdf5" title="Permalink to this definition">¶</a></dt>
 <dd><p>Save object as hdf5.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -527,7 +527,7 @@ You can use any arbitrary cluster information in anndata.obs.</p>
 
 <dl class="method">
 <dt id="celloracle.Oracle.updateTFinfo_dictionary">
-<code class="sig-name descname">updateTFinfo_dictionary</code><span class="sig-paren">(</span><em class="sig-param">TFdict</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/trajectory/oracle_core.html#Oracle.updateTFinfo_dictionary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.Oracle.updateTFinfo_dictionary" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">updateTFinfo_dictionary</code><span class="sig-paren">(</span><em class="sig-param">TFdict</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.Oracle.updateTFinfo_dictionary" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update a TF dictionary.
 If a key in the new TF dictionary already exists in the old TF dictionary, old values will be replaced with a new one.</p>
 <dl class="field-list simple">
@@ -541,7 +541,7 @@ If a key in the new TF dictionary already exists in the old TF dictionary, old v
 
 <dl class="class">
 <dt id="celloracle.Links">
-<em class="property">class </em><code class="sig-prename descclassname">celloracle.</code><code class="sig-name descname">Links</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">links_dict={}</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/network_analysis/links_object.html#Links"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.Links" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">celloracle.</code><code class="sig-name descname">Links</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">links_dict={}</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.Links" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>This is a class for the processing and visualization of GRNs.
 Links object stores cluster-specific GRNs and metadata.
@@ -614,7 +614,7 @@ Please use “get_links” function in Oracle object to generate Links object.</
 
 <dl class="method">
 <dt id="celloracle.Links.filter_links">
-<code class="sig-name descname">filter_links</code><span class="sig-paren">(</span><em class="sig-param">p=0.001</em>, <em class="sig-param">weight='coef_abs'</em>, <em class="sig-param">thread_number=10000</em>, <em class="sig-param">genelist_source=None</em>, <em class="sig-param">genelist_target=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/network_analysis/links_object.html#Links.filter_links"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.Links.filter_links" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">filter_links</code><span class="sig-paren">(</span><em class="sig-param">p=0.001</em>, <em class="sig-param">weight='coef_abs'</em>, <em class="sig-param">thread_number=10000</em>, <em class="sig-param">genelist_source=None</em>, <em class="sig-param">genelist_target=None</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.Links.filter_links" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filter network edges.
 In most cases, inferred GRN has non-significant random edges.
 We have to remove these edges before analyzing the network structure.
@@ -641,7 +641,7 @@ The network data has several types of network weight, so you have to select whic
 
 <dl class="method">
 <dt id="celloracle.Links.get_network_entropy">
-<code class="sig-name descname">get_network_entropy</code><span class="sig-paren">(</span><em class="sig-param">value='coef_abs'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/network_analysis/links_object.html#Links.get_network_entropy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.Links.get_network_entropy" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_network_entropy</code><span class="sig-paren">(</span><em class="sig-param">value='coef_abs'</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.Links.get_network_entropy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate network entropy scores.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -652,7 +652,7 @@ The network data has several types of network weight, so you have to select whic
 
 <dl class="method">
 <dt id="celloracle.Links.get_score">
-<code class="sig-name descname">get_score</code><span class="sig-paren">(</span><em class="sig-param">test_mode=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/network_analysis/links_object.html#Links.get_score"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.Links.get_score" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_score</code><span class="sig-paren">(</span><em class="sig-param">test_mode=False</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.Links.get_score" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get several network sores using R libraries.
 Make sure all dependent R libraries are installed in your environment before running this function.
 You can check the installation for the R libraries by running test_installation() in network_analysis module.</p>
@@ -660,7 +660,7 @@ You can check the installation for the R libraries by running test_installation(
 
 <dl class="method">
 <dt id="celloracle.Links.plot_cartography_scatter_per_cluster">
-<code class="sig-name descname">plot_cartography_scatter_per_cluster</code><span class="sig-paren">(</span><em class="sig-param">gois=None</em>, <em class="sig-param">clusters=None</em>, <em class="sig-param">scatter=True</em>, <em class="sig-param">kde=False</em>, <em class="sig-param">auto_gene_annot=False</em>, <em class="sig-param">percentile=98</em>, <em class="sig-param">args_dot={'n_levels': 105}</em>, <em class="sig-param">args_line={'c': 'gray'}</em>, <em class="sig-param">args_annot={}</em>, <em class="sig-param">save=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/network_analysis/links_object.html#Links.plot_cartography_scatter_per_cluster"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.Links.plot_cartography_scatter_per_cluster" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">plot_cartography_scatter_per_cluster</code><span class="sig-paren">(</span><em class="sig-param">gois=None</em>, <em class="sig-param">clusters=None</em>, <em class="sig-param">scatter=True</em>, <em class="sig-param">kde=False</em>, <em class="sig-param">auto_gene_annot=False</em>, <em class="sig-param">percentile=98</em>, <em class="sig-param">args_dot={'n_levels': 105}</em>, <em class="sig-param">args_line={'c': 'gray'}</em>, <em class="sig-param">args_annot={}</em>, <em class="sig-param">save=None</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.Links.plot_cartography_scatter_per_cluster" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make a gene network cartography plot.
 Please read the original paper describing gene network cartography for more information.
 <a class="reference external" href="https://www.nature.com/articles/nature03288">https://www.nature.com/articles/nature03288</a></p>
@@ -685,7 +685,7 @@ Plots will not be saved if [save=None]. Default is None.</p></li>
 
 <dl class="method">
 <dt id="celloracle.Links.plot_cartography_term">
-<code class="sig-name descname">plot_cartography_term</code><span class="sig-paren">(</span><em class="sig-param">goi</em>, <em class="sig-param">save=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/network_analysis/links_object.html#Links.plot_cartography_term"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.Links.plot_cartography_term" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">plot_cartography_term</code><span class="sig-paren">(</span><em class="sig-param">goi</em>, <em class="sig-param">save=None</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.Links.plot_cartography_term" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot the gene network cartography term like a heatmap.
 Please read the original paper of gene network cartography for the principle of gene network cartography.
 <a class="reference external" href="https://www.nature.com/articles/nature03288">https://www.nature.com/articles/nature03288</a></p>
@@ -703,7 +703,7 @@ Plots will not be saved if [save=None]. Default is None.</p></li>
 
 <dl class="method">
 <dt id="celloracle.Links.plot_degree_distributions">
-<code class="sig-name descname">plot_degree_distributions</code><span class="sig-paren">(</span><em class="sig-param">plot_model=False</em>, <em class="sig-param">save=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/network_analysis/links_object.html#Links.plot_degree_distributions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.Links.plot_degree_distributions" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">plot_degree_distributions</code><span class="sig-paren">(</span><em class="sig-param">plot_model=False</em>, <em class="sig-param">save=None</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.Links.plot_degree_distributions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot the network degree distributions (the number of edge per gene).
 The network degree will be visualized in both linear scale and log scale.</p>
 <dl class="field-list simple">
@@ -720,7 +720,7 @@ Plots will not be saved if [save=None]. Default is None.</p></li>
 
 <dl class="method">
 <dt id="celloracle.Links.plot_network_entropy_distributions">
-<code class="sig-name descname">plot_network_entropy_distributions</code><span class="sig-paren">(</span><em class="sig-param">update_network_entropy=False</em>, <em class="sig-param">save=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/network_analysis/links_object.html#Links.plot_network_entropy_distributions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.Links.plot_network_entropy_distributions" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">plot_network_entropy_distributions</code><span class="sig-paren">(</span><em class="sig-param">update_network_entropy=False</em>, <em class="sig-param">save=None</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.Links.plot_network_entropy_distributions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot the distribution for network entropy.
 See the CellOracle paper for more detail.</p>
 <dl class="field-list simple">
@@ -738,7 +738,7 @@ Plots will not be saved if [save=None]. Default is None.</p></li>
 
 <dl class="method">
 <dt id="celloracle.Links.plot_score_comparison_2D">
-<code class="sig-name descname">plot_score_comparison_2D</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">cluster1</em>, <em class="sig-param">cluster2</em>, <em class="sig-param">percentile=99</em>, <em class="sig-param">annot_shifts=None</em>, <em class="sig-param">save=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/network_analysis/links_object.html#Links.plot_score_comparison_2D"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.Links.plot_score_comparison_2D" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">plot_score_comparison_2D</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">cluster1</em>, <em class="sig-param">cluster2</em>, <em class="sig-param">percentile=99</em>, <em class="sig-param">annot_shifts=None</em>, <em class="sig-param">save=None</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.Links.plot_score_comparison_2D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make a scatter plot that compares specific network scores in two groups.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -758,7 +758,7 @@ Plots will not be saved if [save=None]. Default is None.</p></li>
 
 <dl class="method">
 <dt id="celloracle.Links.plot_score_discributions">
-<code class="sig-name descname">plot_score_discributions</code><span class="sig-paren">(</span><em class="sig-param">values=None</em>, <em class="sig-param">method='boxplot'</em>, <em class="sig-param">save=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/network_analysis/links_object.html#Links.plot_score_discributions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.Links.plot_score_discributions" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">plot_score_discributions</code><span class="sig-paren">(</span><em class="sig-param">values=None</em>, <em class="sig-param">method='boxplot'</em>, <em class="sig-param">save=None</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.Links.plot_score_discributions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot the distribution of network scores.
 An individual data point is a network edge (gene).</p>
 <dl class="field-list simple">
@@ -776,7 +776,7 @@ Plots will not be saved if [save=None]. Default is None.</p></li>
 
 <dl class="method">
 <dt id="celloracle.Links.plot_score_per_cluster">
-<code class="sig-name descname">plot_score_per_cluster</code><span class="sig-paren">(</span><em class="sig-param">goi</em>, <em class="sig-param">save=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/network_analysis/links_object.html#Links.plot_score_per_cluster"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.Links.plot_score_per_cluster" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">plot_score_per_cluster</code><span class="sig-paren">(</span><em class="sig-param">goi</em>, <em class="sig-param">save=None</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.Links.plot_score_per_cluster" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot network score for a gene.
 This function visualizes the network score for a specific gene between clusters to get an insight into the dynamics of the gene.</p>
 <dl class="field-list simple">
@@ -793,7 +793,7 @@ Plots will not be saved if [save=None]. Default is None.</p></li>
 
 <dl class="method">
 <dt id="celloracle.Links.plot_scores_as_rank">
-<code class="sig-name descname">plot_scores_as_rank</code><span class="sig-paren">(</span><em class="sig-param">cluster</em>, <em class="sig-param">n_gene=50</em>, <em class="sig-param">save=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/network_analysis/links_object.html#Links.plot_scores_as_rank"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.Links.plot_scores_as_rank" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">plot_scores_as_rank</code><span class="sig-paren">(</span><em class="sig-param">cluster</em>, <em class="sig-param">n_gene=50</em>, <em class="sig-param">save=None</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.Links.plot_scores_as_rank" title="Permalink to this definition">¶</a></dt>
 <dd><p>Pick up top n-th genes wich high-network scores and make plots.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -810,7 +810,7 @@ Plots will not be saved if [save=None]. Default is None.</p></li>
 
 <dl class="method">
 <dt id="celloracle.Links.to_hdf5">
-<code class="sig-name descname">to_hdf5</code><span class="sig-paren">(</span><em class="sig-param">file_path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/network_analysis/links_object.html#Links.to_hdf5"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.Links.to_hdf5" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">to_hdf5</code><span class="sig-paren">(</span><em class="sig-param">file_path</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.Links.to_hdf5" title="Permalink to this definition">¶</a></dt>
 <dd><p>Save object as hdf5.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -823,7 +823,7 @@ Plots will not be saved if [save=None]. Default is None.</p></li>
 
 <dl class="class">
 <dt id="celloracle.Net">
-<em class="property">class </em><code class="sig-prename descclassname">celloracle.</code><code class="sig-name descname">Net</code><span class="sig-paren">(</span><em class="sig-param">gene_expression_matrix</em>, <em class="sig-param">gem_standerdized=None</em>, <em class="sig-param">TFinfo_matrix=None</em>, <em class="sig-param">cellstate=None</em>, <em class="sig-param">TFinfo_dic=None</em>, <em class="sig-param">annotation=None</em>, <em class="sig-param">verbose=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/network/net_core.html#Net"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.Net" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">celloracle.</code><code class="sig-name descname">Net</code><span class="sig-paren">(</span><em class="sig-param">gene_expression_matrix</em>, <em class="sig-param">gem_standerdized=None</em>, <em class="sig-param">TFinfo_matrix=None</em>, <em class="sig-param">cellstate=None</em>, <em class="sig-param">TFinfo_dic=None</em>, <em class="sig-param">annotation=None</em>, <em class="sig-param">verbose=True</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.Net" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Net is a custom class for inferring sample-specific GRN from scRNA-seq data.
 This class is used inside the Oracle class for GRN inference.
@@ -995,7 +995,7 @@ you can use general TF-binding info derived from public ATAC-seq dataset of vari
 
 <dl class="method">
 <dt id="celloracle.Net.addAnnotation">
-<code class="sig-name descname">addAnnotation</code><span class="sig-paren">(</span><em class="sig-param">annotation_dictionary</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/network/net_core.html#Net.addAnnotation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.Net.addAnnotation" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">addAnnotation</code><span class="sig-paren">(</span><em class="sig-param">annotation_dictionary</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.Net.addAnnotation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a new annotation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1006,7 +1006,7 @@ you can use general TF-binding info derived from public ATAC-seq dataset of vari
 
 <dl class="method">
 <dt id="celloracle.Net.addTFinfo_dictionary">
-<code class="sig-name descname">addTFinfo_dictionary</code><span class="sig-paren">(</span><em class="sig-param">TFdict</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/network/net_core.html#Net.addTFinfo_dictionary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.Net.addTFinfo_dictionary" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">addTFinfo_dictionary</code><span class="sig-paren">(</span><em class="sig-param">TFdict</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.Net.addTFinfo_dictionary" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a new TF info to pre-exiting TFdict.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1017,7 +1017,7 @@ you can use general TF-binding info derived from public ATAC-seq dataset of vari
 
 <dl class="method">
 <dt id="celloracle.Net.addTFinfo_matrix">
-<code class="sig-name descname">addTFinfo_matrix</code><span class="sig-paren">(</span><em class="sig-param">TFinfo_matrix</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/network/net_core.html#Net.addTFinfo_matrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.Net.addTFinfo_matrix" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">addTFinfo_matrix</code><span class="sig-paren">(</span><em class="sig-param">TFinfo_matrix</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.Net.addTFinfo_matrix" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load TF info dataframe.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1028,13 +1028,13 @@ you can use general TF-binding info derived from public ATAC-seq dataset of vari
 
 <dl class="method">
 <dt id="celloracle.Net.copy">
-<code class="sig-name descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/network/net_core.html#Net.copy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.Net.copy" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.Net.copy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deepcopy itself</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="celloracle.Net.fit_All_genes">
-<code class="sig-name descname">fit_All_genes</code><span class="sig-paren">(</span><em class="sig-param">bagging_number=200</em>, <em class="sig-param">scaling=True</em>, <em class="sig-param">model_method='bagging_ridge'</em>, <em class="sig-param">command_line_mode=False</em>, <em class="sig-param">log=None</em>, <em class="sig-param">alpha=1</em>, <em class="sig-param">verbose=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/network/net_core.html#Net.fit_All_genes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.Net.fit_All_genes" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">fit_All_genes</code><span class="sig-paren">(</span><em class="sig-param">bagging_number=200</em>, <em class="sig-param">scaling=True</em>, <em class="sig-param">model_method='bagging_ridge'</em>, <em class="sig-param">command_line_mode=False</em>, <em class="sig-param">log=None</em>, <em class="sig-param">alpha=1</em>, <em class="sig-param">verbose=True</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.Net.fit_All_genes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make ML models for all genes.
 The calculation will be performed in parallel using scikit-learn bagging function.
 You can select a modeling method (bagging_ridge or bayesian_ridge).  This calculation usually takes a long time.</p>
@@ -1055,7 +1055,7 @@ You can select a modeling method (bagging_ridge or bayesian_ridge).  This calcul
 
 <dl class="method">
 <dt id="celloracle.Net.fit_All_genes_parallel">
-<code class="sig-name descname">fit_All_genes_parallel</code><span class="sig-paren">(</span><em class="sig-param">bagging_number=200</em>, <em class="sig-param">scaling=True</em>, <em class="sig-param">log=None</em>, <em class="sig-param">verbose=10</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/network/net_core.html#Net.fit_All_genes_parallel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.Net.fit_All_genes_parallel" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">fit_All_genes_parallel</code><span class="sig-paren">(</span><em class="sig-param">bagging_number=200</em>, <em class="sig-param">scaling=True</em>, <em class="sig-param">log=None</em>, <em class="sig-param">verbose=10</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.Net.fit_All_genes_parallel" title="Permalink to this definition">¶</a></dt>
 <dd><p>IMPORTANT: this function being debugged and is currently unavailable.</p>
 <p>Make ML models for all genes.
 The calculation will be performed in parallel using joblib parallel module.</p>
@@ -1073,7 +1073,7 @@ The calculation will be performed in parallel using joblib parallel module.</p>
 
 <dl class="method">
 <dt id="celloracle.Net.fit_genes">
-<code class="sig-name descname">fit_genes</code><span class="sig-paren">(</span><em class="sig-param">target_genes</em>, <em class="sig-param">bagging_number=200</em>, <em class="sig-param">scaling=True</em>, <em class="sig-param">model_method='bagging_ridge'</em>, <em class="sig-param">save_coefs=False</em>, <em class="sig-param">command_line_mode=False</em>, <em class="sig-param">log=None</em>, <em class="sig-param">alpha=1</em>, <em class="sig-param">verbose=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/network/net_core.html#Net.fit_genes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.Net.fit_genes" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">fit_genes</code><span class="sig-paren">(</span><em class="sig-param">target_genes</em>, <em class="sig-param">bagging_number=200</em>, <em class="sig-param">scaling=True</em>, <em class="sig-param">model_method='bagging_ridge'</em>, <em class="sig-param">save_coefs=False</em>, <em class="sig-param">command_line_mode=False</em>, <em class="sig-param">log=None</em>, <em class="sig-param">alpha=1</em>, <em class="sig-param">verbose=True</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.Net.fit_genes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make ML models for genes of interest.
 This calculation will be performed in parallel using scikit-learn’s bagging function.
 You can select a modeling method; Please chose either bagging_ridge or bayesian_ridge.</p>
@@ -1096,7 +1096,7 @@ You can select a modeling method; Please chose either bagging_ridge or bayesian_
 
 <dl class="method">
 <dt id="celloracle.Net.plotCoefs">
-<code class="sig-name descname">plotCoefs</code><span class="sig-paren">(</span><em class="sig-param">target_gene</em>, <em class="sig-param">sort=True</em>, <em class="sig-param">threshold_p=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/network/net_core.html#Net.plotCoefs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.Net.plotCoefs" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">plotCoefs</code><span class="sig-paren">(</span><em class="sig-param">target_gene</em>, <em class="sig-param">sort=True</em>, <em class="sig-param">threshold_p=None</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.Net.plotCoefs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot the distribution of Coef values (network edge weights).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1113,7 +1113,7 @@ if None, no filtering is applied.</p></li>
 
 <dl class="method">
 <dt id="celloracle.Net.to_hdf5">
-<code class="sig-name descname">to_hdf5</code><span class="sig-paren">(</span><em class="sig-param">file_path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/network/net_core.html#Net.to_hdf5"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.Net.to_hdf5" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">to_hdf5</code><span class="sig-paren">(</span><em class="sig-param">file_path</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.Net.to_hdf5" title="Permalink to this definition">¶</a></dt>
 <dd><p>Save object as hdf5.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1124,7 +1124,7 @@ if None, no filtering is applied.</p></li>
 
 <dl class="method">
 <dt id="celloracle.Net.updateLinkList">
-<code class="sig-name descname">updateLinkList</code><span class="sig-paren">(</span><em class="sig-param">verbose=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/network/net_core.html#Net.updateLinkList"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.Net.updateLinkList" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">updateLinkList</code><span class="sig-paren">(</span><em class="sig-param">verbose=True</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.Net.updateLinkList" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update LinkList.
 LinkList is a data frame that store information about inferred GRNs.</p>
 <dl class="field-list simple">
@@ -1136,7 +1136,7 @@ LinkList is a data frame that store information about inferred GRNs.</p>
 
 <dl class="method">
 <dt id="celloracle.Net.updateTFinfo_dictionary">
-<code class="sig-name descname">updateTFinfo_dictionary</code><span class="sig-paren">(</span><em class="sig-param">TFdict</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/network/net_core.html#Net.updateTFinfo_dictionary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.Net.updateTFinfo_dictionary" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">updateTFinfo_dictionary</code><span class="sig-paren">(</span><em class="sig-param">TFdict</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.Net.updateTFinfo_dictionary" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update TF info matrix</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1149,7 +1149,7 @@ LinkList is a data frame that store information about inferred GRNs.</p>
 
 <dl class="function">
 <dt id="celloracle.load_hdf5">
-<code class="sig-prename descclassname">celloracle.</code><code class="sig-name descname">load_hdf5</code><span class="sig-paren">(</span><em class="sig-param">file_path</em>, <em class="sig-param">object_class_name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/utility/load_hdf5.html#load_hdf5"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.load_hdf5" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">celloracle.</code><code class="sig-name descname">load_hdf5</code><span class="sig-paren">(</span><em class="sig-param">file_path</em>, <em class="sig-param">object_class_name=None</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.load_hdf5" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load an object of celloracle’s custom class that was saved as hdf5.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>

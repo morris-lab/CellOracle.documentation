@@ -221,20 +221,22 @@
 </style>
 <div class="section" id="single-cell-rna-seq-data-preprocessing">
 <span id="scrnaprocess"></span><h1>3. Single-cell RNA-seq data preprocessing<a class="headerlink" href="#single-cell-rna-seq-data-preprocessing" title="Permalink to this headline">¶</a></h1>
-<dl class="simple">
-<dt>Network analysis and simulation in celloracle will be performed using scRNA-seq data. The scRNA-seq data should include the components below.</dt><dd><ul class="simple">
+<p>Network analysis and simulation in celloracle will be performed using scRNA-seq data. The scRNA-seq data should include the components below.</p>
+<blockquote>
+<div><ul class="simple">
 <li><p>Gene expression matrix; mRNA counts before scaling and transformation.</p></li>
 <li><p>Clustering results.</p></li>
 <li><p>Dimensional reduction results.</p></li>
 </ul>
-</dd>
-<dt>In addition to these minimum requirements, we highly recommend doing these analyses below in the preprocessing step.</dt><dd><ul class="simple">
+</div></blockquote>
+<p>In addition to these minimum requirements, we highly recommend doing these analyses below in the preprocessing step.</p>
+<blockquote>
+<div><ul class="simple">
 <li><p>Data quality check and cell/gene filtering.</p></li>
 <li><p>Normalization</p></li>
 <li><p>Identification of highly variable genes</p></li>
 </ul>
-</dd>
-</dl>
+</div></blockquote>
 <p>We recommend processing scRNA-seq data using either Scanpy or Seurat.
 If you are not familiar with the general workflow of scRNA-seq data processing, please go to <a class="reference external" href="https://scanpy.readthedocs.io/en/stable/">the documentation for scanpy</a> and <a class="reference external" href="https://satijalab.org/seurat/vignettes.html">the documentation for Seurat</a> before celloracle analysis.</p>
 <p>If you already have preprocessed scRNA-seq data, which includes the necessary information above, you can skip this part.</p>

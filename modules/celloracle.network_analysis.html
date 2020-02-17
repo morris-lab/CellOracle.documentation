@@ -213,7 +213,7 @@
 <p>The <a class="reference internal" href="#module-celloracle.network_analysis" title="celloracle.network_analysis"><code class="xref py py-mod docutils literal notranslate"><span class="pre">network_analysis</span></code></a> module implements Network analysis.</p>
 <dl class="function">
 <dt id="celloracle.network_analysis.get_links">
-<code class="sig-prename descclassname">celloracle.network_analysis.</code><code class="sig-name descname">get_links</code><span class="sig-paren">(</span><em class="sig-param">oracle_object</em>, <em class="sig-param">cluster_name_for_GRN_unit=None</em>, <em class="sig-param">alpha=10</em>, <em class="sig-param">bagging_number=20</em>, <em class="sig-param">verbose_level=1</em>, <em class="sig-param">test_mode=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/network_analysis/network_construction.html#get_links"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.network_analysis.get_links" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">celloracle.network_analysis.</code><code class="sig-name descname">get_links</code><span class="sig-paren">(</span><em class="sig-param">oracle_object</em>, <em class="sig-param">cluster_name_for_GRN_unit=None</em>, <em class="sig-param">alpha=10</em>, <em class="sig-param">bagging_number=20</em>, <em class="sig-param">verbose_level=1</em>, <em class="sig-param">test_mode=False</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.network_analysis.get_links" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make GRN for each cluster and returns results as a Links object.
 Several preprocessing should be done before using this function.</p>
 <dl class="field-list simple">
@@ -236,14 +236,14 @@ if [verbose_level == 0], no progress bar will be shown.</p></li>
 
 <dl class="function">
 <dt id="celloracle.network_analysis.test_R_libraries_installation">
-<code class="sig-prename descclassname">celloracle.network_analysis.</code><code class="sig-name descname">test_R_libraries_installation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/network_analysis/use_r_scripts.html#test_R_libraries_installation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.network_analysis.test_R_libraries_installation" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">celloracle.network_analysis.</code><code class="sig-name descname">test_R_libraries_installation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.network_analysis.test_R_libraries_installation" title="Permalink to this definition">¶</a></dt>
 <dd><p>CellOracle.network_analysis use several R libraries for network analysis.
 This is a test function to check for instalation of the necessary R libraries.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="celloracle.network_analysis.load_links">
-<code class="sig-prename descclassname">celloracle.network_analysis.</code><code class="sig-name descname">load_links</code><span class="sig-paren">(</span><em class="sig-param">file_path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/network_analysis/links_object.html#load_links"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.network_analysis.load_links" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">celloracle.network_analysis.</code><code class="sig-name descname">load_links</code><span class="sig-paren">(</span><em class="sig-param">file_path</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.network_analysis.load_links" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load links object saved as a hdf5 file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -260,7 +260,7 @@ This is a test function to check for instalation of the necessary R libraries.</
 
 <dl class="class">
 <dt id="celloracle.network_analysis.Links">
-<em class="property">class </em><code class="sig-prename descclassname">celloracle.network_analysis.</code><code class="sig-name descname">Links</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">links_dict={}</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/network_analysis/links_object.html#Links"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.network_analysis.Links" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">celloracle.network_analysis.</code><code class="sig-name descname">Links</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">links_dict={}</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.network_analysis.Links" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>This is a class for the processing and visualization of GRNs.
 Links object stores cluster-specific GRNs and metadata.
@@ -333,7 +333,7 @@ Please use “get_links” function in Oracle object to generate Links object.</
 
 <dl class="method">
 <dt id="celloracle.network_analysis.Links.filter_links">
-<code class="sig-name descname">filter_links</code><span class="sig-paren">(</span><em class="sig-param">p=0.001</em>, <em class="sig-param">weight='coef_abs'</em>, <em class="sig-param">thread_number=10000</em>, <em class="sig-param">genelist_source=None</em>, <em class="sig-param">genelist_target=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/network_analysis/links_object.html#Links.filter_links"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.network_analysis.Links.filter_links" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">filter_links</code><span class="sig-paren">(</span><em class="sig-param">p=0.001</em>, <em class="sig-param">weight='coef_abs'</em>, <em class="sig-param">thread_number=10000</em>, <em class="sig-param">genelist_source=None</em>, <em class="sig-param">genelist_target=None</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.network_analysis.Links.filter_links" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filter network edges.
 In most cases, inferred GRN has non-significant random edges.
 We have to remove these edges before analyzing the network structure.
@@ -360,7 +360,7 @@ The network data has several types of network weight, so you have to select whic
 
 <dl class="method">
 <dt id="celloracle.network_analysis.Links.get_network_entropy">
-<code class="sig-name descname">get_network_entropy</code><span class="sig-paren">(</span><em class="sig-param">value='coef_abs'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/network_analysis/links_object.html#Links.get_network_entropy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.network_analysis.Links.get_network_entropy" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_network_entropy</code><span class="sig-paren">(</span><em class="sig-param">value='coef_abs'</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.network_analysis.Links.get_network_entropy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate network entropy scores.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -371,7 +371,7 @@ The network data has several types of network weight, so you have to select whic
 
 <dl class="method">
 <dt id="celloracle.network_analysis.Links.get_score">
-<code class="sig-name descname">get_score</code><span class="sig-paren">(</span><em class="sig-param">test_mode=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/network_analysis/links_object.html#Links.get_score"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.network_analysis.Links.get_score" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_score</code><span class="sig-paren">(</span><em class="sig-param">test_mode=False</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.network_analysis.Links.get_score" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get several network sores using R libraries.
 Make sure all dependent R libraries are installed in your environment before running this function.
 You can check the installation for the R libraries by running test_installation() in network_analysis module.</p>
@@ -379,7 +379,7 @@ You can check the installation for the R libraries by running test_installation(
 
 <dl class="method">
 <dt id="celloracle.network_analysis.Links.plot_cartography_scatter_per_cluster">
-<code class="sig-name descname">plot_cartography_scatter_per_cluster</code><span class="sig-paren">(</span><em class="sig-param">gois=None</em>, <em class="sig-param">clusters=None</em>, <em class="sig-param">scatter=True</em>, <em class="sig-param">kde=False</em>, <em class="sig-param">auto_gene_annot=False</em>, <em class="sig-param">percentile=98</em>, <em class="sig-param">args_dot={'n_levels': 105}</em>, <em class="sig-param">args_line={'c': 'gray'}</em>, <em class="sig-param">args_annot={}</em>, <em class="sig-param">save=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/network_analysis/links_object.html#Links.plot_cartography_scatter_per_cluster"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.network_analysis.Links.plot_cartography_scatter_per_cluster" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">plot_cartography_scatter_per_cluster</code><span class="sig-paren">(</span><em class="sig-param">gois=None</em>, <em class="sig-param">clusters=None</em>, <em class="sig-param">scatter=True</em>, <em class="sig-param">kde=False</em>, <em class="sig-param">auto_gene_annot=False</em>, <em class="sig-param">percentile=98</em>, <em class="sig-param">args_dot={'n_levels': 105}</em>, <em class="sig-param">args_line={'c': 'gray'}</em>, <em class="sig-param">args_annot={}</em>, <em class="sig-param">save=None</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.network_analysis.Links.plot_cartography_scatter_per_cluster" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make a gene network cartography plot.
 Please read the original paper describing gene network cartography for more information.
 <a class="reference external" href="https://www.nature.com/articles/nature03288">https://www.nature.com/articles/nature03288</a></p>
@@ -404,7 +404,7 @@ Plots will not be saved if [save=None]. Default is None.</p></li>
 
 <dl class="method">
 <dt id="celloracle.network_analysis.Links.plot_cartography_term">
-<code class="sig-name descname">plot_cartography_term</code><span class="sig-paren">(</span><em class="sig-param">goi</em>, <em class="sig-param">save=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/network_analysis/links_object.html#Links.plot_cartography_term"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.network_analysis.Links.plot_cartography_term" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">plot_cartography_term</code><span class="sig-paren">(</span><em class="sig-param">goi</em>, <em class="sig-param">save=None</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.network_analysis.Links.plot_cartography_term" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot the gene network cartography term like a heatmap.
 Please read the original paper of gene network cartography for the principle of gene network cartography.
 <a class="reference external" href="https://www.nature.com/articles/nature03288">https://www.nature.com/articles/nature03288</a></p>
@@ -422,7 +422,7 @@ Plots will not be saved if [save=None]. Default is None.</p></li>
 
 <dl class="method">
 <dt id="celloracle.network_analysis.Links.plot_degree_distributions">
-<code class="sig-name descname">plot_degree_distributions</code><span class="sig-paren">(</span><em class="sig-param">plot_model=False</em>, <em class="sig-param">save=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/network_analysis/links_object.html#Links.plot_degree_distributions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.network_analysis.Links.plot_degree_distributions" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">plot_degree_distributions</code><span class="sig-paren">(</span><em class="sig-param">plot_model=False</em>, <em class="sig-param">save=None</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.network_analysis.Links.plot_degree_distributions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot the network degree distributions (the number of edge per gene).
 The network degree will be visualized in both linear scale and log scale.</p>
 <dl class="field-list simple">
@@ -439,7 +439,7 @@ Plots will not be saved if [save=None]. Default is None.</p></li>
 
 <dl class="method">
 <dt id="celloracle.network_analysis.Links.plot_network_entropy_distributions">
-<code class="sig-name descname">plot_network_entropy_distributions</code><span class="sig-paren">(</span><em class="sig-param">update_network_entropy=False</em>, <em class="sig-param">save=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/network_analysis/links_object.html#Links.plot_network_entropy_distributions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.network_analysis.Links.plot_network_entropy_distributions" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">plot_network_entropy_distributions</code><span class="sig-paren">(</span><em class="sig-param">update_network_entropy=False</em>, <em class="sig-param">save=None</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.network_analysis.Links.plot_network_entropy_distributions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot the distribution for network entropy.
 See the CellOracle paper for more detail.</p>
 <dl class="field-list simple">
@@ -457,7 +457,7 @@ Plots will not be saved if [save=None]. Default is None.</p></li>
 
 <dl class="method">
 <dt id="celloracle.network_analysis.Links.plot_score_comparison_2D">
-<code class="sig-name descname">plot_score_comparison_2D</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">cluster1</em>, <em class="sig-param">cluster2</em>, <em class="sig-param">percentile=99</em>, <em class="sig-param">annot_shifts=None</em>, <em class="sig-param">save=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/network_analysis/links_object.html#Links.plot_score_comparison_2D"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.network_analysis.Links.plot_score_comparison_2D" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">plot_score_comparison_2D</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">cluster1</em>, <em class="sig-param">cluster2</em>, <em class="sig-param">percentile=99</em>, <em class="sig-param">annot_shifts=None</em>, <em class="sig-param">save=None</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.network_analysis.Links.plot_score_comparison_2D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make a scatter plot that compares specific network scores in two groups.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -477,7 +477,7 @@ Plots will not be saved if [save=None]. Default is None.</p></li>
 
 <dl class="method">
 <dt id="celloracle.network_analysis.Links.plot_score_discributions">
-<code class="sig-name descname">plot_score_discributions</code><span class="sig-paren">(</span><em class="sig-param">values=None</em>, <em class="sig-param">method='boxplot'</em>, <em class="sig-param">save=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/network_analysis/links_object.html#Links.plot_score_discributions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.network_analysis.Links.plot_score_discributions" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">plot_score_discributions</code><span class="sig-paren">(</span><em class="sig-param">values=None</em>, <em class="sig-param">method='boxplot'</em>, <em class="sig-param">save=None</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.network_analysis.Links.plot_score_discributions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot the distribution of network scores.
 An individual data point is a network edge (gene).</p>
 <dl class="field-list simple">
@@ -495,7 +495,7 @@ Plots will not be saved if [save=None]. Default is None.</p></li>
 
 <dl class="method">
 <dt id="celloracle.network_analysis.Links.plot_score_per_cluster">
-<code class="sig-name descname">plot_score_per_cluster</code><span class="sig-paren">(</span><em class="sig-param">goi</em>, <em class="sig-param">save=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/network_analysis/links_object.html#Links.plot_score_per_cluster"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.network_analysis.Links.plot_score_per_cluster" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">plot_score_per_cluster</code><span class="sig-paren">(</span><em class="sig-param">goi</em>, <em class="sig-param">save=None</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.network_analysis.Links.plot_score_per_cluster" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot network score for a gene.
 This function visualizes the network score for a specific gene between clusters to get an insight into the dynamics of the gene.</p>
 <dl class="field-list simple">
@@ -512,7 +512,7 @@ Plots will not be saved if [save=None]. Default is None.</p></li>
 
 <dl class="method">
 <dt id="celloracle.network_analysis.Links.plot_scores_as_rank">
-<code class="sig-name descname">plot_scores_as_rank</code><span class="sig-paren">(</span><em class="sig-param">cluster</em>, <em class="sig-param">n_gene=50</em>, <em class="sig-param">save=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/network_analysis/links_object.html#Links.plot_scores_as_rank"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.network_analysis.Links.plot_scores_as_rank" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">plot_scores_as_rank</code><span class="sig-paren">(</span><em class="sig-param">cluster</em>, <em class="sig-param">n_gene=50</em>, <em class="sig-param">save=None</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.network_analysis.Links.plot_scores_as_rank" title="Permalink to this definition">¶</a></dt>
 <dd><p>Pick up top n-th genes wich high-network scores and make plots.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -529,7 +529,7 @@ Plots will not be saved if [save=None]. Default is None.</p></li>
 
 <dl class="method">
 <dt id="celloracle.network_analysis.Links.to_hdf5">
-<code class="sig-name descname">to_hdf5</code><span class="sig-paren">(</span><em class="sig-param">file_path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/network_analysis/links_object.html#Links.to_hdf5"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.network_analysis.Links.to_hdf5" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">to_hdf5</code><span class="sig-paren">(</span><em class="sig-param">file_path</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.network_analysis.Links.to_hdf5" title="Permalink to this definition">¶</a></dt>
 <dd><p>Save object as hdf5.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -542,7 +542,7 @@ Plots will not be saved if [save=None]. Default is None.</p></li>
 
 <dl class="function">
 <dt id="celloracle.network_analysis.transfer_scores_from_links_to_adata">
-<code class="sig-prename descclassname">celloracle.network_analysis.</code><code class="sig-name descname">transfer_scores_from_links_to_adata</code><span class="sig-paren">(</span><em class="sig-param">adata</em>, <em class="sig-param">links</em>, <em class="sig-param">method='median'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/network_analysis/network_analysis_utility.html#transfer_scores_from_links_to_adata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.network_analysis.transfer_scores_from_links_to_adata" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">celloracle.network_analysis.</code><code class="sig-name descname">transfer_scores_from_links_to_adata</code><span class="sig-paren">(</span><em class="sig-param">adata</em>, <em class="sig-param">links</em>, <em class="sig-param">method='median'</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.network_analysis.transfer_scores_from_links_to_adata" title="Permalink to this definition">¶</a></dt>
 <dd><p>Transfer the summary of network scores (median or mean) per group from Links object into adata.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -557,7 +557,7 @@ Plots will not be saved if [save=None]. Default is None.</p></li>
 
 <dl class="function">
 <dt id="celloracle.network_analysis.linkList_to_networkgraph">
-<code class="sig-prename descclassname">celloracle.network_analysis.</code><code class="sig-name descname">linkList_to_networkgraph</code><span class="sig-paren">(</span><em class="sig-param">filteredlinkList</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/network_analysis/network_analysis_utility.html#linkList_to_networkgraph"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.network_analysis.linkList_to_networkgraph" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">celloracle.network_analysis.</code><code class="sig-name descname">linkList_to_networkgraph</code><span class="sig-paren">(</span><em class="sig-param">filteredlinkList</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.network_analysis.linkList_to_networkgraph" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert linkList into Graph object in NetworkX.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -574,7 +574,7 @@ Plots will not be saved if [save=None]. Default is None.</p></li>
 
 <dl class="function">
 <dt id="celloracle.network_analysis.draw_network">
-<code class="sig-prename descclassname">celloracle.network_analysis.</code><code class="sig-name descname">draw_network</code><span class="sig-paren">(</span><em class="sig-param">linkList</em>, <em class="sig-param">return_graph=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/network_analysis/network_analysis_utility.html#draw_network"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.network_analysis.draw_network" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">celloracle.network_analysis.</code><code class="sig-name descname">draw_network</code><span class="sig-paren">(</span><em class="sig-param">linkList</em>, <em class="sig-param">return_graph=False</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.network_analysis.draw_network" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot network graph.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>

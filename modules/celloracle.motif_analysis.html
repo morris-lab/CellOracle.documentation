@@ -216,7 +216,7 @@ Then the peak DNA sequence will be subjected to TF motif scan.
 Finally we will get list of TFs that potentially binds to a specific gene.</p>
 <dl class="function">
 <dt id="celloracle.motif_analysis.is_genome_installed">
-<code class="sig-prename descclassname">celloracle.motif_analysis.</code><code class="sig-name descname">is_genome_installed</code><span class="sig-paren">(</span><em class="sig-param">ref_genome</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/motif_analysis/motif_analysis_utility.html#is_genome_installed"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.motif_analysis.is_genome_installed" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">celloracle.motif_analysis.</code><code class="sig-name descname">is_genome_installed</code><span class="sig-paren">(</span><em class="sig-param">ref_genome</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.motif_analysis.is_genome_installed" title="Permalink to this definition">¶</a></dt>
 <dd><p>Celloracle motif_analysis module uses gimmemotifs and genomepy internally.
 Reference genome files should be installed in the PC to use gimmemotifs and genomepy.
 This function checks the installation status of the reference genome.</p>
@@ -229,7 +229,7 @@ This function checks the installation status of the reference genome.</p>
 
 <dl class="function">
 <dt id="celloracle.motif_analysis.peak2fasta">
-<code class="sig-prename descclassname">celloracle.motif_analysis.</code><code class="sig-name descname">peak2fasta</code><span class="sig-paren">(</span><em class="sig-param">peak_ids</em>, <em class="sig-param">ref_genome</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/motif_analysis/process_bed_file.html#peak2fasta"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.motif_analysis.peak2fasta" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">celloracle.motif_analysis.</code><code class="sig-name descname">peak2fasta</code><span class="sig-paren">(</span><em class="sig-param">peak_ids</em>, <em class="sig-param">ref_genome</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.motif_analysis.peak2fasta" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert peak_id into fasta object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -250,7 +250,7 @@ or it can be a list of peak_id.  e.g. [“chr5_0930303_9499409”, “chr11_1234
 
 <dl class="function">
 <dt id="celloracle.motif_analysis.read_bed">
-<code class="sig-prename descclassname">celloracle.motif_analysis.</code><code class="sig-name descname">read_bed</code><span class="sig-paren">(</span><em class="sig-param">bed_path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/motif_analysis/process_bed_file.html#read_bed"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.motif_analysis.read_bed" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">celloracle.motif_analysis.</code><code class="sig-name descname">read_bed</code><span class="sig-paren">(</span><em class="sig-param">bed_path</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.motif_analysis.read_bed" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load bed file and return as dataframe.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -267,7 +267,7 @@ or it can be a list of peak_id.  e.g. [“chr5_0930303_9499409”, “chr11_1234
 
 <dl class="function">
 <dt id="celloracle.motif_analysis.load_TFinfo_from_parquets">
-<code class="sig-prename descclassname">celloracle.motif_analysis.</code><code class="sig-name descname">load_TFinfo_from_parquets</code><span class="sig-paren">(</span><em class="sig-param">folder_path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/motif_analysis/tfinfo_core.html#load_TFinfo_from_parquets"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.motif_analysis.load_TFinfo_from_parquets" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">celloracle.motif_analysis.</code><code class="sig-name descname">load_TFinfo_from_parquets</code><span class="sig-paren">(</span><em class="sig-param">folder_path</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.motif_analysis.load_TFinfo_from_parquets" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load TFinfo object which was saved with the function; “save_as_parquet”.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -284,13 +284,13 @@ or it can be a list of peak_id.  e.g. [“chr5_0930303_9499409”, “chr11_1234
 
 <dl class="function">
 <dt id="celloracle.motif_analysis.make_TFinfo_from_scanned_file">
-<code class="sig-prename descclassname">celloracle.motif_analysis.</code><code class="sig-name descname">make_TFinfo_from_scanned_file</code><span class="sig-paren">(</span><em class="sig-param">path_to_raw_bed</em>, <em class="sig-param">path_to_scanned_result_bed</em>, <em class="sig-param">ref_genome</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/motif_analysis/tfinfo_core.html#make_TFinfo_from_scanned_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.motif_analysis.make_TFinfo_from_scanned_file" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">celloracle.motif_analysis.</code><code class="sig-name descname">make_TFinfo_from_scanned_file</code><span class="sig-paren">(</span><em class="sig-param">path_to_raw_bed</em>, <em class="sig-param">path_to_scanned_result_bed</em>, <em class="sig-param">ref_genome</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.motif_analysis.make_TFinfo_from_scanned_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function is currently an available.</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="celloracle.motif_analysis.TFinfo">
-<em class="property">class </em><code class="sig-prename descclassname">celloracle.motif_analysis.</code><code class="sig-name descname">TFinfo</code><span class="sig-paren">(</span><em class="sig-param">peak_data_frame</em>, <em class="sig-param">ref_genome</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/motif_analysis/tfinfo_core.html#TFinfo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.motif_analysis.TFinfo" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">celloracle.motif_analysis.</code><code class="sig-name descname">TFinfo</code><span class="sig-paren">(</span><em class="sig-param">peak_data_frame</em>, <em class="sig-param">ref_genome</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.motif_analysis.TFinfo" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>This is a custom class for motif analysis in celloracle.
 TFinfo object performs motif scan using the TF motif database in gimmemotifs and several functions of genomepy.
@@ -375,13 +375,13 @@ These files; python dictionary of dataframe of TF binding information, are neede
 
 <dl class="method">
 <dt id="celloracle.motif_analysis.TFinfo.copy">
-<code class="sig-name descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/motif_analysis/tfinfo_core.html#TFinfo.copy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.motif_analysis.TFinfo.copy" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.motif_analysis.TFinfo.copy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deepcoty itself.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="celloracle.motif_analysis.TFinfo.filter_motifs_by_score">
-<code class="sig-name descname">filter_motifs_by_score</code><span class="sig-paren">(</span><em class="sig-param">threshold</em>, <em class="sig-param">method='cumlative_score'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/motif_analysis/tfinfo_core.html#TFinfo.filter_motifs_by_score"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.motif_analysis.TFinfo.filter_motifs_by_score" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">filter_motifs_by_score</code><span class="sig-paren">(</span><em class="sig-param">threshold</em>, <em class="sig-param">method='cumlative_score'</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.motif_analysis.TFinfo.filter_motifs_by_score" title="Permalink to this definition">¶</a></dt>
 <dd><p>Remove motifs with low binding scores.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -392,7 +392,7 @@ These files; python dictionary of dataframe of TF binding information, are neede
 
 <dl class="method">
 <dt id="celloracle.motif_analysis.TFinfo.filter_peaks">
-<code class="sig-name descname">filter_peaks</code><span class="sig-paren">(</span><em class="sig-param">peaks_to_be_remained</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/motif_analysis/tfinfo_core.html#TFinfo.filter_peaks"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.motif_analysis.TFinfo.filter_peaks" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">filter_peaks</code><span class="sig-paren">(</span><em class="sig-param">peaks_to_be_remained</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.motif_analysis.TFinfo.filter_peaks" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filter peaks.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -403,7 +403,7 @@ These files; python dictionary of dataframe of TF binding information, are neede
 
 <dl class="method">
 <dt id="celloracle.motif_analysis.TFinfo.make_TFinfo_dataframe_and_dictionary">
-<code class="sig-name descname">make_TFinfo_dataframe_and_dictionary</code><span class="sig-paren">(</span><em class="sig-param">verbose=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/motif_analysis/tfinfo_core.html#TFinfo.make_TFinfo_dataframe_and_dictionary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.motif_analysis.TFinfo.make_TFinfo_dataframe_and_dictionary" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">make_TFinfo_dataframe_and_dictionary</code><span class="sig-paren">(</span><em class="sig-param">verbose=True</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.motif_analysis.TFinfo.make_TFinfo_dataframe_and_dictionary" title="Permalink to this definition">¶</a></dt>
 <dd><p>This is the final step of motif_analysis.
 Convert scanned results into a data frame and dictionaries.</p>
 <dl class="field-list simple">
@@ -415,14 +415,14 @@ Convert scanned results into a data frame and dictionaries.</p>
 
 <dl class="method">
 <dt id="celloracle.motif_analysis.TFinfo.reset_dictionary_and_df">
-<code class="sig-name descname">reset_dictionary_and_df</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/motif_analysis/tfinfo_core.html#TFinfo.reset_dictionary_and_df"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.motif_analysis.TFinfo.reset_dictionary_and_df" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">reset_dictionary_and_df</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.motif_analysis.TFinfo.reset_dictionary_and_df" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reset TF dictionary and TF dataframe.
 The following attributes will be erased: TF_onehot, dic_targetgene2TFs, dic_peak2Targetgene, dic_TF2targetgenes.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="celloracle.motif_analysis.TFinfo.reset_filtering">
-<code class="sig-name descname">reset_filtering</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/motif_analysis/tfinfo_core.html#TFinfo.reset_filtering"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.motif_analysis.TFinfo.reset_filtering" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">reset_filtering</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.motif_analysis.TFinfo.reset_filtering" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reset filtering information.
 You can use this function to stat over the filtering step with new conditions.
 The following attributes will be erased: TF_onehot, dic_targetgene2TFs, dic_peak2Targetgene, dic_TF2targetgenes.</p>
@@ -430,7 +430,7 @@ The following attributes will be erased: TF_onehot, dic_targetgene2TFs, dic_peak
 
 <dl class="method">
 <dt id="celloracle.motif_analysis.TFinfo.save_as_parquet">
-<code class="sig-name descname">save_as_parquet</code><span class="sig-paren">(</span><em class="sig-param">folder_path=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/motif_analysis/tfinfo_core.html#TFinfo.save_as_parquet"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.motif_analysis.TFinfo.save_as_parquet" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">save_as_parquet</code><span class="sig-paren">(</span><em class="sig-param">folder_path=None</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.motif_analysis.TFinfo.save_as_parquet" title="Permalink to this definition">¶</a></dt>
 <dd><p>Save itself. Some attributes are saved as parquet file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -441,7 +441,7 @@ The following attributes will be erased: TF_onehot, dic_targetgene2TFs, dic_peak
 
 <dl class="method">
 <dt id="celloracle.motif_analysis.TFinfo.scan">
-<code class="sig-name descname">scan</code><span class="sig-paren">(</span><em class="sig-param">background_length=200</em>, <em class="sig-param">fpr=0.02</em>, <em class="sig-param">n_cpus=-1</em>, <em class="sig-param">verbose=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/motif_analysis/tfinfo_core.html#TFinfo.scan"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.motif_analysis.TFinfo.scan" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">scan</code><span class="sig-paren">(</span><em class="sig-param">background_length=200</em>, <em class="sig-param">fpr=0.02</em>, <em class="sig-param">n_cpus=-1</em>, <em class="sig-param">verbose=True</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.motif_analysis.TFinfo.scan" title="Permalink to this definition">¶</a></dt>
 <dd><p>Scan DNA sequences searching for TF binding motifs.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -457,7 +457,7 @@ The following attributes will be erased: TF_onehot, dic_targetgene2TFs, dic_peak
 
 <dl class="method">
 <dt id="celloracle.motif_analysis.TFinfo.to_dataframe">
-<code class="sig-name descname">to_dataframe</code><span class="sig-paren">(</span><em class="sig-param">verbose=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/motif_analysis/tfinfo_core.html#TFinfo.to_dataframe"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.motif_analysis.TFinfo.to_dataframe" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">to_dataframe</code><span class="sig-paren">(</span><em class="sig-param">verbose=True</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.motif_analysis.TFinfo.to_dataframe" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return results as a dataframe.
 Rows are peak_id, and columns are TFs.</p>
 <dl class="field-list simple">
@@ -475,7 +475,7 @@ Rows are peak_id, and columns are TFs.</p>
 
 <dl class="method">
 <dt id="celloracle.motif_analysis.TFinfo.to_dictionary">
-<code class="sig-name descname">to_dictionary</code><span class="sig-paren">(</span><em class="sig-param">dictionary_type='targetgene2TFs'</em>, <em class="sig-param">verbose=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/motif_analysis/tfinfo_core.html#TFinfo.to_dictionary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.motif_analysis.TFinfo.to_dictionary" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">to_dictionary</code><span class="sig-paren">(</span><em class="sig-param">dictionary_type='targetgene2TFs'</em>, <em class="sig-param">verbose=True</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.motif_analysis.TFinfo.to_dictionary" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return TF information as a python dictionary.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -494,7 +494,7 @@ If you chose “TF2targetgenes”, it returns a dictionary in which a key is a T
 
 <dl class="method">
 <dt id="celloracle.motif_analysis.TFinfo.to_hdf5">
-<code class="sig-name descname">to_hdf5</code><span class="sig-paren">(</span><em class="sig-param">file_path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/motif_analysis/tfinfo_core.html#TFinfo.to_hdf5"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.motif_analysis.TFinfo.to_hdf5" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">to_hdf5</code><span class="sig-paren">(</span><em class="sig-param">file_path</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.motif_analysis.TFinfo.to_hdf5" title="Permalink to this definition">¶</a></dt>
 <dd><p>Save object as hdf5.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -507,7 +507,7 @@ If you chose “TF2targetgenes”, it returns a dictionary in which a key is a T
 
 <dl class="function">
 <dt id="celloracle.motif_analysis.get_tss_info">
-<code class="sig-prename descclassname">celloracle.motif_analysis.</code><code class="sig-name descname">get_tss_info</code><span class="sig-paren">(</span><em class="sig-param">peak_str_list</em>, <em class="sig-param">ref_genome</em>, <em class="sig-param">verbose=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/motif_analysis/tss_annotation.html#get_tss_info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.motif_analysis.get_tss_info" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">celloracle.motif_analysis.</code><code class="sig-name descname">get_tss_info</code><span class="sig-paren">(</span><em class="sig-param">peak_str_list</em>, <em class="sig-param">ref_genome</em>, <em class="sig-param">verbose=True</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.motif_analysis.get_tss_info" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get annotation about Transcription Starting Site (TSS).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -522,7 +522,7 @@ If you chose “TF2targetgenes”, it returns a dictionary in which a key is a T
 
 <dl class="function">
 <dt id="celloracle.motif_analysis.integrate_tss_peak_with_cicero">
-<code class="sig-prename descclassname">celloracle.motif_analysis.</code><code class="sig-name descname">integrate_tss_peak_with_cicero</code><span class="sig-paren">(</span><em class="sig-param">tss_peak</em>, <em class="sig-param">cicero_connections</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/motif_analysis/process_cicero_data.html#integrate_tss_peak_with_cicero"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.motif_analysis.integrate_tss_peak_with_cicero" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">celloracle.motif_analysis.</code><code class="sig-name descname">integrate_tss_peak_with_cicero</code><span class="sig-paren">(</span><em class="sig-param">tss_peak</em>, <em class="sig-param">cicero_connections</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.motif_analysis.integrate_tss_peak_with_cicero" title="Permalink to this definition">¶</a></dt>
 <dd><p>Process output of cicero data and returns DNA peak information for motif analysis in celloracle.
 Please see the celloracle tutorial for more information.</p>
 <dl class="field-list simple">
