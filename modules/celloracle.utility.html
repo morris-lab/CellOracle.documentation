@@ -1,0 +1,424 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>celloracle.utility module &mdash; celloracle 0.1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="celloracle.data module" href="celloracle.data.html" />
+    <link rel="prev" title="celloracle.go_analysis module" href="celloracle.go_analysis.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> celloracle
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome to celloracle’s documentation!</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorial</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#command-line-api">Command Line API</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#python-api">Python API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="celloracle.html">Custom class in celloracle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="celloracle.html#modules-for-atac-seq-analysis">Modules for ATAC-seq analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="celloracle.html#modules-for-network-analysis">Modules for Network analysis</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="celloracle.html#other-modules">Other modules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="celloracle.go_analysis.html">celloracle.go_analysis module</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">celloracle.utility module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="celloracle.data.html">celloracle.data module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="celloracle.data_conversion.html">celloracle.data_conversion module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../license/index.html">License</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../citation/index.html">Authors and citations</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">celloracle</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">API</a> &raquo;</li>
+        
+          <li><a href="celloracle.html">Custom class in celloracle</a> &raquo;</li>
+        
+      <li>celloracle.utility module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/modules/celloracle.utility.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="celloracle-utility-module">
+<h1>celloracle.utility module<a class="headerlink" href="#celloracle-utility-module" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><span class="target" id="module-celloracle.utility"></span><p>The <a class="reference internal" href="#module-celloracle.utility" title="celloracle.utility"><code class="xref py py-mod docutils literal notranslate"><span class="pre">utility</span></code></a> module has several functions that support celloracle.</p>
+<dl class="class">
+<dt id="celloracle.utility.makelog">
+<em class="property">class </em><code class="sig-prename descclassname">celloracle.utility.</code><code class="sig-name descname">makelog</code><span class="sig-paren">(</span><em class="sig-param">file_name=None</em>, <em class="sig-param">directory=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/utility/make_log.html#makelog"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.utility.makelog" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This is a class for making log.</p>
+<dl class="method">
+<dt id="celloracle.utility.makelog.info">
+<code class="sig-name descname">info</code><span class="sig-paren">(</span><em class="sig-param">comment</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/utility/make_log.html#makelog.info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.utility.makelog.info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add comment into the log file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>comment</strong> (<em>str</em>) – comment.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="celloracle.utility.save_as_pickled_object">
+<code class="sig-prename descclassname">celloracle.utility.</code><code class="sig-name descname">save_as_pickled_object</code><span class="sig-paren">(</span><em class="sig-param">obj</em>, <em class="sig-param">filepath</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/utility/utility.html#save_as_pickled_object"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.utility.save_as_pickled_object" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save any object using pickle.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj</strong> (<em>any python object</em>) – python object.</p></li>
+<li><p><strong>filepath</strong> (<em>str</em>) – file path.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="celloracle.utility.load_pickled_object">
+<code class="sig-prename descclassname">celloracle.utility.</code><code class="sig-name descname">load_pickled_object</code><span class="sig-paren">(</span><em class="sig-param">filepath</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/utility/utility.html#load_pickled_object"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.utility.load_pickled_object" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load pickled object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>filepath</strong> (<em>str</em>) – file path.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>loaded object.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>python object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="celloracle.utility.intersect">
+<code class="sig-prename descclassname">celloracle.utility.</code><code class="sig-name descname">intersect</code><span class="sig-paren">(</span><em class="sig-param">list1</em>, <em class="sig-param">list2</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/utility/utility.html#intersect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.utility.intersect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Intersect two list and get components that exists in both list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>list1</strong> (<em>list</em>) – input list.</p></li>
+<li><p><strong>list2</strong> (<em>list</em>) – input list.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>intersected list.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="celloracle.utility.exec_process">
+<code class="sig-prename descclassname">celloracle.utility.</code><code class="sig-name descname">exec_process</code><span class="sig-paren">(</span><em class="sig-param">commands</em>, <em class="sig-param">message=True</em>, <em class="sig-param">wait_finished=True</em>, <em class="sig-param">return_process=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/utility/utility.html#exec_process"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.utility.exec_process" title="Permalink to this definition">¶</a></dt>
+<dd><p>Excute a command. This is a wrapper of “subprocess.Popen”</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>commands</strong> (<em>str</em>) – command.</p></li>
+<li><p><strong>message</strong> (<em>bool</em>) – Whether to return a message or not.</p></li>
+<li><p><strong>wait_finished</strong> (<em>bool</em>) – Whether or not to wait for the process to finish. If false, the process will be perfomed in background and the function will finish immediately</p></li>
+<li><p><strong>return_process</strong> (<em>bool</em>) – Whether to return “process”.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="celloracle.utility.standard">
+<code class="sig-prename descclassname">celloracle.utility.</code><code class="sig-name descname">standard</code><span class="sig-paren">(</span><em class="sig-param">df</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/utility/utility.html#standard"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.utility.standard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Standardize value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>df</strong> (<em>padas.dataframe</em>) – dataframe.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Data after standardization.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pandas.dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="celloracle.utility.load_hdf5">
+<code class="sig-prename descclassname">celloracle.utility.</code><code class="sig-name descname">load_hdf5</code><span class="sig-paren">(</span><em class="sig-param">file_path</em>, <em class="sig-param">object_class_name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/utility/load_hdf5.html#load_hdf5"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.utility.load_hdf5" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load an object of celloracle’s custom class that was saved as hdf5.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file_path</strong> (<em>str</em>) – file_path.</p></li>
+<li><p><strong>object_class_name</strong> (<em>str</em>) – Types of object.
+If it is None, object class will be identified from the extension of file_name.
+Default is None.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="celloracle.utility.inverse_dictionary">
+<code class="sig-prename descclassname">celloracle.utility.</code><code class="sig-name descname">inverse_dictionary</code><span class="sig-paren">(</span><em class="sig-param">dictionary</em>, <em class="sig-param">verbose=True</em>, <em class="sig-param">return_value_as_numpy=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/utility/utility.html#inverse_dictionary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.utility.inverse_dictionary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make inverse dictionary.
+See examples below for detail.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dictionary</strong> (<em>dict</em>) – python dictionary</p></li>
+<li><p><strong>verbose</strong> (<em>bool</em>) – Whether to show progress bar.</p></li>
+<li><p><strong>return_value_as_numpy</strong> (<em>bool</em>) – Whether to convert values into numpy array.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Python dictionary.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dic</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">inverse_dictionary</span><span class="p">(</span><span class="n">dic</span><span class="p">)</span>
+<span class="go">{1: [&#39;a&#39;], 2: [&#39;a&#39;, &#39;b&#39;], 3: [&#39;a&#39;, &#39;b&#39;], 4: [&#39;b&#39;]}</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dic</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">inverse_dictionary</span><span class="p">(</span><span class="n">dic</span><span class="p">,</span> <span class="n">return_value_as_numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="go">{1: array([&#39;a&#39;], dtype=&#39;&lt;U1&#39;),</span>
+<span class="go"> 2: array([&#39;a&#39;, &#39;b&#39;], dtype=&#39;&lt;U1&#39;),</span>
+<span class="go"> 3: array([&#39;a&#39;, &#39;b&#39;], dtype=&#39;&lt;U1&#39;),</span>
+<span class="go"> 4: array([&#39;b&#39;], dtype=&#39;&lt;U1&#39;)}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div></blockquote>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="celloracle.data.html" class="btn btn-neutral float-right" title="celloracle.data module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="celloracle.go_analysis.html" class="btn btn-neutral float-left" title="celloracle.go_analysis module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Samantha Morris Lab
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

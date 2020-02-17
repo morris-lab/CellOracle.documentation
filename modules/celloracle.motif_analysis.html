@@ -1,0 +1,595 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>celloracle.motif_analysis module &mdash; celloracle 0.1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="celloracle.network_analysis module" href="celloracle.network_analysis.html" />
+    <link rel="prev" title="Custom class in celloracle" href="celloracle.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> celloracle
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome to celloracle’s documentation!</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorial</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#command-line-api">Command Line API</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#python-api">Python API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="celloracle.html">Custom class in celloracle</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="celloracle.html#modules-for-atac-seq-analysis">Modules for ATAC-seq analysis</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">celloracle.motif_analysis module</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="celloracle.html#modules-for-network-analysis">Modules for Network analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="celloracle.html#other-modules">Other modules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../license/index.html">License</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../citation/index.html">Authors and citations</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">celloracle</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">API</a> &raquo;</li>
+        
+          <li><a href="celloracle.html">Custom class in celloracle</a> &raquo;</li>
+        
+      <li>celloracle.motif_analysis module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/modules/celloracle.motif_analysis.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="module-celloracle.motif_analysis">
+<span id="celloracle-motif-analysis-module"></span><h1>celloracle.motif_analysis module<a class="headerlink" href="#module-celloracle.motif_analysis" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#module-celloracle.motif_analysis" title="celloracle.motif_analysis"><code class="xref py py-mod docutils literal notranslate"><span class="pre">motif_analysis</span></code></a> module implements transcription factor motif scan.</p>
+<p>Genomic activity information (peak of ATAC-seq or Chip-seq) is extracted first.
+Then the peak DNA sequence will be subjected to TF motif scan.
+Finally we will get list of TFs that potentially binds to a specific gene.</p>
+<dl class="function">
+<dt id="celloracle.motif_analysis.is_genome_installed">
+<code class="sig-prename descclassname">celloracle.motif_analysis.</code><code class="sig-name descname">is_genome_installed</code><span class="sig-paren">(</span><em class="sig-param">ref_genome</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/motif_analysis/motif_analysis_utility.html#is_genome_installed"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.motif_analysis.is_genome_installed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Celloracle motif_analysis module uses gimmemotifs and genomepy internally.
+Reference genome files should be installed in the PC to use gimmemotifs and genomepy.
+This function checks the installation status of the reference genome.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ref_genome</strong> (<em>str</em>) – names of reference genome. i.e., “mm10”, “hg19”</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="celloracle.motif_analysis.peak2fasta">
+<code class="sig-prename descclassname">celloracle.motif_analysis.</code><code class="sig-name descname">peak2fasta</code><span class="sig-paren">(</span><em class="sig-param">peak_ids</em>, <em class="sig-param">ref_genome</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/motif_analysis/process_bed_file.html#peak2fasta"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.motif_analysis.peak2fasta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert peak_id into fasta object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>peak_id</strong> (<em>str</em><em> or </em><em>list of str</em>) – Peak_id.  e.g. “chr5_0930303_9499409”
+or it can be a list of peak_id.  e.g. [“chr5_0930303_9499409”, “chr11_123445555_123445577”]</p></li>
+<li><p><strong>ref_genome</strong> (<em>str</em>) – Reference genome name.   e.g. “mm9”, “mm10”, “hg19” etc</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>DNA sequence in fasta format</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>gimmemotifs fasta object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="celloracle.motif_analysis.read_bed">
+<code class="sig-prename descclassname">celloracle.motif_analysis.</code><code class="sig-name descname">read_bed</code><span class="sig-paren">(</span><em class="sig-param">bed_path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/motif_analysis/process_bed_file.html#read_bed"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.motif_analysis.read_bed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load bed file and return as dataframe.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>bed_path</strong> (<em>str</em>) – File path.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>bed file in dataframe.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pandas.dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="celloracle.motif_analysis.load_TFinfo_from_parquets">
+<code class="sig-prename descclassname">celloracle.motif_analysis.</code><code class="sig-name descname">load_TFinfo_from_parquets</code><span class="sig-paren">(</span><em class="sig-param">folder_path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/motif_analysis/tfinfo_core.html#load_TFinfo_from_parquets"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.motif_analysis.load_TFinfo_from_parquets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load TFinfo object which was saved with the function; “save_as_parquet”.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>folder_path</strong> (<em>str</em>) – folder path</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Loaded TFinfo object.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#celloracle.motif_analysis.TFinfo" title="celloracle.motif_analysis.TFinfo">TFinfo</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="celloracle.motif_analysis.make_TFinfo_from_scanned_file">
+<code class="sig-prename descclassname">celloracle.motif_analysis.</code><code class="sig-name descname">make_TFinfo_from_scanned_file</code><span class="sig-paren">(</span><em class="sig-param">path_to_raw_bed</em>, <em class="sig-param">path_to_scanned_result_bed</em>, <em class="sig-param">ref_genome</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/motif_analysis/tfinfo_core.html#make_TFinfo_from_scanned_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.motif_analysis.make_TFinfo_from_scanned_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is currently an available.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="celloracle.motif_analysis.TFinfo">
+<em class="property">class </em><code class="sig-prename descclassname">celloracle.motif_analysis.</code><code class="sig-name descname">TFinfo</code><span class="sig-paren">(</span><em class="sig-param">peak_data_frame</em>, <em class="sig-param">ref_genome</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/motif_analysis/tfinfo_core.html#TFinfo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.motif_analysis.TFinfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This is a custom class for motif analysis in celloracle.
+TFinfo object performs motif scan using the TF motif database in gimmemotifs and several functions of genomepy.
+Analysis results can be exported as a python dictionary or dataframe.
+These files; python dictionary of dataframe of TF binding information, are needed during GRN inference.</p>
+<dl class="attribute">
+<dt id="celloracle.motif_analysis.TFinfo.peak_df">
+<code class="sig-name descname">peak_df</code><a class="headerlink" href="#celloracle.motif_analysis.TFinfo.peak_df" title="Permalink to this definition">¶</a></dt>
+<dd><p>dataframe about DNA peak and target gene data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>pandas.dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="celloracle.motif_analysis.TFinfo.all_target_gene">
+<code class="sig-name descname">all_target_gene</code><a class="headerlink" href="#celloracle.motif_analysis.TFinfo.all_target_gene" title="Permalink to this definition">¶</a></dt>
+<dd><p>target genes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>array of str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="celloracle.motif_analysis.TFinfo.ref_genome">
+<code class="sig-name descname">ref_genome</code><a class="headerlink" href="#celloracle.motif_analysis.TFinfo.ref_genome" title="Permalink to this definition">¶</a></dt>
+<dd><p>reference genome name that was used in DNA peak generation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="celloracle.motif_analysis.TFinfo.scanned_df">
+<code class="sig-name descname">scanned_df</code><a class="headerlink" href="#celloracle.motif_analysis.TFinfo.scanned_df" title="Permalink to this definition">¶</a></dt>
+<dd><p>Results of motif scan. Key is a peak name. Value is a dataframe of motif scan.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="celloracle.motif_analysis.TFinfo.dic_targetgene2TFs">
+<code class="sig-name descname">dic_targetgene2TFs</code><a class="headerlink" href="#celloracle.motif_analysis.TFinfo.dic_targetgene2TFs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Final product of motif scan. Key is a target gene. Value is a list of regulatory candidate genes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="celloracle.motif_analysis.TFinfo.dic_peak2Targetgene">
+<code class="sig-name descname">dic_peak2Targetgene</code><a class="headerlink" href="#celloracle.motif_analysis.TFinfo.dic_peak2Targetgene" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dictionary. Key is a peak name. Value is a list of the target gene.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="celloracle.motif_analysis.TFinfo.dic_TF2targetgenes">
+<code class="sig-name descname">dic_TF2targetgenes</code><a class="headerlink" href="#celloracle.motif_analysis.TFinfo.dic_TF2targetgenes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Final product of motif scan. Key is a TF. Value is a list of potential target genes of the TF.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="celloracle.motif_analysis.TFinfo.copy">
+<code class="sig-name descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/motif_analysis/tfinfo_core.html#TFinfo.copy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.motif_analysis.TFinfo.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deepcoty itself.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="celloracle.motif_analysis.TFinfo.filter_motifs_by_score">
+<code class="sig-name descname">filter_motifs_by_score</code><span class="sig-paren">(</span><em class="sig-param">threshold</em>, <em class="sig-param">method='cumlative_score'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/motif_analysis/tfinfo_core.html#TFinfo.filter_motifs_by_score"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.motif_analysis.TFinfo.filter_motifs_by_score" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove motifs with low binding scores.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>method</strong> (<em>str</em>) – thresholding method. Select either of [“indivisual_score”, “cumlative_score”]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="celloracle.motif_analysis.TFinfo.filter_peaks">
+<code class="sig-name descname">filter_peaks</code><span class="sig-paren">(</span><em class="sig-param">peaks_to_be_remained</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/motif_analysis/tfinfo_core.html#TFinfo.filter_peaks"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.motif_analysis.TFinfo.filter_peaks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Filter peaks.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>peaks_to_be_remained</strong> (<em>array of str</em>) – list of peaks. Peaks that are NOT in the list will be removed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="celloracle.motif_analysis.TFinfo.make_TFinfo_dataframe_and_dictionary">
+<code class="sig-name descname">make_TFinfo_dataframe_and_dictionary</code><span class="sig-paren">(</span><em class="sig-param">verbose=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/motif_analysis/tfinfo_core.html#TFinfo.make_TFinfo_dataframe_and_dictionary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.motif_analysis.TFinfo.make_TFinfo_dataframe_and_dictionary" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is the final step of motif_analysis.
+Convert scanned results into a data frame and dictionaries.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>verbose</strong> (<em>bool</em>) – Whether to show a progress bar.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="celloracle.motif_analysis.TFinfo.reset_dictionary_and_df">
+<code class="sig-name descname">reset_dictionary_and_df</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/motif_analysis/tfinfo_core.html#TFinfo.reset_dictionary_and_df"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.motif_analysis.TFinfo.reset_dictionary_and_df" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset TF dictionary and TF dataframe.
+The following attributes will be erased: TF_onehot, dic_targetgene2TFs, dic_peak2Targetgene, dic_TF2targetgenes.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="celloracle.motif_analysis.TFinfo.reset_filtering">
+<code class="sig-name descname">reset_filtering</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/motif_analysis/tfinfo_core.html#TFinfo.reset_filtering"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.motif_analysis.TFinfo.reset_filtering" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset filtering information.
+You can use this function to stat over the filtering step with new conditions.
+The following attributes will be erased: TF_onehot, dic_targetgene2TFs, dic_peak2Targetgene, dic_TF2targetgenes.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="celloracle.motif_analysis.TFinfo.save_as_parquet">
+<code class="sig-name descname">save_as_parquet</code><span class="sig-paren">(</span><em class="sig-param">folder_path=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/motif_analysis/tfinfo_core.html#TFinfo.save_as_parquet"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.motif_analysis.TFinfo.save_as_parquet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save itself. Some attributes are saved as parquet file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>folder_path</strong> (<em>str</em>) – folder path</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="celloracle.motif_analysis.TFinfo.scan">
+<code class="sig-name descname">scan</code><span class="sig-paren">(</span><em class="sig-param">background_length=200</em>, <em class="sig-param">fpr=0.02</em>, <em class="sig-param">n_cpus=-1</em>, <em class="sig-param">verbose=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/motif_analysis/tfinfo_core.html#TFinfo.scan"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.motif_analysis.TFinfo.scan" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scan DNA sequences searching for TF binding motifs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>background_length</strong> (<em>int</em>) – background length. This is used for the calculation of the binding score.</p></li>
+<li><p><strong>fpr</strong> (<em>float</em>) – False positive rate for motif identification.</p></li>
+<li><p><strong>n_cpus</strong> (<em>int</em>) – number of CPUs for parallel calculation.</p></li>
+<li><p><strong>verbose</strong> (<em>bool</em>) – Whether to show a progress bar.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="celloracle.motif_analysis.TFinfo.to_dataframe">
+<code class="sig-name descname">to_dataframe</code><span class="sig-paren">(</span><em class="sig-param">verbose=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/motif_analysis/tfinfo_core.html#TFinfo.to_dataframe"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.motif_analysis.TFinfo.to_dataframe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return results as a dataframe.
+Rows are peak_id, and columns are TFs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>verbose</strong> (<em>bool</em>) – Whether to show a progress bar.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>TFinfo matrix.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pandas.dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="celloracle.motif_analysis.TFinfo.to_dictionary">
+<code class="sig-name descname">to_dictionary</code><span class="sig-paren">(</span><em class="sig-param">dictionary_type='targetgene2TFs'</em>, <em class="sig-param">verbose=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/motif_analysis/tfinfo_core.html#TFinfo.to_dictionary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.motif_analysis.TFinfo.to_dictionary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return TF information as a python dictionary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>dictionary_type</strong> (<em>str</em>) – Type of dictionary. Select from [“targetgene2TFs”, “TF2targetgenes”].
+If you chose “targetgene2TFs”, it returns a dictionary in which a key is a target gene, and a value is a list of regulatory candidate genes (TFs) of the target.
+If you chose “TF2targetgenes”, it returns a dictionary in which a key is a TF and a value is a list of potential target genes of the TF.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>dictionary.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="celloracle.motif_analysis.TFinfo.to_hdf5">
+<code class="sig-name descname">to_hdf5</code><span class="sig-paren">(</span><em class="sig-param">file_path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/motif_analysis/tfinfo_core.html#TFinfo.to_hdf5"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.motif_analysis.TFinfo.to_hdf5" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save object as hdf5.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>file_path</strong> (<em>str</em>) – file path to save file. Filename needs to end with ‘.celloracle.tfinfo’</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="celloracle.motif_analysis.get_tss_info">
+<code class="sig-prename descclassname">celloracle.motif_analysis.</code><code class="sig-name descname">get_tss_info</code><span class="sig-paren">(</span><em class="sig-param">peak_str_list</em>, <em class="sig-param">ref_genome</em>, <em class="sig-param">verbose=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/motif_analysis/tss_annotation.html#get_tss_info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.motif_analysis.get_tss_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get annotation about Transcription Starting Site (TSS).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>peak_str_list</strong> (<em>list of str</em>) – list of peak_id. e.g., [“chr5_0930303_9499409”, “chr11_123445555_123445577”]</p></li>
+<li><p><strong>ref_genome</strong> (<em>str</em>) – reference genome name.</p></li>
+<li><p><strong>verbose</strong> (<em>bool</em>) – verbosity.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="celloracle.motif_analysis.integrate_tss_peak_with_cicero">
+<code class="sig-prename descclassname">celloracle.motif_analysis.</code><code class="sig-name descname">integrate_tss_peak_with_cicero</code><span class="sig-paren">(</span><em class="sig-param">tss_peak</em>, <em class="sig-param">cicero_connections</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/celloracle/motif_analysis/process_cicero_data.html#integrate_tss_peak_with_cicero"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#celloracle.motif_analysis.integrate_tss_peak_with_cicero" title="Permalink to this definition">¶</a></dt>
+<dd><p>Process output of cicero data and returns DNA peak information for motif analysis in celloracle.
+Please see the celloracle tutorial for more information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tss_peak</strong> (<em>pandas.dataframe</em>) – dataframe about TSS information. Please use the function, “get_tss_info” to get this dataframe.</p></li>
+<li><p><strong>cicero_connections</strong> (<em>dataframe</em>) – dataframe that stores the results of cicero analysis.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>DNA peak about promoter/enhancer and its annotation about target gene.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pandas.dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="celloracle.network_analysis.html" class="btn btn-neutral float-right" title="celloracle.network_analysis module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="celloracle.html" class="btn btn-neutral float-left" title="Custom class in celloracle" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Samantha Morris Lab
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
