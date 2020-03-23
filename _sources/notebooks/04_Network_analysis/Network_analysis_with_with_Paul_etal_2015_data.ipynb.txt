@@ -70,9 +70,15 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "checking R library installation: igraph -> OK\n",
-      "checking R library installation: linkcomm -> OK\n",
-      "checking R library installation: rnetcarto -> OK\n"
+      "Build process aborts.\n",
+      "checking_installation: igraph -> NG\n",
+      " R library, igraph is unavailable. Please check installation.\n",
+      "Build process aborts.\n",
+      "checking_installation: linkcomm -> NG\n",
+      " R library, linkcomm is unavailable. Please check installation.\n",
+      "Build process aborts.\n",
+      "checking_installation: rnetcarto -> NG\n",
+      " R library, rnetcarto is unavailable. Please check installation.\n"
      ]
     }
    ],
@@ -89,7 +95,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 5,
+   "execution_count": 4,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -740,12 +746,23 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 4,
+   "execution_count": 5,
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/home/k/anaconda3/envs/test/lib/python3.6/site-packages/sklearn/utils/deprecation.py:144: FutureWarning: The sklearn.decomposition.pca module is  deprecated in version 0.22 and will be removed in version 0.24. The corresponding classes / functions should instead be imported from sklearn.decomposition. Anything that cannot be imported from sklearn.decomposition is now part of the private API.\n",
+      "  warnings.warn(message, FutureWarning)\n",
+      "/home/k/anaconda3/envs/test/lib/python3.6/site-packages/sklearn/base.py:318: UserWarning: Trying to unpickle estimator PCA from version 0.21.3 when using version 0.22. This might lead to breaking code or invalid results. Use at your own risk.\n",
+      "  UserWarning)\n"
+     ]
+    }
+   ],
    "source": [
     "# Load file.\n",
-    "# oracle = co.load_hdf5(\"Paul_15_data.celloracle.oracle\")"
+    "#oracle = co.load_hdf5(\"Paul_15_data.celloracle.oracle\")"
    ]
   },
   {
