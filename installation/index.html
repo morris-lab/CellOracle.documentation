@@ -368,9 +368,18 @@ If you do not have scATAC-seq data and plan to use celloracle’s base GRN, you 
 </div>
 <p>Please make sure that all R libraries are installed. The following message will be shown when all R libraries are appropriately installed.</p>
 <div class="line-block">
+<div class="line">R path: /usr/lib/R/bin/R</div>
 <div class="line">checking R library installation: igraph -&gt; OK</div>
 <div class="line">checking R library installation: linkcomm -&gt; OK</div>
 <div class="line">checking R library installation: rnetcarto -&gt; OK</div>
+</div>
+<p>The first line above is your R path. If you want to use another R program that was installed at the different place, you can set new R path with the following command.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">co</span><span class="o">.</span><span class="n">network_analysis</span><span class="o">.</span><span class="n">set_R_path</span><span class="p">(</span><span class="s2">&quot;ENTER YOUR R PATH HERE&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If you changed R path settings, please check installation again to make sure everything works.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">co</span><span class="o">.</span><span class="n">network_analysis</span><span class="o">.</span><span class="n">test_R_libraries_installation</span><span class="p">()</span>
+</pre></div>
 </div>
 </div>
 </div>
