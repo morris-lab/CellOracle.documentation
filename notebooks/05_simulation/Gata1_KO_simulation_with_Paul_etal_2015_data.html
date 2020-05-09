@@ -37,7 +37,9 @@
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" /> 
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="API" href="../../modules/index.html" />
+    <link rel="prev" title="5. Simulation with GRNs" href="../../tutorials/simulation.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -87,8 +89,45 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">Installation</a></li>
 </ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../tutorials/index.html">Tutorial</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../tutorials/index.html">Tutorial</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/atac.html">1. ATAC-seq data preprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/motifscan.html">2. Transcription factor binding motif scan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/scrnaprocess.html">3. Single-cell RNA-seq data preprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/networkanalysis.html">4. Network analysis</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../tutorials/simulation.html">5. Simulation with GRNs</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">0. Import libraries</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#0.1.-Import-public-libraries">0.1. Import public libraries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#0.1.-Make-a-folder-to-save-graph">0.1. Make a folder to save graph</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#1.-Load-data">1. Load data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#1.1.-Load-processed-oracle-object">1.1. Load processed oracle object</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#1.2.-Load-inferred-GRNs">1.2. Load inferred GRNs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#2.-Make-predictive-models-for-simulation">2. Make predictive models for simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#3.-in-silico-Perturbation-simulation">3. in silico Perturbation-simulation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#3.1.-Check-gene-expression-pattern.">3.1. Check gene expression pattern.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#3.2.-calculate-future-gene-expression-after-perturbation.">3.2. calculate future gene expression after perturbation.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#3.3.-calculate-transition-probability-between-cells">3.3. calculate transition probability between cells</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#4.-Visualization">4. Visualization</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#4.1.-Detailed-directed-trajectory-graph">4.1. Detailed directed trajectory graph</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#4.2.-Grid-graph">4.2. Grid graph</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#5.-Markov-simulation-to-analyze-the-effects-of-perturbation-on-cell-fate-transition">5. Markov simulation to analyze the effects of perturbation on cell fate transition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#5.1.-Do-Markov-simulation">5.1. Do Markov simulation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#5.2.-Check-the-results-of-the-simulation-for-specific-cells">5.2. Check the results of the simulation for specific cells</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#5.3.-Summarize-the-results-of-simulation-by-plotting-sankey-diagram">5.3. Summarize the results of simulation by plotting sankey diagram</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../modules/index.html">API</a></li>
@@ -145,6 +184,10 @@
   <ul class="wy-breadcrumbs">
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../tutorials/index.html">Tutorial</a> &raquo;</li>
+        
+          <li><a href="../../tutorials/simulation.html">5. Simulation with GRNs</a> &raquo;</li>
         
       <li>0. Import libraries</li>
     
@@ -1232,6 +1275,15 @@ cell 1567
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../modules/index.html" class="btn btn-neutral float-right" title="API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../../tutorials/simulation.html" class="btn btn-neutral float-left" title="5. Simulation with GRNs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
