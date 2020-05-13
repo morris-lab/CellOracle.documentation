@@ -556,12 +556,16 @@ array([&#39;chr1_3094484_3095479&#39;, &#39;chr1_3113499_3113979&#39;,
 <h1>2. Make TSS annotation<a class="headerlink" href="#2.-Make-TSS-annotation" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="IMPORTANT:-Please-make-sure-that-you-are-setting-correct-reference-genoms.">
 <h2>IMPORTANT: Please make sure that you are setting correct reference genoms.<a class="headerlink" href="#IMPORTANT:-Please-make-sure-that-you-are-setting-correct-reference-genoms." title="Permalink to this headline">¶</a></h2>
+<p>If your scATAC-seq data was generated with mm10 reference genome, you can set ref_genome=“mm10”. If you used hg19 human reference genome, please set ref_genome==“hg19”</p>
+<p>Currently we support [“mm9”, “mm10”, “hg19”, “hg38”]. If your reference genome is not in the list, please send a request through github issue page.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">tss_annotated</span> <span class="o">=</span> <span class="n">ma</span><span class="o">.</span><span class="n">get_tss_info</span><span class="p">(</span><span class="n">peak_str_list</span><span class="o">=</span><span class="n">peaks</span><span class="p">,</span> <span class="n">ref_genome</span><span class="o">=</span><span class="s2">&quot;mm10&quot;</span><span class="p">)</span>
+
+<span></span><span class="n">tss_annotated</span> <span class="o">=</span> <span class="n">ma</span><span class="o">.</span><span class="n">get_tss_info</span><span class="p">(</span><span class="n">peak_str_list</span><span class="o">=</span><span class="n">peaks</span><span class="p">,</span> <span class="n">ref_genome</span><span class="o">=</span> <span class="p">)</span> <span class="c1">##!! Set reference genome here</span>
+
 
 <span class="c1"># Check results</span>
 <span class="n">tss_annotated</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>

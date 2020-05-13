@@ -39,7 +39,7 @@
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="0. Import libraries" href="../option2_Bulk_ATAC-seq_data/01_preprocess_Bulk_ATAC_seq_peak_data.html" />
-    <link rel="prev" title="0. Import library" href="01_atacdata_to_cicero.html" /> 
+    <link rel="prev" title="1. ATAC-seq data preprocessing" href="../../../tutorials/atac.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -93,19 +93,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../../../tutorials/index.html">Tutorial</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../../../tutorials/atac.html">1. ATAC-seq data preprocessing</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="../../../tutorials/atac.html#a-extract-tf-binding-information-from-scatac-seq-data">A. Extract TF binding information from scATAC-seq data</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="01_atacdata_to_cicero.html">0. Import library</a></li>
-<li class="toctree-l4"><a class="reference internal" href="01_atacdata_to_cicero.html#1.-Prepare-data">1. Prepare data</a></li>
-<li class="toctree-l4"><a class="reference internal" href="01_atacdata_to_cicero.html#2.-Load-data-and-make-Cell-Data-Set-(CDS)-object">2. Load data and make Cell Data Set (CDS) object</a></li>
-<li class="toctree-l4"><a class="reference internal" href="01_atacdata_to_cicero.html#3.-Qauality-check-and-Filtering">3. Qauality check and Filtering</a></li>
-<li class="toctree-l4"><a class="reference internal" href="01_atacdata_to_cicero.html#4.-Process-cicero-CDS-object">4. Process cicero-CDS object</a></li>
-<li class="toctree-l4"><a class="reference internal" href="01_atacdata_to_cicero.html#5.-Run-cicero-to-get-cis-regulatory-connection-scores">5. Run cicero to get cis-regulatory connection scores</a></li>
-<li class="toctree-l4"><a class="reference internal" href="01_atacdata_to_cicero.html#6.-Save-results-for-next-step">6. Save results for next step</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">0. Import libraries</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#1.-Load-data-made-with-cicero">1. Load data made with cicero</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#2.-Make-TSS-annotation">2. Make TSS annotation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#3.-Integrate-TSS-info-and-cicero-connections">3. Integrate TSS info and cicero connections</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#4.-Filter-peaks">4. Filter peaks</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#5.-Save-data">5. Save data</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../../../tutorials/atac.html#scatac-seq-analysis-with-cicero-and-monocle3">scATAC-seq analysis with Cicero and Monocle3</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../tutorials/atac.html#b-extract-tf-binding-information-from-bulk-atac-seq-data-or-chip-seq-data">B. Extract TF binding information from bulk ATAC-seq data or Chip-seq data</a></li>
@@ -588,12 +576,16 @@ array([&#39;chr1_3094484_3095479&#39;, &#39;chr1_3113499_3113979&#39;,
 <h1>2. Make TSS annotation<a class="headerlink" href="#2.-Make-TSS-annotation" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="IMPORTANT:-Please-make-sure-that-you-are-setting-correct-reference-genoms.">
 <h2>IMPORTANT: Please make sure that you are setting correct reference genoms.<a class="headerlink" href="#IMPORTANT:-Please-make-sure-that-you-are-setting-correct-reference-genoms." title="Permalink to this headline">¶</a></h2>
+<p>If your scATAC-seq data was generated with mm10 reference genome, you can set ref_genome=“mm10”. If you used hg19 human reference genome, please set ref_genome==“hg19”</p>
+<p>Currently we support [“mm9”, “mm10”, “hg19”, “hg38”]. If your reference genome is not in the list, please send a request through github issue page.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">tss_annotated</span> <span class="o">=</span> <span class="n">ma</span><span class="o">.</span><span class="n">get_tss_info</span><span class="p">(</span><span class="n">peak_str_list</span><span class="o">=</span><span class="n">peaks</span><span class="p">,</span> <span class="n">ref_genome</span><span class="o">=</span><span class="s2">&quot;mm10&quot;</span><span class="p">)</span>
+
+<span></span><span class="n">tss_annotated</span> <span class="o">=</span> <span class="n">ma</span><span class="o">.</span><span class="n">get_tss_info</span><span class="p">(</span><span class="n">peak_str_list</span><span class="o">=</span><span class="n">peaks</span><span class="p">,</span> <span class="n">ref_genome</span><span class="o">=</span> <span class="p">)</span> <span class="c1">##!! Set reference genome here</span>
+
 
 <span class="c1"># Check results</span>
 <span class="n">tss_annotated</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
@@ -888,7 +880,7 @@ tss peaks in que: 16987
         <a href="../option2_Bulk_ATAC-seq_data/01_preprocess_Bulk_ATAC_seq_peak_data.html" class="btn btn-neutral float-right" title="0. Import libraries" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="01_atacdata_to_cicero.html" class="btn btn-neutral float-left" title="0. Import library" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../../../tutorials/atac.html" class="btn btn-neutral float-left" title="1. ATAC-seq data preprocessing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

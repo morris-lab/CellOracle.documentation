@@ -321,12 +321,15 @@ If you use only <code class="docutils literal notranslate"><span class="pre">sca
 </div>
 <div class="section" id="id5">
 <h3><a class="reference external" href="https://cole-trapnell-lab.github.io/cicero-release/docs/#installing-cicero">Cicero</a><a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
-<p>Please install <code class="docutils literal notranslate"><span class="pre">Cicero</span></code> with the following r-script or <a class="reference external" href="https://cole-trapnell-lab.github.io/cicero-release/docs/#installing-cicero">the author’s instruction</a> .
+<p>Please install <code class="docutils literal notranslate"><span class="pre">Cicero</span></code> and <code class="docutils literal notranslate"><span class="pre">Monocle3</span></code> with the following r-script or <a class="reference external" href="https://cole-trapnell-lab.github.io/cicero-release/docs_m3/#installing-cicero">the author’s instruction</a> .
 If you do not have scATAC-seq data and plan to use celloracle’s base GRN, you do not need to install <code class="docutils literal notranslate"><span class="pre">Cicero</span></code>.</p>
 <p>In R console,</p>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">if </span><span class="p">(</span><span class="o">!</span><span class="nf">requireNamespace</span><span class="p">(</span><span class="s">&quot;BiocManager&quot;</span><span class="p">,</span> <span class="n">quietly</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">))</span>
-<span class="nf">install.packages</span><span class="p">(</span><span class="s">&quot;BiocManager&quot;</span><span class="p">)</span>
-<span class="n">BiocManager</span><span class="o">::</span><span class="nf">install</span><span class="p">(</span><span class="s">&quot;cicero&quot;</span><span class="p">)</span>
+ <span class="nf">install.packages</span><span class="p">(</span><span class="s">&quot;BiocManager&quot;</span><span class="p">)</span>
+<span class="n">BiocManager</span><span class="o">::</span><span class="nf">install</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;Gviz&quot;</span><span class="p">,</span> <span class="s">&quot;GenomicRanges&quot;</span><span class="p">,</span> <span class="s">&quot;rtracklayer&quot;</span><span class="p">))</span>
+
+<span class="nf">install.packages</span><span class="p">(</span><span class="s">&quot;devtools&quot;</span><span class="p">)</span>
+<span class="n">devtools</span><span class="o">::</span><span class="nf">install_github</span><span class="p">(</span><span class="s">&quot;cole-trapnell-lab/cicero-release&quot;</span><span class="p">,</span> <span class="n">ref</span> <span class="o">=</span> <span class="s">&quot;monocle3&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
