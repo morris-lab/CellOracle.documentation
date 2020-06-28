@@ -1,15 +1,18 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>0. Import libraries &mdash; celloracle 0.3.5 documentation</title>
+  <title>0. Import libraries &mdash; celloracle 0.4.0 documentation</title>
   
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
 
   
   
@@ -17,25 +20,23 @@
   
 
   
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="4. Network analysis" href="../../tutorials/networkanalysis.html" />
@@ -53,7 +54,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> celloracle
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> celloracle
           
 
           
@@ -76,6 +77,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -134,6 +136,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -172,11 +175,11 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="../../tutorials/index.html">Tutorial</a> &raquo;</li>
         
-          <li><a href="../../tutorials/scrnaprocess.html">3. Single-cell RNA-seq data preprocessing</a> &raquo;</li>
+          <li><a href="../../tutorials/scrnaprocess.html"><span class="section-number">3. </span>Single-cell RNA-seq data preprocessing</a> &raquo;</li>
         
       <li>0. Import libraries</li>
     
@@ -263,20 +266,33 @@ div.nboutput.container div.prompt pre {
 /* all prompts */
 div.nbinput.container div.prompt,
 div.nboutput.container div.prompt {
-    min-width: 5ex;
-    padding-top: 0.3rem;
-    padding-right: 0.3rem;
-    text-align: right;
-    flex: 0;
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
 }
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
 @media (max-width: 540px) {
     div.nbinput.container div.prompt,
     div.nboutput.container div.prompt {
+        width: unset;
         text-align: left;
         padding: 0.4em;
     }
     div.nboutput.container div.prompt.empty {
         padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
     }
 }
 
@@ -369,7 +385,7 @@ div.nboutput.container div.output_area div[class*=highlight].math,
 div.nboutput.container div.output_area.rendered_html,
 div.nboutput.container div.output_area > div.output_javascript,
 div.nboutput.container div.output_area:not(.rendered_html) > img{
-    padding: 0.3rem;
+    padding: 5px;
 }
 
 /* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
@@ -469,7 +485,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="1.-Load-data">
 <h1>1. Load data<a class="headerlink" href="#1.-Load-data" title="Permalink to this headline">¶</a></h1>
-<p>In this notebook, we will show an example of how to process scRNA-seq data using a scRNA-seq data of hematopoiesis (Paul, F., Arkin, Y., Giladi, A., Jaitin, D. A., Kenigsberg, E., Keren-Shaul, H., et al. (2015). Transcriptional Heterogeneity and Lineage Commitment in Myeloid Progenitors. Cell, 163(7), 1663–1677. <a class="reference external" href="http://doi.org/10.1016/j.cell.2015.11.013">http://doi.org/10.1016/j.cell.2015.11.013</a>). You can easily download this scRNA-seq data with a scanpy function.</p>
+<p>In this notebook, we will show an example of how to process scRNA-seq data using a scRNA-seq data of hematopoiesis (Paul, F., Arkin, Y., Giladi, A., Jaitin, D. A., Kenigsberg, E., Keren-Shaul, H., et al. (2015). Transcriptional Heterogeneity and Lineage Commitment in Myeloid Progenitors. Cell, 163(7), 1663–1677. <a class="reference external" href="http://doi.org/10.1016/j.cell.2015.11.013">http://doi.org/10.1016/j.cell.2015.11.013</a>). You can easily download this scRNA-seq data with a scanpy function.</p>
 <p>Please change the code below if you want to use your data.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
@@ -673,7 +689,7 @@ Categories (23, object): [5, 2, 12, 13, ..., 20, 14, 15, 21]
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_22_0.png"><img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_22_0.png" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_22_0.png" style="width: 383px; height: 277px;" /></a>
+<img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_22_0.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_22_0.png" style="width: 383px; height: 277px;" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -698,7 +714,7 @@ Categories (23, object): [5, 2, 12, 13, ..., 20, 14, 15, 21]
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_24_0.png"><img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_24_0.png" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_24_0.png" style="width: 364px; height: 288px;" /></a>
+<img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_24_0.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_24_0.png" style="width: 364px; height: 288px;" />
 </div>
 </div>
 </div>
@@ -729,7 +745,7 @@ Categories (23, object): [5, 2, 12, 13, ..., 20, 14, 15, 21]
             <span class="p">}</span>
 
 <span class="k">for</span> <span class="n">cell_type</span><span class="p">,</span> <span class="n">genes</span> <span class="ow">in</span> <span class="n">markers</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;marker gene of </span><span class="si">{cell_type}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;marker gene of </span><span class="si">{</span><span class="n">cell_type</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">draw_graph</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">genes</span><span class="p">,</span> <span class="n">use_raw</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
@@ -749,7 +765,7 @@ marker gene of Erythroids
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_1.png"><img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_1.png" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_1.png" style="width: 656px; height: 574px;" /></a>
+<img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_1.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_1.png" style="width: 656px; height: 574px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
@@ -764,7 +780,7 @@ marker gene of Megakaryocytes
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_3.png"><img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_3.png" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_3.png" style="width: 644px; height: 574px;" /></a>
+<img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_3.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_3.png" style="width: 644px; height: 574px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
@@ -779,7 +795,7 @@ marker gene of Granulocytes
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_5.png"><img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_5.png" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_5.png" style="width: 655px; height: 856px;" /></a>
+<img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_5.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_5.png" style="width: 655px; height: 856px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
@@ -794,7 +810,7 @@ marker gene of Monocytes
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_7.png"><img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_7.png" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_7.png" style="width: 656px; height: 574px;" /></a>
+<img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_7.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_7.png" style="width: 656px; height: 574px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
@@ -809,7 +825,7 @@ marker gene of Mast_cells
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_9.png"><img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_9.png" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_9.png" style="width: 644px; height: 574px;" /></a>
+<img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_9.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_9.png" style="width: 644px; height: 574px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
@@ -824,7 +840,7 @@ marker gene of Basophils
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_11.png"><img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_11.png" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_11.png" style="width: 644px; height: 292px;" /></a>
+<img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_11.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_11.png" style="width: 644px; height: 292px;" />
 </div>
 </div>
 </div>
@@ -848,7 +864,7 @@ marker gene of Basophils
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_31_0.png"><img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_31_0.png" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_31_0.png" style="width: 615px; height: 292px;" /></a>
+<img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_31_0.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_31_0.png" style="width: 615px; height: 292px;" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -966,7 +982,7 @@ Categories (23, object): [5, 2, 12, 13, ..., 20, 14, 15, 21]
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_36_1.png"><img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_36_1.png" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_36_1.png" style="width: 615px; height: 292px;" /></a>
+<img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_36_1.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_36_1.png" style="width: 615px; height: 292px;" />
 </div>
 </div>
 </div>
@@ -988,7 +1004,7 @@ Categories (23, object): [5, 2, 12, 13, ..., 20, 14, 15, 21]
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_38_0.png"><img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_38_0.png" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_38_0.png" style="width: 615px; height: 292px;" /></a>
+<img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_38_0.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_38_0.png" style="width: 615px; height: 292px;" />
 </div>
 </div>
 <div class="section" id="id1">
@@ -1056,7 +1072,7 @@ Categories (23, object): [5, 2, 12, 13, ..., 20, 14, 15, 21]
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_42_1.png"><img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_42_1.png" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_42_1.png" style="width: 615px; height: 292px;" /></a>
+<img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_42_1.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_42_1.png" style="width: 615px; height: 292px;" />
 </div>
 </div>
 <p>We’ve done secveral scRNA-preprocessing steps; filtering, normalization, clustering, and dimensional reduction. In the next step, we’ll do the GRN inference, network analysis, and in silico simulation based on this information.</p>
@@ -1110,7 +1126,7 @@ Categories (9, object): [MEP, Monocytes, Erythroids, Granulocytes, ..., GMP, Meg
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_47_0.png"><img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_47_0.png" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_47_0.png" style="width: 615px; height: 292px;" /></a>
+<img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_47_0.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_47_0.png" style="width: 615px; height: 292px;" />
 </div>
 </div>
 </div>
@@ -1147,11 +1163,19 @@ Categories (9, object): [MEP, Monocytes, Erythroids, Granulocytes, ..., GMP, Meg
 
   <div role="contentinfo">
     <p>
+        
         &copy; Copyright 2020, Samantha Morris Lab
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -1162,7 +1186,6 @@ Categories (9, object): [MEP, Monocytes, Erythroids, Granulocytes, ..., GMP, Meg
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

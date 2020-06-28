@@ -1,15 +1,18 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>celloracle.utility module &mdash; celloracle 0.3.5 documentation</title>
+  <title>celloracle.utility module &mdash; celloracle 0.4.0 documentation</title>
   
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
 
   
   
@@ -17,25 +20,23 @@
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="celloracle.data module" href="celloracle.data.html" />
@@ -53,7 +54,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> celloracle
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> celloracle
           
 
           
@@ -76,6 +77,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -124,6 +126,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -162,7 +165,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="index.html">API</a> &raquo;</li>
         
@@ -215,58 +218,25 @@
 <h1>celloracle.utility module<a class="headerlink" href="#celloracle-utility-module" title="Permalink to this headline">¶</a></h1>
 <blockquote>
 <div><span class="target" id="module-celloracle.utility"></span><p>The <a class="reference internal" href="#module-celloracle.utility" title="celloracle.utility"><code class="xref py py-mod docutils literal notranslate"><span class="pre">utility</span></code></a> module has several functions that support celloracle.</p>
-<dl class="class">
-<dt id="celloracle.utility.makelog">
-<em class="property">class </em><code class="sig-prename descclassname">celloracle.utility.</code><code class="sig-name descname">makelog</code><span class="sig-paren">(</span><em class="sig-param">file_name=None</em>, <em class="sig-param">directory=None</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.utility.makelog" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>This is a class for making log.</p>
-<dl class="method">
-<dt id="celloracle.utility.makelog.info">
-<code class="sig-name descname">info</code><span class="sig-paren">(</span><em class="sig-param">comment</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.utility.makelog.info" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add comment into the log file.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>comment</strong> (<em>str</em>) – comment.</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="function">
-<dt id="celloracle.utility.save_as_pickled_object">
-<code class="sig-prename descclassname">celloracle.utility.</code><code class="sig-name descname">save_as_pickled_object</code><span class="sig-paren">(</span><em class="sig-param">obj</em>, <em class="sig-param">filepath</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.utility.save_as_pickled_object" title="Permalink to this definition">¶</a></dt>
-<dd><p>Save any object using pickle.</p>
+<dl class="py function">
+<dt id="celloracle.utility.exec_process">
+<code class="sig-prename descclassname">celloracle.utility.</code><code class="sig-name descname">exec_process</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">commands</span></em>, <em class="sig-param"><span class="n">message</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">wait_finished</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">return_process</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.utility.exec_process" title="Permalink to this definition">¶</a></dt>
+<dd><p>Excute a command. This is a wrapper of “subprocess.Popen”</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>obj</strong> (<em>any python object</em>) – python object.</p></li>
-<li><p><strong>filepath</strong> (<em>str</em>) – file path.</p></li>
+<li><p><strong>commands</strong> (<em>str</em>) – command.</p></li>
+<li><p><strong>message</strong> (<em>bool</em>) – Whether to return a message or not.</p></li>
+<li><p><strong>wait_finished</strong> (<em>bool</em>) – Whether or not to wait for the process to finish. If false, the process will be perfomed in background and the function will finish immediately</p></li>
+<li><p><strong>return_process</strong> (<em>bool</em>) – Whether to return “process”.</p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="celloracle.utility.load_pickled_object">
-<code class="sig-prename descclassname">celloracle.utility.</code><code class="sig-name descname">load_pickled_object</code><span class="sig-paren">(</span><em class="sig-param">filepath</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.utility.load_pickled_object" title="Permalink to this definition">¶</a></dt>
-<dd><p>Load pickled object.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>filepath</strong> (<em>str</em>) – file path.</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>loaded object.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>python object</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
+<dl class="py function">
 <dt id="celloracle.utility.intersect">
-<code class="sig-prename descclassname">celloracle.utility.</code><code class="sig-name descname">intersect</code><span class="sig-paren">(</span><em class="sig-param">list1</em>, <em class="sig-param">list2</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.utility.intersect" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">celloracle.utility.</code><code class="sig-name descname">intersect</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">list1</span></em>, <em class="sig-param"><span class="n">list2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.utility.intersect" title="Permalink to this definition">¶</a></dt>
 <dd><p>Intersect two list and get components that exists in both list.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -284,25 +254,74 @@
 </dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="celloracle.utility.exec_process">
-<code class="sig-prename descclassname">celloracle.utility.</code><code class="sig-name descname">exec_process</code><span class="sig-paren">(</span><em class="sig-param">commands</em>, <em class="sig-param">message=True</em>, <em class="sig-param">wait_finished=True</em>, <em class="sig-param">return_process=True</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.utility.exec_process" title="Permalink to this definition">¶</a></dt>
-<dd><p>Excute a command. This is a wrapper of “subprocess.Popen”</p>
+<dl class="py function">
+<dt id="celloracle.utility.load_hdf5">
+<code class="sig-prename descclassname">celloracle.utility.</code><code class="sig-name descname">load_hdf5</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">file_path</span></em>, <em class="sig-param"><span class="n">object_class_name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.utility.load_hdf5" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load an object of celloracle’s custom class that was saved as hdf5.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>commands</strong> (<em>str</em>) – command.</p></li>
-<li><p><strong>message</strong> (<em>bool</em>) – Whether to return a message or not.</p></li>
-<li><p><strong>wait_finished</strong> (<em>bool</em>) – Whether or not to wait for the process to finish. If false, the process will be perfomed in background and the function will finish immediately</p></li>
-<li><p><strong>return_process</strong> (<em>bool</em>) – Whether to return “process”.</p></li>
+<li><p><strong>file_path</strong> (<em>str</em>) – file_path.</p></li>
+<li><p><strong>object_class_name</strong> (<em>str</em>) – Types of object.
+If it is None, object class will be identified from the extension of file_name.
+Default is None.</p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
+<dt id="celloracle.utility.load_pickled_object">
+<code class="sig-prename descclassname">celloracle.utility.</code><code class="sig-name descname">load_pickled_object</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filepath</span></em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.utility.load_pickled_object" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load pickled object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>filepath</strong> (<em>str</em>) – file path.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>loaded object.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>python object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt id="celloracle.utility.makelog">
+<em class="property">class </em><code class="sig-prename descclassname">celloracle.utility.</code><code class="sig-name descname">makelog</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">file_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">directory</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.utility.makelog" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This is a class for making log.</p>
+<dl class="py method">
+<dt id="celloracle.utility.makelog.info">
+<code class="sig-name descname">info</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">comment</span></em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.utility.makelog.info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add comment into the log file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>comment</strong> (<em>str</em>) – comment.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="celloracle.utility.save_as_pickled_object">
+<code class="sig-prename descclassname">celloracle.utility.</code><code class="sig-name descname">save_as_pickled_object</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span></em>, <em class="sig-param"><span class="n">filepath</span></em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.utility.save_as_pickled_object" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save any object using pickle.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj</strong> (<em>any python object</em>) – python object.</p></li>
+<li><p><strong>filepath</strong> (<em>str</em>) – file path.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt id="celloracle.utility.standard">
-<code class="sig-prename descclassname">celloracle.utility.</code><code class="sig-name descname">standard</code><span class="sig-paren">(</span><em class="sig-param">df</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.utility.standard" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">celloracle.utility.</code><code class="sig-name descname">standard</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">df</span></em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.utility.standard" title="Permalink to this definition">¶</a></dt>
 <dd><p>Standardize value.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -317,57 +336,15 @@
 </dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="celloracle.utility.load_hdf5">
-<code class="sig-prename descclassname">celloracle.utility.</code><code class="sig-name descname">load_hdf5</code><span class="sig-paren">(</span><em class="sig-param">file_path</em>, <em class="sig-param">object_class_name=None</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.utility.load_hdf5" title="Permalink to this definition">¶</a></dt>
-<dd><p>Load an object of celloracle’s custom class that was saved as hdf5.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>file_path</strong> (<em>str</em>) – file_path.</p></li>
-<li><p><strong>object_class_name</strong> (<em>str</em>) – Types of object.
-If it is None, object class will be identified from the extension of file_name.
-Default is None.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
+<dl class="py function">
+<dt id="celloracle.utility.transfer_all_colors_between_anndata">
+<code class="sig-prename descclassname">celloracle.utility.</code><code class="sig-name descname">transfer_all_colors_between_anndata</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">anndata_ref</span></em>, <em class="sig-param"><span class="n">anndata_que</span></em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.utility.transfer_all_colors_between_anndata" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
-<dl class="function">
-<dt id="celloracle.utility.inverse_dictionary">
-<code class="sig-prename descclassname">celloracle.utility.</code><code class="sig-name descname">inverse_dictionary</code><span class="sig-paren">(</span><em class="sig-param">dictionary</em>, <em class="sig-param">verbose=True</em>, <em class="sig-param">return_value_as_numpy=False</em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.utility.inverse_dictionary" title="Permalink to this definition">¶</a></dt>
-<dd><p>Make inverse dictionary.
-See examples below for detail.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>dictionary</strong> (<em>dict</em>) – python dictionary</p></li>
-<li><p><strong>verbose</strong> (<em>bool</em>) – Whether to show progress bar.</p></li>
-<li><p><strong>return_value_as_numpy</strong> (<em>bool</em>) – Whether to convert values into numpy array.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Python dictionary.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>dict</p>
-</dd>
-</dl>
-<p class="rubric">Examples</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dic</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]}</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">inverse_dictionary</span><span class="p">(</span><span class="n">dic</span><span class="p">)</span>
-<span class="go">{1: [&#39;a&#39;], 2: [&#39;a&#39;, &#39;b&#39;], 3: [&#39;a&#39;, &#39;b&#39;], 4: [&#39;b&#39;]}</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dic</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]}</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">inverse_dictionary</span><span class="p">(</span><span class="n">dic</span><span class="p">,</span> <span class="n">return_value_as_numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="go">{1: array([&#39;a&#39;], dtype=&#39;&lt;U1&#39;),</span>
-<span class="go"> 2: array([&#39;a&#39;, &#39;b&#39;], dtype=&#39;&lt;U1&#39;),</span>
-<span class="go"> 3: array([&#39;a&#39;, &#39;b&#39;], dtype=&#39;&lt;U1&#39;),</span>
-<span class="go"> 4: array([&#39;b&#39;], dtype=&#39;&lt;U1&#39;)}</span>
-</pre></div>
-</div>
-</dd></dl>
+<dl class="py function">
+<dt id="celloracle.utility.transfer_color_between_anndata">
+<code class="sig-prename descclassname">celloracle.utility.</code><code class="sig-name descname">transfer_color_between_anndata</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">anndata_ref</span></em>, <em class="sig-param"><span class="n">anndata_que</span></em>, <em class="sig-param"><span class="n">cluster_name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.utility.transfer_color_between_anndata" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </div></blockquote>
 </div>
@@ -392,11 +369,19 @@ See examples below for detail.</p>
 
   <div role="contentinfo">
     <p>
+        
         &copy; Copyright 2020, Samantha Morris Lab
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -407,7 +392,6 @@ See examples below for detail.</p>
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

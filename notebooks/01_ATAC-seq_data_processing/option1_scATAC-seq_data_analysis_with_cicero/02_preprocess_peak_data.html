@@ -1,15 +1,18 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>0. Import libraries &mdash; celloracle 0.3.5 documentation</title>
+  <title>0. Import libraries &mdash; celloracle 0.4.0 documentation</title>
   
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
 
   
   
@@ -17,29 +20,27 @@
   
 
   
-  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../../_static/language_data.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="0. Import libraries" href="../option2_Bulk_ATAC-seq_data/01_preprocess_Bulk_ATAC_seq_peak_data.html" />
-    <link rel="prev" title="1. ATAC-seq data preprocessing" href="../../../tutorials/atac.html" /> 
+    <link rel="prev" title="0. Import library" href="01_atacdata_analysis_with_cicero_and_monocle3.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -53,7 +54,7 @@
           
 
           
-            <a href="../../../index.html" class="icon icon-home"> celloracle
+            <a href="../../../index.html" class="icon icon-home" alt="Documentation Home"> celloracle
           
 
           
@@ -76,6 +77,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -93,7 +95,8 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../../../tutorials/index.html">Tutorial</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../../../tutorials/atac.html">1. ATAC-seq data preprocessing</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="../../../tutorials/atac.html#a-extract-tf-binding-information-from-scatac-seq-data">A. Extract TF binding information from scATAC-seq data</a><ul class="current">
-<li class="toctree-l4 current"><a class="reference internal" href="../../../tutorials/atac.html#scatac-seq-analysis-with-cicero-and-monocle3">scATAC-seq analysis with Cicero and Monocle3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/atac.html#scatac-seq-analysis-with-cicero-and-monocle3">scATAC-seq analysis with Cicero and Monocle3</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../../../tutorials/atac.html#tss-annotation">TSS annotation</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../tutorials/atac.html#b-extract-tf-binding-information-from-bulk-atac-seq-data-or-chip-seq-data">B. Extract TF binding information from bulk ATAC-seq data or Chip-seq data</a></li>
@@ -122,6 +125,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -160,11 +164,11 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="../../../tutorials/index.html">Tutorial</a> &raquo;</li>
         
-          <li><a href="../../../tutorials/atac.html">1. ATAC-seq data preprocessing</a> &raquo;</li>
+          <li><a href="../../../tutorials/atac.html"><span class="section-number">1. </span>ATAC-seq data preprocessing</a> &raquo;</li>
         
       <li>0. Import libraries</li>
     
@@ -251,20 +255,33 @@ div.nboutput.container div.prompt pre {
 /* all prompts */
 div.nbinput.container div.prompt,
 div.nboutput.container div.prompt {
-    min-width: 5ex;
-    padding-top: 0.3rem;
-    padding-right: 0.3rem;
-    text-align: right;
-    flex: 0;
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
 }
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
 @media (max-width: 540px) {
     div.nbinput.container div.prompt,
     div.nboutput.container div.prompt {
+        width: unset;
         text-align: left;
         padding: 0.4em;
     }
     div.nboutput.container div.prompt.empty {
         padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
     }
 }
 
@@ -357,7 +374,7 @@ div.nboutput.container div.output_area div[class*=highlight].math,
 div.nboutput.container div.output_area.rendered_html,
 div.nboutput.container div.output_area > div.output_javascript,
 div.nboutput.container div.output_area:not(.rendered_html) > img{
-    padding: 0.3rem;
+    padding: 5px;
 }
 
 /* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
@@ -444,9 +461,9 @@ div.rendered_html tbody tr:hover {
 
 
 <span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">shutil</span><span class="o">,</span> <span class="nn">importlib</span><span class="o">,</span> <span class="nn">glob</span>
-<span class="kn">from</span> <span class="nn">tqdm.notebook</span> <span class="k">import</span> <span class="n">tqdm</span>
+<span class="kn">from</span> <span class="nn">tqdm.notebook</span> <span class="kn">import</span> <span class="n">tqdm</span>
 
-<span class="kn">from</span> <span class="nn">celloracle</span> <span class="k">import</span> <span class="n">motif_analysis</span> <span class="k">as</span> <span class="n">ma</span>
+<span class="kn">from</span> <span class="nn">celloracle</span> <span class="kn">import</span> <span class="n">motif_analysis</span> <span class="k">as</span> <span class="n">ma</span>
 </pre></div>
 </div>
 </div>
@@ -880,7 +897,7 @@ tss peaks in que: 16987
         <a href="../option2_Bulk_ATAC-seq_data/01_preprocess_Bulk_ATAC_seq_peak_data.html" class="btn btn-neutral float-right" title="0. Import libraries" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../../../tutorials/atac.html" class="btn btn-neutral float-left" title="1. ATAC-seq data preprocessing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="01_atacdata_analysis_with_cicero_and_monocle3.html" class="btn btn-neutral float-left" title="0. Import library" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -889,11 +906,19 @@ tss peaks in que: 16987
 
   <div role="contentinfo">
     <p>
+        
         &copy; Copyright 2020, Samantha Morris Lab
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -904,7 +929,6 @@ tss peaks in que: 16987
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {
