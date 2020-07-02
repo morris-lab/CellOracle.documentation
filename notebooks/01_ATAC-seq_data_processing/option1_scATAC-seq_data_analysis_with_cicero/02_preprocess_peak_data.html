@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>0. Import libraries &mdash; celloracle 0.4.0 documentation</title>
+  <title>0. Import libraries &mdash; celloracle 0.4.1 documentation</title>
   
 
   
@@ -594,7 +594,8 @@ array([&#39;chr1_3094484_3095479&#39;, &#39;chr1_3113499_3113979&#39;,
 <div class="section" id="IMPORTANT:-Please-make-sure-that-you-are-setting-correct-reference-genoms.">
 <h2>IMPORTANT: Please make sure that you are setting correct reference genoms.<a class="headerlink" href="#IMPORTANT:-Please-make-sure-that-you-are-setting-correct-reference-genoms." title="Permalink to this headline">¶</a></h2>
 <p>If your scATAC-seq data was generated with mm10 reference genome, you can set ref_genome=“mm10”. If you used hg19 human reference genome, please set ref_genome==“hg19”</p>
-<p>Currently we support [“mm9”, “mm10”, “hg19”, “hg38”]. If your reference genome is not in the list, please send a request through github issue page.</p>
+<p>Currently we support refgenomes below. {“Human”: [‘hg38’, ‘hg19’], “Mouse”: [‘mm10’, ‘mm9’], “S.cerevisiae”: [“sacCer2”, “sacCer3”]}</p>
+<p>If your reference genome is not in the list, please send a request through github issue page.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
