@@ -1,0 +1,1177 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1. Download and unzip annotation data &mdash; celloracle 0.4.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home" alt="Documentation Home"> celloracle
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../index.html">Welcome to celloracle’s documentation!</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/index.html">Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/index.html">Tutorial</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modules/index.html">API</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../changelog/index.html">Changelog</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../license/index.html">License</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../citation/index.html">Authors and citations</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">celloracle</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>1. Download and unzip annotation data</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/notebooks/01_ATAC-seq_data_processing/option1_scATAC-seq_data_analysis_with_cicero/misc/make_tss_referenece_from_homer_data-S cerevisiae.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="c1">#import time</span>
+
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">shutil</span><span class="o">,</span> <span class="nn">importlib</span><span class="o">,</span> <span class="nn">glob</span><span class="o">,</span> <span class="nn">subprocess</span>
+<span class="kn">from</span> <span class="nn">tqdm.notebook</span> <span class="kn">import</span>  <span class="n">tqdm</span>
+
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;retina&#39;
+
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;savefig.dpi&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">200</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">tmp</span> <span class="o">=</span> <span class="s2">&quot;./tmp&quot;</span>
+<span class="n">output</span> <span class="o">=</span> <span class="s2">&quot;./output&quot;</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Please set reference genome name</span>
+<span class="n">ref_genome</span> <span class="o">=</span> <span class="s2">&quot;sacCer3&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="1.-Download-and-unzip-annotation-data">
+<h1>1. Download and unzip annotation data<a class="headerlink" href="#1.-Download-and-unzip-annotation-data" title="Permalink to this headline">¶</a></h1>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># URLs for genome annotation data</span>
+<span class="n">url_dictionary</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;mm10&quot;</span><span class="p">:</span> <span class="s2">&quot;http://homer.ucsd.edu/homer/data/genomes/mm10.v6.0.zip&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;mm9&quot;</span><span class="p">:</span> <span class="s2">&quot;http://homer.ucsd.edu/homer/data/genomes/mm9.v6.0.zip&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;hg19&quot;</span><span class="p">:</span> <span class="s2">&quot;http://homer.ucsd.edu/homer/data/genomes/hg19.v6.0.zip&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;hg38&quot;</span><span class="p">:</span> <span class="s2">&quot;http://homer.ucsd.edu/homer/data/genomes/hg38.v6.0.zip&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;sacCer2&quot;</span><span class="p">:</span> <span class="s2">&quot;http://homer.ucsd.edu/homer/data/genomes/sacCer2.v6.4.zip&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;sacCer3&quot;</span><span class="p">:</span> <span class="s2">&quot;http://homer.ucsd.edu/homer/data/genomes/sacCer3.v6.4.zip&quot;</span><span class="c1">#S.cerevisiae</span>
+                 <span class="p">}</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">url_dictionary</span><span class="p">[</span><span class="n">ref_genome</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;http://homer.ucsd.edu/homer/data/genomes/sacCer3.v6.4.zip&#39;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># download data</span>
+<span class="o">!</span> wget http://homer.ucsd.edu/homer/data/genomes/sacCer3.v6.4.zip
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+--2020-07-06 16:10:30--  http://homer.ucsd.edu/homer/data/genomes/sacCer3.v6.4.zip
+Resolving homer.ucsd.edu (homer.ucsd.edu)... 169.228.63.226
+Connecting to homer.ucsd.edu (homer.ucsd.edu)|169.228.63.226|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 5213978 (5.0M) [application/zip]
+Saving to: ‘sacCer3.v6.4.zip.1’
+
+sacCer3.v6.4.zip.1  100%[===================&gt;]   4.97M  3.55MB/s    in 1.4s
+
+2020-07-06 16:10:32 (3.55 MB/s) - ‘sacCer3.v6.4.zip.1’ saved [5213978/5213978]
+
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Unzip data</span>
+<span class="o">!</span> unzip sacCer3.v6.4.zip
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Archive:  sacCer3.v6.4.zip
+   creating: data/genomes/sacCer3/
+  inflating: data/genomes/sacCer3/chrV.fa
+  inflating: data/genomes/sacCer3/chrII.fa
+  inflating: data/genomes/sacCer3/sacCer3.basic.annotation
+  inflating: data/genomes/sacCer3/chrXII.fa
+  inflating: data/genomes/sacCer3/sacCer3.splice5p
+  inflating: data/genomes/sacCer3/sacCer3.miRNA
+  inflating: data/genomes/sacCer3/chrXIV.fa
+  inflating: data/genomes/sacCer3/sacCer3.aug
+  inflating: data/genomes/sacCer3/sacCer3.stop
+  inflating: data/genomes/sacCer3/chrI.fa
+  inflating: data/genomes/sacCer3/chrIII.fa
+  inflating: data/genomes/sacCer3/chrVIII.fa
+   creating: data/genomes/sacCer3/annotations/
+   creating: data/genomes/sacCer3/annotations/basic/
+ extracting: data/genomes/sacCer3/annotations/basic/centromeres.ann.txt
+  inflating: data/genomes/sacCer3/annotations/basic/introns.ann.txt
+  inflating: data/genomes/sacCer3/annotations/basic/coding.ann.txt
+  inflating: data/genomes/sacCer3/annotations/basic/miRNA.ann.txt
+  inflating: data/genomes/sacCer3/annotations/basic/intergenic.ann.txt
+  inflating: data/genomes/sacCer3/annotations/basic/tts.ann.txt
+ extracting: data/genomes/sacCer3/annotations/basic/gaps.ann.txt
+  inflating: data/genomes/sacCer3/annotations/basic/utr5.ann.txt
+  inflating: data/genomes/sacCer3/annotations/basic/exons.ann.txt
+  inflating: data/genomes/sacCer3/annotations/basic/pseudo.ann.txt
+  inflating: data/genomes/sacCer3/annotations/basic/promoters.ann.txt
+  inflating: data/genomes/sacCer3/annotations/basic/protein-coding.ann.txt
+  inflating: data/genomes/sacCer3/annotations/basic/utr3.ann.txt
+ extracting: data/genomes/sacCer3/annotations/basic/cpgIsland.ann.txt
+   creating: data/genomes/sacCer3/annotations/repeats/
+   creating: data/genomes/sacCer3/annotations/custom/
+ extracting: data/genomes/sacCer3/sacCer3.repeats
+  inflating: data/genomes/sacCer3/sacCer3.full.annotation
+  inflating: data/genomes/sacCer3/sacCer3.splice3p
+  inflating: data/genomes/sacCer3/sacCer3.tss
+  inflating: data/genomes/sacCer3/chrXI.fa
+  inflating: data/genomes/sacCer3/chrXVI.fa
+  inflating: data/genomes/sacCer3/sacCer3.rna
+  inflating: data/genomes/sacCer3/chrX.fa
+  inflating: data/genomes/sacCer3/chrVI.fa
+  inflating: data/genomes/sacCer3/chrIV.fa
+  inflating: data/genomes/sacCer3/chrXIII.fa
+  inflating: data/genomes/sacCer3/chrIX.fa
+  inflating: data/genomes/sacCer3/chrom.sizes
+  inflating: data/genomes/sacCer3/sacCer3.tts
+  inflating: data/genomes/sacCer3/chrVII.fa
+  inflating: data/genomes/sacCer3/chrM.fa
+  inflating: data/genomes/sacCer3/chrXV.fa
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="2.-Make-tss-bed-file">
+<h1>2. Make tss bed file<a class="headerlink" href="#2.-Make-tss-bed-file" title="Permalink to this headline">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">make_tss_bed_file</span><span class="p">(</span><span class="n">ref_genome</span><span class="p">):</span>
+
+    <span class="n">tss</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;data/genomes/</span><span class="si">{</span><span class="n">ref_genome</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">ref_genome</span><span class="si">}</span><span class="s2">.basic.annotation&quot;</span><span class="p">,</span>
+                      <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">tss</span> <span class="o">=</span> <span class="n">tss</span><span class="p">[</span><span class="n">tss</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;P&quot;</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1. raw_tss_data&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">tss</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;2. save tss info as a bed file&quot;</span><span class="p">)</span>
+    <span class="n">tss</span> <span class="o">=</span> <span class="n">tss</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">tss</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;index&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ref_genome</span><span class="si">}</span><span class="s2">_tss.bed&quot;</span><span class="p">),</span>
+                                         <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; tss bed file was saved as &quot;</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ref_genome</span><span class="si">}</span><span class="s2">_tss.bed&quot;</span><span class="p">))</span>
+
+
+<span class="n">make_tss_bed_file</span><span class="p">(</span><span class="n">ref_genome</span><span class="o">=</span><span class="n">ref_genome</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1. raw_tss_data
+                          0     1     2      3  4  5  6
+0    promoter-TSS (YAL069W)  chrI  -665    435  +  P  1
+1  promoter-TSS (YAL068W-A)  chrI   436    638  +  P  2
+3  promoter-TSS (YAL067W-A)  chrI  1480   2068  +  P  4
+4    promoter-TSS (YAL068C)  chrI  2069   3169  -  P  3
+9    promoter-TSS (YAL067C)  chrI  8916  10016  -  P  5
+2. save tss info as a bed file
+ tss bed file was saved as ./tmp/sacCer3_tss.bed
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="2.-Process-peaks-with-homer">
+<h1>2. Process peaks with homer<a class="headerlink" href="#2.-Process-peaks-with-homer" title="Permalink to this headline">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># command</span>
+<span class="n">input_bed</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ref_genome</span><span class="si">}</span><span class="s2">_tss.bed&quot;</span><span class="p">)</span>
+<span class="n">out_bed</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ref_genome</span><span class="si">}</span><span class="s2">_tss_with_annot.bed&quot;</span><span class="p">)</span>
+<span class="n">command</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;annotatePeaks.pl </span><span class="si">{</span><span class="n">input_bed</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">ref_genome</span><span class="si">}</span><span class="s1"> &gt;</span><span class="si">{</span><span class="n">out_bed</span><span class="si">}</span><span class="s1">&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+annotatePeaks.pl ./tmp/sacCer3_tss.bed sacCer3 &gt;./tmp/sacCer3_tss_with_annot.bed
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Install genome data</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">!</span> perl /home/k/anaconda3/envs/pandas1/share/homer-4.11-1/.//configureHomer.pl -install sacCer3
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+        Current base directory for HOMER is /home/k/anaconda3/envs/pandas1/share/homer-4.11-1/.//
+
+        Will install sacCer3
+--2020-07-02 14:26:12--  http://homer.ucsd.edu/homer/update.txt
+Resolving homer.ucsd.edu (homer.ucsd.edu)... 169.228.63.226
+Connecting to homer.ucsd.edu (homer.ucsd.edu)|169.228.63.226|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 17859 (17K) [text/plain]
+Saving to: ‘/home/k/anaconda3/envs/pandas1/share/homer-4.11-1/.///update.txt’
+
+/home/k/anaconda3/e 100%[===================&gt;]  17.44K  --.-KB/s    in 0.05s
+
+2020-07-02 14:26:12 (340 KB/s) - ‘/home/k/anaconda3/envs/pandas1/share/homer-4.11-1/.///update.txt’ saved [17859/17859]
+
+        Updating Settings...
+`wget -O 0.377529841455729.tmp http://homer.ucsd.edu/homer/configureHomer.pl`;
+--2020-07-02 14:26:12--  http://homer.ucsd.edu/homer/configureHomer.pl
+Resolving homer.ucsd.edu (homer.ucsd.edu)... 169.228.63.226
+Connecting to homer.ucsd.edu (homer.ucsd.edu)|169.228.63.226|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 27477 (27K) [application/x-perl]
+Saving to: ‘0.377529841455729.tmp’
+
+0.377529841455729.t 100%[===================&gt;]  26.83K  --.-KB/s    in 0.05s
+
+2020-07-02 14:26:12 (522 KB/s) - ‘0.377529841455729.tmp’ saved [27477/27477]
+
+        configureHomer.pl script is up-to-date
+                Installing/Updating Organism yeast (v6.3) for package sacCer3
+        Packages to Install...
+                yeast -&gt; v6.3
+                sacCer3 -&gt;
+        Pausing for 3 seconds (hit ctrl-C to stop)
+        Installing: yeast
+                Downloading...
+--2020-07-02 14:26:15--  http://homer.ucsd.edu/homer/data/organisms/yeast.v6.3.zip
+Resolving homer.ucsd.edu (homer.ucsd.edu)... 169.228.63.226
+Connecting to homer.ucsd.edu (homer.ucsd.edu)|169.228.63.226|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 5700717 (5.4M) [application/zip]
+Saving to: ‘homer.package.zip’
+
+homer.package.zip   100%[===================&gt;]   5.44M  4.37MB/s    in 1.2s
+
+2020-07-02 14:26:17 (4.37 MB/s) - ‘homer.package.zip’ saved [5700717/5700717]
+
+                Unzipping...
+                Finished Installing yeast
+
+        Installing: sacCer3
+                Downloading...
+--2020-07-02 14:26:17--  http://homer.ucsd.edu/homer/data/genomes/sacCer3.v6.4.zip
+Resolving homer.ucsd.edu (homer.ucsd.edu)... 169.228.63.226
+Connecting to homer.ucsd.edu (homer.ucsd.edu)|169.228.63.226|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 5213978 (5.0M) [application/zip]
+Saving to: ‘homer.package.zip’
+
+homer.package.zip   100%[===================&gt;]   4.97M  5.04MB/s    in 1.0s
+
+2020-07-02 14:26:18 (5.04 MB/s) - ‘homer.package.zip’ saved [5213978/5213978]
+
+                Unzipping...
+                Finished Installing sacCer3
+
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># process tss file with homer</span>
+<span class="o">!</span>annotatePeaks.pl ./tmp/sacCer3_tss.bed sacCer3 &gt;./tmp/sacCer3_tss_with_annot.bed
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+        Peak file = ./tmp/sacCer3_tss.bed
+        Genome = sacCer3
+        Organism = yeast
+        Peak/BED file conversion summary:
+                BED/Header formatted lines: 6371
+                peakfile formatted lines: 0
+                Duplicated Peak IDs: 0
+
+        Peak File Statistics:
+                Total Peaks: 6371
+                Redundant Peak IDs: 0
+                Peaks lacking information: 0 (need at least 5 columns per peak)
+                Peaks with misformatted coordinates: 0 (should be integer)
+                Peaks with misformatted strand: 0 (should be either +/- or 0/1)
+
+        Peak file looks good!
+
+        Reading Positions...
+        -----------------------
+        Finding Closest TSS...
+        Annotating:.................
+                Annotation      Number of peaks Total size (bp) Log2 Ratio (obs/exp)    LogP enrichment (+values depleted)
+                TTS     0.0     2952159 -10.998 1773.286
+                Exon    0.0     3377468 -11.261 2074.881
+                Intron  0.0     12503   -2.919  6.559
+                Intergenic      0.0     227969  -6.940  120.665
+                Promoter        6371.0  5580781 1.123   -4957.102
+        NOTE: If this part takes more than 2 minutes, there is a good chance
+                your machine ran out of memory: consider hitting ctrl+C and rerunning
+                the command with &#34;-noann&#34;
+        To capture annotation stats in a file, use &#34;-annStats &lt;filename&gt;&#34; next time
+        Annotating:.................
+                Annotation      Number of peaks Total size (bp) Log2 Ratio (obs/exp)    LogP enrichment (+values depleted)
+                TTS     0.0     2952159 -10.998 1773.286
+                Exon    0.0     3377468 -11.261 2074.881
+                Intron  0.0     12503   -2.919  6.559
+                Intergenic      0.0     227969  -6.940  120.665
+                Promoter        6371.0  5580781 1.123   -4957.102
+        Counting Tags in Peaks from each directory...
+        Organism: yeast
+        Loading Gene Informaiton...
+        Outputing Annotation File...
+        Done annotating peaks file
+
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="3.load-and-process">
+<h1>3.load and process<a class="headerlink" href="#3.load-and-process" title="Permalink to this headline">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">out_bed</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;./tmp/sacCer3_tss_with_annot.bed&#39;
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">process_tss_info</span><span class="p">():</span>
+
+    <span class="c1"># load file</span>
+    <span class="n">tss_with_annot</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">out_bed</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="c1"># process</span>
+    <span class="n">tss_with_annot</span><span class="o">.</span><span class="n">Start</span> <span class="o">=</span> <span class="n">tss_with_annot</span><span class="o">.</span><span class="n">Start</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="n">tss_with_annot</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">tss_with_annot</span> <span class="o">=</span> <span class="n">tss_with_annot</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="c1"># select info</span>
+    <span class="n">tss_with_annot</span> <span class="o">=</span> <span class="n">tss_with_annot</span><span class="p">[[</span><span class="s2">&quot;Chr&quot;</span><span class="p">,</span> <span class="s2">&quot;Start&quot;</span><span class="p">,</span> <span class="s2">&quot;End&quot;</span><span class="p">,</span> <span class="s2">&quot;Gene Name&quot;</span><span class="p">,</span> <span class="s1">&#39;Distance to TSS&#39;</span><span class="p">,</span> <span class="s2">&quot;Strand&quot;</span><span class="p">]]</span>
+
+    <span class="k">return</span> <span class="n">tss_with_annot</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">tss_ref</span> <span class="o">=</span> <span class="n">process_tss_info</span><span class="p">()</span>
+<span class="n">tss_ref</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Chr</th>
+      <th>Start</th>
+      <th>End</th>
+      <th>Gene Name</th>
+      <th>Distance to TSS</th>
+      <th>Strand</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>chrXII</td>
+      <td>1012246</td>
+      <td>1013023</td>
+      <td>NaN</td>
+      <td>51</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>chrXII</td>
+      <td>789676</td>
+      <td>790776</td>
+      <td>MID2</td>
+      <td>-450</td>
+      <td>+</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>chrVII</td>
+      <td>196303</td>
+      <td>197403</td>
+      <td>RAD54</td>
+      <td>-450</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>chrI</td>
+      <td>189193</td>
+      <td>190293</td>
+      <td>YAT1</td>
+      <td>-450</td>
+      <td>+</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>chrX</td>
+      <td>531062</td>
+      <td>532162</td>
+      <td>RAD7</td>
+      <td>-450</td>
+      <td>+</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">tss_ref</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Chr</th>
+      <th>Start</th>
+      <th>End</th>
+      <th>Gene Name</th>
+      <th>Distance to TSS</th>
+      <th>Strand</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>chrXIV</td>
+      <td>224369</td>
+      <td>225469</td>
+      <td>CNM67</td>
+      <td>-450</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>chrIV</td>
+      <td>500100</td>
+      <td>500778</td>
+      <td>REG1</td>
+      <td>440</td>
+      <td>+</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>chrIX</td>
+      <td>307829</td>
+      <td>308929</td>
+      <td>NaN</td>
+      <td>196</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>chrII</td>
+      <td>28199</td>
+      <td>29299</td>
+      <td>YBL100W-C</td>
+      <td>322</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>chrXIV</td>
+      <td>470377</td>
+      <td>471001</td>
+      <td>END3</td>
+      <td>413</td>
+      <td>+</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>6366</th>
+      <td>chrIX</td>
+      <td>201120</td>
+      <td>201461</td>
+      <td>KTR7</td>
+      <td>752</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>6367</th>
+      <td>chrXII</td>
+      <td>159405</td>
+      <td>160505</td>
+      <td>SSL1</td>
+      <td>-94</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>6368</th>
+      <td>chrXI</td>
+      <td>345520</td>
+      <td>346620</td>
+      <td>YKL050C</td>
+      <td>-450</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>6369</th>
+      <td>chrIV</td>
+      <td>2762</td>
+      <td>3862</td>
+      <td>NaN</td>
+      <td>-450</td>
+      <td>+</td>
+    </tr>
+    <tr>
+      <th>6370</th>
+      <td>chrIV</td>
+      <td>666670</td>
+      <td>667770</td>
+      <td>ARP10</td>
+      <td>216</td>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+<p>6371 rows × 6 columns</p>
+</div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">tss_ref</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ref_genome</span><span class="si">}</span><span class="s2">_tss_info.bed&quot;</span><span class="p">),</span>  <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+
+
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Samantha Morris Lab
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
