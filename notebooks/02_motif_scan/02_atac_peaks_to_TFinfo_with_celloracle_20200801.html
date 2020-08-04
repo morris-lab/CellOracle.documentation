@@ -100,9 +100,9 @@
 <li class="toctree-l4"><a class="reference internal" href="#1.-Rerefence-genome-data-preparation">1. Rerefence genome data preparation</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#2.-Load-data">2. Load data</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#3.-Instantiate-TFinfo-object-and-search-for-TF-binding-motifs">3. Instantiate TFinfo object and search for TF binding motifs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#5.-Filtering-motifs">5. Filtering motifs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#6.-Get-Final-results">6. Get Final results</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#7.-Save-TFinfo-as-dictionary-or-dataframe">7. Save TFinfo as dictionary or dataframe</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#4.-Filtering-motifs">4. Filtering motifs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#5.-Get-Final-results">5. Get Final results</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#6.-Save-TFinfo-as-dictionary-or-dataframe">6. Save TFinfo as dictionary or dataframe</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../tutorials/motifscan.html#optional-step-1-how-to-use-different-motif-data">[Optional step 1] How to use different motif data</a></li>
@@ -1012,8 +1012,8 @@ Peaks after filtering:  15898
 <p>We have the score for each sequence and motif_id pair. In the next step we will filter the motifs with low score.</p>
 </div>
 </div>
-<div class="section" id="5.-Filtering-motifs">
-<h1>5. Filtering motifs<a class="headerlink" href="#5.-Filtering-motifs" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="4.-Filtering-motifs">
+<h1>4. Filtering motifs<a class="headerlink" href="#4.-Filtering-motifs" title="Permalink to this headline">¶</a></h1>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
@@ -1086,10 +1086,10 @@ converting scan results into dictionaries...
 </pre></div></div>
 </div>
 </div>
-<div class="section" id="6.-Get-Final-results">
-<h1>6. Get Final results<a class="headerlink" href="#6.-Get-Final-results" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="6.1.-Get-resutls-as-a-dictionary">
-<h2>6.1. Get resutls as a dictionary<a class="headerlink" href="#6.1.-Get-resutls-as-a-dictionary" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="5.-Get-Final-results">
+<h1>5. Get Final results<a class="headerlink" href="#5.-Get-Final-results" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="5.1.-Get-resutls-as-a-dictionary">
+<h2>5.1. Get resutls as a dictionary<a class="headerlink" href="#5.1.-Get-resutls-as-a-dictionary" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
@@ -1101,8 +1101,8 @@ converting scan results into dictionaries...
 </div>
 </div>
 </div>
-<div class="section" id="6.2.-Get-results-as-a-dataframe">
-<h2>6.2. Get results as a dataframe<a class="headerlink" href="#6.2.-Get-results-as-a-dataframe" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="5.2.-Get-results-as-a-dataframe">
+<h2>5.2. Get results as a dataframe<a class="headerlink" href="#5.2.-Get-results-as-a-dataframe" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
@@ -1287,8 +1287,8 @@ converting scan results into dictionaries...
 </div>
 </div>
 </div>
-<div class="section" id="7.-Save-TFinfo-as-dictionary-or-dataframe">
-<h1>7. Save TFinfo as dictionary or dataframe<a class="headerlink" href="#7.-Save-TFinfo-as-dictionary-or-dataframe" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="6.-Save-TFinfo-as-dictionary-or-dataframe">
+<h1>6. Save TFinfo as dictionary or dataframe<a class="headerlink" href="#6.-Save-TFinfo-as-dictionary-or-dataframe" title="Permalink to this headline">¶</a></h1>
 <p>We’ll use this information when making the GRNs. Save the results.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
@@ -1305,15 +1305,6 @@ converting scan results into dictionaries...
 <span class="c1"># save TFinfo as a dataframe</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">tfi</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
 <span class="n">df</span><span class="o">.</span><span class="n">to_parquet</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="s2">&quot;TFinfo_dataframe.parquet&quot;</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>
 </pre></div>
 </div>
 </div>
