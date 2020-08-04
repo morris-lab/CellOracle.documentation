@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>celloracle.motif_analysis module &mdash; celloracle 0.4.2 documentation</title>
+  <title>celloracle.motif_analysis module &mdash; celloracle 0.5.0 documentation</title>
   
 
   
@@ -370,7 +370,7 @@ The following attributes will be erased: TF_onehot, dic_targetgene2TFs, dic_peak
 
 <dl class="py method">
 <dt id="celloracle.motif_analysis.TFinfo.scan">
-<code class="sig-name descname">scan</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">background_length</span><span class="o">=</span><span class="default_value">200</span></em>, <em class="sig-param"><span class="n">fpr</span><span class="o">=</span><span class="default_value">0.02</span></em>, <em class="sig-param"><span class="n">n_cpus</span><span class="o">=</span><span class="default_value">- 1</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.motif_analysis.TFinfo.scan" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">scan</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">background_length</span><span class="o">=</span><span class="default_value">200</span></em>, <em class="sig-param"><span class="n">fpr</span><span class="o">=</span><span class="default_value">0.02</span></em>, <em class="sig-param"><span class="n">n_cpus</span><span class="o">=</span><span class="default_value">- 1</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">motifs</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">TF_evidence_level</span><span class="o">=</span><span class="default_value">'direct_and_indirect'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.motif_analysis.TFinfo.scan" title="Permalink to this definition">¶</a></dt>
 <dd><p>Scan DNA sequences searching for TF binding motifs.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -379,6 +379,10 @@ The following attributes will be erased: TF_onehot, dic_targetgene2TFs, dic_peak
 <li><p><strong>fpr</strong> (<em>float</em>) – False positive rate for motif identification.</p></li>
 <li><p><strong>n_cpus</strong> (<em>int</em>) – number of CPUs for parallel calculation.</p></li>
 <li><p><strong>verbose</strong> (<em>bool</em>) – Whether to show a progress bar.</p></li>
+<li><p><strong>motifs</strong> (<em>list</em>) – a list of gimmemotifs motifs, will revert to default_motifs() if None</p></li>
+<li><p><strong>TF_evidence_level</strong> (<em>str</em>) – Please select one from [“direct”, “direct_and_indirect”]. If “direct” is selected, TFs that have a binding evidence were used.
+If “direct_and_indirect” is selected, TFs with binding evidence and inferred TFs are used.
+For more information, please read explanation of Motif class in gimmemotifs documentation (<a class="reference external" href="https://gimmemotifs.readthedocs.io/en/master/index.html">https://gimmemotifs.readthedocs.io/en/master/index.html</a>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -484,6 +488,23 @@ This function checks the installation status of the reference genome.</p>
 </dd></dl>
 
 <dl class="py function">
+<dt id="celloracle.motif_analysis.load_TFinfo">
+<code class="sig-prename descclassname">celloracle.motif_analysis.</code><code class="sig-name descname">load_TFinfo</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">file_path</span></em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.motif_analysis.load_TFinfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load TFinfo object which was saved as hdf5 file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>file_path</strong> (<em>str</em>) – file path.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Loaded TFinfo object.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#celloracle.motif_analysis.TFinfo" title="celloracle.motif_analysis.TFinfo">TFinfo</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt id="celloracle.motif_analysis.load_TFinfo_from_parquets">
 <code class="sig-prename descclassname">celloracle.motif_analysis.</code><code class="sig-name descname">load_TFinfo_from_parquets</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">folder_path</span></em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.motif_analysis.load_TFinfo_from_parquets" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load TFinfo object which was saved with the function; “save_as_parquet”.</p>
@@ -496,6 +517,23 @@ This function checks the installation status of the reference genome.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><a class="reference internal" href="#celloracle.motif_analysis.TFinfo" title="celloracle.motif_analysis.TFinfo">TFinfo</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="celloracle.motif_analysis.load_motifs">
+<code class="sig-prename descclassname">celloracle.motif_analysis.</code><code class="sig-name descname">load_motifs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">motifs_name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.motif_analysis.load_motifs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load motifs from celloracle motif database</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>motifs_name</strong> (<em>str</em>) – Name of motifs.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>List of gimmemotifs.motif object.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
 </dd>
 </dl>
 </dd></dl>
@@ -537,6 +575,33 @@ or it can be a list of peak_id.  e.g. [“chr5_0930303_9499409”, “chr11_1234
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>bed file in dataframe.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pandas.dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="celloracle.motif_analysis.remove_zero_seq">
+<code class="sig-prename descclassname">celloracle.motif_analysis.</code><code class="sig-name descname">remove_zero_seq</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fasta_object</span></em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.motif_analysis.remove_zero_seq" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove DNA sequence with zero length</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="celloracle.motif_analysis.scan_dna_for_motifs">
+<code class="sig-prename descclassname">celloracle.motif_analysis.</code><code class="sig-name descname">scan_dna_for_motifs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">scanner_object</span></em>, <em class="sig-param"><span class="n">motifs_object</span></em>, <em class="sig-param"><span class="n">sequence_object</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.motif_analysis.scan_dna_for_motifs" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is a wrapper function to scan DNA sequences searchig for Gene motifs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scanner_object</strong> (<em>gimmemotifs.scanner</em>) – Object that do motif scan.</p></li>
+<li><p><strong>motifs_object</strong> (<em>gimmemotifs.motifs</em>) – Object that stores motif data.</p></li>
+<li><p><strong>sequence_object</strong> (<em>gimmemotifs.fasta</em>) – Object that stores sequence data.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>scan results is stored in data frame.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>pandas.dataframe</p>

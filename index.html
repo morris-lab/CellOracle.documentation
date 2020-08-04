@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Welcome to celloracle’s documentation! &mdash; celloracle 0.4.2 documentation</title>
+  <title>Welcome to celloracle’s documentation! &mdash; celloracle 0.5.0 documentation</title>
   
 
   
@@ -203,7 +203,7 @@
 <div class="line-block">
 <div class="line">Documentation is also available as a pdf file.</div>
 </div>
-<p><a class="reference download internal" download="" href="_downloads/5ff5a9ade9b75aed4d18292507434c1e/celloracle.pdf"><code class="xref download docutils literal notranslate"><span class="pre">pdf</span> <span class="pre">documentation</span></code></a></p>
+<p><code class="xref download docutils literal notranslate"><span class="pre">pdf</span> <span class="pre">documentation</span></code></p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -224,17 +224,16 @@
 <li class="toctree-l3"><a class="reference internal" href="installation/index.html#add-conda-channels">1. Add conda channels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="installation/index.html#install-velocyto">2. Install velocyto</a></li>
 <li class="toctree-l3"><a class="reference internal" href="installation/index.html#install-scanpy">3. Install scanpy</a></li>
-<li class="toctree-l3"><a class="reference internal" href="installation/index.html#install-gimmemotifs">4. Install gimmemotifs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="installation/index.html#install-other-python-libraries">5. Install other python libraries</a></li>
-<li class="toctree-l3"><a class="reference internal" href="installation/index.html#install-celloracle-from-github">6. install celloracle from github</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation/index.html#install-other-python-libraries">4. Install other python libraries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation/index.html#install-celloracle-from-github">5. install celloracle from github</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="installation/index.html#r-requirements">R requirements</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="installation/index.html#id3">Seurat</a></li>
-<li class="toctree-l3"><a class="reference internal" href="installation/index.html#id5">Cicero</a></li>
-<li class="toctree-l3"><a class="reference internal" href="installation/index.html#id7">igraph</a></li>
-<li class="toctree-l3"><a class="reference internal" href="installation/index.html#id9">linkcomm</a></li>
-<li class="toctree-l3"><a class="reference internal" href="installation/index.html#id11">rnetcarto</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation/index.html#id2">Seurat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation/index.html#id4">Cicero</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation/index.html#id6">igraph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation/index.html#id8">linkcomm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation/index.html#id10">rnetcarto</a></li>
 <li class="toctree-l3"><a class="reference internal" href="installation/index.html#check-installation">Check installation</a></li>
 </ul>
 </li>
@@ -285,25 +284,61 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/motifscan.html">2. Transcription factor binding motif scan</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="notebooks/02_motif_scan/02_atac_peaks_to_TFinfo_with_celloracle_190901.html">0. Import libraries</a></li>
-<li class="toctree-l3"><a class="reference internal" href="notebooks/02_motif_scan/02_atac_peaks_to_TFinfo_with_celloracle_190901.html#1.-Load-data">1. Load data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="notebooks/02_motif_scan/02_atac_peaks_to_TFinfo_with_celloracle_190901.html#2.-Check-data">2. Check data</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="notebooks/02_motif_scan/02_atac_peaks_to_TFinfo_with_celloracle_190901.html#2.1.-Remove-short-peaks">2.1. Remove short peaks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials/motifscan.html#scan-dna-sequences-searching-for-tf-binding-motifs">Scan DNA sequences searching for TF binding motifs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/02_motif_scan/02_atac_peaks_to_TFinfo_with_celloracle_20200801.html">0. Import libraries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/02_motif_scan/02_atac_peaks_to_TFinfo_with_celloracle_20200801.html#1.-Rerefence-genome-data-preparation">1. Rerefence genome data preparation</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="notebooks/02_motif_scan/02_atac_peaks_to_TFinfo_with_celloracle_20200801.html#1.1.-Check-reference-genome-installation">1.1. Check reference genome installation</a></li>
+<li class="toctree-l5"><a class="reference internal" href="notebooks/02_motif_scan/02_atac_peaks_to_TFinfo_with_celloracle_20200801.html#1.2.-Install-reference-genome-(if-refgenome-is-not-installed)">1.2. Install reference genome (if refgenome is not installed)</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="notebooks/02_motif_scan/02_atac_peaks_to_TFinfo_with_celloracle_190901.html#3.-Instantiate-TFinfo-object-and-search-for-TF-binding-motifs">3. Instantiate TFinfo object and search for TF binding motifs</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="notebooks/02_motif_scan/02_atac_peaks_to_TFinfo_with_celloracle_190901.html#3.1-check-reference-genome-installation">3.1 check reference genome installation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="notebooks/02_motif_scan/02_atac_peaks_to_TFinfo_with_celloracle_190901.html#3.2.-Install-reference-genome-(if-refgenome-is-not-installed)">3.2. Install reference genome (if refgenome is not installed)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/02_motif_scan/02_atac_peaks_to_TFinfo_with_celloracle_20200801.html#2.-Load-data">2. Load data</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="notebooks/02_motif_scan/02_atac_peaks_to_TFinfo_with_celloracle_20200801.html#2.1.-Load-processed-peak-data">2.1. Load processed peak data</a></li>
+<li class="toctree-l5"><a class="reference internal" href="notebooks/02_motif_scan/02_atac_peaks_to_TFinfo_with_celloracle_20200801.html#2.1.-Check-data">2.1. Check data</a></li>
+<li class="toctree-l5"><a class="reference internal" href="notebooks/02_motif_scan/02_atac_peaks_to_TFinfo_with_celloracle_20200801.html#2.2.-[Optional-step]-Load-motifs">2.2. [Optional step] Load motifs</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="notebooks/02_motif_scan/02_atac_peaks_to_TFinfo_with_celloracle_20200801.html#2.2.1.-[Optional-step]-Load-motif-data-from-gimmemotifs-dataset">2.2.1. [Optional step] Load motif data from gimmemotifs dataset</a></li>
+<li class="toctree-l6"><a class="reference internal" href="notebooks/02_motif_scan/02_atac_peaks_to_TFinfo_with_celloracle_20200801.html#2.2.2-[Optional-step]-Load-motif-data-from-celloracle-motif-dataset">2.2.2 [Optional step] Load motif data from celloracle motif dataset</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="notebooks/02_motif_scan/02_atac_peaks_to_TFinfo_with_celloracle_190901.html#4.-Scan-motifs-and-save-object">4. Scan motifs and save object</a></li>
-<li class="toctree-l3"><a class="reference internal" href="notebooks/02_motif_scan/02_atac_peaks_to_TFinfo_with_celloracle_190901.html#5.-Filtering-motifs">5. Filtering motifs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="notebooks/02_motif_scan/02_atac_peaks_to_TFinfo_with_celloracle_190901.html#6.-Get-Final-results">6. Get Final results</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="notebooks/02_motif_scan/02_atac_peaks_to_TFinfo_with_celloracle_190901.html#6.1.-Get-resutls-as-a-dictionary">6.1. Get resutls as a dictionary</a></li>
-<li class="toctree-l4"><a class="reference internal" href="notebooks/02_motif_scan/02_atac_peaks_to_TFinfo_with_celloracle_190901.html#6.2.-Get-results-as-a-dataframe">6.2. Get results as a dataframe</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="notebooks/02_motif_scan/02_atac_peaks_to_TFinfo_with_celloracle_190901.html#7.-Save-TFinfo-as-dictionary-or-dataframe">7. Save TFinfo as dictionary or dataframe</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/02_motif_scan/02_atac_peaks_to_TFinfo_with_celloracle_20200801.html#3.-Instantiate-TFinfo-object-and-search-for-TF-binding-motifs">3. Instantiate TFinfo object and search for TF binding motifs</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="notebooks/02_motif_scan/02_atac_peaks_to_TFinfo_with_celloracle_20200801.html#3.1.-Instantiate-TFinfo-object">3.1. Instantiate TFinfo object</a></li>
+<li class="toctree-l5"><a class="reference internal" href="notebooks/02_motif_scan/02_atac_peaks_to_TFinfo_with_celloracle_20200801.html#3.2.-Motif-scan">3.2. Motif scan</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/02_motif_scan/02_atac_peaks_to_TFinfo_with_celloracle_20200801.html#5.-Filtering-motifs">5. Filtering motifs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/02_motif_scan/02_atac_peaks_to_TFinfo_with_celloracle_20200801.html#6.-Get-Final-results">6. Get Final results</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="notebooks/02_motif_scan/02_atac_peaks_to_TFinfo_with_celloracle_20200801.html#6.1.-Get-resutls-as-a-dictionary">6.1. Get resutls as a dictionary</a></li>
+<li class="toctree-l5"><a class="reference internal" href="notebooks/02_motif_scan/02_atac_peaks_to_TFinfo_with_celloracle_20200801.html#6.2.-Get-results-as-a-dataframe">6.2. Get results as a dataframe</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/02_motif_scan/02_atac_peaks_to_TFinfo_with_celloracle_20200801.html#7.-Save-TFinfo-as-dictionary-or-dataframe">7. Save TFinfo as dictionary or dataframe</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials/motifscan.html#optional-step-1-how-to-use-different-motif-data">[Optional step 1] How to use different motif data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/02_motif_scan/motif_data_preparation/01_How_to_load_motif_data.html">0. Overview: How to use a different motifs for celloracle motif scan.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/02_motif_scan/motif_data_preparation/01_How_to_load_motif_data.html#1-Import-motifs-from-gimmemotifs-dataset.">1 Import motifs from gimmemotifs dataset.</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="notebooks/02_motif_scan/motif_data_preparation/01_How_to_load_motif_data.html#1.1-gimme.vertebrate.v5.0.">1.1 gimme.vertebrate.v5.0.</a></li>
+<li class="toctree-l5"><a class="reference internal" href="notebooks/02_motif_scan/motif_data_preparation/01_How_to_load_motif_data.html#1.2-Motifs-that-are-provided-with-gimmemotifs-package">1.2 Motifs that are provided with gimmemotifs package</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/02_motif_scan/motif_data_preparation/01_How_to_load_motif_data.html#2.-Import-motifs-from-Celloracle-dataset.">2. Import motifs from Celloracle dataset.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/02_motif_scan/motif_data_preparation/01_How_to_load_motif_data.html#3.-Import-motifs-from-custom-motif-dataset.">3. Import motifs from custom motif dataset.</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="notebooks/02_motif_scan/motif_data_preparation/01_How_to_load_motif_data.html#3.1-XXX.motif2factors.txt">3.1 XXX.motif2factors.txt</a></li>
+<li class="toctree-l5"><a class="reference internal" href="notebooks/02_motif_scan/motif_data_preparation/01_How_to_load_motif_data.html#3.2-XXX.pfm">3.2 XXX.pfm</a></li>
+<li class="toctree-l5"><a class="reference internal" href="notebooks/02_motif_scan/motif_data_preparation/01_How_to_load_motif_data.html#3.3-Load-files-as-motif-list">3.3 Load files as motif list</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials/motifscan.html#optional-step-2-how-to-make-custom-motifs-for-celloracle-motif-analysis">[Optional step 2] How to Make custom motifs for celloracle motif analysis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/02_motif_scan/motif_data_preparation/02_How_to_prepare_custom_motif_data.html">0. Overview: How to Make custom motifs for celloracle motif scan.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/02_motif_scan/motif_data_preparation/02_How_to_prepare_custom_motif_data.html#1.-Download-full-dataset-for-TF-dataset-from-CisBP-dadabase">1. Download full dataset for TF dataset from CisBP dadabase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/02_motif_scan/motif_data_preparation/02_How_to_prepare_custom_motif_data.html#2.-Define-custom-functions">2. Define custom functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/02_motif_scan/motif_data_preparation/02_How_to_prepare_custom_motif_data.html#3.-Pick-up-motif-information-for-one-species-and-save-as-gimmemotif-pfm-file-format.">3. Pick up motif information for one species and save as gimmemotif pfm file format.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/02_motif_scan/motif_data_preparation/02_How_to_prepare_custom_motif_data.html#4.-Check-results">4. Check results</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="tutorials/scrnaprocess.html">3. Single-cell RNA-seq data preprocessing</a><ul>

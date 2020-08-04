@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>celloracle.utility module &mdash; celloracle 0.4.2 documentation</title>
+  <title>celloracle.utility module &mdash; celloracle 0.5.0 documentation</title>
   
 
   
@@ -255,6 +255,26 @@
 </dd></dl>
 
 <dl class="py function">
+<dt id="celloracle.utility.knn_data_transferer">
+<code class="sig-prename descclassname">celloracle.utility.</code><code class="sig-name descname">knn_data_transferer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">adata_ref</span></em>, <em class="sig-param"><span class="n">adata_que</span></em>, <em class="sig-param"><span class="n">n_neighbors</span><span class="o">=</span><span class="default_value">20</span></em>, <em class="sig-param"><span class="n">cluster_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">embedding_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">adata_true</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">transfer_color</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">n_PCA</span><span class="o">=</span><span class="default_value">30</span></em>, <em class="sig-param"><span class="n">use_PCA_in_adata</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.utility.knn_data_transferer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract categorical information from adata.obs or embedding information from adata.obsm and transfer these information into query anndata.
+In the calculation, KNN is used after PCA.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>adata_ref</strong> (<em>anndata</em>) – reference anndata</p></li>
+<li><p><strong>adata_que</strong> (<em>anndata</em>) – query anndata</p></li>
+<li><p><strong>cluster_name</strong> (<em>str</em><em> or </em><em>list of str</em>) – cluster name(s) to be transfered. If you want to transfer multiple data, you can set the cluster names as a list.</p></li>
+<li><p><strong>embedding_name</strong> (<em>str</em><em> or </em><em>list of str</em>) – embedding name(s) to be transfered. If you want to transfer multiple data, you can set the embedding names as a list.</p></li>
+<li><p><strong>adata_true</strong> (<em>str</em>) – This argument can be used for the validataion of this algorithm. If you have true answer, you can set it. If you set true answer, the function will return some metrics for benchmarking.</p></li>
+<li><p><strong>transfer_color</strong> (<em>bool</em>) – Whether or not to transfer color data in addition to cluster information.</p></li>
+<li><p><strong>n_PCA</strong> (<em>int</em>) – Number of PCs that will be used for the input of KNN algorithm.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt id="celloracle.utility.load_hdf5">
 <code class="sig-prename descclassname">celloracle.utility.</code><code class="sig-name descname">load_hdf5</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">file_path</span></em>, <em class="sig-param"><span class="n">object_class_name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.utility.load_hdf5" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load an object of celloracle’s custom class that was saved as hdf5.</p>
@@ -338,12 +358,36 @@ Default is None.</p></li>
 
 <dl class="py function">
 <dt id="celloracle.utility.transfer_all_colors_between_anndata">
-<code class="sig-prename descclassname">celloracle.utility.</code><code class="sig-name descname">transfer_all_colors_between_anndata</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">anndata_ref</span></em>, <em class="sig-param"><span class="n">anndata_que</span></em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.utility.transfer_all_colors_between_anndata" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="sig-prename descclassname">celloracle.utility.</code><code class="sig-name descname">transfer_all_colors_between_anndata</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">adata_ref</span></em>, <em class="sig-param"><span class="n">adata_que</span></em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.utility.transfer_all_colors_between_anndata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract all color information from reference anndata and transfer the color into query anndata.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>adata_ref</strong> (<em>anndata</em>) – reference anndata</p></li>
+<li><p><strong>adata_que</strong> (<em>anndata</em>) – query anndata</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt id="celloracle.utility.transfer_color_between_anndata">
-<code class="sig-prename descclassname">celloracle.utility.</code><code class="sig-name descname">transfer_color_between_anndata</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">anndata_ref</span></em>, <em class="sig-param"><span class="n">anndata_que</span></em>, <em class="sig-param"><span class="n">cluster_name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.utility.transfer_color_between_anndata" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">celloracle.utility.</code><code class="sig-name descname">transfer_color_between_anndata</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">adata_ref</span></em>, <em class="sig-param"><span class="n">adata_que</span></em>, <em class="sig-param"><span class="n">cluster_name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.utility.transfer_color_between_anndata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract color information from reference anndata and transfer the color into query anndata.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>adata_ref</strong> (<em>anndata</em>) – reference anndata</p></li>
+<li><p><strong>adata_que</strong> (<em>anndata</em>) – query anndata</p></li>
+<li><p><strong>cluster_name</strong> (<em>str</em>) – cluster name. This information should exist in the anndata.obs.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="celloracle.utility.update_adata">
+<code class="sig-prename descclassname">celloracle.utility.</code><code class="sig-name descname">update_adata</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">adata</span></em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.utility.update_adata" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div></blockquote>
