@@ -764,7 +764,7 @@ Archive:  TF_Information_all_motifs.txt.zip
 <span class="k">def</span> <span class="nf">make_motif_file_from_cisbp_data</span><span class="p">(</span><span class="n">pwm_folder_path</span><span class="p">,</span> <span class="n">tfinfo_df</span><span class="p">,</span> <span class="n">species</span><span class="p">):</span>
 
     <span class="n">data_</span> <span class="o">=</span> <span class="n">tfinfo_df</span><span class="p">[</span><span class="n">tfinfo_df</span><span class="o">.</span><span class="n">TF_Species</span> <span class="o">==</span> <span class="n">species</span><span class="p">]</span>
-    <span class="n">data_name</span> <span class="o">=</span> <span class="s2">&quot;CisDB_ver2_&quot;</span> <span class="o">+</span> <span class="n">species</span>
+    <span class="n">data_name</span> <span class="o">=</span> <span class="s2">&quot;CisBP_ver2_&quot;</span> <span class="o">+</span> <span class="n">species</span>
 
     <span class="c1">## 1. Make file: motif2factors.txt</span>
 
@@ -1618,7 +1618,7 @@ Zymoseptoria_tritici
 
 <span class="kn">from</span> <span class="nn">gimmemotifs.motif</span> <span class="kn">import</span> <span class="n">read_motifs</span>
 
-<span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;CisDB_ver2_</span><span class="si">{</span><span class="n">species</span><span class="si">}</span><span class="s2">.pfm&quot;</span>
+<span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;CisBP_ver2_</span><span class="si">{</span><span class="n">species</span><span class="si">}</span><span class="s2">.pfm&quot;</span>
 <span class="n">custom_motifs</span> <span class="o">=</span> <span class="n">read_motifs</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 <span class="n">custom_motifs</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
 </pre></div>

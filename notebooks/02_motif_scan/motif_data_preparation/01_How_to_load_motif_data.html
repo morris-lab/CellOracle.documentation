@@ -472,15 +472,6 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-/home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages/gimmemotifs/plot.py:19: MatplotlibDeprecationWarning: The &#39;warn&#39; parameter of use() is deprecated since Matplotlib 3.1 and will be removed in 3.3.  If any parameter follows &#39;warn&#39;, they should be pass as keyword, not positionally.
-  mpl.use(&#34;Agg&#34;, warn=False)
-</pre></div></div>
-</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -504,7 +495,7 @@ div.rendered_html tbody tr:hover {
 <h2>1.2 Motifs that are provided with gimmemotifs package<a class="headerlink" href="#1.2-Motifs-that-are-provided-with-gimmemotifs-package" title="Permalink to this headline">¶</a></h2>
 <p>Many other motif databases come included with GimmeMotifs You can load them as follows.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -522,7 +513,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -542,6 +533,13 @@ div.rendered_html tbody tr:hover {
  &#39;JASPAR2018_plants.pfm&#39;,
  &#39;JASPAR2018_urochordates.pfm&#39;,
  &#39;JASPAR2018_vertebrates.pfm&#39;,
+ &#39;JASPAR2020.pfm&#39;,
+ &#39;JASPAR2020_fungi.pfm&#39;,
+ &#39;JASPAR2020_insects.pfm&#39;,
+ &#39;JASPAR2020_nematodes.pfm&#39;,
+ &#39;JASPAR2020_plants.pfm&#39;,
+ &#39;JASPAR2020_urochordates.pfm&#39;,
+ &#39;JASPAR2020_vertebrates.pfm&#39;,
  &#39;RSAT_insects.pfm&#39;,
  &#39;RSAT_plants.pfm&#39;,
  &#39;RSAT_vertebrates.pfm&#39;,
@@ -551,7 +549,7 @@ div.rendered_html tbody tr:hover {
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -567,7 +565,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -590,7 +588,7 @@ div.rendered_html tbody tr:hover {
 <h1>2. Import motifs from Celloracle dataset.<a class="headerlink" href="#2.-Import-motifs-from-Celloracle-dataset." title="Permalink to this headline">¶</a></h1>
 <p>Celloracle provides many motif dataset that was generated from CisDB. These motifs were divided by species. Please select motifs for your species.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -602,24 +600,43 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[&#39;CisDB_ver2_Mus_musculus.pfm&#39;,
- &#39;CisDB_ver2_Saccharomyces_cerevisiae.pfm&#39;,
- &#39;CisDB_ver2_Danio_rerio.pfm&#39;,
- &#39;CisDB_ver2_Homo_sapiens.pfm&#39;]
+[&#39;CisBP_ver2_Arabidopsis_thaliana.pfm&#39;,
+ &#39;CisBP_ver2_Caenorhabditis_elegans.pfm&#39;,
+ &#39;CisBP_ver2_Danio_rerio.pfm&#39;,
+ &#39;CisBP_ver2_Drosophila_ananassae.pfm&#39;,
+ &#39;CisBP_ver2_Drosophila_erecta.pfm&#39;,
+ &#39;CisBP_ver2_Drosophila_grimshawi.pfm&#39;,
+ &#39;CisBP_ver2_Drosophila_melanogaster.pfm&#39;,
+ &#39;CisBP_ver2_Drosophila_mix.pfm&#39;,
+ &#39;CisBP_ver2_Drosophila_mojavensis.pfm&#39;,
+ &#39;CisBP_ver2_Drosophila_persimilis.pfm&#39;,
+ &#39;CisBP_ver2_Drosophila_pseudoobscura.pfm&#39;,
+ &#39;CisBP_ver2_Drosophila_sechellia.pfm&#39;,
+ &#39;CisBP_ver2_Drosophila_simulans.pfm&#39;,
+ &#39;CisBP_ver2_Drosophila_virilis.pfm&#39;,
+ &#39;CisBP_ver2_Drosophila_willistoni.pfm&#39;,
+ &#39;CisBP_ver2_Drosophila_yakuba.pfm&#39;,
+ &#39;CisBP_ver2_Homo_sapiens.pfm&#39;,
+ &#39;CisBP_ver2_Mus_musculus.pfm&#39;,
+ &#39;CisBP_ver2_Rattus_norvegicus.pfm&#39;,
+ &#39;CisBP_ver2_Saccharomyces_cerevisiae.pfm&#39;,
+ &#39;CisBP_ver2_Xenopus_laevis.pfm&#39;,
+ &#39;CisBP_ver2_Xenopus_tropicalis.pfm&#39;,
+ &#39;CisBP_ver2_Xenopus_tropicalis_and_Xenopus_laevis.pfm&#39;]
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Load motifs from celloracle dataset.</span>
-<span class="n">motifs</span> <span class="o">=</span> <span class="n">ma</span><span class="o">.</span><span class="n">load_motifs</span><span class="p">(</span><span class="s2">&quot;CisDB_ver2_Homo_sapiens.pfm&quot;</span><span class="p">)</span>
+<span class="n">motifs</span> <span class="o">=</span> <span class="n">ma</span><span class="o">.</span><span class="n">load_motifs</span><span class="p">(</span><span class="s2">&quot;CisBP_ver2_Homo_sapiens.pfm&quot;</span><span class="p">)</span>
 
 <span class="c1"># Check first 10 motifs</span>
 <span class="n">motifs</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
@@ -627,7 +644,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
