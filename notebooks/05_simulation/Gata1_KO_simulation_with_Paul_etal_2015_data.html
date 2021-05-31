@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>0. Import libraries &mdash; celloracle 0.5.2 documentation</title>
+  <title>0. Import libraries &mdash; celloracle 0.6.9 documentation</title>
   
 
   
@@ -116,14 +116,8 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#4.-Visualization">4. Visualization</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#4.1.-Detailed-directed-trajectory-graph">4.1. Detailed directed trajectory graph</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#4.2.-Grid-graph">4.2. Grid graph</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#5.-Markov-simulation-to-analyze-the-effects-of-perturbation-on-cell-fate-transition">5. Markov simulation to analyze the effects of perturbation on cell fate transition</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#5.1.-Do-Markov-simulation">5.1. Do Markov simulation</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#5.2.-Check-the-results-of-the-simulation-for-specific-cells">5.2. Check the results of the simulation for specific cells</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#5.3.-Summarize-the-results-of-simulation-by-plotting-sankey-diagram">5.3. Summarize the results of simulation by plotting sankey diagram</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#4.1.-Quiver-plot:-Show-the-direction-of-cell-transition-at-single-cell-resolution">4.1. Quiver plot: Show the direction of cell transition at single cell resolution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#4.2.-Vector-field-graph">4.2. Vector field graph</a></li>
 </ul>
 </li>
 </ul>
@@ -488,17 +482,28 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<p>This notebook was made with celloracle version 0.6.9. Please use celloracle&gt;=0.6.9. Otherwise you may get an error.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">celloracle</span> <span class="k">as</span> <span class="nn">co</span>
+<span class="n">co</span><span class="o">.</span><span class="n">__version__</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
+<div class="nboutput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;0.6.9&#39;
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -533,7 +538,7 @@ div.rendered_html tbody tr:hover {
 <h2>1.1. Load processed oracle object<a class="headerlink" href="#1.1.-Load-processed-oracle-object" title="Permalink to this headline">¶</a></h2>
 <p>Load the oracle object. See the previous notebook for the notes on how to prepare the oracle object.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -546,7 +551,7 @@ div.rendered_html tbody tr:hover {
 <h2>1.2. Load inferred GRNs<a class="headerlink" href="#1.2.-Load-inferred-GRNs" title="Permalink to this headline">¶</a></h2>
 <p>In the previous notebook, we calculated GRNs. Now, we will use these GRNs for simulation. We import GRNs which were saved in the Links object.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -560,7 +565,7 @@ div.rendered_html tbody tr:hover {
 <h1>2. Make predictive models for simulation<a class="headerlink" href="#2.-Make-predictive-models-for-simulation" title="Permalink to this headline">¶</a></h1>
 <p>We will fit ridge regression models again. This process takes less time than the GRN inference in the previous notebook because we only use significant TFs to predict target gene instead of all regulatory candidate TFs.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -574,349 +579,121 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div class="highlight"><pre>
-calculating GRN using cluster specicif TF dict...
-calculating GRN in Ery_0
-</pre></div></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "a5f7e2c95a014751a867411813c5c2b5", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "14dfcd7cc22b4b53b240773f26d8a2be", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "15fc0b3a9fd34648971266310a707c1b", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div class="highlight"><pre>
-
-genes_in_gem: 1999
-models made for 1074 genes
-calculating GRN in Ery_1
-</pre></div></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "8957d595f9fd4e12ae44a375c7d0dc7f", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "e6146b0a06da47ccabd6eb5e209161f9", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "442de86fe1ec4135835811804d9cfcdf", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div class="highlight"><pre>
-
-genes_in_gem: 1999
-models made for 1092 genes
-calculating GRN in Ery_2
-</pre></div></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "3c47a7d11f8d439f8379484de17c0e71", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "84bdf6ae2f7545c9917c255b030c404c", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "85b80410e39847b7b58be642da02c0d2", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div class="highlight"><pre>
-
-genes_in_gem: 1999
-models made for 1064 genes
-calculating GRN in Ery_3
-</pre></div></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "f5a56e6ccc9a438183b59a8c3b1c275b", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "5eeabe9cf08945278865668694541e49", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "30b2eab4a69d46ca8938a183c03d482c", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div class="highlight"><pre>
-
-genes_in_gem: 1999
-models made for 1105 genes
-calculating GRN in Ery_4
-</pre></div></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "79c8d08881e3473abc03179d92fc4d96", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "8040356d76564851afaf6946a1878525", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "ec0f8a2362dd4d7887bbfeb6a687aae1", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div class="highlight"><pre>
-
-genes_in_gem: 1999
-models made for 1102 genes
-calculating GRN in Ery_5
-</pre></div></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "e5a6d386dc6042f09c7760b44b63a070", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "a4f9f8d4998f4b08856601f61e3298aa", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "28094b27207645518b21543c53d25193", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div class="highlight"><pre>
-
-genes_in_gem: 1999
-models made for 1116 genes
-calculating GRN in Ery_6
-</pre></div></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "6c6eba02bdd74cfda83dffd5639dba4f", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "005d0f6c78a6440ab5a7f74eb74039b1", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "c001cc620fbf461caa9800a64c743317", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div class="highlight"><pre>
-
-genes_in_gem: 1999
-models made for 1097 genes
-calculating GRN in Ery_7
-</pre></div></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "e75024a2521a48828b1fbb27ae8a0578", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "39009d989a58456c8d3152f1ea07befd", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "31affcd7fb894ef19fb505ddea165879", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div class="highlight"><pre>
-
-genes_in_gem: 1999
-models made for 1062 genes
-calculating GRN in Ery_8
-</pre></div></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "3a3bc4223d43493cad800183ac4de8c6", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "8be0075f3cfe4b93883b1f805714a316", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "adcbd4b5ce1f4b74ac3a8717346a0387", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div class="highlight"><pre>
-
-genes_in_gem: 1999
-models made for 1117 genes
-calculating GRN in Ery_9
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "2cd200598fe741d8881c94919b698998", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-
-genes_in_gem: 1999
-models made for 1121 genes
-calculating GRN in GMP_0
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "176a12ac5bca4924a5608fe4c3aa4d21", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-
-genes_in_gem: 1999
-models made for 1107 genes
-calculating GRN in GMP_1
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "edcd27b56c4b486c92bb5ec3dc450b64", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-
-genes_in_gem: 1999
-models made for 1104 genes
-calculating GRN in GMPl_0
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "1b1b948f1f5747aba3930aea2be7bb2e", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-
-genes_in_gem: 1999
-models made for 1089 genes
-calculating GRN in Gran_0
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "e0b30edace2045528bd368893d1a7e29", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-
-genes_in_gem: 1999
-models made for 1067 genes
-calculating GRN in Gran_1
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "e8e7ec9e98d84a1da7cfeffaccc789ff", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-
-genes_in_gem: 1999
-models made for 1076 genes
-calculating GRN in Gran_2
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "65eca3323d144d4e85bfcf5be0367a44", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-
-genes_in_gem: 1999
-models made for 1105 genes
-calculating GRN in MEP_0
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "986ddcc973a5410ea0edff528194b929", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-
-genes_in_gem: 1999
-models made for 1152 genes
-calculating GRN in Mk_0
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "183f54ddaaa043179b7042dd19a7f955", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-
-genes_in_gem: 1999
-models made for 1114 genes
-calculating GRN in Mo_0
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "30b1881884604ad697f3b13d5e98d0bd", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-
-genes_in_gem: 1999
-models made for 1085 genes
-calculating GRN in Mo_1
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "06bad2e6d2c6432b8ce366c3eb9fb0cd", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "06c5872806f74f4f9761234914bc91ff", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div class="highlight"><pre>
-
-genes_in_gem: 1999
-models made for 1074 genes
-</pre></div></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "8ce7341f2e0e497b82910e974470c71b", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 </div>
 <div class="section" id="3.-in-silico-Perturbation-simulation">
@@ -928,7 +705,7 @@ models made for 1074 genes
 <div class="section" id="3.1.-Check-gene-expression-pattern.">
 <h2>3.1. Check gene expression pattern.<a class="headerlink" href="#3.1.-Check-gene-expression-pattern." title="Permalink to this headline">¶</a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -943,11 +720,11 @@ models made for 1074 genes
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_15_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_15_0.png" style="width: 935px; height: 265px;" />
+<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_16_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_16_0.png" style="width: 934px; height: 265px;" />
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -961,7 +738,7 @@ models made for 1074 genes
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_16_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_16_0.png" style="width: 383px; height: 263px;" />
+<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_17_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_17_0.png" style="width: 381px; height: 263px;" />
 </div>
 </div>
 </div>
@@ -970,7 +747,7 @@ models made for 1074 genes
 <p>Although you can use any gene expression value for the input of in silico perturbation, we recommend avoiding extreme values which are far from natural gene expression ranges. If you set Gata1 gene expression to 100, for example, it may lead to biologically infeasible results.</p>
 <p>Here we simulate Gata1 KO; we predict what happens to the cells if Gata1 gene expression changed into 0.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -985,107 +762,43 @@ models made for 1074 genes
 <h2>3.3. calculate transition probability between cells<a class="headerlink" href="#3.3.-calculate-transition-probability-between-cells" title="Permalink to this headline">¶</a></h2>
 <p>In the step above, we simulated simulated future gene expression values after perturbation. This prediction is based on itelative calculations of signal propagations within the GRN.</p>
 <p>Next step, we will calculate the probabilityof a cell state transition based on the simulated data. Using the transition probability between cells, we can predict how a cell changes after perturbation.</p>
-<p>This transition probability will be used in two ways.</p>
-<ol class="arabic simple">
-<li><p>Visualization of directed trjectory graph.</p></li>
-<li><p>Markof simulation.</p></li>
-</ol>
-<p>In Step 4.2 and 4.3, we usefunctions imported from the velocytoloom class in velocyto.py. Please see the documentation of VelocytoLoom for more information. <a class="reference external" href="http://velocyto.org/velocyto.py/fullapi/api_analysis.html">http://velocyto.org/velocyto.py/fullapi/api_analysis.html</a></p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+<p>This transition probability will be used later.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Get transition probability</span>
-<span class="n">oracle</span><span class="o">.</span><span class="n">estimate_transition_prob</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">knn_random</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sampled_fraction</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">oracle</span><span class="o">.</span><span class="n">estimate_transition_prob</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">knn_random</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sampled_fraction</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="c1"># Calculate embedding</span>
 <span class="n">oracle</span><span class="o">.</span><span class="n">calculate_embedding_shift</span><span class="p">(</span><span class="n">sigma_corr</span> <span class="o">=</span> <span class="mf">0.05</span><span class="p">)</span>
-
-<span class="c1"># Calculate global trend of cell transition</span>
-<span class="n">oracle</span><span class="o">.</span><span class="n">calculate_grid_arrows</span><span class="p">(</span><span class="n">smooth</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span> <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-/home/k/anaconda3/envs/test/lib/python3.6/site-packages/IPython/core/interactiveshell.py:3326: FutureWarning: arrays to stack must be passed as a &#34;sequence&#34; type such as list or tuple. Support for non-sequence iterables such as generators is deprecated as of NumPy 1.16 and will raise an error in the future.
-  exec(code_obj, self.user_global_ns, self.user_ns)
-WARNING:root:Nans encountered in corrcoef and corrected to 1s. If not identical cells were present it is probably a small isolated cluster converging after imputation.
-</pre></div></div>
 </div>
 </div>
 </div>
 <div class="section" id="4.-Visualization">
 <h1>4. Visualization<a class="headerlink" href="#4.-Visualization" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="4.1.-Detailed-directed-trajectory-graph">
-<h2>4.1. Detailed directed trajectory graph<a class="headerlink" href="#4.1.-Detailed-directed-trajectory-graph" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="4.1.-Quiver-plot:-Show-the-direction-of-cell-transition-at-single-cell-resolution">
+<h2>4.1. Quiver plot: Show the direction of cell transition at single cell resolution<a class="headerlink" href="#4.1.-Quiver-plot:-Show-the-direction-of-cell-transition-at-single-cell-resolution" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="kc">None</span><span class="p">,(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
-<span class="n">quiver_scale</span> <span class="o">=</span> <span class="mi">40</span>
+<span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span>  <span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span>
 
+<span class="n">scale</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="c1"># Show quiver plot</span>
+<span class="n">oracle</span><span class="o">.</span><span class="n">plot_quiver</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Perturbation simulation results: </span><span class="si">{</span><span class="n">goi</span><span class="si">}</span><span class="s2"> KO&quot;</span><span class="p">)</span>
 
-<span class="n">ix_choice</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">oracle</span><span class="o">.</span><span class="n">adata</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">oracle</span><span class="o">.</span><span class="n">adata</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mf">1.</span><span class="p">),</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="c1"># Show quiver plot that was calculated with randomized GRN.</span>
+<span class="n">oracle</span><span class="o">.</span><span class="n">plot_quiver_random</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Perturbation simulation with randomized GRNs&quot;</span><span class="p">)</span>
 
-<span class="n">embedding</span> <span class="o">=</span> <span class="n">oracle</span><span class="o">.</span><span class="n">adata</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="n">oracle</span><span class="o">.</span><span class="n">embedding_name</span><span class="p">]</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">embedding</span><span class="p">[</span><span class="n">ix_choice</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">embedding</span><span class="p">[</span><span class="n">ix_choice</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-            <span class="n">c</span><span class="o">=</span><span class="s2">&quot;0.8&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">38</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">rasterized</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-<span class="n">quiver_kwargs</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">headaxislength</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">headlength</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">headwidth</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
-                   <span class="n">linewidths</span><span class="o">=</span><span class="mf">0.35</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">0.0045</span><span class="p">,</span><span class="n">edgecolors</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span>
-                   <span class="n">color</span><span class="o">=</span><span class="n">oracle</span><span class="o">.</span><span class="n">colorandum</span><span class="p">[</span><span class="n">ix_choice</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="n">embedding</span><span class="p">[</span><span class="n">ix_choice</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">embedding</span><span class="p">[</span><span class="n">ix_choice</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-           <span class="n">oracle</span><span class="o">.</span><span class="n">delta_embedding</span><span class="p">[</span><span class="n">ix_choice</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">oracle</span><span class="o">.</span><span class="n">delta_embedding</span><span class="p">[</span><span class="n">ix_choice</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-           <span class="n">scale</span><span class="o">=</span><span class="n">quiver_scale</span><span class="p">,</span> <span class="o">**</span><span class="n">quiver_kwargs</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
-<span class="c1">#plt.savefig(f&quot;{save_folder}/full_arrows{goi}.png&quot;,  transparent=True)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-(-10815.27020913708, 10950.84121716522, -10711.36365432337, 10949.477199695968)
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_22_1.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_22_1.png" style="width: 398px; height: 357px;" />
-</div>
-</div>
-</div>
-<div class="section" id="4.2.-Grid-graph">
-<h2>4.2. Grid graph<a class="headerlink" href="#4.2.-Grid-graph" title="Permalink to this headline">¶</a></h2>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Plot whole graph</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="kc">None</span><span class="p">,(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
-<span class="n">oracle</span><span class="o">.</span><span class="n">plot_grid_arrows</span><span class="p">(</span><span class="n">quiver_scale</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span>
-                        <span class="n">scatter_kwargs_dict</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;alpha&quot;</span><span class="p">:</span><span class="mf">0.35</span><span class="p">,</span> <span class="s2">&quot;lw&quot;</span><span class="p">:</span><span class="mf">0.35</span><span class="p">,</span>
-                                              <span class="s2">&quot;edgecolor&quot;</span><span class="p">:</span><span class="s2">&quot;0.4&quot;</span><span class="p">,</span> <span class="s2">&quot;s&quot;</span><span class="p">:</span><span class="mi">38</span><span class="p">,</span>
-                                              <span class="s2">&quot;rasterized&quot;</span><span class="p">:</span><span class="kc">True</span><span class="p">},</span>
-                        <span class="n">min_mass</span><span class="o">=</span><span class="mf">0.015</span><span class="p">,</span> <span class="n">angles</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale_units</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span>
-                        <span class="n">headaxislength</span><span class="o">=</span><span class="mf">2.75</span><span class="p">,</span>
-                        <span class="n">headlength</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">headwidth</span><span class="o">=</span><span class="mf">4.8</span><span class="p">,</span> <span class="n">minlength</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span>
-                        <span class="n">plot_random</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">scale_type</span><span class="o">=</span><span class="s2">&quot;relative&quot;</span><span class="p">)</span>
-<span class="c1">#plt.savefig(f&quot;{save_folder}/vectorfield_{goi}.png&quot;, transparent=True)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1093,128 +806,65 @@ WARNING:root:Nans encountered in corrcoef and corrected to 1s. If not identical 
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_24_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_24_0.png" style="width: 619px; height: 574px;" />
+<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_23_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_23_0.png" style="width: 851px; height: 410px;" />
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="5.-Markov-simulation-to-analyze-the-effects-of-perturbation-on-cell-fate-transition">
-<h1>5. Markov simulation to analyze the effects of perturbation on cell fate transition<a class="headerlink" href="#5.-Markov-simulation-to-analyze-the-effects-of-perturbation-on-cell-fate-transition" title="Permalink to this headline">¶</a></h1>
-<p>We can also simulate cell state transition using Markof simulation.</p>
-</div>
-<div class="section" id="5.1.-Do-Markov-simulation">
-<h1>5.1. Do Markov simulation<a class="headerlink" href="#5.1.-Do-Markov-simulation" title="Permalink to this headline">¶</a></h1>
-<p>We will simulate using the parameters, “n_steps=200” and “n_duplication=5” in the following example.</p>
-<p>To elaborate, this means:</p>
-<ol class="arabic simple">
-<li><p>We will do 200 times of iterative simulations to predict how the cell changes over time</p></li>
-<li><p>We will repeat 5 rounds of simulations</p></li>
-</ol>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[83]:
+<div class="section" id="4.2.-Vector-field-graph">
+<h2>4.2. Vector field graph<a class="headerlink" href="#4.2.-Vector-field-graph" title="Permalink to this headline">¶</a></h2>
+<p>We can visualize simulation result as a vector field graph. Single cell transition vectors are grouped by grid point.</p>
+<ul class="simple">
+<li><p>The grid point that have few cells are removed. Please adjust <code class="docutils literal notranslate"><span class="pre">min_mass</span></code> if you get too many or too less grid point.</p></li>
+</ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="o">%%time</span>
-<span class="c1"># n_steps is the number of steps in markov simulation.</span>
-<span class="c1"># n_duplication is the number of technical duplication for the simulation</span>
-<span class="n">oracle</span><span class="o">.</span><span class="n">run_markov_chain_simulation</span><span class="p">(</span><span class="n">n_steps</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">n_duplication</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span></span><span class="c1"># Use the same papramters as before.</span>
+<span class="n">oracle</span><span class="o">.</span><span class="n">calculate_p_mass</span><span class="p">(</span><span class="n">smooth</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">n_grid</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">oracle</span><span class="o">.</span><span class="n">calculate_mass_filter</span><span class="p">(</span><span class="n">min_mass</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-CPU times: user 1.33 s, sys: 0 ns, total: 1.33 s
-Wall time: 1.33 s
-</pre></div></div>
-</div>
-<div class="section" id="5.2.-Check-the-results-of-the-simulation-for-specific-cells">
-<h2>5.2. Check the results of the simulation for specific cells<a class="headerlink" href="#5.2.-Check-the-results-of-the-simulation-for-specific-cells" title="Permalink to this headline">¶</a></h2>
-<p>Check the results of simulation. Pick up some cells and visualize their transition trajectory.</p>
+<p>please adjust <code class="docutils literal notranslate"><span class="pre">scale</span></code> parameter. Plesase try to find optimal <code class="docutils literal notranslate"><span class="pre">scale</span></code> parameter that give you good visualization. If you see don’t see any vector, you can try smaller <code class="docutils literal notranslate"><span class="pre">scale</span></code> parameter. But if you see some vectors in the right panel, which is the randomized simulation, it means the scale parameter is too small.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[88]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Randomly pick up 3 cells</span>
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
-<span class="n">cells</span> <span class="o">=</span> <span class="n">oracle</span><span class="o">.</span><span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">oracle</span><span class="o">.</span><span class="n">ixs_mcmc</span><span class="p">,</span> <span class="mi">3</span><span class="p">)]</span>
+<span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span>  <span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span>
 
-<span class="c1"># Visualize the simulated results of cell transition after perturbation</span>
-<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">cells</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;cell </span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
-    <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">50</span><span class="p">]):</span> <span class="c1"># time points</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
-        <span class="n">oracle</span><span class="o">.</span><span class="n">plot_mc_result_as_trajectory</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;simulation step: 0~</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">scale_grid</span> <span class="o">=</span> <span class="mf">0.8</span>
+<span class="c1"># Show quiver plot</span>
+<span class="n">oracle</span><span class="o">.</span><span class="n">plot_simulation_flow_on_grid</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="n">scale_grid</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Perturbation simulation results: </span><span class="si">{</span><span class="n">goi</span><span class="si">}</span><span class="s2"> KO&quot;</span><span class="p">)</span>
+
+<span class="c1"># Show quiver plot that was calculated with randomized GRN.</span>
+<span class="n">oracle</span><span class="o">.</span><span class="n">plot_simulation_flow_random_on_grid</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="n">scale_grid</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Perturbation simulation with randomized GRNs&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-cell 1961
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_32_1.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_32_1.png" style="width: 573px; height: 209px;" />
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-cell 43
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_32_3.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_32_3.png" style="width: 573px; height: 209px;" />
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-cell 1567
-</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_32_5.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_32_5.png" style="width: 573px; height: 209px;" />
+<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_27_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_27_0.png" style="width: 851px; height: 410px;" />
 </div>
 </div>
-</div>
-<div class="section" id="5.3.-Summarize-the-results-of-simulation-by-plotting-sankey-diagram">
-<h2>5.3. Summarize the results of simulation by plotting sankey diagram<a class="headerlink" href="#5.3.-Summarize-the-results-of-simulation-by-plotting-sankey-diagram" title="Permalink to this headline">¶</a></h2>
-<p>Sankey diagrams are useful when you want to visualize proportional cell transitions between some groups.</p>
-<p>For the grouping of cells, you can use arbitrary cluster unit.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[89]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Plot sankey diagram</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
-<span class="n">cl</span> <span class="o">=</span> <span class="s2">&quot;louvain_annot&quot;</span>
-<span class="n">oracle</span><span class="o">.</span><span class="n">plot_mc_resutls_as_sankey</span><span class="p">(</span><span class="n">cluster_use</span><span class="o">=</span><span class="n">cl</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span></span><span class="c1"># Plot vector field with cell cluster</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
+
+<span class="n">oracle</span><span class="o">.</span><span class="n">plot_cluster_whole</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">oracle</span><span class="o">.</span><span class="n">plot_simulation_flow_on_grid</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="n">scale_grid</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">show_background</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1222,58 +872,7 @@ cell 1567
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_35_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_35_0.png" style="width: 357px; height: 357px;" />
-</div>
-</div>
-<p>The Sankey diagram above looks messy because the cluster order is random.</p>
-<p>Let’s change the cluster order and make the plot again</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[90]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-
-<span></span><span class="n">cl</span> <span class="o">=</span> <span class="s2">&quot;louvain_annot&quot;</span>
-<span class="n">order</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;MEP_0&#39;</span><span class="p">,</span> <span class="s1">&#39;Mk_0&#39;</span><span class="p">,</span><span class="s1">&#39;Ery_0&#39;</span><span class="p">,</span> <span class="s1">&#39;Ery_1&#39;</span><span class="p">,</span> <span class="s1">&#39;Ery_2&#39;</span><span class="p">,</span> <span class="s1">&#39;Ery_3&#39;</span><span class="p">,</span> <span class="s1">&#39;Ery_4&#39;</span><span class="p">,</span>
-         <span class="s1">&#39;Ery_5&#39;</span><span class="p">,</span> <span class="s1">&#39;Ery_6&#39;</span><span class="p">,</span> <span class="s1">&#39;Ery_7&#39;</span><span class="p">,</span> <span class="s1">&#39;Ery_8&#39;</span><span class="p">,</span> <span class="s1">&#39;Ery_9&#39;</span><span class="p">,</span>
-         <span class="s1">&#39;GMP_0&#39;</span><span class="p">,</span> <span class="s1">&#39;GMP_1&#39;</span><span class="p">,</span> <span class="s1">&#39;GMP_2&#39;</span><span class="p">,</span> <span class="s1">&#39;GMPl_0&#39;</span><span class="p">,</span> <span class="s1">&#39;GMPl_1&#39;</span><span class="p">,</span>
-         <span class="s1">&#39;Mo_0&#39;</span><span class="p">,</span> <span class="s1">&#39;Mo_1&#39;</span><span class="p">,</span> <span class="s1">&#39;Mo_2&#39;</span><span class="p">,</span> <span class="s1">&#39;Gran_0&#39;</span><span class="p">,</span> <span class="s1">&#39;Gran_1&#39;</span><span class="p">,</span> <span class="s1">&#39;Gran_2&#39;</span><span class="p">,</span> <span class="s1">&#39;Gran_3&#39;</span><span class="p">]</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
-<span class="n">oracle</span><span class="o">.</span><span class="n">plot_mc_resutls_as_sankey</span><span class="p">(</span><span class="n">cluster_use</span><span class="o">=</span><span class="n">cl</span><span class="p">,</span>  <span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">)</span>
-<span class="c1">#plt.savefig(f&quot;{save_folder}/mcmc_{cl}.png&quot;)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_37_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_37_0.png" style="width: 226px; height: 357px;" />
-</div>
-</div>
-<p>Make another Saneky diagram with different cluster units.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[92]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">order</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Megakaryocytes&#39;</span><span class="p">,</span> <span class="s1">&#39;MEP&#39;</span><span class="p">,</span> <span class="s1">&#39;Erythroids&#39;</span><span class="p">,</span> <span class="s1">&#39;GMP&#39;</span><span class="p">,</span> <span class="s1">&#39;late_GMP&#39;</span><span class="p">,</span> <span class="s1">&#39;Monocytes&#39;</span><span class="p">,</span> <span class="s1">&#39;Granulocytes&#39;</span><span class="p">]</span>
-<span class="n">cl</span> <span class="o">=</span> <span class="s2">&quot;cell_type&quot;</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="mf">0.35</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mf">0.65</span><span class="p">)</span>
-<span class="n">oracle</span><span class="o">.</span><span class="n">plot_mc_resutls_as_sankey</span><span class="p">(</span><span class="n">cluster_use</span><span class="o">=</span><span class="n">cl</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-<span class="c1">#plt.savefig(f&quot;{save_folder}/mcmc_{cl}{goi}.png&quot;, transparent=True)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_39_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_39_0.png" style="width: 346px; height: 360px;" />
+<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_28_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_28_0.png" style="width: 460px; height: 449px;" />
 </div>
 </div>
 <p>Based on the results, we may conclude several things as follows.</p>
