@@ -471,7 +471,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -575,7 +575,9 @@ Trying to set attribute `.obs` of view, making a copy.
 </div>
 <div class="section" id="5.-Log-transformation">
 <h1>5. Log transformation<a class="headerlink" href="#5.-Log-transformation" title="Permalink to this headline">¶</a></h1>
-<p>We will do log transformation scaling because these are necessary for PCA, clustering, and differential gene calculations. However, we also need non-transformed gene expression data in the celloracle analysis. Thus we keep raw count in anndata using the following command before the log transformation.</p>
+<p>We will do log transformation scaling because these are necessary for PCA, clustering, and differential gene calculations.</p>
+<div class="section" id="However,-we-also-need-non-transformed-gene-expression-data-in-the-celloracle-analysis.Thus-we-need-to-keep-raw-count-in-anndata-using-the-following-command-before-the-log-transformation.">
+<h2>However, we also need non-transformed gene expression data in the celloracle analysis.Thus we need to keep raw count in anndata using the following command before the log transformation.<a class="headerlink" href="#However,-we-also-need-non-transformed-gene-expression-data-in-the-celloracle-analysis.Thus-we-need-to-keep-raw-count-in-anndata-using-the-following-command-before-the-log-transformation." title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
@@ -583,11 +585,14 @@ Trying to set attribute `.obs` of view, making a copy.
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># keep raw cont data before log transformation</span>
 <span class="n">adata</span><span class="o">.</span><span class="n">raw</span> <span class="o">=</span> <span class="n">adata</span>
+<span class="n">adata</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="s2">&quot;raw_count&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">adata</span><span class="o">.</span><span class="n">raw</span><span class="o">.</span><span class="n">X</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
 
 <span class="c1"># Log transformation and scaling</span>
 <span class="n">sc</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">log1p</span><span class="p">(</span><span class="n">adata</span><span class="p">)</span>
 <span class="n">sc</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">adata</span><span class="p">)</span>
 </pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -720,8 +725,6 @@ Categories (23, object): [5, 2, 12, 13, ..., 20, 14, 15, 21]
 </div>
 <div class="section" id="8.-Check-data">
 <h1>8. Check data<a class="headerlink" href="#8.-Check-data" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="8.1.-Visualize-marker-gene-expression">
-<h2>8.1. Visualize marker gene expression<a class="headerlink" href="#8.1.-Visualize-marker-gene-expression" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
@@ -757,99 +760,48 @@ Categories (23, object): [5, 2, 12, 13, ..., 20, 14, 15, 21]
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div class="highlight"><pre>
-marker gene of Erythroids
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_1.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_1.png" style="width: 656px; height: 574px;" />
+<img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_0.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_0.png" style="width: 656px; height: 574px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div class="highlight"><pre>
-marker gene of Megakaryocytes
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_3.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_3.png" style="width: 644px; height: 574px;" />
+<img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_1.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_1.png" style="width: 644px; height: 574px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div class="highlight"><pre>
-marker gene of Granulocytes
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_5.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_5.png" style="width: 655px; height: 856px;" />
+<img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_2.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_2.png" style="width: 655px; height: 856px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div class="highlight"><pre>
-marker gene of Monocytes
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_7.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_7.png" style="width: 656px; height: 574px;" />
+<img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_3.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_3.png" style="width: 656px; height: 574px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div class="highlight"><pre>
-marker gene of Mast_cells
-</pre></div></div>
+<img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_4.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_4.png" style="width: 644px; height: 574px;" />
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_9.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_9.png" style="width: 644px; height: 574px;" />
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-marker gene of Basophils
-</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_11.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_11.png" style="width: 644px; height: 292px;" />
-</div>
+<img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_5.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_5.png" style="width: 644px; height: 292px;" />
 </div>
 </div>
 </div>
 <div class="section" id="9.-Make-annotation-for-cluster">
 <h1>9. Make annotation for cluster<a class="headerlink" href="#9.-Make-annotation-for-cluster" title="Permalink to this headline">¶</a></h1>
 <p>Based on the marker gene expression and previous reports, we will manually annotate each cluster. When using your own data, you will need to annotate the clusters appropriately.</p>
-<div class="section" id="9.1.-Make-annotation-(1)">
-<h2>9.1. Make annotation (1)<a class="headerlink" href="#9.1.-Make-annotation-(1)" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
@@ -889,8 +841,6 @@ Length: 23
 Categories (23, object): [5, 2, 12, 13, ..., 20, 14, 15, 21]
 </pre></div></div>
 </div>
-<div class="section" id="!!-Please-change-the-dictionary-below-depending-on-the-clustering-results.-The-results-may-change-depending-on-the-execution-environment.">
-<h3>!! Please change the dictionary below depending on the clustering results. The results may change depending on the execution environment.<a class="headerlink" href="#!!-Please-change-the-dictionary-below-depending-on-the-clustering-results.-The-results-may-change-depending-on-the-execution-environment." title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
@@ -970,25 +920,13 @@ Categories (23, object): [5, 2, 12, 13, ..., 20, 14, 15, 21]
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-... storing &#39;cell_type&#39; as categorical
-</pre></div></div>
-</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_36_1.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_36_1.png" style="width: 615px; height: 292px;" />
+<img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_36_0.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_36_0.png" style="width: 615px; height: 292px;" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="9.2.-Make-annotation-(2)">
-<h2>9.2. Make annotation (2)<a class="headerlink" href="#9.2.-Make-annotation-(2)" title="Permalink to this headline">¶</a></h2>
 <p>We’ll make another annotation manually for each Louvain clusters.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
@@ -1007,8 +945,6 @@ Categories (23, object): [5, 2, 12, 13, ..., 20, 14, 15, 21]
 <img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_38_0.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_38_0.png" style="width: 615px; height: 292px;" />
 </div>
 </div>
-<div class="section" id="id1">
-<h3>!! Please change the dictionary below depending on the clustering results. The results may change depending on the execution environment.<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
@@ -1060,24 +996,14 @@ Categories (23, object): [5, 2, 12, 13, ..., 20, 14, 15, 21]
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-... storing &#39;louvain_annot&#39; as categorical
-</pre></div></div>
-</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_42_1.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_42_1.png" style="width: 615px; height: 292px;" />
+<img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_42_0.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_42_0.png" style="width: 615px; height: 292px;" />
 </div>
 </div>
 <p>We’ve done secveral scRNA-preprocessing steps; filtering, normalization, clustering, and dimensional reduction. In the next step, we’ll do the GRN inference, network analysis, and in silico simulation based on this information.</p>
-</div>
-</div>
 </div>
 <div class="section" id="10.-(Option)-Subset-cells">
 <h1>10. (Option) Subset cells<a class="headerlink" href="#10.-(Option)-Subset-cells" title="Permalink to this headline">¶</a></h1>
@@ -1133,7 +1059,7 @@ Categories (9, object): [MEP, Monocytes, Erythroids, Granulocytes, ..., GMP, Meg
 <div class="section" id="11.-Save-data">
 <h1>11. Save data<a class="headerlink" href="#11.-Save-data" title="Permalink to this headline">¶</a></h1>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>

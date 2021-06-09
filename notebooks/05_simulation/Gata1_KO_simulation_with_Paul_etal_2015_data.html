@@ -109,7 +109,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#2.-Make-predictive-models-for-simulation">2. Make predictive models for simulation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#3.-in-silico-Perturbation-simulation">3. in silico Perturbation-simulation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#3.-in-silico-TF-Perturbation-analysis">3. in silico TF Perturbation analysis</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#3.1.-Check-gene-expression-pattern.">3.1. Check gene expression pattern.</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#3.2.-calculate-future-gene-expression-after-perturbation.">3.2. calculate future gene expression after perturbation.</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#3.3.-calculate-transition-probability-between-cells">3.3. calculate transition probability between cells</a></li>
@@ -484,7 +484,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <p>This notebook was made with celloracle version 0.6.9. Please use celloracle&gt;=0.6.9. Otherwise you may get an error.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -494,20 +494,20 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&#39;0.6.9&#39;
+&#39;0.6.11&#39;
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;font.family&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;arial&quot;</span>
+<span></span><span class="c1">#plt.rcParams[&quot;font.family&quot;] = &quot;arial&quot;</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
 <span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;retina&#39;
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;savefig.dpi&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">600</span>
@@ -520,7 +520,7 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="0.1.-Make-a-folder-to-save-graph">
 <h2>0.1. Make a folder to save graph<a class="headerlink" href="#0.1.-Make-a-folder-to-save-graph" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -537,25 +537,55 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="1.1.-Load-processed-oracle-object">
 <h2>1.1. Load processed oracle object<a class="headerlink" href="#1.1.-Load-processed-oracle-object" title="Permalink to this headline">¶</a></h2>
 <p>Load the oracle object. See the previous notebook for the notes on how to prepare the oracle object.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">oracle</span> <span class="o">=</span> <span class="n">co</span><span class="o">.</span><span class="n">load_hdf5</span><span class="p">(</span><span class="s2">&quot;../04_Network_analysis/Paul_15_data.celloracle.oracle&quot;</span><span class="p">)</span>
+<span></span><span class="c1"># oracle = co.load_hdf5(&quot;ORACLE OBJECT PATH&quot;)</span>
+
+<span class="c1"># Here, we load tutorial oracle object.</span>
+<span class="n">oracle</span> <span class="o">=</span> <span class="n">co</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">load_tutorial_oracle_object</span><span class="p">()</span>
+<span class="n">oracle</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Oracle object
+
+Meta data
+    celloracle version used for instantiation: 0.6.11
+    n_cells: 2671
+    n_genes: 1999
+    cluster_name: louvain_annot
+    dimensional_reduction_name: X_draw_graph_fa
+    k_for_knn_imputation: 66
+Status
+    Gene expression matrix: Ready
+    BaseGRN: Ready
+    PCA calculation: Done
+    Knn imputation: Done
+    GRN calculation for simulation: Not finished
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="1.2.-Load-inferred-GRNs">
 <h2>1.2. Load inferred GRNs<a class="headerlink" href="#1.2.-Load-inferred-GRNs" title="Permalink to this headline">¶</a></h2>
 <p>In the previous notebook, we calculated GRNs. Now, we will use these GRNs for simulation. We import GRNs which were saved in the Links object.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">links</span> <span class="o">=</span> <span class="n">co</span><span class="o">.</span><span class="n">load_hdf5</span><span class="p">(</span><span class="s2">&quot;../04_Network_analysis/links.celloracle.links&quot;</span><span class="p">)</span>
+<span></span><span class="c1"># links = co.load_hdf5(&quot;YOUR LINK OBJCT PATH&quot;)</span>
+
+<span class="c1"># Here, we load links object for tutorial.</span>
+<span class="n">links</span> <span class="o">=</span> <span class="n">co</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">load_tutorial_links_object</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -565,7 +595,7 @@ div.rendered_html tbody tr:hover {
 <h1>2. Make predictive models for simulation<a class="headerlink" href="#2.-Make-predictive-models-for-simulation" title="Permalink to this headline">¶</a></h1>
 <p>We will fit ridge regression models again. This process takes less time than the GRN inference in the previous notebook because we only use significant TFs to predict target gene instead of all regulatory candidate TFs.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -579,125 +609,149 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "a5f7e2c95a014751a867411813c5c2b5", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "00d733389bbe4cb3937697d794d3fd57", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "15fc0b3a9fd34648971266310a707c1b", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "d4ee03e82b6545dbb9a40b88bd1fa1e8", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "8957d595f9fd4e12ae44a375c7d0dc7f", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "1451d735c3ec4f4fb89f08f17811af67", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "442de86fe1ec4135835811804d9cfcdf", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "d966162d16de4f53954448af2bbd47e0", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "3c47a7d11f8d439f8379484de17c0e71", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "a666168b38ba458e8f31e765c0bfe2e4", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "85b80410e39847b7b58be642da02c0d2", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "9740bf8194b248eab2dbfa7285f7bfd9", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "f5a56e6ccc9a438183b59a8c3b1c275b", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "d365d742d02b4b1aa5cd398966677b04", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "30b2eab4a69d46ca8938a183c03d482c", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "2185cce4908d41d99a7023e66d243e27", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "79c8d08881e3473abc03179d92fc4d96", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "1ad0b6e9709d419c9c3996fd35955d64", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "ec0f8a2362dd4d7887bbfeb6a687aae1", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "2a4a69a02fc647a9b9df46e789491c2a", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "e5a6d386dc6042f09c7760b44b63a070", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "3f533c9933eb4219bf88c8f5acf93b58", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "28094b27207645518b21543c53d25193", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "5fb112fc09e54204bbf3cf8745a3c560", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "6c6eba02bdd74cfda83dffd5639dba4f", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "eec215aad03f4df091e5b5e4616b1d63", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "c001cc620fbf461caa9800a64c743317", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "8b4a80e1a5874af7820885c3e441bbda", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "e75024a2521a48828b1fbb27ae8a0578", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "cc71ff676ad449bda1d1458bb2730f29", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "31affcd7fb894ef19fb505ddea165879", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "b9231ddc1b24422c906aeb741967b070", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "3a3bc4223d43493cad800183ac4de8c6", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "c6bd345ec9c54f91bc472e720be2c879", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "adcbd4b5ce1f4b74ac3a8717346a0387", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "c3f705dec6424cb19083294fb0f25633", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "06c5872806f74f4f9761234914bc91ff", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "3c09414355af4123be4102c2d6abf32e", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "738dd3881c754ad3bf991b7826665c29", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "254f697ec2fd43df875e2986cdeb711f", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "c5e1ffd841364c559edb1f53ca64b8c0", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "cf2d6c659eef4cc089f799682e8008bf", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "8ce7341f2e0e497b82910e974470c71b", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "eceb8afe8c1341f59270eaf961133d6f", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 </div>
-<div class="section" id="3.-in-silico-Perturbation-simulation">
-<h1>3. in silico Perturbation-simulation<a class="headerlink" href="#3.-in-silico-Perturbation-simulation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="3.-in-silico-TF-Perturbation-analysis">
+<h1>3. in silico TF Perturbation analysis<a class="headerlink" href="#3.-in-silico-TF-Perturbation-analysis" title="Permalink to this headline">¶</a></h1>
 <p>Next, we will simulate the effects of perturbing a single TF to investigate its function and regulatory mechanism. See the celloracle paper for the details and scientific premise on the algorithm.</p>
 <p>In this notebook, we’ll show an example of the simulation; we’ll simulate knock-out of Gata1 gene in the hematopoiesis.</p>
 <p>Previous studies have shown that Gata1 is one of the TFs that regulates cell fate decisions in myeloid progenitors. Additionally, Gata1 has been shown to affect erythroid cell differentiation.</p>
@@ -705,7 +759,7 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="3.1.-Check-gene-expression-pattern.">
 <h2>3.1. Check gene expression pattern.<a class="headerlink" href="#3.1.-Check-gene-expression-pattern." title="Permalink to this headline">¶</a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -720,11 +774,11 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_16_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_16_0.png" style="width: 934px; height: 265px;" />
+<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_16_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_16_0.png" style="width: 940px; height: 265px;" />
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -744,10 +798,10 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="3.2.-calculate-future-gene-expression-after-perturbation.">
 <h2>3.2. calculate future gene expression after perturbation.<a class="headerlink" href="#3.2.-calculate-future-gene-expression-after-perturbation." title="Permalink to this headline">¶</a></h2>
-<p>Although you can use any gene expression value for the input of in silico perturbation, we recommend avoiding extreme values which are far from natural gene expression ranges. If you set Gata1 gene expression to 100, for example, it may lead to biologically infeasible results.</p>
+<p>Although you can use any gene expression value for the input of in silico perturbation, please avoiding extremely high values which are far from natural gene expression ranges. The upper limit allowed is 2x of max gene expression value.</p>
 <p>Here we simulate Gata1 KO; we predict what happens to the cells if Gata1 gene expression changed into 0.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -764,7 +818,7 @@ div.rendered_html tbody tr:hover {
 <p>Next step, we will calculate the probabilityof a cell state transition based on the simulated data. Using the transition probability between cells, we can predict how a cell changes after perturbation.</p>
 <p>This transition probability will be used later.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -783,7 +837,7 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="4.1.-Quiver-plot:-Show-the-direction-of-cell-transition-at-single-cell-resolution">
 <h2>4.1. Quiver plot: Show the direction of cell transition at single cell resolution<a class="headerlink" href="#4.1.-Quiver-plot:-Show-the-direction-of-cell-transition-at-single-cell-resolution" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -817,19 +871,18 @@ div.rendered_html tbody tr:hover {
 <li><p>The grid point that have few cells are removed. Please adjust <code class="docutils literal notranslate"><span class="pre">min_mass</span></code> if you get too many or too less grid point.</p></li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Use the same papramters as before.</span>
-<span class="n">oracle</span><span class="o">.</span><span class="n">calculate_p_mass</span><span class="p">(</span><span class="n">smooth</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">n_grid</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span></span><span class="n">oracle</span><span class="o">.</span><span class="n">calculate_p_mass</span><span class="p">(</span><span class="n">smooth</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">n_grid</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
 <span class="n">oracle</span><span class="o">.</span><span class="n">calculate_mass_filter</span><span class="p">(</span><span class="n">min_mass</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <p>please adjust <code class="docutils literal notranslate"><span class="pre">scale</span></code> parameter. Plesase try to find optimal <code class="docutils literal notranslate"><span class="pre">scale</span></code> parameter that give you good visualization. If you see don’t see any vector, you can try smaller <code class="docutils literal notranslate"><span class="pre">scale</span></code> parameter. But if you see some vectors in the right panel, which is the randomized simulation, it means the scale parameter is too small.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -856,7 +909,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
