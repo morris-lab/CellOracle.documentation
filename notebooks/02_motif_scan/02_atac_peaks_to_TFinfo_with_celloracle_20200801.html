@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>0. Import libraries &mdash; celloracle 0.6.9 documentation</title>
+  <title>Overview &mdash; celloracle 0.6.9 documentation</title>
   
 
   
@@ -39,8 +39,8 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="0. Overview: How to use a different motifs for celloracle motif scan." href="motif_data_preparation/01_How_to_load_motif_data.html" />
-    <link rel="prev" title="2. Transcription factor binding motif scan" href="../../tutorials/motifscan.html" /> 
+    <link rel="next" title="API" href="../../modules/index.html" />
+    <link rel="prev" title="1. Transcription factor binding motif scan" href="../../tutorials/motifscan.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -93,25 +93,23 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../tutorials/index.html">Tutorial</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../../tutorials/atac.html">1. ATAC-seq data preprocessing</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../../tutorials/motifscan.html">2. Transcription factor binding motif scan</a><ul class="current">
-<li class="toctree-l3 current"><a class="reference internal" href="../../tutorials/motifscan.html#scan-dna-sequences-searching-for-tf-binding-motifs">Scan DNA sequences searching for TF binding motifs</a><ul class="current">
-<li class="toctree-l4 current"><a class="current reference internal" href="#">0. Import libraries</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#1.-Rerefence-genome-data-preparation">1. Rerefence genome data preparation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#2.-Load-data">2. Load data</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#3.-Instantiate-TFinfo-object-and-search-for-TF-binding-motifs">3. Instantiate TFinfo object and search for TF binding motifs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#4.-Filtering-motifs">4. Filtering motifs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#5.-Get-Final-results">5. Get Final results</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#6.-Save-TFinfo-as-dictionary-or-dataframe">6. Save TFinfo as dictionary or dataframe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/index.html#what-the-tutorial-covers">What the tutorial covers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/index.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/index.html#code-and-data-availability">Code and data availability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/index.html#getting-started">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/index.html#grn-model-construction-and-network-analysis">GRN model construction and Network analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/index.html#in-silico-gene-perturbation-with-grns">in silico gene perturbation with GRNs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/index.html#prepare-input-data">Prepare input data</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../tutorials/index.html#tf-motif-scan">TF motif scan</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../tutorials/motifscan.html">1. Transcription factor binding motif scan</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="../../tutorials/motifscan.html#scan-dna-sequences-searching-for-tf-binding-motifs">Scan DNA sequences searching for TF binding motifs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/motifscan.html#optional-step-1-how-to-use-different-motif-data">[Optional step 1] How to use different motif data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/motifscan.html#optional-step-2-how-to-use-different-motif-data">Optional step 2] How to use different motif data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/motifscan.html#optional-step-2-how-to-make-custom-motifs-for-celloracle-motif-analysis">[Optional step 2] How to Make custom motifs for celloracle motif analysis</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../tutorials/motifscan.html#optional-step-1-how-to-use-different-motif-data">[Optional step 1] How to use different motif data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../tutorials/motifscan.html#optional-step-2-how-to-make-custom-motifs-for-celloracle-motif-analysis">[Optional step 2] How to Make custom motifs for celloracle motif analysis</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../tutorials/scrnaprocess.html">3. Single-cell RNA-seq data preprocessing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../tutorials/networkanalysis.html">4. Network analysis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../tutorials/simulation.html">5. Simulation with GRNs</a></li>
 </ul>
 </li>
 </ul>
@@ -174,9 +172,9 @@
         
           <li><a href="../../tutorials/index.html">Tutorial</a> &raquo;</li>
         
-          <li><a href="../../tutorials/motifscan.html"><span class="section-number">2. </span>Transcription factor binding motif scan</a> &raquo;</li>
+          <li><a href="../../tutorials/motifscan.html"><span class="section-number">1. </span>Transcription factor binding motif scan</a> &raquo;</li>
         
-      <li>0. Import libraries</li>
+      <li>Overview</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -450,10 +448,18 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
+<div class="section" id="Overview">
+<h1>Overview<a class="headerlink" href="#Overview" title="Permalink to this headline">¶</a></h1>
+<p>This notebook introduce how to perform TF binding motif scan. Using scATAC-seq peak and Motif information, we generate base-GRN.</p>
+<div class="section" id="Notebook-file">
+<h2>Notebook file<a class="headerlink" href="#Notebook-file" title="Permalink to this headline">¶</a></h2>
+<p>Notebook file is available at CellOracle GitHub. <a class="reference external" href="https://github.com/morris-lab/CellOracle/blob/master/docs/notebooks/02_motif_scan/02_atac_peaks_to_TFinfo_with_celloracle_20200801.ipynb">https://github.com/morris-lab/CellOracle/blob/master/docs/notebooks/02_motif_scan/02_atac_peaks_to_TFinfo_with_celloracle_20200801.ipynb</a></p>
+</div>
+</div>
 <div class="section" id="0.-Import-libraries">
 <h1>0. Import libraries<a class="headerlink" href="#0.-Import-libraries" title="Permalink to this headline">¶</a></h1>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -470,7 +476,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -480,7 +486,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -495,11 +501,9 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="1.-Rerefence-genome-data-preparation">
 <h1>1. Rerefence genome data preparation<a class="headerlink" href="#1.-Rerefence-genome-data-preparation" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="1.1.-Check-reference-genome-installation">
-<h2>1.1. Check reference genome installation<a class="headerlink" href="#1.1.-Check-reference-genome-installation" title="Permalink to this headline">¶</a></h2>
-<p>Celloracle uses genomepy to get DNA sequence data. Before starting celloracle analysis, we need to make sure that the reference genome is correctly installed in your computational environment. If not, please install reference genome.</p>
+<p>Before starting celloracle analysis, we need to make sure that the reference genome data is correctly installed in your computational environment. If not, please install reference genome first as follows.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -519,11 +523,8 @@ div.rendered_html tbody tr:hover {
 mm10 installation:  True
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="1.2.-Install-reference-genome-(if-refgenome-is-not-installed)">
-<h2>1.2. Install reference genome (if refgenome is not installed)<a class="headerlink" href="#1.2.-Install-reference-genome-(if-refgenome-is-not-installed)" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -544,24 +545,66 @@ mm10 is installed.
 </pre></div></div>
 </div>
 </div>
-</div>
 <div class="section" id="2.-Load-data">
 <h1>2. Load data<a class="headerlink" href="#2.-Load-data" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="2.1.-Load-processed-peak-data">
-<h2>2.1. Load processed peak data<a class="headerlink" href="#2.1.-Load-processed-peak-data" title="Permalink to this headline">¶</a></h2>
+<p>In this notebook, we explain how to make base GRN data. As a input data, we need scATAC-seq file in the following format.</p>
+<ul class="simple">
+<li><p>Prepare input data as a csv file with tree columns.</p></li>
+<li><p>The first column is index.</p></li>
+<li><p>The second column is peak_id.</p></li>
+<li><p>The third column is gene_short_name.</p></li>
+</ul>
+<p>The csv file should be like this.</p>
+<p><img alt="11ac37eebcb34d21a83676bc62a39101" src="https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/processed_peak_csv.png" /></p>
+<p>We load this csv file using <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code> to make pandas.DataFrame like this.</p>
+<p><img alt="36a0521064f440bda203086fef31717d" src="https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/processed_peak_df.png" /></p>
+<p>You can download the demo file by running the following command: If the file download fails, please manually download and unzip the data.</p>
+<p><a class="reference external" href="https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/processed_peak_file.csv">https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/processed_peak_file.csv</a></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Download file.</span>
+<span class="o">!</span>wget https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/processed_peak_file.csv
+
+<span class="c1"># If you are using macOS, please try the following command.</span>
+<span class="c1">#!curl -O https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/processed_peak_file.csv</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+--2021-07-07 21:49:27--  https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/processed_peak_file.csv
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.110.133, 185.199.109.133, 185.199.108.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.110.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 569448 (556K) [text/plain]
+Saving to: ‘processed_peak_file.csv’
+
+processed_peak_file 100%[===================&gt;] 556.10K  --.-KB/s    in 0.02s
+
+2021-07-07 21:49:27 (29.2 MB/s) - ‘processed_peak_file.csv’ saved [569448/569448]
+
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Load annotated peak data.</span>
-<span class="n">peaks</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span><span class="s2">&quot;../01_ATAC-seq_data_processing/option1_scATAC-seq_data_analysis_with_cicero/peak_file.parquet&quot;</span><span class="p">)</span>
+<span class="n">peaks</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;processed_peak_file.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">peaks</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -617,11 +660,8 @@ mm10 is installed.
 </table>
 </div></div>
 </div>
-</div>
-<div class="section" id="2.1.-Check-data">
-<h2>2.1. Check data<a class="headerlink" href="#2.1.-Check-data" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -692,7 +732,7 @@ mm10 is installed.
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -705,212 +745,49 @@ mm10 is installed.
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Peaks before filtering:  15680
+Peaks before filtering:  15779
 Peaks with invalid chr_name:  0
-Peaks with invalid length:  0
-Peaks after filtering:  15680
+Peaks with invalid length:  2
+Peaks after filtering:  15777
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="2.2.-[Optional-step]-Load-motifs">
-<h2>2.2. [Optional step] Load motifs<a class="headerlink" href="#2.2.-[Optional-step]-Load-motifs" title="Permalink to this headline">¶</a></h2>
-<p>You can select TF binding motif data for Celloracle motif analysis. If you have no preference and just want to use a default motif, you can skip this step. If you want to use a non-default motif dataset, please prepare motif data as a list of motif class in gimmemotifs. We have several option for loading motif database as below.</p>
-<div class="section" id="2.2.1.-[Optional-step]-Load-motif-data-from-gimmemotifs-dataset">
-<h3>2.2.1. [Optional step] Load motif data from gimmemotifs dataset<a class="headerlink" href="#2.2.1.-[Optional-step]-Load-motif-data-from-gimmemotifs-dataset" title="Permalink to this headline">¶</a></h3>
-<p>Many motif databases are included with GimmeMotifs. <a class="reference external" href="https://gimmemotifs.readthedocs.io/en/master/overview.html">https://gimmemotifs.readthedocs.io/en/master/overview.html</a> You can load them as follows.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># First, we need to pick up motifs for your dataset. We can get a list.</span>
-
-<span class="c1"># Get folder path that stores motif data.</span>
-<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">glob</span>
-<span class="kn">from</span> <span class="nn">gimmemotifs.motif</span> <span class="kn">import</span> <span class="n">MotifConfig</span>
-<span class="n">config</span> <span class="o">=</span> <span class="n">MotifConfig</span><span class="p">()</span>
-<span class="n">motif_dir</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get_motif_dir</span><span class="p">()</span>
-
-<span class="c1"># Get list for motif data name</span>
-<span class="n">motifs_data_name</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">motif_dir</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.pfm&quot;</span><span class="p">)]</span>
-<span class="n">motifs_data_name</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
-<span class="n">motifs_data_name</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[&#39;CIS-BP.pfm&#39;,
- &#39;ENCODE.pfm&#39;,
- &#39;HOCOMOCOv10_HUMAN.pfm&#39;,
- &#39;HOCOMOCOv10_MOUSE.pfm&#39;,
- &#39;HOCOMOCOv11_HUMAN.pfm&#39;,
- &#39;HOCOMOCOv11_MOUSE.pfm&#39;,
- &#39;HOMER.pfm&#39;,
- &#39;IMAGE.pfm&#39;,
- &#39;JASPAR2018.pfm&#39;,
- &#39;JASPAR2018_fungi.pfm&#39;,
- &#39;JASPAR2018_insects.pfm&#39;,
- &#39;JASPAR2018_nematodes.pfm&#39;,
- &#39;JASPAR2018_plants.pfm&#39;,
- &#39;JASPAR2018_urochordates.pfm&#39;,
- &#39;JASPAR2018_vertebrates.pfm&#39;,
- &#39;JASPAR2020.pfm&#39;,
- &#39;JASPAR2020_fungi.pfm&#39;,
- &#39;JASPAR2020_insects.pfm&#39;,
- &#39;JASPAR2020_nematodes.pfm&#39;,
- &#39;JASPAR2020_plants.pfm&#39;,
- &#39;JASPAR2020_urochordates.pfm&#39;,
- &#39;JASPAR2020_vertebrates.pfm&#39;,
- &#39;RSAT_insects.pfm&#39;,
- &#39;RSAT_plants.pfm&#39;,
- &#39;RSAT_vertebrates.pfm&#39;,
- &#39;SwissRegulon.pfm&#39;,
- &#39;factorbook.pfm&#39;,
- &#39;gimme.vertebrate.v5.0.pfm&#39;]
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Once you picked up motifs, you can load the motif files with &quot;read_motifs&quot;</span>
-<span class="kn">from</span> <span class="nn">gimmemotifs.motif</span> <span class="kn">import</span> <span class="n">read_motifs</span>
-
-<span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">motif_dir</span><span class="p">,</span> <span class="s2">&quot;JASPAR2018_plants.pfm&quot;</span><span class="p">)</span><span class="c1"># Please enter motifs name here</span>
-<span class="n">motifs</span> <span class="o">=</span> <span class="n">read_motifs</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-
-<span class="c1"># Check first 10 motifs</span>
-<span class="n">motifs</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[MA0020.1_Dof2_AAAGCn,
- MA0021.1_Dof3_AAAGyn,
- MA0034.1_Gam1_nnyAACCGmC,
- MA0044.1_HMG-1_sTTGTnyTy,
- MA0045.1_HMG-I/Y_nwAnAAAnrnmrAmAy,
- MA0053.1_MNB1A_AAAGC,
- MA0054.1_myb.Ph3_TAACnGTTw,
- MA0064.1_PBF_AAAGy,
- MA0082.1_squamosa_mCAwAwATrGwAAn,
- MA0096.1_bZIP910_mTGACGT]
-</pre></div></div>
-</div>
-</div>
-<div class="section" id="2.2.2-[Optional-step]-Load-motif-data-from-celloracle-motif-dataset">
-<h3>2.2.2 [Optional step] Load motif data from celloracle motif dataset<a class="headerlink" href="#2.2.2-[Optional-step]-Load-motif-data-from-celloracle-motif-dataset" title="Permalink to this headline">¶</a></h3>
-<p>Celloracle also provides many motif dataset that was generated from CisBP. <a class="reference external" href="http://cisbp.ccbr.utoronto.ca/">http://cisbp.ccbr.utoronto.ca/</a></p>
-<p>These motifs were organized by each species. Please select motifs for your species.</p>
-<p>If you have a request for motifs for a new species, you can ask us to add new motifs through github issue page.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Check available motifs</span>
-<span class="n">ma</span><span class="o">.</span><span class="n">MOTIFS_LIST</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[&#39;CisBP_ver2_Arabidopsis_thaliana.pfm&#39;,
- &#39;CisBP_ver2_Caenorhabditis_elegans.pfm&#39;,
- &#39;CisBP_ver2_Danio_rerio.pfm&#39;,
- &#39;CisBP_ver2_Drosophila_ananassae.pfm&#39;,
- &#39;CisBP_ver2_Drosophila_erecta.pfm&#39;,
- &#39;CisBP_ver2_Drosophila_grimshawi.pfm&#39;,
- &#39;CisBP_ver2_Drosophila_melanogaster.pfm&#39;,
- &#39;CisBP_ver2_Drosophila_mix.pfm&#39;,
- &#39;CisBP_ver2_Drosophila_mojavensis.pfm&#39;,
- &#39;CisBP_ver2_Drosophila_persimilis.pfm&#39;,
- &#39;CisBP_ver2_Drosophila_pseudoobscura.pfm&#39;,
- &#39;CisBP_ver2_Drosophila_sechellia.pfm&#39;,
- &#39;CisBP_ver2_Drosophila_simulans.pfm&#39;,
- &#39;CisBP_ver2_Drosophila_virilis.pfm&#39;,
- &#39;CisBP_ver2_Drosophila_willistoni.pfm&#39;,
- &#39;CisBP_ver2_Drosophila_yakuba.pfm&#39;,
- &#39;CisBP_ver2_Homo_sapiens.pfm&#39;,
- &#39;CisBP_ver2_Mus_musculus.pfm&#39;,
- &#39;CisBP_ver2_Rattus_norvegicus.pfm&#39;,
- &#39;CisBP_ver2_Saccharomyces_cerevisiae.pfm&#39;,
- &#39;CisBP_ver2_Xenopus_laevis.pfm&#39;,
- &#39;CisBP_ver2_Xenopus_tropicalis.pfm&#39;,
- &#39;CisBP_ver2_Xenopus_tropicalis_and_Xenopus_laevis.pfm&#39;]
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Load motifs from celloracle dataset.</span>
-<span class="n">motifs</span> <span class="o">=</span> <span class="n">ma</span><span class="o">.</span><span class="n">load_motifs</span><span class="p">(</span><span class="s2">&quot;CisBP_ver2_Mus_musculus.pfm&quot;</span><span class="p">)</span>
-
-<span class="c1"># Check first 10 motifs</span>
-<span class="n">motifs</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[M00008_2.00_nnnAAww,
- M00044_2.00_nrTAAACAn,
- M00056_2.00_TAATAAAT,
- M00060_2.00_nnnTTCnnn,
- M00111_2.00_nGCCynnGGs,
- M00112_2.00_CCTsrGGCnA,
- M00113_2.00_nsCCnnAGGs,
- M00114_2.00_nnGCCynnGG,
- M00115_2.00_nnATnAAAn,
- M00116_2.00_nnAATATTAnn]
-</pre></div></div>
-</div>
-</div>
-</div>
+<p>You can select TF binding motif data for Celloracle motif analysis. If you have no preference and just want to use a default motif, you don’t need to load motif yourself.</p>
+<p>If you want to use a non-default motif dataset, we have several options.</p>
+<ul class="simple">
+<li><p>Use custom motifs provided by gimmemotifs &gt;Gimmemotifs is a python package for motif analysis. It provides many motif dataset. <a class="reference external" href="https://gimmemotifs.readthedocs.io/en/stable/overview.html#motif-databases">https://gimmemotifs.readthedocs.io/en/stable/overview.html#motif-databases</a> &gt; &gt; Please look at this notebook to see how to load motif data from gimmemotifs database. &gt; <a class="reference external" href="https://github.com/morris-lab/CellOracle/blob/master/docs/notebooks/02_motif_scan/motif_data_preparation/01_How_to_load_gimmemotifs_motif_data.ipynb">https://github.com/morris-lab/CellOracle/blob/master/docs/notebooks/02_motif_scan/motif_data_preparation/01_How_to_load_gimmemotifs_motif_data.ipynb</a></p></li>
+<li><p>Use custom motifs provided by CellOracle.</p></li>
+</ul>
+<blockquote>
+<div><p>Celloracle also provides many motif datasets generated from CisBP. <a class="reference external" href="http://cisbp.ccbr.utoronto.ca/">http://cisbp.ccbr.utoronto.ca/</a></p>
+<p>Please look at this notebook to see how to load CisBP motifs.https://github.com/morris-lab/CellOracle/blob/master/docs/notebooks/02_motif_scan/motif_data_preparation/02_How_to_load_CisBPv2_motif_data.ipynb</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>Make a custom motif data by yourself. &gt;You can create custom motif data by yourself. &gt; &gt;Please look at this notebook to see how to create custom motif data.https://github.com/morris-lab/CellOracle/blob/master/docs/notebooks/02_motif_scan/motif_data_preparation/03_How_to_make_custom_motif.ipynb</p></li>
+</ul>
 </div>
 <div class="section" id="3.-Instantiate-TFinfo-object-and-search-for-TF-binding-motifs">
 <h1>3. Instantiate TFinfo object and search for TF binding motifs<a class="headerlink" href="#3.-Instantiate-TFinfo-object-and-search-for-TF-binding-motifs" title="Permalink to this headline">¶</a></h1>
-<p>The motif analysis module has a custom class; TFinfo. The TFinfo object converts a peak data into a DNA sequences and scans the DNA sequences searching for TF binding motifs. Then, the results of motif scan will be filtered and converted into either a python dictionary or a depending on your preference. This TF information is necessary for GRN inference.</p>
-<div class="section" id="3.1.-Instantiate-TFinfo-object">
-<h2>3.1. Instantiate TFinfo object<a class="headerlink" href="#3.1.-Instantiate-TFinfo-object" title="Permalink to this headline">¶</a></h2>
+<p>The motif analysis module has a custom class, <code class="docutils literal notranslate"><span class="pre">TFinfo</span></code>. The TFinfo object will do all steps below.</p>
+<ul class="simple">
+<li><p>Converts a peak data into a DNA sequences.</p></li>
+<li><p>Ccans the DNA sequences searching for TF binding motifs.</p></li>
+<li><p>Postprocess the results of motif scan.</p></li>
+<li><p>Converted data into appropriate format. You can convert data into base-GRN. You can select file format: python dictionary or pandas dataframe. This output data, base-GRN is necessary for GRN model construction in the later step.</p></li>
+</ul>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Instantiate TFinfo object</span>
-<span class="n">tfi</span> <span class="o">=</span> <span class="n">ma</span><span class="o">.</span><span class="n">TFinfo</span><span class="p">(</span><span class="n">peak_data_frame</span><span class="o">=</span><span class="n">peaks</span><span class="p">,</span> <span class="c1"># peak info calculated from ATAC-seq data</span>
-                       <span class="n">ref_genome</span><span class="o">=</span><span class="n">ref_genome</span><span class="p">)</span>
+<span class="n">tfi</span> <span class="o">=</span> <span class="n">ma</span><span class="o">.</span><span class="n">TFinfo</span><span class="p">(</span><span class="n">peak_data_frame</span><span class="o">=</span><span class="n">peaks</span><span class="p">,</span>
+                <span class="n">ref_genome</span><span class="o">=</span><span class="n">ref_genome</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="3.2.-Motif-scan">
-<h2>3.2. Motif scan<a class="headerlink" href="#3.2.-Motif-scan" title="Permalink to this headline">¶</a></h2>
-<p>!!You can set TF binding motif information as an argument:</p>
-<p>tfi.scan(motifs=motifs)</p>
-<p>If you don’t set motifs or set None, default motifs will be loaded automatically.</p>
+<p>You can specify TF binding motif data as follows.</p>
+<p><code class="docutils literal notranslate"><span class="pre">tfi.scan(motifs=motifs)</span></code></p>
+<p>If you don’t set motifs or set <code class="docutils literal notranslate"><span class="pre">None</span></code>, default motifs will be loaded automatically.</p>
 <ul class="simple">
 <li><p>For mouse and human, “gimme.vertebrate.v5.0.” will be used as a default motifs.</p></li>
 <li><p>For another species, a species specific TF binding motif data extracted from CisBP ver2.0 will be used.</p></li>
@@ -923,8 +800,8 @@ Peaks after filtering:  15680
 <span></span><span class="o">%%time</span>
 <span class="c1"># Scan motifs. !!CAUTION!! This step may take several hours if you have many peaks!</span>
 <span class="n">tfi</span><span class="o">.</span><span class="n">scan</span><span class="p">(</span><span class="n">fpr</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span>
-            <span class="n">motifs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>  <span class="c1"># If you enter None, default motifs will be loaded.</span>
-            <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+         <span class="n">motifs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>  <span class="c1"># If you enter None, default motifs will be loaded.</span>
+         <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># Save tfinfo object</span>
 <span class="n">tfi</span><span class="o">.</span><span class="n">to_hdf5</span><span class="p">(</span><span class="n">file_path</span><span class="o">=</span><span class="s2">&quot;test1.celloracle.tfinfo&quot;</span><span class="p">)</span>
@@ -1030,7 +907,6 @@ Peaks after filtering:  15680
 </div>
 <p>We have the score for each sequence and motif_id pair. In the next step we will filter the motifs with low score.</p>
 </div>
-</div>
 <div class="section" id="4.-Filtering-motifs">
 <h1>4. Filtering motifs<a class="headerlink" href="#4.-Filtering-motifs" title="Permalink to this headline">¶</a></h1>
 <div class="nbinput docutils container">
@@ -1042,7 +918,7 @@ Peaks after filtering:  15680
 <span class="n">tfi</span><span class="o">.</span><span class="n">reset_filtering</span><span class="p">()</span>
 
 <span class="c1"># Do filtering</span>
-<span class="n">tfi</span><span class="o">.</span><span class="n">filter_motifs_by_score</span><span class="p">(</span><span class="n">threshold</span><span class="o">=</span><span class="mf">10.5</span><span class="p">)</span>
+<span class="n">tfi</span><span class="o">.</span><span class="n">filter_motifs_by_score</span><span class="p">(</span><span class="n">threshold</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 
 <span class="c1"># Do post filtering process. Convert results into several file format.</span>
 <span class="n">tfi</span><span class="o">.</span><span class="n">make_TFinfo_dataframe_and_dictionary</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -1055,26 +931,7 @@ Peaks after filtering:  15680
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div class="highlight"><pre>
-peaks were filtered: 12952283 -&gt; 2288874
-1. converting scanned results into one-hot encoded dataframe.
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
 <script type="application/vnd.jupyter.widget-view+json">{"model_id": "d4f5cfb59ff04daabcd23a5bf12e557c", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-
-2. converting results into dictionaries.
-converting scan results into dictionaries...
-</pre></div></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
@@ -1082,46 +939,15 @@ converting scan results into dictionaries...
 <div class="output_area docutils container">
 <script type="application/vnd.jupyter.widget-view+json">{"model_id": "81d283cff9864e8da048554a7d8afdfd", "version_major": 2, "version_minor": 0}</script></div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
+<div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <script type="application/vnd.jupyter.widget-view+json">{"model_id": "b496e9f51545423c9f72100f22ba2ab7", "version_major": 2, "version_minor": 0}</script></div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-
-</pre></div></div>
-</div>
 </div>
 <div class="section" id="5.-Get-Final-results">
 <h1>5. Get Final results<a class="headerlink" href="#5.-Get-Final-results" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="5.1.-Get-resutls-as-a-dictionary">
-<h2>5.1. Get resutls as a dictionary<a class="headerlink" href="#5.1.-Get-resutls-as-a-dictionary" title="Permalink to this headline">¶</a></h2>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">td</span> <span class="o">=</span> <span class="n">tfi</span><span class="o">.</span><span class="n">to_dictionary</span><span class="p">(</span><span class="n">dictionary_type</span><span class="o">=</span><span class="s2">&quot;targetgene2TFs&quot;</span><span class="p">)</span>
-
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="5.2.-Get-results-as-a-dataframe">
-<h2>5.2. Get results as a dataframe<a class="headerlink" href="#5.2.-Get-results-as-a-dataframe" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
@@ -1305,25 +1131,21 @@ converting scan results into dictionaries...
 </div></div>
 </div>
 </div>
-</div>
-<div class="section" id="6.-Save-TFinfo-as-dictionary-or-dataframe">
-<h1>6. Save TFinfo as dictionary or dataframe<a class="headerlink" href="#6.-Save-TFinfo-as-dictionary-or-dataframe" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="6.-Save-result">
+<h1>6. Save result<a class="headerlink" href="#6.-Save-result" title="Permalink to this headline">¶</a></h1>
 <p>We’ll use this information when making the GRNs. Save the results.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">folder</span> <span class="o">=</span> <span class="s2">&quot;TFinfo_outputs&quot;</span>
-<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-<span class="c1"># save TFinfo as a dictionary</span>
-<span class="n">td</span> <span class="o">=</span> <span class="n">tfi</span><span class="o">.</span><span class="n">to_dictionary</span><span class="p">(</span><span class="n">dictionary_type</span><span class="o">=</span><span class="s2">&quot;targetgene2TFs&quot;</span><span class="p">)</span>
-<span class="n">save_as_pickled_object</span><span class="p">(</span><span class="n">td</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="s2">&quot;TFinfo_targetgene2TFs.pickled&quot;</span><span class="p">))</span>
-
-<span class="c1"># save TFinfo as a dataframe</span>
+<span></span><span class="c1"># Save result as a dataframe</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">tfi</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
-<span class="n">df</span><span class="o">.</span><span class="n">to_parquet</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="s2">&quot;TFinfo_dataframe.parquet&quot;</span><span class="p">))</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_parquet</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="s2">&quot;base_GRN_dataframe.parquet&quot;</span><span class="p">))</span>
+
+<span class="c1"># If you want, you can save the result as a dictionary as follows.</span>
+<span class="c1">#td = tfi.to_dictionary(dictionary_type=&quot;targetgene2TFs&quot;)</span>
+<span class="c1">#save_as_pickled_object(td, os.path.join(folder, &quot;TFinfo_targetgene2TFs.pickled&quot;))</span>
 </pre></div>
 </div>
 </div>
@@ -1337,10 +1159,10 @@ converting scan results into dictionaries...
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="motif_data_preparation/01_How_to_load_motif_data.html" class="btn btn-neutral float-right" title="0. Overview: How to use a different motifs for celloracle motif scan." accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../../modules/index.html" class="btn btn-neutral float-right" title="API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../../tutorials/motifscan.html" class="btn btn-neutral float-left" title="2. Transcription factor binding motif scan" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../../tutorials/motifscan.html" class="btn btn-neutral float-left" title="1. Transcription factor binding motif scan" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

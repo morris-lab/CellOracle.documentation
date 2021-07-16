@@ -1,0 +1,1040 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>&lt;no title&gt; &mdash; celloracle 0.6.9 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> celloracle
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Welcome to celloracle’s documentation!</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/index.html">Tutorial</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../google_colab/index.html">Google Colaboratoly</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/index.html">API</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog/index.html">Changelog</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../license/index.html">License</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../citation/index.html">Authors and citations</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">celloracle</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>&lt;no title&gt;</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/notebooks/Colab/CellOrcle_installation_in_Google_colab.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">!</span>pip install git+https://github.com/morris-lab/CellOracle.git
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Collecting git+https://github.com/morris-lab/CellOracle.git
+  Cloning https://github.com/morris-lab/CellOracle.git to /tmp/pip-req-build-n4jpaqro
+Requirement already satisfied (use --upgrade to upgrade): celloracle==0.6.11 from git+https://github.com/morris-lab/CellOracle.git in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages
+Requirement already satisfied: numpy in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from celloracle==0.6.11) (1.17.5)
+Requirement already satisfied: scipy in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from celloracle==0.6.11) (1.4.1)
+Requirement already satisfied: cython in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from celloracle==0.6.11) (0.29.20)
+Requirement already satisfied: numba==0.50.1 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from celloracle==0.6.11) (0.50.1)
+Requirement already satisfied: matplotlib in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from celloracle==0.6.11) (3.2.2)
+Requirement already satisfied: seaborn in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from celloracle==0.6.11) (0.10.1)
+Requirement already satisfied: scikit-learn in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from celloracle==0.6.11) (0.24.2)
+Requirement already satisfied: h5py&gt;=3.1.0 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from celloracle==0.6.11) (3.1.0)
+Requirement already satisfied: pandas&gt;=1.0.3 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from celloracle==0.6.11) (1.0.5)
+Requirement already satisfied: velocyto&gt;=0.17 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from celloracle==0.6.11) (0.17.17)
+Requirement already satisfied: umap-learn in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from celloracle==0.6.11) (0.4.6)
+Requirement already satisfied: pyarrow&gt;=0.17 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from celloracle==0.6.11) (1.0.0)
+Requirement already satisfied: jupyter in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from celloracle==0.6.11) (1.0.0)
+Requirement already satisfied: tqdm&gt;=4.45 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from celloracle==0.6.11) (4.48.2)
+Requirement already satisfied: python-igraph in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from celloracle==0.6.11) (0.8.2)
+Requirement already satisfied: louvain in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from celloracle==0.6.11) (0.7.0)
+Requirement already satisfied: fa2 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from celloracle==0.6.11) (0.3.5)
+Requirement already satisfied: anndata&gt;=0.7.5 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from celloracle==0.6.11) (0.7.5)
+Requirement already satisfied: scanpy&gt;=1.6 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from celloracle==0.6.11) (1.7.2)
+Requirement already satisfied: joblib in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from celloracle==0.6.11) (0.15.1)
+Requirement already satisfied: goatools in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from celloracle==0.6.11) (1.0.5)
+Requirement already satisfied: genomepy==0.8.4 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from celloracle==0.6.11) (0.8.4)
+Requirement already satisfied: gimmemotifs==0.14.4 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from celloracle==0.6.11) (0.14.4)
+Requirement already satisfied: setuptools in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from numba==0.50.1-&gt;celloracle==0.6.11) (49.2.1.post20200802)
+Requirement already satisfied: llvmlite&lt;0.34,&gt;=0.33.0.dev0 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from numba==0.50.1-&gt;celloracle==0.6.11) (0.33.0)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from matplotlib-&gt;celloracle==0.6.11) (1.2.0)
+Requirement already satisfied: python-dateutil&gt;=2.1 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from matplotlib-&gt;celloracle==0.6.11) (2.8.1)
+Requirement already satisfied: cycler&gt;=0.10 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from matplotlib-&gt;celloracle==0.6.11) (0.10.0)
+Requirement already satisfied: pyparsing!=2.0.4,!=2.1.2,!=2.1.6,&gt;=2.0.1 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from matplotlib-&gt;celloracle==0.6.11) (2.4.7)
+Requirement already satisfied: threadpoolctl&gt;=2.0.0 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from scikit-learn-&gt;celloracle==0.6.11) (2.1.0)
+Requirement already satisfied: cached-property; python_version &lt; &#34;3.8&#34; in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from h5py&gt;=3.1.0-&gt;celloracle==0.6.11) (1.5.2)
+Requirement already satisfied: pytz&gt;=2017.2 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from pandas&gt;=1.0.3-&gt;celloracle==0.6.11) (2020.1)
+Requirement already satisfied: pysam in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from velocyto&gt;=0.17-&gt;celloracle==0.6.11) (0.16.0.1)
+Requirement already satisfied: loompy in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from velocyto&gt;=0.17-&gt;celloracle==0.6.11) (3.0.6)
+Requirement already satisfied: Click in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from velocyto&gt;=0.17-&gt;celloracle==0.6.11) (7.1.2)
+Requirement already satisfied: qtconsole in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from jupyter-&gt;celloracle==0.6.11) (4.7.5)
+Requirement already satisfied: nbconvert in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from jupyter-&gt;celloracle==0.6.11) (5.6.1)
+Requirement already satisfied: jupyter-console in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from jupyter-&gt;celloracle==0.6.11) (6.1.0)
+Requirement already satisfied: notebook in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from jupyter-&gt;celloracle==0.6.11) (6.1.0)
+Requirement already satisfied: ipywidgets in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from jupyter-&gt;celloracle==0.6.11) (7.5.1)
+Requirement already satisfied: ipykernel in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from jupyter-&gt;celloracle==0.6.11) (5.3.4)
+Requirement already satisfied: texttable&gt;=1.6.2 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from python-igraph-&gt;celloracle==0.6.11) (1.6.2)
+Requirement already satisfied: packaging in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from anndata&gt;=0.7.5-&gt;celloracle==0.6.11) (20.4)
+Requirement already satisfied: natsort in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from anndata&gt;=0.7.5-&gt;celloracle==0.6.11) (7.0.1)
+Requirement already satisfied: importlib-metadata&gt;=0.7; python_version &lt; &#34;3.8&#34; in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from anndata&gt;=0.7.5-&gt;celloracle==0.6.11) (1.7.0)
+Requirement already satisfied: tables in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from scanpy&gt;=1.6-&gt;celloracle==0.6.11) (3.6.1)
+Requirement already satisfied: patsy in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from scanpy&gt;=1.6-&gt;celloracle==0.6.11) (0.5.1)
+Requirement already satisfied: legacy-api-wrap in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from scanpy&gt;=1.6-&gt;celloracle==0.6.11) (0.0.0)
+Requirement already satisfied: sinfo in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from scanpy&gt;=1.6-&gt;celloracle==0.6.11) (0.3.4)
+Requirement already satisfied: networkx&gt;=2.3 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from scanpy&gt;=1.6-&gt;celloracle==0.6.11) (2.4)
+Requirement already satisfied: statsmodels&gt;=0.10.0rc2 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from scanpy&gt;=1.6-&gt;celloracle==0.6.11) (0.11.1)
+Requirement already satisfied: wget in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from goatools-&gt;celloracle==0.6.11) (3.2)
+Requirement already satisfied: pytest in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from goatools-&gt;celloracle==0.6.11) (6.0.1)
+Requirement already satisfied: pydot in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from goatools-&gt;celloracle==0.6.11) (1.4.1)
+Requirement already satisfied: pytest-cov in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from goatools-&gt;celloracle==0.6.11) (2.10.0)
+Requirement already satisfied: nose in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from goatools-&gt;celloracle==0.6.11) (1.3.7)
+Requirement already satisfied: xlsxwriter in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from goatools-&gt;celloracle==0.6.11) (1.3.0)
+Requirement already satisfied: xlrd in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from goatools-&gt;celloracle==0.6.11) (1.2.0)
+Requirement already satisfied: docopt in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from goatools-&gt;celloracle==0.6.11) (0.6.2)
+Requirement already satisfied: requests in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from goatools-&gt;celloracle==0.6.11) (2.24.0)
+Requirement already satisfied: psutil in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from genomepy==0.8.4-&gt;celloracle==0.6.11) (5.7.2)
+Requirement already satisfied: bucketcache in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from genomepy==0.8.4-&gt;celloracle==0.6.11) (0.12.1)
+Requirement already satisfied: colorama in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from genomepy==0.8.4-&gt;celloracle==0.6.11) (0.4.3)
+Requirement already satisfied: norns&gt;=0.1.5 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from genomepy==0.8.4-&gt;celloracle==0.6.11) (0.1.5)
+Requirement already satisfied: biopython&gt;=1.73 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from genomepy==0.8.4-&gt;celloracle==0.6.11) (1.77)
+Requirement already satisfied: pyfaidx&gt;=0.5.7 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from genomepy==0.8.4-&gt;celloracle==0.6.11) (0.5.9.1)
+Requirement already satisfied: appdirs in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from genomepy==0.8.4-&gt;celloracle==0.6.11) (1.4.4)
+Requirement already satisfied: diskcache in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from gimmemotifs==0.14.4-&gt;celloracle==0.6.11) (4.1.0)
+Requirement already satisfied: pillow in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from gimmemotifs==0.14.4-&gt;celloracle==0.6.11) (7.2.0)
+Requirement already satisfied: pybedtools in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from gimmemotifs==0.14.4-&gt;celloracle==0.6.11) (0.8.1)
+Requirement already satisfied: pyyaml&gt;=3.10 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from gimmemotifs==0.14.4-&gt;celloracle==0.6.11) (5.3.1)
+Requirement already satisfied: sklearn-contrib-lightning in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from gimmemotifs==0.14.4-&gt;celloracle==0.6.11) (0.5.0)
+Requirement already satisfied: xgboost&gt;=0.71 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from gimmemotifs==0.14.4-&gt;celloracle==0.6.11) (1.1.1)
+Requirement already satisfied: xxhash in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from gimmemotifs==0.14.4-&gt;celloracle==0.6.11) (1.4.4)
+Requirement already satisfied: xdg in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from gimmemotifs==0.14.4-&gt;celloracle==0.6.11) (4.0.1)
+Requirement already satisfied: configparser in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from gimmemotifs==0.14.4-&gt;celloracle==0.6.11) (5.0.0)
+Requirement already satisfied: future in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from gimmemotifs==0.14.4-&gt;celloracle==0.6.11) (0.18.2)
+Requirement already satisfied: jinja2 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from gimmemotifs==0.14.4-&gt;celloracle==0.6.11) (2.11.2)
+Requirement already satisfied: logomaker in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from gimmemotifs==0.14.4-&gt;celloracle==0.6.11) (0.8)
+Requirement already satisfied: six in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from gimmemotifs==0.14.4-&gt;celloracle==0.6.11) (1.15.0)
+Requirement already satisfied: numpy-groupies in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from loompy-&gt;velocyto&gt;=0.17-&gt;celloracle==0.6.11) (0+unknown)
+Requirement already satisfied: jupyter-client&gt;=4.1 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from qtconsole-&gt;jupyter-&gt;celloracle==0.6.11) (6.1.6)
+Requirement already satisfied: jupyter-core in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from qtconsole-&gt;jupyter-&gt;celloracle==0.6.11) (4.6.3)
+Requirement already satisfied: ipython-genutils in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from qtconsole-&gt;jupyter-&gt;celloracle==0.6.11) (0.2.0)
+Requirement already satisfied: pygments in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from qtconsole-&gt;jupyter-&gt;celloracle==0.6.11) (2.6.1)
+Requirement already satisfied: qtpy in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from qtconsole-&gt;jupyter-&gt;celloracle==0.6.11) (1.9.0)
+Requirement already satisfied: traitlets in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from qtconsole-&gt;jupyter-&gt;celloracle==0.6.11) (4.3.3)
+Requirement already satisfied: pyzmq&gt;=17.1 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from qtconsole-&gt;jupyter-&gt;celloracle==0.6.11) (19.0.2)
+Requirement already satisfied: nbformat&gt;=4.4 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from nbconvert-&gt;jupyter-&gt;celloracle==0.6.11) (5.0.7)
+Requirement already satisfied: mistune&lt;2,&gt;=0.8.1 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from nbconvert-&gt;jupyter-&gt;celloracle==0.6.11) (0.8.4)
+Requirement already satisfied: pandocfilters&gt;=1.4.1 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from nbconvert-&gt;jupyter-&gt;celloracle==0.6.11) (1.4.2)
+Requirement already satisfied: bleach in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from nbconvert-&gt;jupyter-&gt;celloracle==0.6.11) (3.1.5)
+Requirement already satisfied: testpath in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from nbconvert-&gt;jupyter-&gt;celloracle==0.6.11) (0.4.4)
+Requirement already satisfied: entrypoints&gt;=0.2.2 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from nbconvert-&gt;jupyter-&gt;celloracle==0.6.11) (0.3)
+Requirement already satisfied: defusedxml in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from nbconvert-&gt;jupyter-&gt;celloracle==0.6.11) (0.6.0)
+Requirement already satisfied: prompt-toolkit!=3.0.0,!=3.0.1,&lt;3.1.0,&gt;=2.0.0 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from jupyter-console-&gt;jupyter-&gt;celloracle==0.6.11) (3.0.5)
+Requirement already satisfied: ipython in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from jupyter-console-&gt;jupyter-&gt;celloracle==0.6.11) (7.16.1)
+Requirement already satisfied: prometheus-client in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from notebook-&gt;jupyter-&gt;celloracle==0.6.11) (0.8.0)
+Requirement already satisfied: terminado&gt;=0.8.3 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from notebook-&gt;jupyter-&gt;celloracle==0.6.11) (0.8.3)
+Requirement already satisfied: argon2-cffi in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from notebook-&gt;jupyter-&gt;celloracle==0.6.11) (20.1.0)
+Requirement already satisfied: tornado&gt;=5.0 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from notebook-&gt;jupyter-&gt;celloracle==0.6.11) (6.0.4)
+Requirement already satisfied: Send2Trash in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from notebook-&gt;jupyter-&gt;celloracle==0.6.11) (1.5.0)
+Requirement already satisfied: widgetsnbextension~=3.5.0 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from ipywidgets-&gt;jupyter-&gt;celloracle==0.6.11) (3.5.1)
+Requirement already satisfied: zipp&gt;=0.5 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from importlib-metadata&gt;=0.7; python_version &lt; &#34;3.8&#34;-&gt;anndata&gt;=0.7.5-&gt;celloracle==0.6.11) (3.1.0)
+Requirement already satisfied: numexpr&gt;=2.6.2 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from tables-&gt;scanpy&gt;=1.6-&gt;celloracle==0.6.11) (2.7.1)
+Requirement already satisfied: get-version&gt;=2.0.4 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from legacy-api-wrap-&gt;scanpy&gt;=1.6-&gt;celloracle==0.6.11) (2.1)
+Requirement already satisfied: stdlib-list in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from sinfo-&gt;scanpy&gt;=1.6-&gt;celloracle==0.6.11) (0.8.0)
+Requirement already satisfied: decorator&gt;=4.3.0 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from networkx&gt;=2.3-&gt;scanpy&gt;=1.6-&gt;celloracle==0.6.11) (4.4.2)
+Requirement already satisfied: py&gt;=1.8.2 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from pytest-&gt;goatools-&gt;celloracle==0.6.11) (1.9.0)
+Requirement already satisfied: toml in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from pytest-&gt;goatools-&gt;celloracle==0.6.11) (0.10.1)
+Requirement already satisfied: pluggy&lt;1.0,&gt;=0.12 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from pytest-&gt;goatools-&gt;celloracle==0.6.11) (0.13.1)
+Requirement already satisfied: attrs&gt;=17.4.0 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from pytest-&gt;goatools-&gt;celloracle==0.6.11) (19.3.0)
+Requirement already satisfied: iniconfig in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from pytest-&gt;goatools-&gt;celloracle==0.6.11) (1.0.1)
+Requirement already satisfied: more-itertools&gt;=4.0.0 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from pytest-&gt;goatools-&gt;celloracle==0.6.11) (8.4.0)
+Requirement already satisfied: coverage&gt;=4.4 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from pytest-cov-&gt;goatools-&gt;celloracle==0.6.11) (5.1)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from requests-&gt;goatools-&gt;celloracle==0.6.11) (2020.12.5)
+Requirement already satisfied: idna&lt;3,&gt;=2.5 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from requests-&gt;goatools-&gt;celloracle==0.6.11) (2.10)
+Requirement already satisfied: urllib3!=1.25.0,!=1.25.1,&lt;1.26,&gt;=1.21.1 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from requests-&gt;goatools-&gt;celloracle==0.6.11) (1.25.10)
+Requirement already satisfied: chardet&lt;4,&gt;=3.0.2 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from requests-&gt;goatools-&gt;celloracle==0.6.11) (3.0.4)
+Requirement already satisfied: boltons in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from bucketcache-&gt;genomepy==0.8.4-&gt;celloracle==0.6.11) (20.2.0)
+Requirement already satisfied: logbook&gt;=0.12.5 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from bucketcache-&gt;genomepy==0.8.4-&gt;celloracle==0.6.11) (1.5.3)
+Requirement already satisfied: represent&gt;=1.5.1 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from bucketcache-&gt;genomepy==0.8.4-&gt;celloracle==0.6.11) (1.6.0)
+Requirement already satisfied: MarkupSafe&gt;=0.23 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from jinja2-&gt;gimmemotifs==0.14.4-&gt;celloracle==0.6.11) (1.1.1)
+Requirement already satisfied: jsonschema!=2.5.0,&gt;=2.4 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from nbformat&gt;=4.4-&gt;nbconvert-&gt;jupyter-&gt;celloracle==0.6.11) (3.2.0)
+Requirement already satisfied: webencodings in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from bleach-&gt;nbconvert-&gt;jupyter-&gt;celloracle==0.6.11) (0.5.1)
+Requirement already satisfied: wcwidth in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from prompt-toolkit!=3.0.0,!=3.0.1,&lt;3.1.0,&gt;=2.0.0-&gt;jupyter-console-&gt;jupyter-&gt;celloracle==0.6.11) (0.2.5)
+Requirement already satisfied: backcall in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from ipython-&gt;jupyter-console-&gt;jupyter-&gt;celloracle==0.6.11) (0.2.0)
+Requirement already satisfied: pexpect; sys_platform != &#34;win32&#34; in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from ipython-&gt;jupyter-console-&gt;jupyter-&gt;celloracle==0.6.11) (4.8.0)
+Requirement already satisfied: pickleshare in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from ipython-&gt;jupyter-console-&gt;jupyter-&gt;celloracle==0.6.11) (0.7.5)
+Requirement already satisfied: jedi&gt;=0.10 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from ipython-&gt;jupyter-console-&gt;jupyter-&gt;celloracle==0.6.11) (0.17.2)
+Requirement already satisfied: cffi&gt;=1.0.0 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from argon2-cffi-&gt;notebook-&gt;jupyter-&gt;celloracle==0.6.11) (1.14.1)
+Requirement already satisfied: pyrsistent&gt;=0.14.0 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from jsonschema!=2.5.0,&gt;=2.4-&gt;nbformat&gt;=4.4-&gt;nbconvert-&gt;jupyter-&gt;celloracle==0.6.11) (0.16.0)
+Requirement already satisfied: ptyprocess&gt;=0.5 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from pexpect; sys_platform != &#34;win32&#34;-&gt;ipython-&gt;jupyter-console-&gt;jupyter-&gt;celloracle==0.6.11) (0.6.0)
+Requirement already satisfied: parso&lt;0.8.0,&gt;=0.7.0 in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from jedi&gt;=0.10-&gt;ipython-&gt;jupyter-console-&gt;jupyter-&gt;celloracle==0.6.11) (0.7.1)
+Requirement already satisfied: pycparser in /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages (from cffi&gt;=1.0.0-&gt;argon2-cffi-&gt;notebook-&gt;jupyter-&gt;celloracle==0.6.11) (2.20)
+Building wheels for collected packages: celloracle
+  Building wheel for celloracle (setup.py) ... - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / done
+  Created wheel for celloracle: filename=celloracle-0.6.11-py3-none-any.whl size=212624340 sha256=856f8b54548ceb236fc7cb95dc3dd5c83421d0e50ba4fb3526cc988a35377898
+  Stored in directory: /tmp/pip-ephem-wheel-cache-60nfjeaj/wheels/61/1c/d4/ddf7ffaf2722290ecc124290240d783aec2b6b4919149f0b34
+Successfully built celloracle
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">!</span>pip install <span class="nv">PyYAML</span><span class="o">==</span><span class="m">5</span>.4.1
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Collecting PyYAML==5.4.1
+  Using cached PyYAML-5.4.1-cp36-cp36m-manylinux1_x86_64.whl (640 kB)
+Installing collected packages: PyYAML
+  Attempting uninstall: PyYAML
+    Found existing installation: PyYAML 5.3.1
+<span class="ansi-red-fg">ERROR: Cannot uninstall &#39;PyYAML&#39;. It is a distutils installed project and thus we cannot accurately determine which files belong to it which would lead to only a partial uninstall.</span>
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">!</span>apt-get install libgsl-dev
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+E: Could not open lock file /var/lib/dpkg/lock-frontend - open (13: Permission denied)
+E: Unable to acquire the dpkg frontend lock (/var/lib/dpkg/lock-frontend), are you root?
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">load_ext</span> rpy2.ipython
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">ModuleNotFoundError</span>                       Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-4-fb23c6edefe4&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>get_ipython<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>run_line_magic<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;load_ext&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;rpy2.ipython&#39;</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">~/anaconda3/envs/pandas1/lib/python3.6/site-packages/IPython/core/interactiveshell.py</span> in <span class="ansi-cyan-fg">run_line_magic</span><span class="ansi-blue-fg">(self, magic_name, line, _stack_depth)</span>
+<span class="ansi-green-intense-fg ansi-bold">   2324</span>                 kwargs<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;local_ns&#39;</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">=</span> sys<span class="ansi-blue-fg">.</span>_getframe<span class="ansi-blue-fg">(</span>stack_depth<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>f_locals
+<span class="ansi-green-intense-fg ansi-bold">   2325</span>             <span class="ansi-green-fg">with</span> self<span class="ansi-blue-fg">.</span>builtin_trap<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">-&gt; 2326</span><span class="ansi-red-fg">                 </span>result <span class="ansi-blue-fg">=</span> fn<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">*</span>args<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   2327</span>             <span class="ansi-green-fg">return</span> result
+<span class="ansi-green-intense-fg ansi-bold">   2328</span>
+
+<span class="ansi-green-fg">&lt;decorator-gen-64&gt;</span> in <span class="ansi-cyan-fg">load_ext</span><span class="ansi-blue-fg">(self, module_str)</span>
+
+<span class="ansi-green-fg">~/anaconda3/envs/pandas1/lib/python3.6/site-packages/IPython/core/magic.py</span> in <span class="ansi-cyan-fg">&lt;lambda&gt;</span><span class="ansi-blue-fg">(f, *a, **k)</span>
+<span class="ansi-green-intense-fg ansi-bold">    185</span>     <span class="ansi-red-fg"># but it&#39;s overkill for just that one bit of state.</span>
+<span class="ansi-green-intense-fg ansi-bold">    186</span>     <span class="ansi-green-fg">def</span> magic_deco<span class="ansi-blue-fg">(</span>arg<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 187</span><span class="ansi-red-fg">         </span>call <span class="ansi-blue-fg">=</span> <span class="ansi-green-fg">lambda</span> f<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">*</span>a<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>k<span class="ansi-blue-fg">:</span> f<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">*</span>a<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>k<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    188</span>
+<span class="ansi-green-intense-fg ansi-bold">    189</span>         <span class="ansi-green-fg">if</span> callable<span class="ansi-blue-fg">(</span>arg<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">~/anaconda3/envs/pandas1/lib/python3.6/site-packages/IPython/core/magics/extension.py</span> in <span class="ansi-cyan-fg">load_ext</span><span class="ansi-blue-fg">(self, module_str)</span>
+<span class="ansi-green-intense-fg ansi-bold">     31</span>         <span class="ansi-green-fg">if</span> <span class="ansi-green-fg">not</span> module_str<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">     32</span>             <span class="ansi-green-fg">raise</span> UsageError<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;Missing module name.&#39;</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">---&gt; 33</span><span class="ansi-red-fg">         </span>res <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>shell<span class="ansi-blue-fg">.</span>extension_manager<span class="ansi-blue-fg">.</span>load_extension<span class="ansi-blue-fg">(</span>module_str<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     34</span>
+<span class="ansi-green-intense-fg ansi-bold">     35</span>         <span class="ansi-green-fg">if</span> res <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;already loaded&#39;</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">~/anaconda3/envs/pandas1/lib/python3.6/site-packages/IPython/core/extensions.py</span> in <span class="ansi-cyan-fg">load_extension</span><span class="ansi-blue-fg">(self, module_str)</span>
+<span class="ansi-green-intense-fg ansi-bold">     78</span>             <span class="ansi-green-fg">if</span> module_str <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">in</span> sys<span class="ansi-blue-fg">.</span>modules<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">     79</span>                 <span class="ansi-green-fg">with</span> prepended_to_syspath<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>ipython_extension_dir<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">---&gt; 80</span><span class="ansi-red-fg">                     </span>mod <span class="ansi-blue-fg">=</span> import_module<span class="ansi-blue-fg">(</span>module_str<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     81</span>                     <span class="ansi-green-fg">if</span> mod<span class="ansi-blue-fg">.</span>__file__<span class="ansi-blue-fg">.</span>startswith<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>ipython_extension_dir<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">     82</span>                         print((&#34;Loading extensions from {dir} is deprecated. &#34;
+
+<span class="ansi-green-fg">~/anaconda3/envs/pandas1/lib/python3.6/importlib/__init__.py</span> in <span class="ansi-cyan-fg">import_module</span><span class="ansi-blue-fg">(name, package)</span>
+<span class="ansi-green-intense-fg ansi-bold">    124</span>                 <span class="ansi-green-fg">break</span>
+<span class="ansi-green-intense-fg ansi-bold">    125</span>             level <span class="ansi-blue-fg">+=</span> <span class="ansi-cyan-fg">1</span>
+<span class="ansi-green-fg">--&gt; 126</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">return</span> _bootstrap<span class="ansi-blue-fg">.</span>_gcd_import<span class="ansi-blue-fg">(</span>name<span class="ansi-blue-fg">[</span>level<span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span> package<span class="ansi-blue-fg">,</span> level<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    127</span>
+<span class="ansi-green-intense-fg ansi-bold">    128</span>
+
+<span class="ansi-green-fg">~/anaconda3/envs/pandas1/lib/python3.6/importlib/_bootstrap.py</span> in <span class="ansi-cyan-fg">_gcd_import</span><span class="ansi-blue-fg">(name, package, level)</span>
+
+<span class="ansi-green-fg">~/anaconda3/envs/pandas1/lib/python3.6/importlib/_bootstrap.py</span> in <span class="ansi-cyan-fg">_find_and_load</span><span class="ansi-blue-fg">(name, import_)</span>
+
+<span class="ansi-green-fg">~/anaconda3/envs/pandas1/lib/python3.6/importlib/_bootstrap.py</span> in <span class="ansi-cyan-fg">_find_and_load_unlocked</span><span class="ansi-blue-fg">(name, import_)</span>
+
+<span class="ansi-green-fg">~/anaconda3/envs/pandas1/lib/python3.6/importlib/_bootstrap.py</span> in <span class="ansi-cyan-fg">_call_with_frames_removed</span><span class="ansi-blue-fg">(f, *args, **kwds)</span>
+
+<span class="ansi-green-fg">~/anaconda3/envs/pandas1/lib/python3.6/importlib/_bootstrap.py</span> in <span class="ansi-cyan-fg">_gcd_import</span><span class="ansi-blue-fg">(name, package, level)</span>
+
+<span class="ansi-green-fg">~/anaconda3/envs/pandas1/lib/python3.6/importlib/_bootstrap.py</span> in <span class="ansi-cyan-fg">_find_and_load</span><span class="ansi-blue-fg">(name, import_)</span>
+
+<span class="ansi-green-fg">~/anaconda3/envs/pandas1/lib/python3.6/importlib/_bootstrap.py</span> in <span class="ansi-cyan-fg">_find_and_load_unlocked</span><span class="ansi-blue-fg">(name, import_)</span>
+
+<span class="ansi-red-fg">ModuleNotFoundError</span>: No module named &#39;rpy2&#39;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-r notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%%</span><span class="n">R</span>
+<span class="nf">install.packages</span><span class="p">(</span><span class="s">&quot;rnetcarto&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+UsageError: Cell magic `%%R` not found.
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-r notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%%</span><span class="n">R</span>
+<span class="nf">install.packages</span><span class="p">(</span><span class="s">&quot;linkcomm&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+UsageError: Cell magic `%%R` not found.
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-r notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%%</span><span class="n">R</span>
+<span class="nf">install.packages</span><span class="p">(</span><span class="s">&quot;igraph&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+UsageError: Cell magic `%%R` not found.
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Check python dependent package installation status</span>
+<span class="kn">import</span> <span class="nn">celloracle</span> <span class="k">as</span> <span class="nn">co</span>
+<span class="n">co</span><span class="o">.</span><span class="n">check_python_requirements</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>package_name</th>
+      <th>installed_version</th>
+      <th>required_version</th>
+      <th>requirement_satisfied</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>numpy</td>
+      <td>1.17.5</td>
+      <td>auto</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>scipy</td>
+      <td>1.4.1</td>
+      <td>auto</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>cython</td>
+      <td>0.29.20</td>
+      <td>auto</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>numba</td>
+      <td>0.50.1</td>
+      <td>0.49.1</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>matplotlib</td>
+      <td>3.2.2</td>
+      <td>auto</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>seaborn</td>
+      <td>0.10.1</td>
+      <td>auto</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>scikit-learn</td>
+      <td>0.24.2</td>
+      <td>auto</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>h5py</td>
+      <td>3.1.0</td>
+      <td>3.1.0</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>pandas</td>
+      <td>1.0.5</td>
+      <td>1.0.3</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>velocyto</td>
+      <td>0.17.17</td>
+      <td>0.17</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>umap-learn</td>
+      <td>0.4.6</td>
+      <td>auto</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>pyarrow</td>
+      <td>1.0.0</td>
+      <td>0.17</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>jupyter</td>
+      <td>1.0.0</td>
+      <td>auto</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>tqdm</td>
+      <td>4.48.2</td>
+      <td>4.45</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>python-igraph</td>
+      <td>0.8.2</td>
+      <td>auto</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>louvain</td>
+      <td>0.7.0</td>
+      <td>auto</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>fa2</td>
+      <td>0.3.5</td>
+      <td>auto</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>anndata</td>
+      <td>0.7.5</td>
+      <td>0.7.5</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>scanpy</td>
+      <td>1.7.2</td>
+      <td>1.6</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>joblib</td>
+      <td>0.15.1</td>
+      <td>auto</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>goatools</td>
+      <td>1.0.5</td>
+      <td>auto</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>genomepy</td>
+      <td>0.8.4</td>
+      <td>0.8.4</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>gimmemotifs</td>
+      <td>0.14.4</td>
+      <td>0.14.4</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Check R dependent package installation status</span>
+<span class="n">co</span><span class="o">.</span><span class="n">network_analysis</span><span class="o">.</span><span class="n">test_R_libraries_installation</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+R path: /usr/bin/R
+checking R library installation: igraph -&gt; OK
+checking R library installation: linkcomm -&gt; OK
+checking R library installation: rnetcarto -&gt; OK
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Samantha Morris Lab
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

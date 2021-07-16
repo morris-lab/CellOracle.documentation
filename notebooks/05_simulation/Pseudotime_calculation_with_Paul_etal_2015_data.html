@@ -1,0 +1,1023 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Overview &mdash; celloracle 0.6.9 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3. Base GRN input data preparation" href="../../tutorials/base_grn.html" />
+    <link rel="prev" title="2. Pseudotime calculation" href="../../tutorials/pseudotime.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> celloracle
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Welcome to celloracle’s documentation!</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">Installation</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../tutorials/index.html">Tutorial</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/index.html#what-the-tutorial-covers">What the tutorial covers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/index.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/index.html#code-and-data-availability">Code and data availability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/index.html#getting-started">Getting started</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../tutorials/index.html#index">Index</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/index.html#grn-model-construction-and-network-analysis">GRN model construction and Network analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/index.html#in-silico-gene-perturbation-with-grns">in silico gene perturbation with GRNs</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../tutorials/index.html#prepare-input-data">Prepare input data</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/scrnaprocess.html">1. scRNA-seq data preparation</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../../tutorials/pseudotime.html">2. Pseudotime calculation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/base_grn.html">3. Base GRN input data preparation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/index.html#tf-motif-scan-for-base-grn-construction">TF motif scan for base-GRN construction</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/index.html">API</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog/index.html">Changelog</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../license/index.html">License</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../citation/index.html">Authors and citations</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">celloracle</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../tutorials/index.html">Tutorial</a> &raquo;</li>
+        
+          <li><a href="../../tutorials/pseudotime.html"><span class="section-number">2. </span>Pseudotime calculation</a> &raquo;</li>
+        
+      <li>Overview</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/notebooks/05_simulation/Pseudotime_calculation_with_Paul_etal_2015_data.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="Overview">
+<h1>Overview<a class="headerlink" href="#Overview" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="Aim">
+<h2>Aim<a class="headerlink" href="#Aim" title="Permalink to this headline">¶</a></h2>
+<p>To interpret the celloracle simulation results, it is essential to compare the direction of the perturbation effect with natural differentiation. By comparing them, you can intuitively understand how TF is involved in cell fate determination during development. This perspective is also needed when estimating experimental perturbation results using celloracle simulations.</p>
+</div>
+<div class="section" id="Method-summary">
+<h2>Method summary<a class="headerlink" href="#Method-summary" title="Permalink to this headline">¶</a></h2>
+<p>For that purpose, we will introduce how to calculate the direction of differentiation using “pseudotime estimation” and “gradient calculation”. Here’s an overview of how to do this:</p>
+<ol class="arabic simple">
+<li><p>Calculate the pseudotime using the diffusion pseudotime method (dpt).</p></li>
+<li><p>Transfer pseudotime data to grid points</p></li>
+<li><p>Calculate the 2D gradient vector field using the pseudotime on the grid points</p></li>
+<li><p>Compute the inner product value between the 2D gradient vector and the celloracle simulation vector to compare the simulated cell identity shift direction with the development direction.</p></li>
+</ol>
+<p><strong>In this notebook, we will do step1: pseudotime calculation.</strong> The pseudotime calculation part consists of these steps below. 1. Set lineage information and split the cells into several lineage brahches 2. Set root cells manually 3. Calculate pseudotime with dpt algorithm. 4. Re-aggregate scRNA-seq data into one data</p>
+</div>
+<div class="section" id="Custom-class-/-object">
+<h2>Custom class / object<a class="headerlink" href="#Custom-class-/-object" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Pseudotime_calculator</span></code>: This is a class for the pseudotime calculation. This class help us calculate pseudotime from scRNA-seq data. We need to specify a root cell. Also, scRNA-seq need to have a diffusion map &gt;Under the hood, Pseudotime_calculator uses “dpt” algorithm. For more information of dpt algorithm and root cell, please look at the scanpy web documentation. <a class="reference external" href="https://scanpy.readthedocs.io/en/stable/api/scanpy.tl.dpt.html#scanpy.tl.dpt">https://scanpy.readthedocs.io/en/stable/api/scanpy.tl.dpt.html#scanpy.tl.dpt</a></p>
+</div>
+<div class="section" id="Data">
+<h2>Data<a class="headerlink" href="#Data" title="Permalink to this headline">¶</a></h2>
+<p>Pseudo-time calculation requires preprocessed scRNA-seq data in anndata format. You need to do neighbor calculation and diffusion map calculation in advance. If you have processed the scRNA-seq data according to our tutorial (link), these calculations have already been performed. - Neighbor calculation: <a class="reference external" href="https://scanpy.readthedocs.io/en/stable/generated/scanpy.pp.neighbors.html#scanpy.pp.neighbors">https://scanpy.readthedocs.io/en/stable/generated/scanpy.pp.neighbors.html#scanpy.pp.neighbors</a> - Diffusion map calculation:
+<a class="reference external" href="https://scanpy.readthedocs.io/en/stable/generated/scanpy.tl.diffmap.html#scanpy.tl.diffmap">https://scanpy.readthedocs.io/en/stable/generated/scanpy.tl.diffmap.html#scanpy.tl.diffmap</a></p>
+</div>
+<div class="section" id="Install-additional-python-package">
+<h2>Install additional python package<a class="headerlink" href="#Install-additional-python-package" title="Permalink to this headline">¶</a></h2>
+<p>This notebook we recommend using another python package, <code class="docutils literal notranslate"><span class="pre">plotly</span></code>.</p>
+<p>Please install <code class="docutils literal notranslate"><span class="pre">plotly</span></code> in advance.</p>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">plotly</span></code></p>
+<blockquote>
+<div><p>Plotly is a toolkit for interactive visualization. We recommend using plotly to pick up root cells in this notebook. For more information, please look at plotly web site. <a class="reference external" href="https://plotly.com">https://plotly.com</a></p>
+</div></blockquote>
+</div>
+<div class="section" id="Caution">
+<h2>Caution<a class="headerlink" href="#Caution" title="Permalink to this headline">¶</a></h2>
+<p>Here, we will introduce an example of a pseudotime calculation method using the diffusion pseudotime method. This is NOT celloracle analysis itself. If you want to use another different algorithm for the pseudotime calculation, you can use anything.</p>
+</div>
+</div>
+<div class="section" id="0.-Import-libraries">
+<h1>0. Import libraries<a class="headerlink" href="#0.-Import-libraries" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="0.1.-Import-public-libraries">
+<h2>0.1. Import public libraries<a class="headerlink" href="#0.1.-Import-public-libraries" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">copy</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">scanpy</span> <span class="k">as</span> <span class="nn">sc</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">tqdm.notebook</span> <span class="kn">import</span> <span class="n">tqdm</span>
+
+<span class="c1">#import time</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="0.2.-Import-our-library">
+<h2>0.2. Import our library<a class="headerlink" href="#0.2.-Import-our-library" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">celloracle</span> <span class="k">as</span> <span class="nn">co</span>
+<span class="kn">from</span> <span class="nn">celloracle.applications</span> <span class="kn">import</span> <span class="n">Pseudotime_calculator</span>
+<span class="n">co</span><span class="o">.</span><span class="n">__version__</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;0.7.0&#39;
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="0.3.-Plotting-parameter-setting">
+<h2>0.3. Plotting parameter setting<a class="headerlink" href="#0.3.-Plotting-parameter-setting" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#plt.rcParams[&quot;font.family&quot;] = &quot;arial&quot;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;retina&#39;
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;savefig.dpi&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">300</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="1.-Load-data">
+<h1>1. Load data<a class="headerlink" href="#1.-Load-data" title="Permalink to this headline">¶</a></h1>
+<p>We can add pseudotime calculation to an oracle object or to anndata.</p>
+<ul class="simple">
+<li><p>If you have oracle object, please run <strong>1.1.[Option1] Load oracle data.</strong></p></li>
+<li><p>If you have not made oracle object yet and want to calculate pseudotime using anndata, please run <strong>1.2.[Option2] Load anndata.</strong></p></li>
+</ul>
+<p>In this notebook, we load demo oracle object to add pseudotime.</p>
+<div class="section" id="1.1.-[Option1]-Load-oracle-data">
+<h2>1.1. [Option1] Load oracle data<a class="headerlink" href="#1.1.-[Option1]-Load-oracle-data" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Load demo scRNA-seq data.</span>
+<span class="n">oracle</span> <span class="o">=</span> <span class="n">co</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">load_tutorial_oracle_object</span><span class="p">()</span>
+
+<span class="c1"># Instantiate pseudotime object using oracle object.</span>
+<span class="n">pt</span> <span class="o">=</span> <span class="n">Pseudotime_calculator</span><span class="p">(</span><span class="n">oracle_object</span><span class="o">=</span><span class="n">oracle</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="1.2.-[Option2]-Load-anndata">
+<h2>1.2. [Option2] Load anndata<a class="headerlink" href="#1.2.-[Option2]-Load-anndata" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Load demo scRNA-seq data.</span>
+<span class="n">adata</span> <span class="o">=</span> <span class="n">co</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">load_Paul2015_data</span><span class="p">()</span>
+
+<span class="c1"># Instantiate pseudotime object using anndata object.</span>
+<span class="n">pt</span> <span class="o">=</span> <span class="n">Pseudotime_calculator</span><span class="p">(</span><span class="n">adata</span><span class="o">=</span><span class="n">adata</span><span class="p">,</span>
+                           <span class="n">obsm_key</span><span class="o">=</span><span class="s2">&quot;X_draw_graph_fa&quot;</span><span class="p">,</span> <span class="c1"># Dimensional reduction data name</span>
+                           <span class="n">cluster_column_name</span><span class="o">=</span><span class="s2">&quot;louvain_annot&quot;</span> <span class="c1"># Clustering data name</span>
+                           <span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="2.-Pseudotime-calculation">
+<h1>2. Pseudotime calculation<a class="headerlink" href="#2.-Pseudotime-calculation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="2.1.-Add-lineage-information">
+<h2>2.1. Add lineage information<a class="headerlink" href="#2.1.-Add-lineage-information" title="Permalink to this headline">¶</a></h2>
+<p>We will calculate pseudotime for each lineage. We need to set lineage information first.</p>
+<div class="section" id="2.1.1-Check-clustering-unit">
+<h3>2.1.1 Check clustering unit<a class="headerlink" href="#2.1.1-Check-clustering-unit" title="Permalink to this headline">¶</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Clustering name: &quot;</span><span class="p">,</span> <span class="n">pt</span><span class="o">.</span><span class="n">cluster_column_name</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cluster list&quot;</span><span class="p">,</span> <span class="n">pt</span><span class="o">.</span><span class="n">cluster_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Clustering name:  louvain_annot
+Cluster list [&#39;Ery_0&#39;, &#39;Ery_1&#39;, &#39;Ery_2&#39;, &#39;Ery_3&#39;, &#39;Ery_4&#39;, &#39;Ery_5&#39;, &#39;Ery_6&#39;, &#39;Ery_7&#39;, &#39;Ery_8&#39;, &#39;Ery_9&#39;, &#39;GMP_0&#39;, &#39;GMP_1&#39;, &#39;GMP_2&#39;, &#39;GMPl_0&#39;, &#39;GMPl_1&#39;, &#39;Gran_0&#39;, &#39;Gran_1&#39;, &#39;Gran_2&#39;, &#39;Gran_3&#39;, &#39;MEP_0&#39;, &#39;Mk_0&#39;, &#39;Mo_0&#39;, &#39;Mo_1&#39;, &#39;Mo_2&#39;]
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Check data</span>
+<span class="n">pt</span><span class="o">.</span><span class="n">plot_cluster</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_05_simulation_Pseudotime_calculation_with_Paul_etal_2015_data_15_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Pseudotime_calculation_with_Paul_etal_2015_data_15_0.png" style="width: 424px; height: 307px;" />
+</div>
+</div>
+</div>
+<div class="section" id="2.1.2.-Define-llineage">
+<h3>2.1.2. Define llineage<a class="headerlink" href="#2.1.2.-Define-llineage" title="Permalink to this headline">¶</a></h3>
+<p>We will make lineage annotation on the scRNA-seq data. For example, this scRNA-seq data include roughly two lineages: megakaryocytes-erythroid (ME) lineage and granulocytes-monocyte (GM) lineage.</p>
+<p>To get better pseudotime information, calculate the pseudotime for each cell lineage individually. Then, all pseudotime information of each lineage are merged into one.</p>
+<p>Here is an example of setting lineage information. Lineage structure and number may vary depending on the data. Please adjust them on demand.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># These cluster can be classified into either MEP lineage or GMP lineage</span>
+
+<span class="n">clusters_in_ME_lineage</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Ery_0&#39;</span><span class="p">,</span> <span class="s1">&#39;Ery_1&#39;</span><span class="p">,</span> <span class="s1">&#39;Ery_2&#39;</span><span class="p">,</span> <span class="s1">&#39;Ery_3&#39;</span><span class="p">,</span> <span class="s1">&#39;Ery_4&#39;</span><span class="p">,</span> <span class="s1">&#39;Ery_5&#39;</span><span class="p">,</span>
+                          <span class="s1">&#39;Ery_6&#39;</span><span class="p">,</span> <span class="s1">&#39;Ery_7&#39;</span><span class="p">,</span> <span class="s1">&#39;Ery_8&#39;</span><span class="p">,</span> <span class="s1">&#39;Ery_9&#39;</span><span class="p">,</span> <span class="s1">&#39;MEP_0&#39;</span><span class="p">,</span> <span class="s1">&#39;Mk_0&#39;</span><span class="p">]</span>
+<span class="n">clusters_in_GM_lineage</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;GMP_0&#39;</span><span class="p">,</span> <span class="s1">&#39;GMP_1&#39;</span><span class="p">,</span> <span class="s1">&#39;GMP_2&#39;</span><span class="p">,</span> <span class="s1">&#39;GMPl_0&#39;</span><span class="p">,</span> <span class="s1">&#39;GMPl_1&#39;</span><span class="p">,</span> <span class="s1">&#39;Gran_0&#39;</span><span class="p">,</span>
+                          <span class="s1">&#39;Gran_1&#39;</span><span class="p">,</span> <span class="s1">&#39;Gran_2&#39;</span><span class="p">,</span> <span class="s1">&#39;Gran_3&#39;</span><span class="p">,</span> <span class="s1">&#39;Mo_0&#39;</span><span class="p">,</span> <span class="s1">&#39;Mo_1&#39;</span><span class="p">,</span> <span class="s1">&#39;Mo_2&#39;</span><span class="p">]</span>
+
+<span class="c1"># Make dictionary</span>
+<span class="n">lineage_dictionary</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Lineage_ME&quot;</span><span class="p">:</span> <span class="n">clusters_in_ME_lineage</span><span class="p">,</span>
+           <span class="s2">&quot;Lineage_GM&quot;</span><span class="p">:</span> <span class="n">clusters_in_GM_lineage</span><span class="p">}</span>
+
+<span class="c1"># Inpur lineage information into pseudotime object</span>
+<span class="n">pt</span><span class="o">.</span><span class="n">set_lineage</span><span class="p">(</span><span class="n">lineage_dictionary</span><span class="o">=</span><span class="n">lineage_dictionary</span><span class="p">)</span>
+
+<span class="c1"># Visualize lineage information</span>
+<span class="n">pt</span><span class="o">.</span><span class="n">plot_lineages</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_05_simulation_Pseudotime_calculation_with_Paul_etal_2015_data_17_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Pseudotime_calculation_with_Paul_etal_2015_data_17_0.png" style="width: 349px; height: 247px;" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_05_simulation_Pseudotime_calculation_with_Paul_etal_2015_data_17_1.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Pseudotime_calculation_with_Paul_etal_2015_data_17_1.png" style="width: 349px; height: 247px;" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="2.2.-Add-root-cell-information">
+<h2>2.2. Add root cell information<a class="headerlink" href="#2.2.-Add-root-cell-information" title="Permalink to this headline">¶</a></h2>
+<p>The pseudotime calculation with dpt requires to input root cell. We will manyally estimate root cell for each lineage.</p>
+<p>Please read documentation (<a class="reference external" href="https://scanpy.readthedocs.io/en/stable/api/scanpy.tl.dpt.html#scanpy.tl.dpt">https://scanpy.readthedocs.io/en/stable/api/scanpy.tl.dpt.html#scanpy.tl.dpt</a>) to find detailed information about dpt algorithm and root cells</p>
+<div class="section" id="2.2.1.-(optional)-Interactive-visualization-of-cell-name">
+<h3>2.2.1. (optional) Interactive visualization of cell name<a class="headerlink" href="#2.2.1.-(optional)-Interactive-visualization-of-cell-name" title="Permalink to this headline">¶</a></h3>
+<p>This notebook we recommend using another python package, <code class="docutils literal notranslate"><span class="pre">plotly</span></code>.</p>
+<p>Please install <code class="docutils literal notranslate"><span class="pre">plotly</span></code> in advance.</p>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">plotly</span></code></p>
+<blockquote>
+<div><p>Plotly is a toolkit for interactive visualization. We recommend using plotly to pick up root cells in this notebook. For more information, please look at plotly web site. <a class="reference external" href="https://plotly.com">https://plotly.com</a></p>
+</div></blockquote>
+<p><strong>Using plotly, we can visualize cell name interactively. It helps us pick up a root cell.</strong> This is an example image. <a href="#id2"><span class="problematic" id="id3">|8a2c1e116cfd48338a987e00e964f828|</span></a></p>
+<p><a class="reference external" href="https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/screenshot_01.png">https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/screenshot_01.png</a></p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Show interactive plot using plotly. Please make sure you installed plotly.</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+    <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">embedding_key</span><span class="p">,</span> <span class="n">cluster_column_name</span><span class="p">):</span>
+        <span class="n">embedding</span> <span class="o">=</span> <span class="n">adata</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="n">embedding_key</span><span class="p">]</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">embedding</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">])</span>
+        <span class="n">df</span><span class="p">[</span><span class="s2">&quot;cluster&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="n">cluster_column_name</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+        <span class="n">df</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
+        <span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">hover_name</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;cluster&quot;</span><span class="p">)</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+    <span class="n">plot</span><span class="p">(</span><span class="n">adata</span><span class="o">=</span><span class="n">pt</span><span class="o">.</span><span class="n">adata</span><span class="p">,</span>
+         <span class="n">embedding_key</span><span class="o">=</span><span class="n">pt</span><span class="o">.</span><span class="n">obsm_key</span><span class="p">,</span>
+         <span class="n">cluster_column_name</span><span class="o">=</span><span class="n">pt</span><span class="o">.</span><span class="n">cluster_column_name</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Found error. Did you install plotly? Please read the instruction above.&quot;</span><span class="p">)</span>
+
+
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="2.2.2.-Select-root-cell-for-each-lineage">
+<h3>2.2.2. Select root cell for each lineage<a class="headerlink" href="#2.2.2.-Select-root-cell-for-each-lineage" title="Permalink to this headline">¶</a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#  Estimated root cell name for each lineage</span>
+<span class="n">root_cells</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Lineage_MEP&quot;</span><span class="p">:</span> <span class="s2">&quot;1539&quot;</span><span class="p">,</span> <span class="s2">&quot;Lineage_GMP&quot;</span><span class="p">:</span> <span class="s2">&quot;2244&quot;</span><span class="p">}</span>
+<span class="n">pt</span><span class="o">.</span><span class="n">set_root_cells</span><span class="p">(</span><span class="n">root_cells</span><span class="o">=</span><span class="n">root_cells</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="2.2.3.-Visualize-root-cells">
+<h3>2.2.3. Visualize root cells<a class="headerlink" href="#2.2.3.-Visualize-root-cells" title="Permalink to this headline">¶</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Check root cell and lineage</span>
+<span class="n">pt</span><span class="o">.</span><span class="n">plot_root_cells</span><span class="p">()</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_05_simulation_Pseudotime_calculation_with_Paul_etal_2015_data_26_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Pseudotime_calculation_with_Paul_etal_2015_data_26_0.png" style="width: 293px; height: 301px;" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_05_simulation_Pseudotime_calculation_with_Paul_etal_2015_data_26_1.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Pseudotime_calculation_with_Paul_etal_2015_data_26_1.png" style="width: 293px; height: 301px;" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="2.3.-Pseudotime-calculation">
+<h2>2.3. Pseudotime calculation<a class="headerlink" href="#2.3.-Pseudotime-calculation" title="Permalink to this headline">¶</a></h2>
+<p>You need to do neighbor calculation and diffusion map calculation in advance. If you have processed the scRNA-seq data according to our tutorial, these calculations have already been performed. - Neighbor calculation: <a class="reference external" href="https://scanpy.readthedocs.io/en/stable/generated/scanpy.pp.neighbors.html#scanpy.pp.neighbors">https://scanpy.readthedocs.io/en/stable/generated/scanpy.pp.neighbors.html#scanpy.pp.neighbors</a> - Diffusion map calculation: <a class="reference external" href="https://scanpy.readthedocs.io/en/stable/generated/scanpy.tl.diffmap.html#scanpy.tl.diffmap">https://scanpy.readthedocs.io/en/stable/generated/scanpy.tl.diffmap.html#scanpy.tl.diffmap</a></p>
+<div class="section" id="2.3.1.-Check-diffusion-map">
+<h3>2.3.1. Check diffusion map<a class="headerlink" href="#2.3.1.-Check-diffusion-map" title="Permalink to this headline">¶</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Check diffusion map data.</span>
+<span class="s2">&quot;X_diffmap&quot;</span> <span class="ow">in</span> <span class="n">pt</span><span class="o">.</span><span class="n">adata</span><span class="o">.</span><span class="n">obsm</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+True
+</pre></div></div>
+</div>
+<p>Calculate diffusion map if your adata does not have diffusion map data</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># sc.pp.neighbors(pt.adata, n_neighbors=30)</span>
+<span class="c1"># sc.tl.diffmap(pt.adata)</span>
+</pre></div>
+</div>
+</div>
+<p>Diffusion maps can be calculated in the anther dimensionality reduction space. Please adjust this parameter “use_rep” to get another better results if you have a issue in the following calculation.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># sc.pp.neighbors(pt.adata, n_neighbors=30, use_rep=)</span>
+<span class="c1"># sc.tl.diffmap(pt.adata)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="2.3.2.-Calculate-pseudotime">
+<h3>2.3.2. Calculate pseudotime<a class="headerlink" href="#2.3.2.-Calculate-pseudotime" title="Permalink to this headline">¶</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Calculate pseudotime</span>
+<span class="n">pt</span><span class="o">.</span><span class="n">get_pseudotime_per_each_lineage</span><span class="p">()</span>
+
+<span class="c1"># Check results</span>
+<span class="n">pt</span><span class="o">.</span><span class="n">plot_pseudotime</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;rainbow&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_05_simulation_Pseudotime_calculation_with_Paul_etal_2015_data_34_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Pseudotime_calculation_with_Paul_etal_2015_data_34_0.png" style="width: 349px; height: 247px;" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_05_simulation_Pseudotime_calculation_with_Paul_etal_2015_data_34_1.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Pseudotime_calculation_with_Paul_etal_2015_data_34_1.png" style="width: 349px; height: 247px;" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_05_simulation_Pseudotime_calculation_with_Paul_etal_2015_data_34_2.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Pseudotime_calculation_with_Paul_etal_2015_data_34_2.png" style="width: 349px; height: 247px;" />
+</div>
+</div>
+<p>Pseudotime data is stored in the <code class="docutils literal notranslate"><span class="pre">pt.adata.obs.Pseudotime</span></code></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Check result</span>
+<span class="n">pt</span><span class="o">.</span><span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[[</span><span class="s2">&quot;Pseudotime&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Pseudotime</th>
+    </tr>
+    <tr>
+      <th>index</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.175565</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.712654</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.953920</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.642302</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.951093</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="3.-Save-data">
+<h1>3. Save data<a class="headerlink" href="#3.-Save-data" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="3.1.-If-you-started-calculation-with-an-oracle-object">
+<h2>3.1. If you started calculation with an oracle object<a class="headerlink" href="#3.1.-If-you-started-calculation-with-an-oracle-object" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Add calculated pseudotime data to the oracle object</span>
+<span class="n">oracle</span><span class="o">.</span><span class="n">adata</span><span class="o">.</span><span class="n">obs</span> <span class="o">=</span> <span class="n">pt</span><span class="o">.</span><span class="n">adata</span><span class="o">.</span><span class="n">obs</span>
+
+<span class="c1"># Save updated oracle object</span>
+<span class="n">oracle</span><span class="o">.</span><span class="n">to_hdf5</span><span class="p">(</span><span class="n">FILE_PATH</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="3.2.-If-you-started-calculation-with-anndata">
+<h2>3.2. If you started calculation with anndata<a class="headerlink" href="#3.2.-If-you-started-calculation-with-anndata" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Add calculated pseudotime data to the oracle object</span>
+<span class="c1">#adata.obs = pt.adata.obs</span>
+
+<span class="c1"># Save updated anndata object</span>
+<span class="c1">#adata.write_h5ad(FILE_PATH)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../tutorials/base_grn.html" class="btn btn-neutral float-right" title="3. Base GRN input data preparation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../../tutorials/pseudotime.html" class="btn btn-neutral float-left" title="2. Pseudotime calculation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Samantha Morris Lab
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

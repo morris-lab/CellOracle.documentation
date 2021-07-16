@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>0. Import library &mdash; celloracle 0.6.9 documentation</title>
+  <title>Overview &mdash; celloracle 0.6.9 documentation</title>
   
 
   
@@ -39,8 +39,8 @@
     
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="0. Import libraries" href="02_preprocess_peak_data.html" />
-    <link rel="prev" title="1. ATAC-seq data preprocessing" href="../../../tutorials/atac.html" /> 
+    <link rel="next" title="Overview" href="02_preprocess_peak_data.html" />
+    <link rel="prev" title="3. Base GRN input data preparation" href="../../../tutorials/base_grn.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -93,19 +93,22 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../../tutorials/index.html">Tutorial</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="../../../tutorials/atac.html">1. ATAC-seq data preprocessing</a><ul class="current">
-<li class="toctree-l3 current"><a class="reference internal" href="../../../tutorials/atac.html#a-extract-tf-binding-information-from-scatac-seq-data">A. Extract TF binding information from scATAC-seq data</a><ul class="current">
-<li class="toctree-l4 current"><a class="reference internal" href="../../../tutorials/atac.html#scatac-seq-analysis-with-cicero-and-monocle3">scATAC-seq analysis with Cicero and Monocle3</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/atac.html#tss-annotation">TSS annotation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/index.html#what-the-tutorial-covers">What the tutorial covers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/index.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/index.html#code-and-data-availability">Code and data availability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/index.html#getting-started">Getting started</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../tutorials/index.html#index">Index</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/index.html#grn-model-construction-and-network-analysis">GRN model construction and Network analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/index.html#in-silico-gene-perturbation-with-grns">in silico gene perturbation with GRNs</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../../tutorials/index.html#prepare-input-data">Prepare input data</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/scrnaprocess.html">1. scRNA-seq data preparation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/pseudotime.html">2. Pseudotime calculation</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../../../tutorials/base_grn.html">3. Base GRN input data preparation</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/atac.html#b-extract-tf-binding-information-from-bulk-atac-seq-data-or-chip-seq-data">B. Extract TF binding information from bulk ATAC-seq data or Chip-seq data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/index.html#tf-motif-scan-for-base-grn-construction">TF motif scan for base-GRN construction</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/motifscan.html">2. Transcription factor binding motif scan</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/scrnaprocess.html">3. Single-cell RNA-seq data preprocessing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/networkanalysis.html">4. Network analysis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/simulation.html">5. Simulation with GRNs</a></li>
 </ul>
 </li>
 </ul>
@@ -168,9 +171,9 @@
         
           <li><a href="../../../tutorials/index.html">Tutorial</a> &raquo;</li>
         
-          <li><a href="../../../tutorials/atac.html"><span class="section-number">1. </span>ATAC-seq data preprocessing</a> &raquo;</li>
+          <li><a href="../../../tutorials/base_grn.html"><span class="section-number">3. </span>Base GRN input data preparation</a> &raquo;</li>
         
-      <li>0. Import library</li>
+      <li>Overview</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -444,10 +447,26 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<p>This is an example R script for Cicero analysis. In this R notebook, we’ll use Cicero and Monocle3.</p>
-<p>Please make sure that you installed these packages in adavance.</p>
-<p>You can download notebook file and additional data files from celloracle github page. <a class="reference external" href="https://github.com/morris-lab/CellOracle/tree/master/docs/notebooks/01_ATAC-seq_data_processing/option1_scATAC-seq_data_analysis_with_cicero">https://github.com/morris-lab/CellOracle/tree/master/docs/notebooks/01_ATAC-seq_data_processing/option1_scATAC-seq_data_analysis_with_cicero</a></p>
-<p>Another tutorial notebook that uses Monocle2 is also available in the celloracle github page above.</p>
+<div class="section" id="Overview">
+<h1>Overview<a class="headerlink" href="#Overview" title="Permalink to this headline">¶</a></h1>
+<p>This notebook is an example R script on how to prepare the input data for building a CellOracle-based GRN. We aim to extract cis-regulated connections between scATAC-seq peaks. Here, we will introduce the data preparation method using Cicero.</p>
+<div class="section" id="Notebook-file">
+<h2>Notebook file<a class="headerlink" href="#Notebook-file" title="Permalink to this headline">¶</a></h2>
+<p>Notebook file is available at CellOracle GitHub. We have jupyter notebook (with R kernel) and R notebook. The contents are same. Please download and run either one.</p>
+<ul class="simple">
+<li><p>Jupyter notebook: <a class="reference external" href="https://github.com/morris-lab/CellOracle/blob/master/docs/notebooks/01_ATAC-seq_data_processing/option1_scATAC-seq_data_analysis_with_cicero/01_atacdata_analysis_with_cicero_and_monocle3.ipynb">https://github.com/morris-lab/CellOracle/blob/master/docs/notebooks/01_ATAC-seq_data_processing/option1_scATAC-seq_data_analysis_with_cicero/01_atacdata_analysis_with_cicero_and_monocle3.ipynb</a></p></li>
+<li><p>R notebook: <a class="reference external" href="https://github.com/morris-lab/CellOracle/blob/master/docs/notebooks/01_ATAC-seq_data_processing/option1_scATAC-seq_data_analysis_with_cicero/01_atacdata_analysis_with_cicero_and_monocle3.Rmd">https://github.com/morris-lab/CellOracle/blob/master/docs/notebooks/01_ATAC-seq_data_processing/option1_scATAC-seq_data_analysis_with_cicero/01_atacdata_analysis_with_cicero_and_monocle3.Rmd</a></p></li>
+</ul>
+</div>
+<div class="section" id="CAUTION:">
+<h2>CAUTION:<a class="headerlink" href="#CAUTION:" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>This notebook is intended to explain <strong>how to prepare the input data for CellOracle analysis</strong>. This is <strong>NOT</strong> the CellOracle analysis itself. Also, this notebook does NOT use <code class="docutils literal notranslate"><span class="pre">celloracle</span></code> in this notebook.</p></li>
+<li><p>Here, we use <code class="docutils literal notranslate"><span class="pre">Cicero</span></code> to process scATAC-seq data. If you are new to this packages, pelase read the documentation to learn them in advance.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Cicero</span></code> documentation: <a class="reference external" href="https://cole-trapnell-lab.github.io/cicero-release/docs_m3/">https://cole-trapnell-lab.github.io/cicero-release/docs_m3/</a></p></li>
+</ul>
+</div>
+</div>
 <div class="section" id="0.-Import-library">
 <h1>0. Import library<a class="headerlink" href="#0.-Import-library" title="Permalink to this headline">¶</a></h1>
 <div class="nbinput nblast docutils container">
@@ -461,11 +480,12 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 </div>
-<div class="section" id="1.-Prepare-data">
-<h1>1. Prepare data<a class="headerlink" href="#1.-Prepare-data" title="Permalink to this headline">¶</a></h1>
-<p>In this tutorial we’ll use acATAC-seq data from the 10x genomics database. You do not need to download these data if you analyze your own scATAC-seq data.</p>
+<div class="section" id="1.-Download-data">
+<h1>1. Download data<a class="headerlink" href="#1.-Download-data" title="Permalink to this headline">¶</a></h1>
+<p>This tutorial uses fetal brain acATAC-seq data obtained from a 10x genomics database. If you want to analyze your scATAC-seq data, you do not need to download these data.</p>
+<p>You can download the demo file by running the following command: If the file download fails, please manually download and unzip the data. <a class="reference external" href="http://cf.10xgenomics.com/samples/cell-atac/1.1.0/atac_v1_E18_brain_fresh_5k/atac_v1_E18_brain_fresh_5k_filtered_peak_bc_matrix.tar.gz">http://cf.10xgenomics.com/samples/cell-atac/1.1.0/atac_v1_E18_brain_fresh_5k/atac_v1_E18_brain_fresh_5k_filtered_peak_bc_matrix.tar.gz</a></p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-r notranslate"><div class="highlight"><pre>
@@ -473,15 +493,15 @@ div.rendered_html tbody tr:hover {
 <span class="nf">dir.create</span><span class="p">(</span><span class="s">&quot;data&quot;</span><span class="p">)</span>
 
 <span class="c1"># Download demo dataset from 10x genomics</span>
-<span class="nf">system</span><span class="p">(</span><span class="s">&quot;wget -O data/matrix.tar.gz http://cf.10xgenomics.com/samples/cell-atac/1.1.0/atac_v1_E18_brain_fresh_5k/atac_v1_E18_brain_fresh_5k_filtered_peak_bc_matrix.tar.gz&quot;</span><span class="p">)</span>
-
+<span class="nf">download.file</span><span class="p">(</span><span class="n">url</span> <span class="o">=</span> <span class="s">&quot;http://cf.10xgenomics.com/samples/cell-atac/1.1.0/atac_v1_E18_brain_fresh_5k/atac_v1_E18_brain_fresh_5k_filtered_peak_bc_matrix.tar.gz&quot;</span><span class="p">,</span>
+              <span class="n">destfile</span> <span class="o">=</span> <span class="s">&quot;data/matrix.tar.gz&quot;</span><span class="p">)</span>
 <span class="c1"># Unzip data</span>
 <span class="nf">system</span><span class="p">(</span><span class="s">&quot;tar -xvf data/matrix.tar.gz -C data&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-r notranslate"><div class="highlight"><pre>
@@ -497,24 +517,22 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="2.-Load-data-and-make-Cell-Data-Set-(CDS)-object">
 <h1>2. Load data and make Cell Data Set (CDS) object<a class="headerlink" href="#2.-Load-data-and-make-Cell-Data-Set-(CDS)-object" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="2.1.-Process-data-to-make-CDS-object">
-<h2>2.1. Process data to make CDS object<a class="headerlink" href="#2.1.-Process-data-to-make-CDS-object" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-r notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># read in matrix data using the Matrix package</span>
+<span></span><span class="c1"># Read in matrix data using the Matrix package</span>
 <span class="n">indata</span> <span class="o">&lt;-</span> <span class="n">Matrix</span><span class="o">::</span><span class="nf">readMM</span><span class="p">(</span><span class="nf">paste0</span><span class="p">(</span><span class="n">data_folder</span><span class="p">,</span> <span class="s">&quot;/matrix.mtx&quot;</span><span class="p">))</span>
-<span class="c1"># binarize the matrix</span>
+<span class="c1"># Binarize the matrix</span>
 <span class="n">indata</span><span class="o">@</span><span class="n">x</span><span class="p">[</span><span class="n">indata</span><span class="o">@</span><span class="n">x</span> <span class="o">&gt;</span> <span class="m">0</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="m">1</span>
 
-<span class="c1"># format cell info</span>
+<span class="c1"># Format cell info</span>
 <span class="n">cellinfo</span> <span class="o">&lt;-</span> <span class="nf">read.table</span><span class="p">(</span><span class="nf">paste0</span><span class="p">(</span><span class="n">data_folder</span><span class="p">,</span> <span class="s">&quot;/barcodes.tsv&quot;</span><span class="p">))</span>
 <span class="nf">row.names</span><span class="p">(</span><span class="n">cellinfo</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">cellinfo</span><span class="o">$</span><span class="n">V1</span>
 <span class="nf">names</span><span class="p">(</span><span class="n">cellinfo</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="s">&quot;cells&quot;</span>
 
-<span class="c1"># format peak info</span>
+<span class="c1"># Format peak info</span>
 <span class="n">peakinfo</span> <span class="o">&lt;-</span> <span class="nf">read.table</span><span class="p">(</span><span class="nf">paste0</span><span class="p">(</span><span class="n">data_folder</span><span class="p">,</span> <span class="s">&quot;/peaks.bed&quot;</span><span class="p">))</span>
 <span class="nf">names</span><span class="p">(</span><span class="n">peakinfo</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;chr&quot;</span><span class="p">,</span> <span class="s">&quot;bp1&quot;</span><span class="p">,</span> <span class="s">&quot;bp2&quot;</span><span class="p">)</span>
 <span class="n">peakinfo</span><span class="o">$</span><span class="n">site_name</span> <span class="o">&lt;-</span> <span class="nf">paste</span><span class="p">(</span><span class="n">peakinfo</span><span class="o">$</span><span class="n">chr</span><span class="p">,</span> <span class="n">peakinfo</span><span class="o">$</span><span class="n">bp1</span><span class="p">,</span> <span class="n">peakinfo</span><span class="o">$</span><span class="n">bp2</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">&quot;_&quot;</span><span class="p">)</span>
@@ -523,7 +541,7 @@ div.rendered_html tbody tr:hover {
 <span class="nf">row.names</span><span class="p">(</span><span class="n">indata</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">row.names</span><span class="p">(</span><span class="n">peakinfo</span><span class="p">)</span>
 <span class="nf">colnames</span><span class="p">(</span><span class="n">indata</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">row.names</span><span class="p">(</span><span class="n">cellinfo</span><span class="p">)</span>
 
-<span class="c1"># make CDS</span>
+<span class="c1"># Make CDS</span>
 <span class="n">input_cds</span> <span class="o">&lt;-</span>  <span class="nf">suppressWarnings</span><span class="p">(</span><span class="nf">new_cell_data_set</span><span class="p">(</span><span class="n">indata</span><span class="p">,</span>
 <span class="n">cell_metadata</span> <span class="o">=</span> <span class="n">cellinfo</span><span class="p">,</span>
 <span class="n">gene_metadata</span> <span class="o">=</span> <span class="n">peakinfo</span><span class="p">))</span>
@@ -536,11 +554,10 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 </div>
-</div>
 <div class="section" id="3.-Qauality-check-and-Filtering">
 <h1>3. Qauality check and Filtering<a class="headerlink" href="#3.-Qauality-check-and-Filtering" title="Permalink to this headline">¶</a></h1>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-r notranslate"><div class="highlight"><pre>
@@ -557,12 +574,12 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-r notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># filter cells by peak_count</span>
-<span class="c1"># PLEASE SET APPROPRIATE THRESHOLD VALUES according to your data</span>
+<span></span><span class="c1"># Filter cells by peak_count</span>
+<span class="c1"># Please set an appropriate threshold values according to your data</span>
 <span class="n">max_count</span> <span class="o">&lt;-</span>  <span class="m">15000</span>
 <span class="n">min_count</span> <span class="o">&lt;-</span> <span class="m">2000</span>
 <span class="n">input_cds</span> <span class="o">&lt;-</span> <span class="n">input_cds</span><span class="p">[,</span><span class="n">Matrix</span><span class="o">::</span><span class="nf">colSums</span><span class="p">(</span><span class="nf">exprs</span><span class="p">(</span><span class="n">input_cds</span><span class="p">))</span> <span class="o">&gt;=</span> <span class="n">min_count</span><span class="p">]</span>
@@ -574,8 +591,8 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="4.-Process-cicero-CDS-object">
 <h1>4. Process cicero-CDS object<a class="headerlink" href="#4.-Process-cicero-CDS-object" title="Permalink to this headline">¶</a></h1>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-r notranslate"><div class="highlight"><pre>
@@ -595,27 +612,41 @@ div.rendered_html tbody tr:hover {
 <span class="n">cicero_cds</span> <span class="o">&lt;-</span> <span class="nf">make_cicero_cds</span><span class="p">(</span><span class="n">input_cds</span><span class="p">,</span> <span class="n">reduced_coordinates</span> <span class="o">=</span> <span class="n">umap_coords</span><span class="p">)</span>
 
 <span class="c1"># Save cds object if you want</span>
-<span class="nf">saveRDS</span><span class="p">(</span><span class="n">cicero_cds</span><span class="p">,</span> <span class="nf">paste0</span><span class="p">(</span><span class="n">output_folder</span><span class="p">,</span> <span class="s">&quot;/cicero_cds.Rds&quot;</span><span class="p">))</span>
+<span class="c1">#saveRDS(cicero_cds, paste0(output_folder, &quot;/cicero_cds.Rds&quot;))</span>
 
 
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+Overlap QC metrics:
+Cells per bin: 50
+Maximum shared cells bin-bin: 44
+Mean shared cells bin-bin: 0.84960828849071
+Median shared cells bin-bin: 0
+
+</pre></div></div>
+</div>
 </div>
 <div class="section" id="5.-Load-reference-genome-information">
 <h1>5. Load reference genome information<a class="headerlink" href="#5.-Load-reference-genome-information" title="Permalink to this headline">¶</a></h1>
-<p>To run cicero, we need to get a genome coordinates files, which contains the lengths of each chromosomes. You can read mm10 genome information with the following command. The text file, mm10_chromosome_length.txt is included in the celloracle notebook folder.</p>
-<p><a class="reference external" href="https://github.com/morris-lab/CellOracle/tree/master/docs/notebooks/01_ATAC-seq_data_processing/option1_scATAC-seq_data_analysis_with_cicero">https://github.com/morris-lab/CellOracle/tree/master/docs/notebooks/01_ATAC-seq_data_processing/option1_scATAC-seq_data_analysis_with_cicero</a></p>
-<p>If your scATAC-seq data use different reference genome, you need to get a genome coordinates files for your reference genome. Please see the Cicero documentation for more information.</p>
+<p>To run cicero, you need to get a genomic coordinate file that contains the length of each chromosome. You can download the mm10 genomic information with the following command.</p>
+<p>If your scATAC-seq data was generated with another reference genome, you need to get the genome coordinate file for the reference genome you used. See the Cicero documentation for more information.</p>
 <p><a class="reference external" href="https://cole-trapnell-lab.github.io/cicero-release/docs_m3/#installing-cicero">https://cole-trapnell-lab.github.io/cicero-release/docs_m3/#installing-cicero</a></p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-r notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># !!Please make sure that the reference genome information below match the reference genome of your scATAC-seq data.</span>
 
 <span class="c1"># If your scATAC-seq uses mm10 reference genome, you can read chromosome length file with the following command.</span>
+<span class="nf">download.file</span><span class="p">(</span><span class="n">url</span> <span class="o">=</span> <span class="s">&quot;https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/mm10_chromosome_length.txt&quot;</span><span class="p">,</span>
+              <span class="n">destfile</span> <span class="o">=</span> <span class="s">&quot;./mm10_chromosome_length.txt&quot;</span><span class="p">)</span>
 <span class="n">chromosome_length</span> <span class="o">&lt;-</span> <span class="nf">read.table</span><span class="p">(</span><span class="s">&quot;./mm10_chromosome_length.txt&quot;</span><span class="p">)</span>
 
 <span class="c1"># For mm9 genome, you can use the following command.</span>
@@ -634,32 +665,20 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="6.-Run-Cicero">
 <h1>6. Run Cicero<a class="headerlink" href="#6.-Run-Cicero" title="Permalink to this headline">¶</a></h1>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-r notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># runc the main function</span>
+<span></span><span class="c1"># Run the main function</span>
 <span class="n">conns</span> <span class="o">&lt;-</span> <span class="nf">run_cicero</span><span class="p">(</span><span class="n">cicero_cds</span><span class="p">,</span> <span class="n">chromosome_length</span><span class="p">)</span> <span class="c1"># Takes a few minutes to run</span>
 
-<span class="c1"># save results</span>
-<span class="nf">saveRDS</span><span class="p">(</span><span class="n">conns</span><span class="p">,</span> <span class="nf">paste0</span><span class="p">(</span><span class="n">output_folder</span><span class="p">,</span> <span class="s">&quot;/cicero_connections.Rds&quot;</span><span class="p">))</span>
+<span class="c1"># Save results if you want</span>
+<span class="c1">#saveRDS(conns, paste0(output_folder, &quot;/cicero_connections.Rds&quot;))</span>
 
-<span class="c1"># check results</span>
+<span class="c1"># Check results</span>
 <span class="nf">head</span><span class="p">(</span><span class="n">conns</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[1] &#34;Starting Cicero&#34;
-[1] &#34;Calculating distance_parameter value&#34;
-[1] &#34;Running models&#34;
-[1] &#34;Assembling connections&#34;
-[1] &#34;Done&#34;
-</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
@@ -669,23 +688,23 @@ div.rendered_html tbody tr:hover {
 <caption>A data.frame: 6 × 3</caption>
 <thead>
     <tr><th></th><th scope=col>Peak1</th><th scope=col>Peak2</th><th scope=col>coaccess</th></tr>
-    <tr><th></th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+    <tr><th></th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
 </thead>
 <tbody>
-    <tr><th scope=row>2</th><td>chr1_3094484_3095479</td><td>chr1_3113499_3113979</td><td>-0.316289004</td></tr>
-    <tr><th scope=row>3</th><td>chr1_3094484_3095479</td><td>chr1_3119478_3121690</td><td>-0.419240532</td></tr>
-    <tr><th scope=row>4</th><td>chr1_3094484_3095479</td><td>chr1_3399730_3400368</td><td>-0.050867246</td></tr>
-    <tr><th scope=row>5</th><td>chr1_3113499_3113979</td><td>chr1_3094484_3095479</td><td>-0.316289004</td></tr>
-    <tr><th scope=row>7</th><td>chr1_3113499_3113979</td><td>chr1_3119478_3121690</td><td> 0.370342744</td></tr>
-    <tr><th scope=row>8</th><td>chr1_3113499_3113979</td><td>chr1_3399730_3400368</td><td>-0.009276026</td></tr>
+    <tr><th scope=row>1</th><td>chr10_100006139_100006389</td><td>chr10_99774288_99774570  </td><td>-0.003546179</td></tr>
+    <tr><th scope=row>2</th><td>chr10_100006139_100006389</td><td>chr10_99825945_99826237  </td><td>-0.027536333</td></tr>
+    <tr><th scope=row>3</th><td>chr10_100006139_100006389</td><td>chr10_99830012_99830311  </td><td> 0.009588013</td></tr>
+    <tr><th scope=row>4</th><td>chr10_100006139_100006389</td><td>chr10_99833211_99833540  </td><td>-0.008067111</td></tr>
+    <tr><th scope=row>5</th><td>chr10_100006139_100006389</td><td>chr10_99941805_99941955  </td><td> 0.000000000</td></tr>
+    <tr><th scope=row>7</th><td>chr10_100006139_100006389</td><td>chr10_100015291_100017830</td><td>-0.015018099</td></tr>
 </tbody>
 </table></div>
 </div>
 </div>
-<div class="section" id="6.-Save-results-for-the-next-step">
-<h1>6. Save results for the next step<a class="headerlink" href="#6.-Save-results-for-the-next-step" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="7.-Save-results-for-the-next-step">
+<h1>7. Save results for the next step<a class="headerlink" href="#7.-Save-results-for-the-next-step" title="Permalink to this headline">¶</a></h1>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-r notranslate"><div class="highlight"><pre>
@@ -696,6 +715,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<p>Please go to next step:</p>
 </div>
 
 
@@ -706,10 +726,10 @@ div.rendered_html tbody tr:hover {
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="02_preprocess_peak_data.html" class="btn btn-neutral float-right" title="0. Import libraries" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="02_preprocess_peak_data.html" class="btn btn-neutral float-right" title="Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../../../tutorials/atac.html" class="btn btn-neutral float-left" title="1. ATAC-seq data preprocessing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../../../tutorials/base_grn.html" class="btn btn-neutral float-left" title="3. Base GRN input data preparation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

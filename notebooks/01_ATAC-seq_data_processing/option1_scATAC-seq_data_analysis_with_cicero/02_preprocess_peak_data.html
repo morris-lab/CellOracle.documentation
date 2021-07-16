@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>0. Import libraries &mdash; celloracle 0.6.9 documentation</title>
+  <title>Overview &mdash; celloracle 0.6.9 documentation</title>
   
 
   
@@ -39,8 +39,8 @@
     
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="0. Import libraries" href="../option2_Bulk_ATAC-seq_data/01_preprocess_Bulk_ATAC_seq_peak_data.html" />
-    <link rel="prev" title="0. Import library" href="01_atacdata_analysis_with_cicero_and_monocle3.html" /> 
+    <link rel="next" title="Overview" href="../option2_Bulk_ATAC-seq_data/01_preprocess_Bulk_ATAC_seq_peak_data.html" />
+    <link rel="prev" title="Overview" href="01_atacdata_analysis_with_cicero_and_monocle3.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -93,19 +93,22 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../../tutorials/index.html">Tutorial</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="../../../tutorials/atac.html">1. ATAC-seq data preprocessing</a><ul class="current">
-<li class="toctree-l3 current"><a class="reference internal" href="../../../tutorials/atac.html#a-extract-tf-binding-information-from-scatac-seq-data">A. Extract TF binding information from scATAC-seq data</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/atac.html#scatac-seq-analysis-with-cicero-and-monocle3">scATAC-seq analysis with Cicero and Monocle3</a></li>
-<li class="toctree-l4 current"><a class="reference internal" href="../../../tutorials/atac.html#tss-annotation">TSS annotation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/index.html#what-the-tutorial-covers">What the tutorial covers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/index.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/index.html#code-and-data-availability">Code and data availability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/index.html#getting-started">Getting started</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../tutorials/index.html#index">Index</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/index.html#grn-model-construction-and-network-analysis">GRN model construction and Network analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/index.html#in-silico-gene-perturbation-with-grns">in silico gene perturbation with GRNs</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../../tutorials/index.html#prepare-input-data">Prepare input data</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/scrnaprocess.html">1. scRNA-seq data preparation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/pseudotime.html">2. Pseudotime calculation</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../../../tutorials/base_grn.html">3. Base GRN input data preparation</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/atac.html#b-extract-tf-binding-information-from-bulk-atac-seq-data-or-chip-seq-data">B. Extract TF binding information from bulk ATAC-seq data or Chip-seq data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/index.html#tf-motif-scan-for-base-grn-construction">TF motif scan for base-GRN construction</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/motifscan.html">2. Transcription factor binding motif scan</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/scrnaprocess.html">3. Single-cell RNA-seq data preprocessing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/networkanalysis.html">4. Network analysis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/simulation.html">5. Simulation with GRNs</a></li>
 </ul>
 </li>
 </ul>
@@ -168,9 +171,9 @@
         
           <li><a href="../../../tutorials/index.html">Tutorial</a> &raquo;</li>
         
-          <li><a href="../../../tutorials/atac.html"><span class="section-number">1. </span>ATAC-seq data preprocessing</a> &raquo;</li>
+          <li><a href="../../../tutorials/base_grn.html"><span class="section-number">3. </span>Base GRN input data preparation</a> &raquo;</li>
         
-      <li>0. Import libraries</li>
+      <li>Overview</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -444,11 +447,18 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<p>In this notebook, we process the results of cicero analysis to get active promoter/enhancer DNA peaks. First, we pick up peaks around the transcription starting site (TSS). Second, we merge cicero data with the peaks around TSS. Then we remove peaks that have a weak connection to TSS peak so that the final product includes TSS peaks and peaks that have a strong connection with the TSS peaks. We use this information as an active promoter/enhancer elements.</p>
+<div class="section" id="Overview">
+<h1>Overview<a class="headerlink" href="#Overview" title="Permalink to this headline">¶</a></h1>
+<p>In this notebook, we will make TSS annotation in the Cicero coaccessible peak data to get input data of base-GRN construction. - First, we pick up peaks around the transcription starting site (TSS). - Second, we merge cicero data with the peaks around TSS. - Then we remove peaks that have a weak connection to TSS peak so that the final product includes TSS peaks and peaks that have a strong connection with the TSS peaks. We use this information as an active promoter/enhancer elements.</p>
+<div class="section" id="Notebook-file">
+<h2>Notebook file<a class="headerlink" href="#Notebook-file" title="Permalink to this headline">¶</a></h2>
+<p>Notebook file is available at CellOracle GitHub. <a class="reference external" href="https://github.com/morris-lab/CellOracle/blob/master/docs/notebooks/01_ATAC-seq_data_processing/option1_scATAC-seq_data_analysis_with_cicero/02_preprocess_peak_data.ipynb">https://github.com/morris-lab/CellOracle/blob/master/docs/notebooks/01_ATAC-seq_data_processing/option1_scATAC-seq_data_analysis_with_cicero/02_preprocess_peak_data.ipynb</a></p>
+</div>
+</div>
 <div class="section" id="0.-Import-libraries">
 <h1>0. Import libraries<a class="headerlink" href="#0.-Import-libraries" title="Permalink to this headline">¶</a></h1>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -468,7 +478,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -482,51 +492,92 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="1.-Load-data-made-with-cicero">
 <h1>1. Load data made with cicero<a class="headerlink" href="#1.-Load-data-made-with-cicero" title="Permalink to this headline">¶</a></h1>
+<p>In this notebook, we explain how to process Cicero output. Please look at the previous notebook to know how to get this data yourself.</p>
+<p>Here, we use preprosessed Cicero data that were made from scATAC-seq data.</p>
+<p>You can download the demo file by running the following command: If the file download fails, please manually download and unzip the data.</p>
+<p><a class="reference external" href="https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/all_peaks.csv">https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/all_peaks.csv</a></p>
+<p><a class="reference external" href="https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/cicero_connections.csv">https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/cicero_connections.csv</a></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Load all peaks</span>
-<span class="n">peaks</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;cicero_output/all_peaks.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span></span><span class="c1"># Download file.</span>
+<span class="o">!</span>wget https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/all_peaks.csv
+<span class="o">!</span>wget https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/cicero_connections.csv
+
+<span class="c1"># If you are using macOS, please try the following command.</span>
+<span class="c1">#!curl -O https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/all_peaks.csv</span>
+<span class="c1">#!curl -O https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/cicero_connections.csv</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+--2021-07-07 21:42:05--  https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/all_peaks.csv
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.110.133, 185.199.109.133, 185.199.108.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.110.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 2940392 (2.8M) [text/plain]
+Saving to: ‘all_peaks.csv’
+
+all_peaks.csv       100%[===================&gt;]   2.80M  --.-KB/s    in 0.05s
+
+2021-07-07 21:42:06 (56.3 MB/s) - ‘all_peaks.csv’ saved [2940392/2940392]
+
+--2021-07-07 21:42:06--  https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/cicero_connections.csv
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.110.133, 185.199.109.133, 185.199.108.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.110.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 22749615 (22M) [text/plain]
+Saving to: ‘cicero_connections.csv’
+
+cicero_connections. 100%[===================&gt;]  21.70M  78.7MB/s    in 0.3s
+
+2021-07-07 21:42:06 (78.7 MB/s) - ‘cicero_connections.csv’ saved [22749615/22749615]
+
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Load scATAC-seq peak list.</span>
+<span class="n">peaks</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;all_peaks.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">peaks</span> <span class="o">=</span> <span class="n">peaks</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">values</span>
 <span class="n">peaks</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-array([&#39;chr1_3094484_3095479&#39;, &#39;chr1_3113499_3113979&#39;,
-       &#39;chr1_3119478_3121690&#39;, ..., &#39;chrY_90804622_90805450&#39;,
+array([&#39;chr10_100006139_100006389&#39;, &#39;chr10_100015291_100017830&#39;,
+       &#39;chr10_100018677_100020384&#39;, ..., &#39;chrY_90804622_90805450&#39;,
        &#39;chrY_90808626_90809117&#39;, &#39;chrY_90810560_90811167&#39;], dtype=object)
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Load cicero results</span>
-<span class="n">cicero_connections</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;cicero_output/cicero_connections.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span></span><span class="c1"># Load cicero coaccess score.</span>
+<span class="n">cicero_connections</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;cicero_connections.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">cicero_connections</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-/home/k/anaconda3/envs/test/lib/python3.6/site-packages/numpy/lib/arraysetops.py:568: FutureWarning: elementwise comparison failed; returning scalar instead, but in the future will perform elementwise comparison
-  mask |= (ar1 == a)
-</pre></div></div>
-</div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -555,34 +606,34 @@ array([&#39;chr1_3094484_3095479&#39;, &#39;chr1_3113499_3113979&#39;,
   </thead>
   <tbody>
     <tr>
-      <td>2</td>
-      <td>chr1_3094484_3095479</td>
-      <td>chr1_3113499_3113979</td>
-      <td>-0.316289</td>
+      <th>1</th>
+      <td>chr10_100006139_100006389</td>
+      <td>chr10_99774288_99774570</td>
+      <td>-0.003546</td>
     </tr>
     <tr>
-      <td>3</td>
-      <td>chr1_3094484_3095479</td>
-      <td>chr1_3119478_3121690</td>
-      <td>-0.419241</td>
+      <th>2</th>
+      <td>chr10_100006139_100006389</td>
+      <td>chr10_99825945_99826237</td>
+      <td>-0.027536</td>
     </tr>
     <tr>
-      <td>4</td>
-      <td>chr1_3094484_3095479</td>
-      <td>chr1_3399730_3400368</td>
-      <td>-0.050867</td>
+      <th>3</th>
+      <td>chr10_100006139_100006389</td>
+      <td>chr10_99830012_99830311</td>
+      <td>0.009588</td>
     </tr>
     <tr>
-      <td>5</td>
-      <td>chr1_3113499_3113979</td>
-      <td>chr1_3094484_3095479</td>
-      <td>-0.316289</td>
+      <th>4</th>
+      <td>chr10_100006139_100006389</td>
+      <td>chr10_99833211_99833540</td>
+      <td>-0.008067</td>
     </tr>
     <tr>
-      <td>7</td>
-      <td>chr1_3113499_3113979</td>
-      <td>chr1_3119478_3121690</td>
-      <td>0.370343</td>
+      <th>5</th>
+      <td>chr10_100006139_100006389</td>
+      <td>chr10_99941805_99941955</td>
+      <td>0.000000</td>
     </tr>
   </tbody>
 </table>
@@ -591,18 +642,43 @@ array([&#39;chr1_3094484_3095479&#39;, &#39;chr1_3113499_3113979&#39;,
 </div>
 <div class="section" id="2.-Make-TSS-annotation">
 <h1>2. Make TSS annotation<a class="headerlink" href="#2.-Make-TSS-annotation" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="IMPORTANT:-Please-make-sure-that-you-are-setting-correct-reference-genoms.">
-<h2>IMPORTANT: Please make sure that you are setting correct reference genoms.<a class="headerlink" href="#IMPORTANT:-Please-make-sure-that-you-are-setting-correct-reference-genoms." title="Permalink to this headline">¶</a></h2>
-<p>If your scATAC-seq data was generated with mm10 reference genome, you can set ref_genome=“mm10”. If you used hg19 human reference genome, please set ref_genome==“hg19”</p>
-<p>Currently we support refgenomes below. {“Human”: [‘hg38’, ‘hg19’], “Mouse”: [‘mm10’, ‘mm9’], “S.cerevisiae”: [“sacCer2”, “sacCer3”]}</p>
+<p>If your scATAC-seq data was generated with mm10 reference genome, please set <code class="docutils literal notranslate"><span class="pre">ref_genome=&quot;mm10&quot;</span></code>.</p>
+<p>You can check supported reference genome using <code class="docutils literal notranslate"><span class="pre">ma.SUPPORTED_REF_GENOME</span></code></p>
 <p>If your reference genome is not in the list, please send a request through github issue page.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ma</span><span class="o">.</span><span class="n">SUPPORTED_REF_GENOME</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;Human&#39;: [&#39;hg38&#39;, &#39;hg19&#39;],
+ &#39;Mouse&#39;: [&#39;mm10&#39;, &#39;mm9&#39;],
+ &#39;S.cerevisiae&#39;: [&#39;sacCer2&#39;, &#39;sacCer3&#39;],
+ &#39;Zebrafish&#39;: [&#39;danRer7&#39;, &#39;danRer10&#39;, &#39;danRer11&#39;],
+ &#39;Xenopus&#39;: [&#39;xenTro2&#39;, &#39;xenTro3&#39;],
+ &#39;Rat&#39;: [&#39;rn4&#39;, &#39;rn5&#39;, &#39;rn6&#39;],
+ &#39;Drosophila&#39;: [&#39;dm3&#39;, &#39;dm6&#39;],
+ &#39;C.elegans&#39;: [&#39;ce6&#39;, &#39;ce10&#39;],
+ &#39;Arabidopsis&#39;: [&#39;tair10&#39;],
+ &#39;Chicken&#39;: [&#39;galGal4&#39;, &#39;galGal5&#39;, &#39;galGal6&#39;]}
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 
-<span></span><span class="n">tss_annotated</span> <span class="o">=</span> <span class="n">ma</span><span class="o">.</span><span class="n">get_tss_info</span><span class="p">(</span><span class="n">peak_str_list</span><span class="o">=</span><span class="n">peaks</span><span class="p">,</span> <span class="n">ref_genome</span><span class="o">=</span> <span class="p">)</span> <span class="c1">##!! Set reference genome here</span>
+<span></span><span class="n">tss_annotated</span> <span class="o">=</span> <span class="n">ma</span><span class="o">.</span><span class="n">get_tss_info</span><span class="p">(</span><span class="n">peak_str_list</span><span class="o">=</span><span class="n">peaks</span><span class="p">,</span> <span class="n">ref_genome</span><span class="o">=</span><span class="s2">&quot;mm10&quot;</span><span class="p">)</span> <span class="c1">##!! Set reference genome here</span>
 
 
 <span class="c1"># Check results</span>
@@ -615,12 +691,12 @@ array([&#39;chr1_3094484_3095479&#39;, &#39;chr1_3113499_3113979&#39;,
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-que bed peaks: 72402
-tss peaks in que: 16987
+que bed peaks: 86935
+tss peaks in que: 17238
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -651,7 +727,7 @@ tss peaks in que: 16987
   </thead>
   <tbody>
     <tr>
-      <td>16982</td>
+      <th>17233</th>
       <td>chr1</td>
       <td>55130650</td>
       <td>55132118</td>
@@ -659,7 +735,7 @@ tss peaks in que: 16987
       <td>+</td>
     </tr>
     <tr>
-      <td>16983</td>
+      <th>17234</th>
       <td>chr6</td>
       <td>94499875</td>
       <td>94500767</td>
@@ -667,7 +743,7 @@ tss peaks in que: 16987
       <td>+</td>
     </tr>
     <tr>
-      <td>16984</td>
+      <th>17235</th>
       <td>chr19</td>
       <td>45659222</td>
       <td>45660823</td>
@@ -675,7 +751,7 @@ tss peaks in que: 16987
       <td>-</td>
     </tr>
     <tr>
-      <td>16985</td>
+      <th>17236</th>
       <td>chr12</td>
       <td>100898848</td>
       <td>100899597</td>
@@ -683,7 +759,7 @@ tss peaks in que: 16987
       <td>-</td>
     </tr>
     <tr>
-      <td>16986</td>
+      <th>17237</th>
       <td>chr4</td>
       <td>129491262</td>
       <td>129492047</td>
@@ -695,12 +771,16 @@ tss peaks in que: 16987
 </div></div>
 </div>
 </div>
-</div>
 <div class="section" id="3.-Integrate-TSS-info-and-cicero-connections">
 <h1>3. Integrate TSS info and cicero connections<a class="headerlink" href="#3.-Integrate-TSS-info-and-cicero-connections" title="Permalink to this headline">¶</a></h1>
-<p>The output file after the integration process has three columns; “peak_id”, “gene_short_name”, and “coaccess”. “peak_id” is either the TSS peak or the peaks that have a connection with the TSS peak. “gene_short_name” is the gene name that associated with the TSS site. “coaccess” is the co-access score between a peak and TSS peak. Note, the TSS peak is indicated by a score of 1.</p>
+<p>he output file after the integration process has three columns: <code class="docutils literal notranslate"><span class="pre">[&quot;peak_id&quot;,</span> <span class="pre">&quot;gene_short_name&quot;,</span> <span class="pre">&quot;coaccess&quot;</span></code>].</p>
+<ul class="simple">
+<li><p>“peak_id” is either the TSS peak or the peaks that have a connection with the TSS peak.</p></li>
+<li><p>“gene_short_name” is the gene name that associated with the TSS site.</p></li>
+<li><p>“coaccess” is the co-access score between a peak and TSS peak. If the score is 1, it means that the peak is TSS itself.</p></li>
+</ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -716,11 +796,11 @@ tss peaks in que: 16987
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-(263279, 3)
+(44309, 3)
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -749,34 +829,34 @@ tss peaks in que: 16987
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
+      <th>0</th>
+      <td>chr10_100006139_100006389</td>
+      <td>Tmtc3</td>
+      <td>0.017915</td>
+    </tr>
+    <tr>
+      <th>1</th>
       <td>chr10_100015291_100017830</td>
       <td>Kitl</td>
       <td>1.000000</td>
     </tr>
     <tr>
-      <td>1</td>
+      <th>2</th>
       <td>chr10_100018677_100020384</td>
       <td>Kitl</td>
-      <td>0.086299</td>
+      <td>0.146517</td>
     </tr>
     <tr>
-      <td>2</td>
+      <th>3</th>
       <td>chr10_100050858_100051762</td>
       <td>Kitl</td>
-      <td>0.034558</td>
+      <td>0.069751</td>
     </tr>
     <tr>
-      <td>3</td>
+      <th>4</th>
       <td>chr10_100052829_100053395</td>
       <td>Kitl</td>
-      <td>0.167188</td>
-    </tr>
-    <tr>
-      <td>4</td>
-      <td>chr10_100128086_100128882</td>
-      <td>Tmtc3</td>
-      <td>0.022341</td>
+      <td>0.202670</td>
     </tr>
   </tbody>
 </table>
@@ -787,7 +867,7 @@ tss peaks in que: 16987
 <h1>4. Filter peaks<a class="headerlink" href="#4.-Filter-peaks" title="Permalink to this headline">¶</a></h1>
 <p>Remove peaks that have weak coaccess score.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -797,7 +877,7 @@ tss peaks in que: 16987
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -811,11 +891,11 @@ tss peaks in que: 16987
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-(15680, 2)
+(15779, 2)
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -843,27 +923,27 @@ tss peaks in que: 16987
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
+      <th>0</th>
       <td>chr10_100015291_100017830</td>
       <td>Kitl</td>
     </tr>
     <tr>
-      <td>1</td>
+      <th>1</th>
       <td>chr10_100486534_100488209</td>
       <td>Tmtc3</td>
     </tr>
     <tr>
-      <td>2</td>
+      <th>2</th>
       <td>chr10_100588641_100589556</td>
       <td>4930430F08Rik</td>
     </tr>
     <tr>
-      <td>3</td>
+      <th>3</th>
       <td>chr10_100741247_100742505</td>
       <td>Gm35722</td>
     </tr>
     <tr>
-      <td>4</td>
+      <th>4</th>
       <td>chr10_101681379_101682124</td>
       <td>Mgat4c</td>
     </tr>
@@ -876,11 +956,11 @@ tss peaks in que: 16987
 <h1>5. Save data<a class="headerlink" href="#5.-Save-data" title="Permalink to this headline">¶</a></h1>
 <p>Save the promoter/enhancer peak.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">peak</span><span class="o">.</span><span class="n">to_parquet</span><span class="p">(</span><span class="s2">&quot;peak_file.parquet&quot;</span><span class="p">)</span>
+<span></span><span class="n">peak</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;processed_peak_file.csv&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -895,10 +975,10 @@ tss peaks in que: 16987
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../option2_Bulk_ATAC-seq_data/01_preprocess_Bulk_ATAC_seq_peak_data.html" class="btn btn-neutral float-right" title="0. Import libraries" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../option2_Bulk_ATAC-seq_data/01_preprocess_Bulk_ATAC_seq_peak_data.html" class="btn btn-neutral float-right" title="Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="01_atacdata_analysis_with_cicero_and_monocle3.html" class="btn btn-neutral float-left" title="0. Import library" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="01_atacdata_analysis_with_cicero_and_monocle3.html" class="btn btn-neutral float-left" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

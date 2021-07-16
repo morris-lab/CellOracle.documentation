@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>4. Network analysis &mdash; celloracle 0.6.9 documentation</title>
+  <title>1. GRN model construction and Network analysis &mdash; celloracle 0.6.9 documentation</title>
   
 
   
@@ -39,8 +39,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="0. Import libraries" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html" />
-    <link rel="prev" title="0. Import libraries" href="../notebooks/03_scRNA-seq_data_preprocessing/scanpy_preprocessing_with_Paul_etal_2015_data.html" /> 
+    <link rel="next" title="Overview" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html" />
+    <link rel="prev" title="Tutorial" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -93,22 +93,20 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorial</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="atac.html">1. ATAC-seq data preprocessing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="motifscan.html">2. Transcription factor binding motif scan</a></li>
-<li class="toctree-l2"><a class="reference internal" href="scrnaprocess.html">3. Single-cell RNA-seq data preprocessing</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">4. Network analysis</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html">0. Import libraries</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#1.-Load-data">1. Load data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#2.-Initiate-Oracle-object">2. Initiate Oracle object</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#3.-Knn-imputation">3. Knn imputation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#4.-Save-and-Load.">4. Save and Load.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#5.-GRN-calculation">5. GRN calculation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#6.-Network-preprocessing">6. Network preprocessing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#7.-Network-analysis;-Network-score-for-each-gene">7. Network analysis; Network score for each gene</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#8.-Network-analysis;-network-score-distribution">8. Network analysis; network score distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#what-the-tutorial-covers">What the tutorial covers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#code-and-data-availability">Code and data availability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#getting-started">Getting started</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#index">Index</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html#grn-model-construction-and-network-analysis">GRN model construction and Network analysis</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">1. GRN model construction and Network analysis</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="simulation.html">5. Simulation with GRNs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#in-silico-gene-perturbation-with-grns">in silico gene perturbation with GRNs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#prepare-input-data">Prepare input data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#tf-motif-scan-for-base-grn-construction">TF motif scan for base-GRN construction</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -171,7 +169,7 @@
         
           <li><a href="index.html">Tutorial</a> &raquo;</li>
         
-      <li><span class="section-number">4. </span>Network analysis</li>
+      <li><span class="section-number">1. </span>GRN model construction and Network analysis</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -214,68 +212,32 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="network-analysis">
-<span id="networkanalysis"></span><h1><span class="section-number">4. </span>Network analysis<a class="headerlink" href="#network-analysis" title="Permalink to this headline">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">celloracle</span></code> imports the scRNA-seq dataset and TF binding information to find active regulatory connections for all genes, generating sample-specific GRNs.</p>
-<p>The inferred GRN is analyzed with several network algorithms to get various network scores. The network score is useful to identify key regulatory genes.</p>
-<p>Celloracle reconstructs a GRN for each cluster, enabling us to compare GRNs to each other. It is also possible to analyze how the GRN changes over differentiation.
-The dynamics of the GRN structure can provide us insight into the context-dependent regulatory mechanisms.</p>
-<p>The jupyter notebook files and data used in this tutorial are available <a class="reference external" href="https://github.com/morris-lab/CellOracle/tree/master/docs/notebooks/04_Network_analysis">here</a> .</p>
-<p>Python notebook</p>
+<div class="section" id="grn-model-construction-and-network-analysis">
+<span id="networkanalysis"></span><h1><span class="section-number">1. </span>GRN model construction and Network analysis<a class="headerlink" href="#grn-model-construction-and-network-analysis" title="Permalink to this headline">¶</a></h1>
+<p>Please download notebooks from <a class="reference external" href="https://github.com/morris-lab/CellOracle/tree/master/docs/notebooks/04_Network_analysis/https://github.com/morris-lab/CellOracle/blob/master/docs/notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.ipynb">here</a> .
+Or please click below to view the content.</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html">0. Import libraries</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#0.1.-Check-installation">0.1. Check installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#0.2.-Make-a-folder-to-save-graph">0.2. Make a folder to save graph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#Notebook-file">Notebook file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#Data">Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#What-you-can-do">What you can do</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#Custom-data-class-/-object">Custom data class / object</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#1.-Load-data">1. Load data</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#1.1.-Load-processed-gene-expression-data-(anndata)">1.1. Load processed gene expression data (anndata)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#1.2.-(Optional-step)-Downsampling">1.2. (Optional step) Downsampling</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#1.2.-Load-TF-data.">1.2. Load TF data.</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#0.-Import-libraries">0. Import libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#1.-Load-data">1. Load data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#2.-Initiate-Oracle-object">2. Initiate Oracle object</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#2.1.-load-gene-expression-data-into-oracle-object.">2.1. load gene expression data into oracle object.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#2.2.-Load-TFinfo-into-oracle-object">2.2. Load TFinfo into oracle object</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#2.3.-(Optional)-Add-TF-info-manually">2.3. (Optional) Add TF info manually</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#2.3.1.-Make-TF-info-dictionary-manually">2.3.1. Make TF info dictionary manually</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#2.3.2.-Add-TF-informatio-dictionary-into-the-oracle-object">2.3.2. Add TF informatio dictionary into the oracle object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#2.3.1.-Make-dictionary">2.3.1. Make dictionary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#2.3.2.-Add-TF-informatio-dictionary-into-the-oracle-object">2.3.2. Add TF informatio dictionary into the oracle object</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#3.-Knn-imputation">3. Knn imputation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#3.1.-PCA">3.1. PCA</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#3.2.-KNN-imputation">3.2. KNN imputation</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#3.-Knn-imputation">3. Knn imputation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#4.-Save-and-Load.">4. Save and Load.</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#5.-GRN-calculation">5. GRN calculation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#5.1.-Get-GRNs">5.1. Get GRNs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#5.2.-(Optional)-Export-GRNs">5.2. (Optional) Export GRNs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#5.3.-(Optional)-Change-order">5.3. (Optional) Change order</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#6.-Network-preprocessing">6. Network preprocessing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#6.1.-Filter-network-edges">6.1. Filter network edges</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#6.2.-Degree-distribution">6.2. Degree distribution</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#5.3.-Calculate-netowrk-score">5.3. Calculate netowrk score</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#6.4.-Save">6.4. Save</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#7.-Network-analysis;-Network-score-for-each-gene">7. Network analysis; Network score for each gene</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#7.1.-Network-score-in-each-cluster">7.1. Network score in each cluster</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#7.2.-Network-score-comparison-between-two-clusters">7.2. Network score comparison between two clusters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#7.3.-Network-score-dynamics">7.3. Network score dynamics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#7.4.-Gene-cartography-analysis">7.4. Gene cartography analysis</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#8.-Network-analysis;-network-score-distribution">8. Network analysis; network score distribution</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#8.1.-Distribution-of-network-degree">8.1. Distribution of network degree</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#8.2.-Distribution-of-netowrk-entropy">8.2. Distribution of netowrk entropy</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#5.-GRN-calculation">5. GRN calculation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#6.-Network-preprocessing">6. Network preprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#7.-Network-analysis;-Network-score-for-each-gene">7. Network analysis; Network score for each gene</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#8.-Network-analysis;-network-score-distribution">8. Network analysis; network score distribution</a></li>
 </ul>
 </div>
 </div>
@@ -288,10 +250,10 @@ The dynamics of the GRN structure can provide us insight into the context-depend
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html" class="btn btn-neutral float-right" title="0. Import libraries" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html" class="btn btn-neutral float-right" title="Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../notebooks/03_scRNA-seq_data_preprocessing/scanpy_preprocessing_with_Paul_etal_2015_data.html" class="btn btn-neutral float-left" title="0. Import libraries" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Tutorial" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

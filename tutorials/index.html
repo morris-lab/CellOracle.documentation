@@ -39,8 +39,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1. ATAC-seq data preprocessing" href="atac.html" />
-    <link rel="prev" title="Installation" href="../installation/index.html" /> 
+    <link rel="next" title="1. GRN model construction and Network analysis" href="networkanalysis.html" />
+    <link rel="prev" title="Check python library installation status" href="../installation/check_installation.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -93,11 +93,36 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="atac.html">1. ATAC-seq data preprocessing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="motifscan.html">2. Transcription factor binding motif scan</a></li>
-<li class="toctree-l2"><a class="reference internal" href="scrnaprocess.html">3. Single-cell RNA-seq data preprocessing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="networkanalysis.html">4. Network analysis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="simulation.html">5. Simulation with GRNs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-the-tutorial-covers">What the tutorial covers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#main-celloracle-analysis">1. Main celloracle analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-prepare-input-data">2. How to prepare input data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#code-and-data-availability">Code and data availability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#index">Index</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#grn-model-construction-and-network-analysis">GRN model construction and Network analysis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="networkanalysis.html">1. GRN model construction and Network analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#in-silico-gene-perturbation-with-grns">in silico gene perturbation with GRNs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="simulation.html">1. in silico gene perturbation with GRNs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#prepare-input-data">Prepare input data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="scrnaprocess.html">1. scRNA-seq data preparation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pseudotime.html">2. Pseudotime calculation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="base_grn.html">3. Base GRN input data preparation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#tf-motif-scan-for-base-grn-construction">TF motif scan for base-GRN construction</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="motifscan.html">1. Transcription factor binding motif scan</a></li>
+<li class="toctree-l4"><a class="reference internal" href="motifscan.html#how-to-use-different-motif-data">2. How to use different motif data</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -203,19 +228,152 @@
 </style>
 <div class="section" id="tutorial">
 <span id="id1"></span><h1>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">¶</a></h1>
-<p>The analysis proceeds through multiple steps.
-Please run the notebooks sequentially.
-If you do not have ATAC-seq data and want to use the default TF binding information, you can skip the first and second step and start from the third step.</p>
-<p>Please refer to the <code class="docutils literal notranslate"><span class="pre">celloracle</span></code> paper for scientific premise and the detail of the algorithm of celloracle.</p>
-<p>The jupyter notebook files and data used in this tutorial are available <a class="reference external" href="https://github.com/morris-lab/CellOracle/tree/master/docs/notebooks">here</a> .</p>
+<p>This tutorial aims to introduce how to use CellOracle functions using the demo dataset.
+Once you get used to CellOracle codes, please replace demo data with your data to investigate it.</p>
+<div class="section" id="what-the-tutorial-covers">
+<h2>What the tutorial covers<a class="headerlink" href="#what-the-tutorial-covers" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="main-celloracle-analysis">
+<h3>1. Main celloracle analysis<a class="headerlink" href="#main-celloracle-analysis" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="networkanalysis.html"><span class="doc">GRN model construction and Network analysis</span></a>: This notebook introduces how to construct sample-specific GRN models. It also contains examples of network analysis with graph theory.</p></li>
+<li><p><a class="reference internal" href="simulation.html"><span class="doc">in silico gene perturbation with GRNs</span></a> : This notebook performs in silico gene perturbation analysis using GRN models.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Demo dataset is available in the tutorial notebooks above. You can try CellOracle even if you do not have any data.</p>
+</div>
+</div>
+<div class="section" id="how-to-prepare-input-data">
+<h3>2. How to prepare input data<a class="headerlink" href="#how-to-prepare-input-data" title="Permalink to this headline">¶</a></h3>
+<p>We recommend getting started with CellOracle using demo dataset. Please get used to CellOracle analysis with them first.
+When you want to apply CellOracle to your scRNA-seq or scATAC dataset, please refer to the following tutorials to know how to prepare input data.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="scrnaprocess.html"><span class="doc">scRNA-seq data preparation</span></a>: This notebook explains preprocessing steps for scRNA-seq data.</p></li>
+<li><p><a class="reference internal" href="base_grn.html"><span class="doc">Base GRN input data preparation</span></a>: This tutorial explains how to prepare input data for TF motif scan.</p></li>
+<li><p><a class="reference internal" href="motifscan.html"><span class="doc">Transcription factor binding motif scan</span></a>: This tutorial describes the TF motif scan pipeline for base-GRN construction.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>In the input data preparation, we introduce how to prepare input data using some other libraries.
+But <strong>the input data preparation notebook is NOT CellOracle analysis itself</strong>, and we just provide an example how to leverage pre-existing tools <strong>to prepare input data</strong>.
+CellOracle is not just pipeline that is made of pre-existing tools.</p>
+</div>
+</div>
+</div>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>This tutorial assumes that you have some Python programming experience. In particular, we assume you are familiar with Python data science libraries: jupyter, pandas, and matplotlib.</p></li>
+<li><p>Also, this tutorial assume that you are familiar with basic scRNA-seq data analysis. In particular, we assume you have some experience of scRNA-seq analysis using <a class="reference external" href="https://scanpy.readthedocs.io/en/stable/">Scanpy and Anndata</a> , which is a python toolkit for single-cell analysis. You can use scRNA-seq data processed with <a class="reference external" href="https://satijalab.org/seurat/">Seurat</a> . But the Seurat data need to be converted into Anndata format in advance to CellOracle analysis. See this  <a class="reference external" href="https://xxx.com">tutorial</a> for detail.</p></li>
+<li><p>CellOracle provides pre-build base-GRN, and it is not necessary to construct custom base-GRN. But if you want to construct custom base-GRN from your scATAC-seq data, we recommend using <a class="reference external" href="https://cole-trapnell-lab.github.io/cicero-release/">Cicero</a> . In this case, please get used to Cicero, basic scATAC-seq data analysis, and TF motif analysis in advance to start constructing base-GRN.</p></li>
+</ul>
+</div>
+<div class="section" id="code-and-data-availability">
+<h2>Code and data availability<a class="headerlink" href="#code-and-data-availability" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>All jupyter notebook files are available <a class="reference external" href="https://github.com/morris-lab/CellOracle/tree/master/docs/notebooks">here</a> .</p></li>
+<li><p>Also, we provide link for the notebook in each section.</p></li>
+<li><p>You can download demo input data using the notebooks.</p></li>
+<li><p>We provide intermediate files. You can start at any section.</p></li>
+</ul>
+</div>
+<div class="section" id="getting-started">
+<h2>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p>If you run CellOracle for the first time, please start with the <a class="reference internal" href="networkanalysis.html"><span class="doc">GRN model construction and Network analysis</span></a>. And then, please proceed to <a class="reference internal" href="simulation.html"><span class="doc">in silico gene perturbation with GRNs</span></a>.
+We provide demo scRNA-seq dataset and base-GRN data as follows.
+You can load these data using the CellOracle data loading function.</p>
+<ul class="simple">
+<li><p>scRNA-seq data: Hematopoiesis dataset published by <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S0092867415014932?via%3Dihub">Paul et al (2015)</a> .</p></li>
+<li><p>Base-GRN: Base-GRN generated from <a class="reference external" href="https://atlas.gs.washington.edu/mouse-atac/">Mouse sci-ATAC-seq atlas dataset</a> .</p></li>
+</ul>
+<p>You can easily start CellOracle analysis with this dataset.
+You can reproduce hematopoiesis network analysis and perturbation simulation results that are shown in <a class="reference external" href="https://www.biorxiv.org/content/10.1101/2020.02.17.947416v3">our bioarxiv preprint</a> .</p>
+</div>
+<div class="section" id="index">
+<h2>Index<a class="headerlink" href="#index" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="grn-model-construction-and-network-analysis">
+<h3>GRN model construction and Network analysis<a class="headerlink" href="#grn-model-construction-and-network-analysis" title="Permalink to this headline">¶</a></h3>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="atac.html">1. ATAC-seq data preprocessing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="motifscan.html">2. Transcription factor binding motif scan</a></li>
-<li class="toctree-l1"><a class="reference internal" href="scrnaprocess.html">3. Single-cell RNA-seq data preprocessing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="networkanalysis.html">4. Network analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="simulation.html">5. Simulation with GRNs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="networkanalysis.html">1. GRN model construction and Network analysis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#0.-Import-libraries">0. Import libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#1.-Load-data">1. Load data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#2.-Initiate-Oracle-object">2. Initiate Oracle object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#3.-Knn-imputation">3. Knn imputation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#4.-Save-and-Load.">4. Save and Load.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#5.-GRN-calculation">5. GRN calculation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#6.-Network-preprocessing">6. Network preprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#7.-Network-analysis;-Network-score-for-each-gene">7. Network analysis; Network score for each gene</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html#8.-Network-analysis;-network-score-distribution">8. Network analysis; network score distribution</a></li>
 </ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="in-silico-gene-perturbation-with-grns">
+<h3>in silico gene perturbation with GRNs<a class="headerlink" href="#in-silico-gene-perturbation-with-grns" title="Permalink to this headline">¶</a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="simulation.html">1. in silico gene perturbation with GRNs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/05_simulation/Gata1_KO_simulation_with_Paul_etal_2015_data.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/05_simulation/Gata1_KO_simulation_with_Paul_etal_2015_data.html#0.-Import-libraries">0. Import libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/05_simulation/Gata1_KO_simulation_with_Paul_etal_2015_data.html#1.-Load-data">1. Load data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/05_simulation/Gata1_KO_simulation_with_Paul_etal_2015_data.html#2.-Make-predictive-models-for-simulation">2. Make predictive models for simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/05_simulation/Gata1_KO_simulation_with_Paul_etal_2015_data.html#3.-in-silico-TF-Perturbation-analysis">3. in silico TF Perturbation analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/05_simulation/Gata1_KO_simulation_with_Paul_etal_2015_data.html#4.-Visualization">4. Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/05_simulation/Gata1_KO_simulation_with_Paul_etal_2015_data.html#5.-Compare-simulation-vector-with-development-vectors">5. Compare simulation vector with development vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/05_simulation/Gata1_KO_simulation_with_Paul_etal_2015_data.html#5.5-Show-results">5.5 Show results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/05_simulation/Gata1_KO_simulation_with_Paul_etal_2015_data.html#6.-Focus-on-a-single-development-lineage-to-interpret-the-results-in-detail">6. Focus on a single development lineage to interpret the results in detail</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="prepare-input-data">
+<h3>Prepare input data<a class="headerlink" href="#prepare-input-data" title="Permalink to this headline">¶</a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="scrnaprocess.html">1. scRNA-seq data preparation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="scrnaprocess.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scrnaprocess.html#a-scrna-seq-data-preprocessing-with-scanpy">A. scRNA-seq data preprocessing with scanpy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scrnaprocess.html#b-scrna-seq-data-preprocessing-with-seurat">B. scRNA-seq data preprocessing with Seurat</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pseudotime.html">2. Pseudotime calculation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/05_simulation/Pseudotime_calculation_with_Paul_etal_2015_data.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/05_simulation/Pseudotime_calculation_with_Paul_etal_2015_data.html#0.-Import-libraries">0. Import libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/05_simulation/Pseudotime_calculation_with_Paul_etal_2015_data.html#1.-Load-data">1. Load data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/05_simulation/Pseudotime_calculation_with_Paul_etal_2015_data.html#2.-Pseudotime-calculation">2. Pseudotime calculation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/05_simulation/Pseudotime_calculation_with_Paul_etal_2015_data.html#3.-Save-data">3. Save data</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="base_grn.html">3. Base GRN input data preparation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="base_grn.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="base_grn.html#option1-data-preprocessing-of-scatac-seq-data">Option1. Data preprocessing of scATAC-seq data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="base_grn.html#option2-data-preprocessing-of-bulk-atac-seq-data">Option2. Data preprocessing of bulk ATAC-seq data</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="tf-motif-scan-for-base-grn-construction">
+<h3>TF motif scan for base-GRN construction<a class="headerlink" href="#tf-motif-scan-for-base-grn-construction" title="Permalink to this headline">¶</a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="motifscan.html">1. Transcription factor binding motif scan</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="motifscan.html#scan-dna-sequences-searching-for-tf-binding-motifs">Scan DNA sequences searching for TF binding motifs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="motifscan.html#how-to-use-different-motif-data">2. How to use different motif data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="motifscan.html#gimmemotifs-motif-data">gimmemotifs motif data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="motifscan.html#celloracle-motif-dataset-generated-from-cisbp-version2-database">CellOracle motif dataset generated from CisBP version2 database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="motifscan.html#how-to-create-custom-motif-data">How to create custom motif data</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 
@@ -227,10 +385,10 @@ If you do not have ATAC-seq data and want to use the default TF binding informat
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="atac.html" class="btn btn-neutral float-right" title="1. ATAC-seq data preprocessing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="networkanalysis.html" class="btn btn-neutral float-right" title="1. GRN model construction and Network analysis" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../installation/index.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../installation/check_installation.html" class="btn btn-neutral float-left" title="Check python library installation status" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

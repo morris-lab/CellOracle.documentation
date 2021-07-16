@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>0. Import libraries &mdash; celloracle 0.6.9 documentation</title>
+  <title>Overview &mdash; celloracle 0.6.9 documentation</title>
   
 
   
@@ -39,8 +39,8 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="4. Network analysis" href="../../tutorials/networkanalysis.html" />
-    <link rel="prev" title="3. Single-cell RNA-seq data preprocessing" href="../../tutorials/scrnaprocess.html" /> 
+    <link rel="next" title="2. Base GRN input data preparation" href="../../tutorials/base_grn.html" />
+    <link rel="prev" title="1. scRNA-seq data preparation" href="../../tutorials/scrnaprocess.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -93,30 +93,23 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../tutorials/index.html">Tutorial</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../../tutorials/atac.html">1. ATAC-seq data preprocessing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../tutorials/motifscan.html">2. Transcription factor binding motif scan</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../../tutorials/scrnaprocess.html">3. Single-cell RNA-seq data preprocessing</a><ul class="current">
-<li class="toctree-l3 current"><a class="reference internal" href="../../tutorials/scrnaprocess.html#a-scrna-seq-data-preprocessing-with-scanpy">A. scRNA-seq data preprocessing with scanpy</a><ul class="current">
-<li class="toctree-l4 current"><a class="current reference internal" href="#">0. Import libraries</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#1.-Load-data">1. Load data</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#2.-Filtering">2. Filtering</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#3.-Normalization">3. Normalization</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#4.-Identification-of-highly-variable-genes">4. Identification of highly variable genes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#5.-Log-transformation">5. Log transformation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#6.-Dimensional-reduction">6. Dimensional reduction</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#7.-Clustering">7. Clustering</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#(Optional)-Re-calculate-Dimensional-reduction-graph">(Optional) Re-calculate Dimensional reduction graph</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#8.-Check-data">8. Check data</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#9.-Make-annotation-for-cluster">9. Make annotation for cluster</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#10.-(Option)-Subset-cells">10. (Option) Subset cells</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#11.-Save-data">11. Save data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/index.html#what-the-tutorial-covers">What the tutorial covers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/index.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/index.html#code-and-data-availability">Code and data availability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/index.html#getting-started">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/index.html#grn-model-construction-and-network-analysis">GRN model construction and Network analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/index.html#in-silico-gene-perturbation-with-grns">in silico gene perturbation with GRNs</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../tutorials/index.html#prepare-input-data">Prepare input data</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../tutorials/scrnaprocess.html">1. scRNA-seq data preparation</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/scrnaprocess.html#overview">Overview</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../../tutorials/scrnaprocess.html#a-scrna-seq-data-preprocessing-with-scanpy">A. scRNA-seq data preprocessing with scanpy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/scrnaprocess.html#b-scrna-seq-data-preprocessing-with-seurat">B. scRNA-seq data preprocessing with Seurat</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../tutorials/scrnaprocess.html#b-scrna-seq-data-preprocessing-with-seurat">B. scRNA-seq data preprocessing with Seurat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/base_grn.html">2. Base GRN input data preparation</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../tutorials/networkanalysis.html">4. Network analysis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../tutorials/simulation.html">5. Simulation with GRNs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/index.html#tf-motif-scan">TF motif scan</a></li>
 </ul>
 </li>
 </ul>
@@ -179,9 +172,9 @@
         
           <li><a href="../../tutorials/index.html">Tutorial</a> &raquo;</li>
         
-          <li><a href="../../tutorials/scrnaprocess.html"><span class="section-number">3. </span>Single-cell RNA-seq data preprocessing</a> &raquo;</li>
+          <li><a href="../../tutorials/scrnaprocess.html"><span class="section-number">1. </span>scRNA-seq data preparation</a> &raquo;</li>
         
-      <li>0. Import libraries</li>
+      <li>Overview</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -455,6 +448,34 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
+<div class="section" id="Overview">
+<h1>Overview<a class="headerlink" href="#Overview" title="Permalink to this headline">¶</a></h1>
+<p>This notebook will show an example of how to process scRNA-seq data using scRNA-seq data of hematopoiesis. (Paul, F., Arkin, Y., Giladi, A., Jaitin, D. A., Kenigsberg, E., Keren-Shaul, H., et al. (2015). Transcriptional Heterogeneity and Lineage Commitment in Myeloid Progenitors. Cell, 163(7), 1663–1677. <a class="reference external" href="http://doi.org/10.1016/j.cell.2015.11.013">http://doi.org/10.1016/j.cell.2015.11.013</a>).</p>
+<p>You can easily download this scRNA-seq data with a scanpy function.</p>
+<div class="section" id="Notebook-file">
+<h2>Notebook file<a class="headerlink" href="#Notebook-file" title="Permalink to this headline">¶</a></h2>
+<p>Notebook file is available at CellOracle GitHub. <a class="reference external" href="https://github.com/morris-lab/CellOracle/blob/master/docs/notebooks/03_scRNA-seq_data_preprocessing/scanpy_preprocessing_with_Paul_etal_2015_data.ipynb">https://github.com/morris-lab/CellOracle/blob/master/docs/notebooks/03_scRNA-seq_data_preprocessing/scanpy_preprocessing_with_Paul_etal_2015_data.ipynb</a></p>
+</div>
+<div class="section" id="Steps">
+<h2>Steps<a class="headerlink" href="#Steps" title="Permalink to this headline">¶</a></h2>
+<p>We need to do following scRNA-seq processing.</p>
+<ol class="arabic simple">
+<li><p><strong>Variable gene selection and normalization.</strong></p></li>
+<li><p><strong>Log transformation.</strong> Although we need to do log-transformation, CellOracle also needs the raw gene expression value in later process. We keep raw count data in a layer of anndata.</p></li>
+<li><p><strong>Cell clustering.</strong></p></li>
+<li><p><strong>Dimensional reduction.</strong> We need to prepare 2D embedding data. Make sure that the 2D embedding properly represents the identity of the cell. Good Cell Oracle simulation results cannot be obtained if there is biologically inappropriate embedded data.</p></li>
+</ol>
+</div>
+<div class="section" id="Caution">
+<h2>Caution<a class="headerlink" href="#Caution" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>This notebook is intended to explain <strong>how to prepare the input data for CellOracle analysis</strong>. This is <strong>NOT</strong> the CellOracle analysis itself. Also, this notebook does NOT use <code class="docutils literal notranslate"><span class="pre">celloracle</span></code> in this notebook.</p></li>
+<li><p>Instead, we use <code class="docutils literal notranslate"><span class="pre">scanpy</span></code> and <code class="docutils literal notranslate"><span class="pre">anndata</span></code> to process and store scRNA-seq data. If you are new to these packages, pelase read the documentation to learn them in advance.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scanpy</span></code> documentation: <a class="reference external" href="https://scanpy.readthedocs.io/en/stable/">https://scanpy.readthedocs.io/en/stable/</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">anndata</span></code> documentation: <a class="reference external" href="https://anndata.readthedocs.io/en/latest/">https://anndata.readthedocs.io/en/latest/</a></p></li>
+</ul>
+</div>
+</div>
 <div class="section" id="0.-Import-libraries">
 <h1>0. Import libraries<a class="headerlink" href="#0.-Import-libraries" title="Permalink to this headline">¶</a></h1>
 <div class="nbinput nblast docutils container">
@@ -485,8 +506,6 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="1.-Load-data">
 <h1>1. Load data<a class="headerlink" href="#1.-Load-data" title="Permalink to this headline">¶</a></h1>
-<p>In this notebook, we will show an example of how to process scRNA-seq data using a scRNA-seq data of hematopoiesis (Paul, F., Arkin, Y., Giladi, A., Jaitin, D. A., Kenigsberg, E., Keren-Shaul, H., et al. (2015). Transcriptional Heterogeneity and Lineage Commitment in Myeloid Progenitors. Cell, 163(7), 1663–1677. <a class="reference external" href="http://doi.org/10.1016/j.cell.2015.11.013">http://doi.org/10.1016/j.cell.2015.11.013</a>). You can easily download this scRNA-seq data with a scanpy function.</p>
-<p>Please change the code below if you want to use your data.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
@@ -544,7 +563,10 @@ Trying to set attribute `.uns` of view, making a copy.
 </div>
 <div class="section" id="4.-Identification-of-highly-variable-genes">
 <h1>4. Identification of highly variable genes<a class="headerlink" href="#4.-Identification-of-highly-variable-genes" title="Permalink to this headline">¶</a></h1>
-<p>Removing non-variable genes not only reduces the calculation time during the GRN reconstruction and simulation, but also improve the accuracy of GRN inference. We recommend using the top 2000~3000 variable genes.</p>
+<p><strong>This step is essential. Please do not skip this step.</strong></p>
+<blockquote>
+<div><p>By removing non-variable genes, we can reduce the calculation time during the GRN reconstruction and simulation. Also, it will improve the accuracy of GRN inference by removing noisy genes. We recommend using the top 2000~3000 variable genes.</p>
+</div></blockquote>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
@@ -575,9 +597,11 @@ Trying to set attribute `.obs` of view, making a copy.
 </div>
 <div class="section" id="5.-Log-transformation">
 <h1>5. Log transformation<a class="headerlink" href="#5.-Log-transformation" title="Permalink to this headline">¶</a></h1>
-<p>We will do log transformation scaling because these are necessary for PCA, clustering, and differential gene calculations.</p>
-<div class="section" id="However,-we-also-need-non-transformed-gene-expression-data-in-the-celloracle-analysis.Thus-we-need-to-keep-raw-count-in-anndata-using-the-following-command-before-the-log-transformation.">
-<h2>However, we also need non-transformed gene expression data in the celloracle analysis.Thus we need to keep raw count in anndata using the following command before the log transformation.<a class="headerlink" href="#However,-we-also-need-non-transformed-gene-expression-data-in-the-celloracle-analysis.Thus-we-need-to-keep-raw-count-in-anndata-using-the-following-command-before-the-log-transformation." title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>We will do log transformation and scaling because these are necessary for PCA, clustering, and differential gene calculations.</p></li>
+<li><p>We also need non-transformed gene expression data for celloracle analysis. Thus, <strong>we need to keep gene expression data as a separate layer of anndata before the log transformation.</strong></p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">adata.layers[&quot;raw_count&quot;]</span> <span class="pre">=</span> <span class="pre">adata.raw.X.copy()</span></code></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
@@ -595,28 +619,18 @@ Trying to set attribute `.obs` of view, making a copy.
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="6.-Dimensional-reduction">
-<h1>6. Dimensional reduction<a class="headerlink" href="#6.-Dimensional-reduction" title="Permalink to this headline">¶</a></h1>
-<p>Dimensional reduction is one of the most important parts of the scRNA-seq analysis. Celloracle needs dimensional reduction embeddings to simulate cell transition.</p>
-<p>Please choose a proper algorithm for dimensional reduction so that the embedding appropriately represents the data structure. We recommend using one of these dimensional reduction algorithms (or trajectory inference algorithms); UMAP, tSNE, diffusion map, force-directed graph drawing or PAGA.</p>
-<p>In this example, we use a combination of four algorithms; diffusion map, force-directed graph drawing, and PAGA.</p>
+<div class="section" id="6.-PCA-and-find-neighbors">
+<h1>6. PCA and find neighbors<a class="headerlink" href="#6.-PCA-and-find-neighbors" title="Permalink to this headline">¶</a></h1>
+<p>This step is necessary to perform later dimensional reduction and clustering.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># PCA</span>
 <span class="n">sc</span><span class="o">.</span><span class="n">tl</span><span class="o">.</span><span class="n">pca</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">svd_solver</span><span class="o">=</span><span class="s1">&#39;arpack&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Diffusion map</span>
+
+<span class="c1"># Diffusion map</span>
 <span class="n">sc</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">neighbors</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">n_pcs</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 
 <span class="n">sc</span><span class="o">.</span><span class="n">tl</span><span class="o">.</span><span class="n">diffmap</span><span class="p">(</span><span class="n">adata</span><span class="p">)</span>
@@ -626,8 +640,8 @@ Trying to set attribute `.obs` of view, making a copy.
 </div>
 </div>
 </div>
-<div class="section" id="7.-Clustering">
-<h1>7. Clustering<a class="headerlink" href="#7.-Clustering" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="7.-Cell-clustering">
+<h1>7. Cell clustering<a class="headerlink" href="#7.-Cell-clustering" title="Permalink to this headline">¶</a></h1>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
@@ -638,8 +652,19 @@ Trying to set attribute `.obs` of view, making a copy.
 </div>
 </div>
 </div>
-<div class="section" id="(Optional)-Re-calculate-Dimensional-reduction-graph">
-<h1>(Optional) Re-calculate Dimensional reduction graph<a class="headerlink" href="#(Optional)-Re-calculate-Dimensional-reduction-graph" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="8.-Dimensional-reduction-using-PAGA-and-Force">
+<h1>8. Dimensional reduction using PAGA and Force<a class="headerlink" href="#8.-Dimensional-reduction-using-PAGA-and-Force" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Dimensional reduction is one of the most important parts of the scRNA-seq analysis.Celloracle needs dimensional reduction embeddings to simulate cell transition.</p></li>
+<li><p>Please choose a proper algorithm for dimensional reduction for your scRNA-seq data so that the embedding appropriately represents its developmental trajectory. We recommend using one of the following dimensional reduction algorithms (or trajectory inference algorithms)</p></li>
+<li><p>UMAP: <a class="reference external" href="https://scanpy.readthedocs.io/en/stable/generated/scanpy.tl.umap.html#scanpy.tl.umap">https://scanpy.readthedocs.io/en/stable/generated/scanpy.tl.umap.html#scanpy.tl.umap</a></p></li>
+<li><p>TSNE: <a class="reference external" href="https://scanpy.readthedocs.io/en/stable/generated/scanpy.tl.tsne.html#scanpy.tl.tsne">https://scanpy.readthedocs.io/en/stable/generated/scanpy.tl.tsne.html#scanpy.tl.tsne</a></p></li>
+<li><p>Diffusion map: <a class="reference external" href="https://scanpy.readthedocs.io/en/stable/generated/scanpy.tl.diffmap.html#scanpy.tl.diffmap">https://scanpy.readthedocs.io/en/stable/generated/scanpy.tl.diffmap.html#scanpy.tl.diffmap</a></p></li>
+<li><p>Force-directed graph drawing: <a class="reference external" href="https://scanpy.readthedocs.io/en/stable/generated/scanpy.tl.draw_graph.html#scanpy.tl.draw_graph">https://scanpy.readthedocs.io/en/stable/generated/scanpy.tl.draw_graph.html#scanpy.tl.draw_graph</a></p></li>
+<li><p>In this example, we use a workflow introduced in the scanpy trajectory inference tutorial. <a class="reference external" href="https://scanpy-tutorials.readthedocs.io/en/latest/paga-paul15.html">https://scanpy-tutorials.readthedocs.io/en/latest/paga-paul15.html</a> This method is combination of three algorithms:diffusion map, force-directed graph, PAGA.</p></li>
+<li><p>Step1: Calculate PAGA graph. PAGA data will be used for the initial status of force-directed graph calculation.</p></li>
+<li><p>Step2: Force-directed graph calculation.</p></li>
+</ul>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
@@ -649,28 +674,6 @@ Trying to set attribute `.obs` of view, making a copy.
 <span class="n">sc</span><span class="o">.</span><span class="n">tl</span><span class="o">.</span><span class="n">paga</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="s1">&#39;louvain&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Check current cluster name</span>
-<span class="n">cluster_list</span> <span class="o">=</span> <span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="o">.</span><span class="n">louvain</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
-<span class="n">cluster_list</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[5, 2, 12, 13, 0, ..., 6, 20, 14, 15, 21]
-Length: 23
-Categories (23, object): [5, 2, 12, 13, ..., 20, 14, 15, 21]
-</pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
@@ -694,7 +697,7 @@ Categories (23, object): [5, 2, 12, 13, ..., 20, 14, 15, 21]
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_22_0.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_22_0.png" style="width: 383px; height: 277px;" />
+<img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_21_0.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_21_0.png" style="width: 383px; height: 277px;" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -719,12 +722,12 @@ Categories (23, object): [5, 2, 12, 13, ..., 20, 14, 15, 21]
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_24_0.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_24_0.png" style="width: 364px; height: 288px;" />
+<img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_23_0.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_23_0.png" style="width: 364px; height: 288px;" />
 </div>
 </div>
 </div>
-<div class="section" id="8.-Check-data">
-<h1>8. Check data<a class="headerlink" href="#8.-Check-data" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="9.-Check-data">
+<h1>9. Check data<a class="headerlink" href="#9.-Check-data" title="Permalink to this headline">¶</a></h1>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
@@ -760,48 +763,48 @@ Categories (23, object): [5, 2, 12, 13, ..., 20, 14, 15, 21]
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_0.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_0.png" style="width: 656px; height: 574px;" />
+<img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_26_0.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_26_0.png" style="width: 656px; height: 574px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_1.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_1.png" style="width: 644px; height: 574px;" />
+<img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_26_1.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_26_1.png" style="width: 644px; height: 574px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_2.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_2.png" style="width: 655px; height: 856px;" />
+<img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_26_2.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_26_2.png" style="width: 655px; height: 856px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_3.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_3.png" style="width: 656px; height: 574px;" />
+<img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_26_3.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_26_3.png" style="width: 656px; height: 574px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_4.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_4.png" style="width: 644px; height: 574px;" />
+<img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_26_4.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_26_4.png" style="width: 644px; height: 574px;" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_5.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_27_5.png" style="width: 644px; height: 292px;" />
+<img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_26_5.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_26_5.png" style="width: 644px; height: 292px;" />
 </div>
 </div>
 </div>
-<div class="section" id="9.-Make-annotation-for-cluster">
-<h1>9. Make annotation for cluster<a class="headerlink" href="#9.-Make-annotation-for-cluster" title="Permalink to this headline">¶</a></h1>
-<p>Based on the marker gene expression and previous reports, we will manually annotate each cluster. When using your own data, you will need to annotate the clusters appropriately.</p>
+<div class="section" id="10.-[Optional-step]-Make-annotation-for-cluster">
+<h1>10. [Optional step] Make annotation for cluster<a class="headerlink" href="#10.-[Optional-step]-Make-annotation-for-cluster" title="Permalink to this headline">¶</a></h1>
+<p>Based on the marker gene expression and previous reports, we will manually annotate each cluster.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
@@ -816,7 +819,7 @@ Categories (23, object): [5, 2, 12, 13, ..., 20, 14, 15, 21]
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_31_0.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_31_0.png" style="width: 615px; height: 292px;" />
+<img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_30_0.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_30_0.png" style="width: 615px; height: 292px;" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -924,7 +927,7 @@ Categories (23, object): [5, 2, 12, 13, ..., 20, 14, 15, 21]
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_36_0.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_36_0.png" style="width: 615px; height: 292px;" />
+<img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_35_0.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_35_0.png" style="width: 615px; height: 292px;" />
 </div>
 </div>
 <p>We’ll make another annotation manually for each Louvain clusters.</p>
@@ -942,7 +945,7 @@ Categories (23, object): [5, 2, 12, 13, ..., 20, 14, 15, 21]
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_38_0.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_38_0.png" style="width: 615px; height: 292px;" />
+<img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_37_0.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_37_0.png" style="width: 615px; height: 292px;" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -1000,13 +1003,12 @@ Categories (23, object): [5, 2, 12, 13, ..., 20, 14, 15, 21]
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_42_0.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_42_0.png" style="width: 615px; height: 292px;" />
+<img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_41_0.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_41_0.png" style="width: 615px; height: 292px;" />
 </div>
 </div>
-<p>We’ve done secveral scRNA-preprocessing steps; filtering, normalization, clustering, and dimensional reduction. In the next step, we’ll do the GRN inference, network analysis, and in silico simulation based on this information.</p>
 </div>
-<div class="section" id="10.-(Option)-Subset-cells">
-<h1>10. (Option) Subset cells<a class="headerlink" href="#10.-(Option)-Subset-cells" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="11.-[Optional-step]-Subset-cells">
+<h1>11. [Optional step] Subset cells<a class="headerlink" href="#11.-[Optional-step]-Subset-cells" title="Permalink to this headline">¶</a></h1>
 <p>In this tutorial, we are using scRNA-seq data of hematopoiesis. In the latter part, we will focus on the cell fate decision in the myeloid lineage. So we will remove non-myeloid cell cluster; DC and Lymphoid cell cluster.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
@@ -1052,12 +1054,12 @@ Categories (9, object): [MEP, Monocytes, Erythroids, Granulocytes, ..., GMP, Meg
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_47_0.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_47_0.png" style="width: 615px; height: 292px;" />
+<img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_45_0.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_45_0.png" style="width: 615px; height: 292px;" />
 </div>
 </div>
 </div>
-<div class="section" id="11.-Save-data">
-<h1>11. Save data<a class="headerlink" href="#11.-Save-data" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="12.-Save-processed-data">
+<h1>12. Save processed data<a class="headerlink" href="#12.-Save-processed-data" title="Permalink to this headline">¶</a></h1>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
@@ -1077,10 +1079,10 @@ Categories (9, object): [MEP, Monocytes, Erythroids, Granulocytes, ..., GMP, Meg
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../tutorials/networkanalysis.html" class="btn btn-neutral float-right" title="4. Network analysis" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../../tutorials/base_grn.html" class="btn btn-neutral float-right" title="2. Base GRN input data preparation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../../tutorials/scrnaprocess.html" class="btn btn-neutral float-left" title="3. Single-cell RNA-seq data preprocessing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../../tutorials/scrnaprocess.html" class="btn btn-neutral float-left" title="1. scRNA-seq data preparation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

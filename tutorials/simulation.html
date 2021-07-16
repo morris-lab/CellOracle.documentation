@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>5. Simulation with GRNs &mdash; celloracle 0.6.9 documentation</title>
+  <title>1. in silico gene perturbation with GRNs &mdash; celloracle 0.6.9 documentation</title>
   
 
   
@@ -39,8 +39,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="0. Import libraries" href="../notebooks/05_simulation/Gata1_KO_simulation_with_Paul_etal_2015_data.html" />
-    <link rel="prev" title="0. Import libraries" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html" /> 
+    <link rel="next" title="Overview" href="../notebooks/05_simulation/Gata1_KO_simulation_with_Paul_etal_2015_data.html" />
+    <link rel="prev" title="Overview" href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -93,16 +93,18 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorial</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="atac.html">1. ATAC-seq data preprocessing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="motifscan.html">2. Transcription factor binding motif scan</a></li>
-<li class="toctree-l2"><a class="reference internal" href="scrnaprocess.html">3. Single-cell RNA-seq data preprocessing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="networkanalysis.html">4. Network analysis</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">5. Simulation with GRNs</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../notebooks/05_simulation/Gata1_KO_simulation_with_Paul_etal_2015_data.html">0. Import libraries</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../notebooks/05_simulation/Gata1_KO_simulation_with_Paul_etal_2015_data.html#1.-Load-data">1. Load data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../notebooks/05_simulation/Gata1_KO_simulation_with_Paul_etal_2015_data.html#2.-Make-predictive-models-for-simulation">2. Make predictive models for simulation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../notebooks/05_simulation/Gata1_KO_simulation_with_Paul_etal_2015_data.html#3.-in-silico-TF-Perturbation-analysis">3. in silico TF Perturbation analysis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../notebooks/05_simulation/Gata1_KO_simulation_with_Paul_etal_2015_data.html#4.-Visualization">4. Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#what-the-tutorial-covers">What the tutorial covers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#code-and-data-availability">Code and data availability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#getting-started">Getting started</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#index">Index</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="index.html#grn-model-construction-and-network-analysis">GRN model construction and Network analysis</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html#in-silico-gene-perturbation-with-grns">in silico gene perturbation with GRNs</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">1. in silico gene perturbation with GRNs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#prepare-input-data">Prepare input data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#tf-motif-scan">TF motif scan</a></li>
 </ul>
 </li>
 </ul>
@@ -167,7 +169,7 @@
         
           <li><a href="index.html">Tutorial</a> &raquo;</li>
         
-      <li><span class="section-number">5. </span>Simulation with GRNs</li>
+      <li><span class="section-number">1. </span>in silico gene perturbation with GRNs</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -210,38 +212,37 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="simulation-with-grns">
-<span id="simulation"></span><h1><span class="section-number">5. </span>Simulation with GRNs<a class="headerlink" href="#simulation-with-grns" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="in-silico-gene-perturbation-with-grns">
+<span id="simulation"></span><h1><span class="section-number">1. </span>in silico gene perturbation with GRNs<a class="headerlink" href="#in-silico-gene-perturbation-with-grns" title="Permalink to this headline">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">celloracle</span></code> leverage GRNs to simulate signal propagation inside a cell.
 We can estimate the effect of gene perturbation by the simulation with GRNs.</p>
-<p>Additonally, we will combine the signal propagation simulation with a cell state transition simulation. The latter simulation is performed by a python library for RNA-velocity analysis, called <code class="docutils literal notranslate"><span class="pre">velocyto</span></code> .
-This analysis may provide an insight into a complex system how TF controls enormous target genes to determines cell fate.</p>
 <p>The jupyter notebook files and data used in this tutorial are available <a class="reference external" href="https://github.com/morris-lab/CellOracle/tree/master/docs/notebooks/05_simulation">here</a> .</p>
 <p>Python notebook</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/05_simulation/Gata1_KO_simulation_with_Paul_etal_2015_data.html">0. Import libraries</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/05_simulation/Gata1_KO_simulation_with_Paul_etal_2015_data.html#0.1.-Import-public-libraries">0.1. Import public libraries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/05_simulation/Gata1_KO_simulation_with_Paul_etal_2015_data.html#0.1.-Make-a-folder-to-save-graph">0.1. Make a folder to save graph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/05_simulation/Gata1_KO_simulation_with_Paul_etal_2015_data.html">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/05_simulation/Gata1_KO_simulation_with_Paul_etal_2015_data.html#Notebook-file">Notebook file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/05_simulation/Gata1_KO_simulation_with_Paul_etal_2015_data.html#Data">Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/05_simulation/Gata1_KO_simulation_with_Paul_etal_2015_data.html#What-you-can-do">What you can do</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/05_simulation/Gata1_KO_simulation_with_Paul_etal_2015_data.html#Custom-data-class-/-object">Custom data class / object</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/05_simulation/Gata1_KO_simulation_with_Paul_etal_2015_data.html#1.-Load-data">1. Load data</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/05_simulation/Gata1_KO_simulation_with_Paul_etal_2015_data.html#1.1.-Load-processed-oracle-object">1.1. Load processed oracle object</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/05_simulation/Gata1_KO_simulation_with_Paul_etal_2015_data.html#1.2.-Load-inferred-GRNs">1.2. Load inferred GRNs</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/05_simulation/Gata1_KO_simulation_with_Paul_etal_2015_data.html#0.-Import-libraries">0. Import libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/05_simulation/Gata1_KO_simulation_with_Paul_etal_2015_data.html#1.-Load-data">1. Load data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/05_simulation/Gata1_KO_simulation_with_Paul_etal_2015_data.html#2.-Make-predictive-models-for-simulation">2. Make predictive models for simulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/05_simulation/Gata1_KO_simulation_with_Paul_etal_2015_data.html#3.-in-silico-TF-Perturbation-analysis">3. in silico TF Perturbation analysis</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/05_simulation/Gata1_KO_simulation_with_Paul_etal_2015_data.html#3.1.-Check-gene-expression-pattern.">3.1. Check gene expression pattern.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/05_simulation/Gata1_KO_simulation_with_Paul_etal_2015_data.html#3.2.-calculate-future-gene-expression-after-perturbation.">3.2. calculate future gene expression after perturbation.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/05_simulation/Gata1_KO_simulation_with_Paul_etal_2015_data.html#3.3.-calculate-transition-probability-between-cells">3.3. calculate transition probability between cells</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/05_simulation/Gata1_KO_simulation_with_Paul_etal_2015_data.html#3.-in-silico-TF-Perturbation-analysis">3. in silico TF Perturbation analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/05_simulation/Gata1_KO_simulation_with_Paul_etal_2015_data.html#4.-Visualization">4. Visualization</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/05_simulation/Gata1_KO_simulation_with_Paul_etal_2015_data.html#4.1.-Quiver-plot:-Show-the-direction-of-cell-transition-at-single-cell-resolution">4.1. Quiver plot: Show the direction of cell transition at single cell resolution</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/05_simulation/Gata1_KO_simulation_with_Paul_etal_2015_data.html#4.2.-Vector-field-graph">4.2. Vector field graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/05_simulation/Gata1_KO_simulation_with_Paul_etal_2015_data.html#Caution:-It-is-very-important-to-find-optimal-scale-parameter.">Caution: It is very important to find optimal <code class="docutils literal notranslate"><span class="pre">scale</span></code> parameter.</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/05_simulation/Gata1_KO_simulation_with_Paul_etal_2015_data.html#4.2.-Vector-field-graph">4.2. Vector field graph</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/05_simulation/Gata1_KO_simulation_with_Paul_etal_2015_data.html#4.2.1-Find-parameters-for-n_grid-and-min_mass">4.2.1 Find parameters for n_grid and min_mass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/05_simulation/Gata1_KO_simulation_with_Paul_etal_2015_data.html#4.2.2-Plot-vector-fields">4.2.2 Plot vector fields</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/05_simulation/Gata1_KO_simulation_with_Paul_etal_2015_data.html#5.-Compare-simulation-vector-with-development-vectors">5. Compare simulation vector with development vectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/05_simulation/Gata1_KO_simulation_with_Paul_etal_2015_data.html#5.5-Show-results">5.5 Show results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/05_simulation/Gata1_KO_simulation_with_Paul_etal_2015_data.html#6.-Focus-on-a-single-development-lineage-to-interpret-the-results-in-detail">6. Focus on a single development lineage to interpret the results in detail</a></li>
 </ul>
 </div>
 </div>
@@ -254,10 +255,10 @@ This analysis may provide an insight into a complex system how TF controls enorm
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../notebooks/05_simulation/Gata1_KO_simulation_with_Paul_etal_2015_data.html" class="btn btn-neutral float-right" title="0. Import libraries" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../notebooks/05_simulation/Gata1_KO_simulation_with_Paul_etal_2015_data.html" class="btn btn-neutral float-right" title="Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html" class="btn btn-neutral float-left" title="0. Import libraries" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html" class="btn btn-neutral float-left" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>0. Import libraries &mdash; celloracle 0.6.9 documentation</title>
+  <title>Overview &mdash; celloracle 0.6.9 documentation</title>
   
 
   
@@ -39,8 +39,8 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="API" href="../../modules/index.html" />
-    <link rel="prev" title="5. Simulation with GRNs" href="../../tutorials/simulation.html" /> 
+    <link rel="next" title="1. scRNA-seq data preparation" href="../../tutorials/scrnaprocess.html" />
+    <link rel="prev" title="1. Simulation with GRNs" href="../../tutorials/simulation.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -93,35 +93,28 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../tutorials/index.html">Tutorial</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../../tutorials/atac.html">1. ATAC-seq data preprocessing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../tutorials/motifscan.html">2. Transcription factor binding motif scan</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../tutorials/scrnaprocess.html">3. Single-cell RNA-seq data preprocessing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../tutorials/networkanalysis.html">4. Network analysis</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../../tutorials/simulation.html">5. Simulation with GRNs</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">0. Import libraries</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#0.1.-Import-public-libraries">0.1. Import public libraries</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#0.1.-Make-a-folder-to-save-graph">0.1. Make a folder to save graph</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#1.-Load-data">1. Load data</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#1.1.-Load-processed-oracle-object">1.1. Load processed oracle object</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#1.2.-Load-inferred-GRNs">1.2. Load inferred GRNs</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#2.-Make-predictive-models-for-simulation">2. Make predictive models for simulation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#3.-in-silico-TF-Perturbation-analysis">3. in silico TF Perturbation analysis</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#3.1.-Check-gene-expression-pattern.">3.1. Check gene expression pattern.</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#3.2.-calculate-future-gene-expression-after-perturbation.">3.2. calculate future gene expression after perturbation.</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#3.3.-calculate-transition-probability-between-cells">3.3. calculate transition probability between cells</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#4.-Visualization">4. Visualization</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#4.1.-Quiver-plot:-Show-the-direction-of-cell-transition-at-single-cell-resolution">4.1. Quiver plot: Show the direction of cell transition at single cell resolution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#4.2.-Vector-field-graph">4.2. Vector field graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/index.html#what-the-tutorial-covers">What the tutorial covers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/index.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/index.html#code-and-data-availability">Code and data availability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/index.html#getting-started">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/index.html#grn-model-construction-and-network-analysis">GRN model construction and Network analysis</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../tutorials/index.html#in-silico-gene-perturbation-with-grns">in silico Gene perturbation with GRNs</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../tutorials/simulation.html">1. Simulation with GRNs</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#0.-Import-libraries">0. Import libraries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#1.-Load-data">1. Load data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#2.-Make-predictive-models-for-simulation">2. Make predictive models for simulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#3.-in-silico-TF-Perturbation-analysis">3. in silico TF Perturbation analysis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#4.-Visualization">4. Visualization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#5.-Compare-simulation-vector-with-development-vectors">5. Compare simulation vector with development vectors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#5.5-Show-results">5.5 Show results</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#6.-Focus-on-a-single-development-lineage-to-interpret-the-results-in-detail">6. Focus on a single development lineage to interpret the results in detail</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/index.html#prepare-input-data">Prepare input data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/index.html#tf-motif-scan">TF motif scan</a></li>
 </ul>
 </li>
 </ul>
@@ -184,9 +177,9 @@
         
           <li><a href="../../tutorials/index.html">Tutorial</a> &raquo;</li>
         
-          <li><a href="../../tutorials/simulation.html"><span class="section-number">5. </span>Simulation with GRNs</a> &raquo;</li>
+          <li><a href="../../tutorials/simulation.html"><span class="section-number">1. </span>Simulation with GRNs</a> &raquo;</li>
         
-      <li>0. Import libraries</li>
+      <li>Overview</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -460,10 +453,46 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
+<div class="section" id="Overview">
+<h1>Overview<a class="headerlink" href="#Overview" title="Permalink to this headline">¶</a></h1>
+<p>This notebook describes how to do in silico TF perturbation using GRN models. Please read our paper first to know about the CellOracle algorithm.</p>
+<div class="section" id="Notebook-file">
+<h2>Notebook file<a class="headerlink" href="#Notebook-file" title="Permalink to this headline">¶</a></h2>
+<p>Notebook file is available at CellOracle GitHub. <a class="reference external" href="https://github.com/morris-lab/CellOracle/blob/master/docs/notebooks/05_simulation/Gata1_KO_simulation_with_Paul_etal_2015_data.ipynb">https://github.com/morris-lab/CellOracle/blob/master/docs/notebooks/05_simulation/Gata1_KO_simulation_with_Paul_etal_2015_data.ipynb</a></p>
+</div>
+<div class="section" id="Data">
+<h2>Data<a class="headerlink" href="#Data" title="Permalink to this headline">¶</a></h2>
+<p>In this notebook, CellOracle uses two input data below for the GRN model construction.</p>
+<ul class="simple">
+<li><p><strong>Input data1: Oracle object</strong>. Please look at the previous notebook to know how to make a <code class="docutils literal notranslate"><span class="pre">Oracle</span></code> object from scRNA-seq. In this tutorial, we use demo data made from hematopoiesis scRNA-seq data. We can load the demo <code class="docutils literal notranslate"><span class="pre">Oracle</span></code> object as follows.</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">oracle</span> <span class="pre">=</span> <span class="pre">co.data.load_tutorial_oracle_object()</span></code></p>
+<ul class="simple">
+<li><p><strong>Input data2: Links object</strong>. <code class="docutils literal notranslate"><span class="pre">Links</span></code> object is a class to store GRN data. We need GRN models stored as a <code class="docutils literal notranslate"><span class="pre">Links</span></code> object for simulation. In this tutorial, we use demo GRNs made from hematopoiesis scRNA-seq data and mouse sciATAC-seq atlas base-GRN. We can load the demo <code class="docutils literal notranslate"><span class="pre">Links</span></code> object as follows.</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">links</span> <span class="pre">=</span> <span class="pre">co.data.load_tutorial_links_object()</span></code></p>
+</div>
+<div class="section" id="What-you-can-do">
+<h2>What you can do<a class="headerlink" href="#What-you-can-do" title="Permalink to this headline">¶</a></h2>
+<p>In this notebook, we perform two analyzes.</p>
+<ol class="arabic simple">
+<li><p><strong>in silico TF perturbation</strong> to simulate cell identity shift. CellOracle uses the GRN model to simulate cell identity shift in response to TF perturbation. For this analysis, you need to construct GRN models in this notebook first.</p></li>
+<li><p><strong>Compare simulation vector with development vectors</strong>. In order to properly interpret the simulation results, it is very important to consider the natural direction of development. First, I will show you how to get a pseudo-time gradient vector field that represents the direction of development. Then, we compare the CellOracle TF perturbation simulation vector field with the development vector field by calculating the inner product score. See below for more information.</p></li>
+</ol>
+</div>
+<div class="section" id="Custom-data-class-/-object">
+<h2>Custom data class / object<a class="headerlink" href="#Custom-data-class-/-object" title="Permalink to this headline">¶</a></h2>
+<p>In this notebook, CellOracle uses four custom classes, <code class="docutils literal notranslate"><span class="pre">Oracle</span></code>, <code class="docutils literal notranslate"><span class="pre">Links</span></code>, <code class="docutils literal notranslate"><span class="pre">Gradient_calculator</span></code>, and <code class="docutils literal notranslate"><span class="pre">Oracle_development_module</span></code>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Oracle</span></code> is the main class in the CellOracle package. It will do almost all calculations of GRN model construction and TF perturbation simulation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Links</span></code> is a class to store GRN data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Gradient_calculator</span></code> calculates development vector field using pseudotime information. We need the pseudotime data for this calculation. Please see another notebook how to get pseudotime data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Oracle_development_module</span></code> integrates <code class="docutils literal notranslate"><span class="pre">Oracle</span></code> object data and <code class="docutils literal notranslate"><span class="pre">Gradient_calculator</span></code> object data to analyze how TF perturbation affects on the developmental process. It have many visualization functions.</p></li>
+</ul>
+</div>
+</div>
 <div class="section" id="0.-Import-libraries">
 <h1>0. Import libraries<a class="headerlink" href="#0.-Import-libraries" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="0.1.-Import-public-libraries">
-<h2>0.1. Import public libraries<a class="headerlink" href="#0.1.-Import-public-libraries" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -482,7 +511,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<p>This notebook was made with celloracle version 0.6.9. Please use celloracle&gt;=0.6.9. Otherwise you may get an error.</p>
+<p>This notebook was made with celloracle version 0.7.0. Please use celloracle&gt;=0.7.0. Otherwise you may get an error.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
@@ -499,7 +528,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&#39;0.6.11&#39;
+&#39;0.7.0&#39;
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -508,7 +537,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1">#plt.rcParams[&quot;font.family&quot;] = &quot;arial&quot;</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
 <span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;retina&#39;
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;savefig.dpi&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">600</span>
 
@@ -516,9 +545,6 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="0.1.-Make-a-folder-to-save-graph">
-<h2>0.1. Make a folder to save graph<a class="headerlink" href="#0.1.-Make-a-folder-to-save-graph" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
@@ -531,11 +557,8 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 </div>
-</div>
 <div class="section" id="1.-Load-data">
 <h1>1. Load data<a class="headerlink" href="#1.-Load-data" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="1.1.-Load-processed-oracle-object">
-<h2>1.1. Load processed oracle object<a class="headerlink" href="#1.1.-Load-processed-oracle-object" title="Permalink to this headline">¶</a></h2>
 <p>Load the oracle object. See the previous notebook for the notes on how to prepare the oracle object.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
@@ -564,6 +587,10 @@ Meta data
     n_genes: 1999
     cluster_name: louvain_annot
     dimensional_reduction_name: X_draw_graph_fa
+    n_target_genes_in_TFdict: 21259 genes
+    n_regulatory_in_TFdict: 1093 genes
+    n_regulatory_in_both_TFdict_and_scRNA-seq: 90 genes
+    n_target_genes_both_TFdict_and_scRNA-seq: 1850 genes
     k_for_knn_imputation: 66
 Status
     Gene expression matrix: Ready
@@ -573,9 +600,6 @@ Status
     GRN calculation for simulation: Not finished
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="1.2.-Load-inferred-GRNs">
-<h2>1.2. Load inferred GRNs<a class="headerlink" href="#1.2.-Load-inferred-GRNs" title="Permalink to this headline">¶</a></h2>
 <p>In the previous notebook, we calculated GRNs. Now, we will use these GRNs for simulation. We import GRNs which were saved in the Links object.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
@@ -584,16 +608,15 @@ Status
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># links = co.load_hdf5(&quot;YOUR LINK OBJCT PATH&quot;)</span>
 
-<span class="c1"># Here, we load links object for tutorial.</span>
+<span class="c1"># Here, we load demo links object for the training purpose.</span>
 <span class="n">links</span> <span class="o">=</span> <span class="n">co</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">load_tutorial_links_object</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
-</div>
 <div class="section" id="2.-Make-predictive-models-for-simulation">
 <h1>2. Make predictive models for simulation<a class="headerlink" href="#2.-Make-predictive-models-for-simulation" title="Permalink to this headline">¶</a></h1>
-<p>We will fit ridge regression models again. This process takes less time than the GRN inference in the previous notebook because we only use significant TFs to predict target gene instead of all regulatory candidate TFs.</p>
+<p>We will fit ridge regression models again. This process takes less time than the GRN inference in the previous notebook because we use already filtered GRN models.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
@@ -609,155 +632,425 @@ Status
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "00d733389bbe4cb3937697d794d3fd57", "version_major": 2, "version_minor": 0}</script></div>
+<div class="highlight"><pre>
+fitting GRN again...
+calculating GRN in Ery_0
+</pre></div></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "d4ee03e82b6545dbb9a40b88bd1fa1e8", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "5db6cb2ffc724fc9afd3f66bd8c9dfcc", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "1451d735c3ec4f4fb89f08f17811af67", "version_major": 2, "version_minor": 0}</script></div>
+<div class="highlight"><pre>
+
+genes_in_gem: 1999
+models made for 1085 genes
+calculating GRN in Ery_1
+</pre></div></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "d966162d16de4f53954448af2bbd47e0", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "8b57c58e91484670b3dff8465a7a2304", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "a666168b38ba458e8f31e765c0bfe2e4", "version_major": 2, "version_minor": 0}</script></div>
+<div class="highlight"><pre>
+
+genes_in_gem: 1999
+models made for 1073 genes
+calculating GRN in Ery_2
+</pre></div></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "9740bf8194b248eab2dbfa7285f7bfd9", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "e9d96a8444ef47a6869bd9054c8e00ec", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "d365d742d02b4b1aa5cd398966677b04", "version_major": 2, "version_minor": 0}</script></div>
+<div class="highlight"><pre>
+
+genes_in_gem: 1999
+models made for 1070 genes
+calculating GRN in Ery_3
+</pre></div></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "2185cce4908d41d99a7023e66d243e27", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "1ff78d6b3a5143cca5edabd754385dee", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "1ad0b6e9709d419c9c3996fd35955d64", "version_major": 2, "version_minor": 0}</script></div>
+<div class="highlight"><pre>
+
+genes_in_gem: 1999
+models made for 1086 genes
+calculating GRN in Ery_4
+</pre></div></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "2a4a69a02fc647a9b9df46e789491c2a", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "e4db661140ea475fa77af32922b444fb", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "3f533c9933eb4219bf88c8f5acf93b58", "version_major": 2, "version_minor": 0}</script></div>
+<div class="highlight"><pre>
+
+genes_in_gem: 1999
+models made for 1087 genes
+calculating GRN in Ery_5
+</pre></div></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "5fb112fc09e54204bbf3cf8745a3c560", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "376c501e49de4c82a19982c86373bc5c", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "eec215aad03f4df091e5b5e4616b1d63", "version_major": 2, "version_minor": 0}</script></div>
+<div class="highlight"><pre>
+
+genes_in_gem: 1999
+models made for 1146 genes
+calculating GRN in Ery_6
+</pre></div></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "8b4a80e1a5874af7820885c3e441bbda", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "990895d8651c4928a18c85aa30aac829", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "cc71ff676ad449bda1d1458bb2730f29", "version_major": 2, "version_minor": 0}</script></div>
+<div class="highlight"><pre>
+
+genes_in_gem: 1999
+models made for 1095 genes
+calculating GRN in Ery_7
+</pre></div></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "b9231ddc1b24422c906aeb741967b070", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "a808375145874b68868ccb71ba4d3f1d", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "c6bd345ec9c54f91bc472e720be2c879", "version_major": 2, "version_minor": 0}</script></div>
+<div class="highlight"><pre>
+
+genes_in_gem: 1999
+models made for 1061 genes
+calculating GRN in Ery_8
+</pre></div></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "c3f705dec6424cb19083294fb0f25633", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "f1fb1199e9104238a6cacd5a5e3743a4", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "3c09414355af4123be4102c2d6abf32e", "version_major": 2, "version_minor": 0}</script></div>
+<div class="highlight"><pre>
+
+genes_in_gem: 1999
+models made for 1109 genes
+calculating GRN in Ery_9
+</pre></div></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "738dd3881c754ad3bf991b7826665c29", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "b2b421ddf744430c9332549f6d4bdd48", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "254f697ec2fd43df875e2986cdeb711f", "version_major": 2, "version_minor": 0}</script></div>
+<div class="highlight"><pre>
+
+genes_in_gem: 1999
+models made for 1111 genes
+calculating GRN in GMP_0
+</pre></div></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "c5e1ffd841364c559edb1f53ca64b8c0", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "09760a26b823485bb76b3c078c27729b", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "cf2d6c659eef4cc089f799682e8008bf", "version_major": 2, "version_minor": 0}</script></div>
+<div class="highlight"><pre>
+
+genes_in_gem: 1999
+models made for 1094 genes
+calculating GRN in GMP_1
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "4b09a766183e4c8bbddb854df4c1fc23", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+genes_in_gem: 1999
+models made for 1110 genes
+calculating GRN in GMP_2
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "cbacac95ff144227be9ec3dc68e7fc9b", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+genes_in_gem: 1999
+models made for 1106 genes
+calculating GRN in GMPl_0
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "4bf03ee336db422f986513b808be2a59", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+genes_in_gem: 1999
+models made for 1082 genes
+calculating GRN in GMPl_1
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "a38a70f113864e6eb0389f1b584bc730", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+genes_in_gem: 1999
+models made for 1089 genes
+calculating GRN in Gran_0
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "3fa8962daac54bd5b86a6ee50516b1cd", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+genes_in_gem: 1999
+models made for 1059 genes
+calculating GRN in Gran_1
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "29bb4d2ffd98408e888b3aa45e8c5eea", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+genes_in_gem: 1999
+models made for 1075 genes
+calculating GRN in Gran_2
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "b999d375d2874ab8929be96a560e859d", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+genes_in_gem: 1999
+models made for 1102 genes
+calculating GRN in Gran_3
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "8848d5a9d4c2422198845d6b6c82efcf", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+genes_in_gem: 1999
+models made for 1191 genes
+calculating GRN in MEP_0
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "168bc47205dc4d57a1150d0564bccd09", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+genes_in_gem: 1999
+models made for 1142 genes
+calculating GRN in Mk_0
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "39d731532c5a4fb6820d8e6d7a59fa9e", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+genes_in_gem: 1999
+models made for 1104 genes
+calculating GRN in Mo_0
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "0831fde9c5154497830425230106f195", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+genes_in_gem: 1999
+models made for 1087 genes
+calculating GRN in Mo_1
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "d224cf5e0a644f3c88df1f3d1340989f", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+genes_in_gem: 1999
+models made for 1112 genes
+calculating GRN in Mo_2
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "e4c7173cc1094fd3bc40e842cd00f9e1", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "eceb8afe8c1341f59270eaf961133d6f", "version_major": 2, "version_minor": 0}</script></div>
+<div class="highlight"><pre>
+
+genes_in_gem: 1999
+models made for 1076 genes
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="3.-in-silico-TF-Perturbation-analysis">
 <h1>3. in silico TF Perturbation analysis<a class="headerlink" href="#3.-in-silico-TF-Perturbation-analysis" title="Permalink to this headline">¶</a></h1>
-<p>Next, we will simulate the effects of perturbing a single TF to investigate its function and regulatory mechanism. See the celloracle paper for the details and scientific premise on the algorithm.</p>
-<p>In this notebook, we’ll show an example of the simulation; we’ll simulate knock-out of Gata1 gene in the hematopoiesis.</p>
+<p>Next, we will simulate the TF perturbation effects on cell identity to investigate its function and regulatory mechanism. See the celloracle paper for the details and scientific premise on the algorithm.</p>
+<p>In this notebook, we’ll show an example of the simulation; we’ll simulate knock-out of Gata1 gene in the hematopoiesis trajectory.</p>
 <p>Previous studies have shown that Gata1 is one of the TFs that regulates cell fate decisions in myeloid progenitors. Additionally, Gata1 has been shown to affect erythroid cell differentiation.</p>
 <p>Here, we will analyze Gata1 for the demonstration of celloracle; Celloracle try to recapitulate the previous findings of Gata1 gene above.</p>
-<div class="section" id="3.1.-Check-gene-expression-pattern.">
-<h2>3.1. Check gene expression pattern.<a class="headerlink" href="#3.1.-Check-gene-expression-pattern." title="Permalink to this headline">¶</a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
@@ -774,7 +1067,7 @@ Status
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_16_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_16_0.png" style="width: 940px; height: 265px;" />
+<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_17_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_17_0.png" style="width: 941px; height: 265px;" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -792,15 +1085,14 @@ Status
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_17_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_17_0.png" style="width: 381px; height: 263px;" />
+<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_18_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_18_0.png" style="width: 381px; height: 263px;" />
 </div>
 </div>
-</div>
-<div class="section" id="3.2.-calculate-future-gene-expression-after-perturbation.">
-<h2>3.2. calculate future gene expression after perturbation.<a class="headerlink" href="#3.2.-calculate-future-gene-expression-after-perturbation." title="Permalink to this headline">¶</a></h2>
-<p>Although you can use any gene expression value for the input of in silico perturbation, please avoiding extremely high values which are far from natural gene expression ranges. The upper limit allowed is 2x of max gene expression value.</p>
+<ul class="simple">
+<li><p>You can use any gene expression value to enter in silico perturbations, but please avoid extremely high values that are far from the natural gene expression range. The upper limit allowed is twice the maximum gene expression.</p></li>
+</ul>
 <p>Here we simulate Gata1 KO; we predict what happens to the cells if Gata1 gene expression changed into 0.</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
@@ -811,19 +1103,28 @@ Status
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
 </div>
-<div class="section" id="3.3.-calculate-transition-probability-between-cells">
-<h2>3.3. calculate transition probability between cells<a class="headerlink" href="#3.3.-calculate-transition-probability-between-cells" title="Permalink to this headline">¶</a></h2>
-<p>In the step above, we simulated simulated future gene expression values after perturbation. This prediction is based on itelative calculations of signal propagations within the GRN.</p>
-<p>Next step, we will calculate the probabilityof a cell state transition based on the simulated data. Using the transition probability between cells, we can predict how a cell changes after perturbation.</p>
-<p>This transition probability will be used later.</p>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Variability score of Gene Gata1 is too low. Simulation accuracy may be poor with this gene.
+</pre></div></div>
+</div>
+<ul class="simple">
+<li><p>The steps above simulated global future gene expression shift after perturbation. This prediction is based on iterative calculations of signal propagation within the GRN. Please look at our paper for more information.</p></li>
+<li><p>The next step is to calculate the probability of cell state transitions based on the simulation data. You can use the transition probabilities between cells to predict how cells will change after a perturbation.</p></li>
+<li><p>This transition probability will be used later.</p></li>
+</ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Get transition probability</span>
-<span class="n">oracle</span><span class="o">.</span><span class="n">estimate_transition_prob</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">knn_random</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sampled_fraction</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">oracle</span><span class="o">.</span><span class="n">estimate_transition_prob</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+                                <span class="n">knn_random</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                <span class="n">sampled_fraction</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="c1"># Calculate embedding</span>
 <span class="n">oracle</span><span class="o">.</span><span class="n">calculate_embedding_shift</span><span class="p">(</span><span class="n">sigma_corr</span> <span class="o">=</span> <span class="mf">0.05</span><span class="p">)</span>
@@ -831,19 +1132,22 @@ Status
 </div>
 </div>
 </div>
-</div>
 <div class="section" id="4.-Visualization">
 <h1>4. Visualization<a class="headerlink" href="#4.-Visualization" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="4.1.-Quiver-plot:-Show-the-direction-of-cell-transition-at-single-cell-resolution">
-<h2>4.1. Quiver plot: Show the direction of cell transition at single cell resolution<a class="headerlink" href="#4.1.-Quiver-plot:-Show-the-direction-of-cell-transition-at-single-cell-resolution" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Caution:-It-is-very-important-to-find-optimal-scale-parameter.">
+<h2>Caution: It is very important to find optimal <code class="docutils literal notranslate"><span class="pre">scale</span></code> parameter.<a class="headerlink" href="#Caution:-It-is-very-important-to-find-optimal-scale-parameter." title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>We need to adjust the <code class="docutils literal notranslate"><span class="pre">scale</span></code> parameter. Please seek to find the optimal <code class="docutils literal notranslate"><span class="pre">scale</span></code> parameter that provides good visualization.</p></li>
+<li><p>If you don’t see any vector, you can try the smaller <code class="docutils literal notranslate"><span class="pre">scale</span></code> parameter to magnify vector length. However, if you see large vectors in the right panel, which is a randomized simulation, it means that the scale parameters are too small.</p></li>
+</ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span>  <span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span>
 
-<span class="n">scale</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">scale</span> <span class="o">=</span> <span class="mi">25</span>
 <span class="c1"># Show quiver plot</span>
 <span class="n">oracle</span><span class="o">.</span><span class="n">plot_quiver</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Perturbation simulation results: </span><span class="si">{</span><span class="n">goi</span><span class="si">}</span><span class="s2"> KO&quot;</span><span class="p">)</span>
@@ -860,41 +1164,86 @@ Status
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_23_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_23_0.png" style="width: 851px; height: 410px;" />
-</div>
+<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_25_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_25_0.png" style="width: 851px; height: 410px;" />
 </div>
 </div>
 <div class="section" id="4.2.-Vector-field-graph">
-<h2>4.2. Vector field graph<a class="headerlink" href="#4.2.-Vector-field-graph" title="Permalink to this headline">¶</a></h2>
+<h3>4.2. Vector field graph<a class="headerlink" href="#4.2.-Vector-field-graph" title="Permalink to this headline">¶</a></h3>
 <p>We can visualize simulation result as a vector field graph. Single cell transition vectors are grouped by grid point.</p>
-<ul class="simple">
-<li><p>The grid point that have few cells are removed. Please adjust <code class="docutils literal notranslate"><span class="pre">min_mass</span></code> if you get too many or too less grid point.</p></li>
-</ul>
+</div>
+</div>
+<div class="section" id="4.2.1-Find-parameters-for-n_grid-and-min_mass">
+<h2>4.2.1 Find parameters for n_grid and min_mass<a class="headerlink" href="#4.2.1-Find-parameters-for-n_grid-and-min_mass" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">n_grid</span></code>: Number of grid point.</p>
+<p><code class="docutils literal notranslate"><span class="pre">min_mass</span></code>: Threshold value for the cell density The appropriate values for these parameters depends on the data. Please find appropriate values as follows.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">oracle</span><span class="o">.</span><span class="n">calculate_p_mass</span><span class="p">(</span><span class="n">smooth</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">n_grid</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
-<span class="n">oracle</span><span class="o">.</span><span class="n">calculate_mass_filter</span><span class="p">(</span><span class="n">min_mass</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
+<span></span><span class="c1"># n_grid = 40 is a good point to start with.</span>
+<span class="n">n_grid</span> <span class="o">=</span> <span class="mi">40</span>
+<span class="n">oracle</span><span class="o">.</span><span class="n">calculate_p_mass</span><span class="p">(</span><span class="n">smooth</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">n_grid</span><span class="o">=</span><span class="n">n_grid</span><span class="p">,</span> <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<p>please adjust <code class="docutils literal notranslate"><span class="pre">scale</span></code> parameter. Plesase try to find optimal <code class="docutils literal notranslate"><span class="pre">scale</span></code> parameter that give you good visualization. If you see don’t see any vector, you can try smaller <code class="docutils literal notranslate"><span class="pre">scale</span></code> parameter. But if you see some vectors in the right panel, which is the randomized simulation, it means the scale parameter is too small.</p>
+<p>Please run <code class="docutils literal notranslate"><span class="pre">oracle.suggest_mass_thresholds()</span></code>to find appropriate <code class="docutils literal notranslate"><span class="pre">min_mass</span></code> parameter. It will give you some examples.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Search for best min_mass.</span>
+<span class="n">oracle</span><span class="o">.</span><span class="n">suggest_mass_thresholds</span><span class="p">(</span><span class="n">n_suggestion</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_29_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_29_0.png" style="width: 1130px; height: 845px;" />
+</div>
+</div>
+<p>According to the results, the appropriate <code class="docutils literal notranslate"><span class="pre">min_mass</span></code> is around 0.011.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">min_mass</span> <span class="o">=</span> <span class="mf">0.01</span>
+<span class="n">oracle</span><span class="o">.</span><span class="n">calculate_mass_filter</span><span class="p">(</span><span class="n">min_mass</span><span class="o">=</span><span class="n">min_mass</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_31_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_31_0.png" style="width: 293px; height: 301px;" />
+</div>
+</div>
+</div>
+<div class="section" id="4.2.2-Plot-vector-fields">
+<h2>4.2.2 Plot vector fields<a class="headerlink" href="#4.2.2-Plot-vector-fields" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Again, we need to adjust the <code class="docutils literal notranslate"><span class="pre">scale</span></code> parameter. Please seek to find the optimal <code class="docutils literal notranslate"><span class="pre">scale</span></code> parameter that provides good visualization.</p></li>
+<li><p>If you don’t see any vector, you can try the smaller <code class="docutils literal notranslate"><span class="pre">scale</span></code> parameter to magnify vector length. However, if you see large vectors in the right panel, which is a randomized simulation, it means that the scale parameters are too small.</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span>  <span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span>
 
-<span class="n">scale_grid</span> <span class="o">=</span> <span class="mf">0.8</span>
+<span class="n">scale_simulation</span> <span class="o">=</span> <span class="mf">0.5</span>
 <span class="c1"># Show quiver plot</span>
-<span class="n">oracle</span><span class="o">.</span><span class="n">plot_simulation_flow_on_grid</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="n">scale_grid</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">oracle</span><span class="o">.</span><span class="n">plot_simulation_flow_on_grid</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="n">scale_simulation</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Perturbation simulation results: </span><span class="si">{</span><span class="n">goi</span><span class="si">}</span><span class="s2"> KO&quot;</span><span class="p">)</span>
 
 <span class="c1"># Show quiver plot that was calculated with randomized GRN.</span>
-<span class="n">oracle</span><span class="o">.</span><span class="n">plot_simulation_flow_random_on_grid</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="n">scale_grid</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">oracle</span><span class="o">.</span><span class="n">plot_simulation_flow_random_on_grid</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="n">scale_simulation</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Perturbation simulation with randomized GRNs&quot;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -905,7 +1254,7 @@ Status
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_27_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_27_0.png" style="width: 851px; height: 410px;" />
+<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_33_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_33_0.png" style="width: 851px; height: 410px;" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -917,7 +1266,7 @@ Status
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
 
 <span class="n">oracle</span><span class="o">.</span><span class="n">plot_cluster_whole</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">oracle</span><span class="o">.</span><span class="n">plot_simulation_flow_on_grid</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="n">scale_grid</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">show_background</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">oracle</span><span class="o">.</span><span class="n">plot_simulation_flow_on_grid</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="n">scale_simulation</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">show_background</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -925,16 +1274,352 @@ Status
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_28_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_28_0.png" style="width: 460px; height: 449px;" />
+<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_34_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_34_0.png" style="width: 460px; height: 449px;" />
 </div>
 </div>
-<p>Based on the results, we may conclude several things as follows.</p>
-<p>Gata1 KO induced both cell state transitions from Erythroids to MEP, and from MEP to GMP.</p>
+</div>
+</div>
+<div class="section" id="5.-Compare-simulation-vector-with-development-vectors">
+<h1>5. Compare simulation vector with development vectors<a class="headerlink" href="#5.-Compare-simulation-vector-with-development-vectors" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>As shown above, we can use celloracle’s simulation to infer how TF perturbations affect cell identity. The simulation results are provided in the form of a vector field map.</p></li>
+<li><p>To interpret the results, it is necessary to take into account the direction of natural differentiation. We will compare the simulated perturbation vectors with the development vector. By comparing them, we can intuitively understand how TF is involved in cell fate determination during development. This perspective is also important for the estimation of experimental perturbation results</p></li>
+<li><p>Here, we show an example to calculate the vector field of development using pseudotime gradient. In short, the process is as follows.</p></li>
+</ul>
 <ol class="arabic simple">
-<li><p>These results suggest that Gata1 may play a role in the progression of Erythroid differentiation and cell state determination between the MEP and GMP lineages.</p></li>
-<li><p>Gata1 KO also induced cell state transitions from granulocytes to late GMP, suggesting Gata1’s involvement in Granulocytes differentiation.</p></li>
+<li><p>Transfer pseudotime data into n x n grid point.</p></li>
+<li><p>Calculate the 2D gradient of pseudotime to get vector field</p></li>
+<li><p>Compare in silico TF perturbation vector field with development vector field by calculating inner product between these two vectors.</p></li>
 </ol>
-<p>These results agree with previous reports about Gata1 and recapitulate Gata1’s cell-type-specific function regarding the cell fate decisions in hematopoiesis.</p>
+<ul class="simple">
+<li><p>Also, there are many other options to get vector field of development flow from scRNA-seq data, and you can select another option. For example, RNA velocity analysis is a good way to estimate the direction of cell differentiation. Choose the method that best suits your data.</p></li>
+</ul>
+<p>We use pseudotime data for an input of this analysis. Pleas calculate continuous pseudotime in advance. Please look at another notebook for details on how to calculate pseudotime.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Visualize pseudotime</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
+
+<span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">embedding</span><span class="p">(</span><span class="n">adata</span><span class="o">=</span><span class="n">oracle</span><span class="o">.</span><span class="n">adata</span><span class="p">,</span> <span class="n">basis</span><span class="o">=</span><span class="n">oracle</span><span class="o">.</span><span class="n">embedding_name</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;rainbow&quot;</span><span class="p">,</span>
+                <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Pseudotime&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_37_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_37_0.png" style="width: 369px; height: 369px;" />
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">celloracle.applications</span> <span class="kn">import</span> <span class="n">Gradient_calculator</span>
+
+<span class="c1"># Instantiate Gradient calculator object</span>
+<span class="n">gradient</span> <span class="o">=</span> <span class="n">Gradient_calculator</span><span class="p">(</span><span class="n">oracle_object</span><span class="o">=</span><span class="n">oracle</span><span class="p">,</span> <span class="n">pseudotime_key</span><span class="o">=</span><span class="s2">&quot;Pseudotime&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>We need to select <code class="docutils literal notranslate"><span class="pre">n_grid</span></code> and <code class="docutils literal notranslate"><span class="pre">min_mass</span></code> to make grid point. <code class="docutils literal notranslate"><span class="pre">n_grid</span></code>: Number of grid point.</p>
+<p>We already know approproate values for them. Please set the same values as step 4.2.1 above.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">gradient</span><span class="o">.</span><span class="n">calculate_p_mass</span><span class="p">(</span><span class="n">smooth</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">n_grid</span><span class="o">=</span><span class="n">n_grid</span><span class="p">,</span> <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">gradient</span><span class="o">.</span><span class="n">calculate_mass_filter</span><span class="p">(</span><span class="n">min_mass</span><span class="o">=</span><span class="n">min_mass</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_41_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_41_0.png" style="width: 293px; height: 301px;" />
+</div>
+</div>
+<p>Next, we will transfer pseudotime data into grid points. For this calculation we can chose two method.</p>
+<ul class="simple">
+<li><p>knn: K-Nearesr Neighbor regressor. You need to set number of neighbor. Please adjust <code class="docutils literal notranslate"><span class="pre">n_knn</span></code> searching for best results.</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">gradient.transfer_data_into_grid(args={&quot;method&quot;:</span> <span class="pre">&quot;knn&quot;,</span> <span class="pre">&quot;n_knn&quot;:50})</span></code></p>
+<ul class="simple">
+<li><p>polynomial: Polynomial regression using x-axis and y-axis of dimensional reduction space.</p></li>
+</ul>
+<p>In general, this method will be more robust. Please use this method if k-nn does not work. <code class="docutils literal notranslate"><span class="pre">n_poly</span></code> is the number of degree for the polynomial regression model. Please try to find appropriate<code class="docutils literal notranslate"><span class="pre">n_poly</span></code> searching for best results.</p>
+<p><code class="docutils literal notranslate"><span class="pre">gradient.transfer_data_into_grid(args={&quot;method&quot;:</span> <span class="pre">&quot;polynomial&quot;,</span> <span class="pre">&quot;n_poly&quot;:3})</span></code></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">gradient</span><span class="o">.</span><span class="n">transfer_data_into_grid</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;polynomial&quot;</span><span class="p">,</span> <span class="s2">&quot;n_poly&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">},</span> <span class="n">plot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages/sklearn/linear_model/_ridge.py:148: LinAlgWarning:
+
+Ill-conditioned matrix (rcond=1.11032e-17): result may not be accurate.
+
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_44_1.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_44_1.png" style="width: 572px; height: 301px;" />
+</div>
+</div>
+<p>Calculate 2D vector map that represents the gradient of pseudotime. After the gradient calculation, the length of the vector will be normalized automatically.</p>
+<p>Please adjust <code class="docutils literal notranslate"><span class="pre">scale</span></code> parameter to adjust vector length.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Calculate graddient</span>
+<span class="n">gradient</span><span class="o">.</span><span class="n">calculate_gradient</span><span class="p">()</span>
+
+<span class="c1"># Show results</span>
+<span class="n">scale_dev</span> <span class="o">=</span> <span class="mi">40</span>
+<span class="n">gradient</span><span class="o">.</span><span class="n">visualize_results</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="n">scale_dev</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_46_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_46_0.png" style="width: 1409px; height: 315px;" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Visualize results</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<span class="n">gradient</span><span class="o">.</span><span class="n">plot_dev_flow_on_grid</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="n">scale_dev</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_47_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_47_0.png" style="width: 349px; height: 340px;" />
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Save gradient object if you want.</span>
+<span class="c1">#gradient.to_hdf5(&quot;../data/Paul_etal.celloracle.gradient&quot;)</span>
+</pre></div>
+</div>
+</div>
+<p>We will use the inner product to compare the 2D vector map of perturb-simulation and development quantitatively. &gt; If you are not familiar with Inner product / Dot product, please see <a class="reference external" href="https://en.wikipedia.org/wiki/Dot_product">https://en.wikipedia.org/wiki/Dot_product</a></p>
+<ul class="simple">
+<li><p>The inner product represents the similarity between two vectors.</p></li>
+<li><p>Using the inner product, we compare the 2D vector field of perturbation simulation and development flow.</p></li>
+<li><p>Inner product can be a positive value when two vectors are pointing in the same direction.</p></li>
+<li><p>Inner product can be a negative value when two vectors are pointing in the opposite direction.</p></li>
+</ul>
+<p><img alt="98b32ff20bce4e16ad87069bc23e3020" src="https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/innerproduct_explantion_1.png" /></p>
+<ul class="simple">
+<li><p>The length of vector also affects the absolute value of inner product value.</p></li>
+</ul>
+<p><img alt="5b348e5ab5ec40ad9f8755e0684b3f01" src="https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/innerproduct_explantion_2.png" /></p>
+<p>In summary, - <strong>a negative inner product</strong> means that perturbation might <strong>block differentiation</strong>. - <strong>a positive inner product</strong> means that perturbation might <strong>promote differentiation</strong>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">celloracle.applications</span> <span class="kn">import</span> <span class="n">Oracle_development_module</span>
+
+<span class="c1"># Make Oracle_development_module to compare two vector field</span>
+<span class="n">dev</span> <span class="o">=</span> <span class="n">Oracle_development_module</span><span class="p">()</span>
+
+<span class="c1"># Load development flow</span>
+<span class="n">dev</span><span class="o">.</span><span class="n">load_differentiation_reference_data</span><span class="p">(</span><span class="n">gradient_object</span><span class="o">=</span><span class="n">gradient</span><span class="p">)</span>
+
+<span class="c1"># Load simulation result</span>
+<span class="n">dev</span><span class="o">.</span><span class="n">load_perturb_simulation_data</span><span class="p">(</span><span class="n">oracle_object</span><span class="o">=</span><span class="n">oracle</span><span class="p">)</span>
+
+
+<span class="c1"># Calculate inner produc scores</span>
+<span class="n">dev</span><span class="o">.</span><span class="n">calculate_inner_product</span><span class="p">()</span>
+<span class="n">dev</span><span class="o">.</span><span class="n">calculate_digitized_ip</span><span class="p">(</span><span class="n">n_bins</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="5.5-Show-results">
+<h1>5.5 Show results<a class="headerlink" href="#5.5-Show-results" title="Permalink to this headline">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Let&#39;s visualize the results</span>
+<span class="n">dev</span><span class="o">.</span><span class="n">visualize_development_module_layout_0</span><span class="p">(</span><span class="n">s</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+                                          <span class="n">scale_for_simulation</span><span class="o">=</span><span class="n">scale_simulation</span><span class="p">,</span>
+                                          <span class="n">s_grid</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+                                          <span class="n">scale_for_pseudotime</span><span class="o">=</span><span class="n">scale_dev</span><span class="p">,</span>
+                                          <span class="n">vm</span><span class="o">=</span><span class="mf">0.02</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_52_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_52_0.png" style="width: 1130px; height: 794px;" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Show inner product score</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<span class="n">dev</span><span class="o">.</span><span class="n">plot_inner_product_on_grid</span><span class="p">(</span><span class="n">vm</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_53_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_53_0.png" style="width: 349px; height: 340px;" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Show inner product score with perturbation simulation vector field</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<span class="n">dev</span><span class="o">.</span><span class="n">plot_inner_product_on_grid</span><span class="p">(</span><span class="n">vm</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">dev</span><span class="o">.</span><span class="n">plot_simulation_flow_on_grid</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="n">scale_simulation</span><span class="p">,</span> <span class="n">show_background</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_54_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_54_0.png" style="width: 349px; height: 340px;" />
+</div>
+</div>
+</div>
+<div class="section" id="6.-Focus-on-a-single-development-lineage-to-interpret-the-results-in-detail">
+<h1>6. Focus on a single development lineage to interpret the results in detail<a class="headerlink" href="#6.-Focus-on-a-single-development-lineage-to-interpret-the-results-in-detail" title="Permalink to this headline">¶</a></h1>
+<p>So far, we have used <code class="docutils literal notranslate"><span class="pre">Oracle_development_module</span></code> to analyze the whole cell population. If you input the index for the cells of interest, Oracle_development_module will analyze subset data.</p>
+<p>In this example, let’s analyze MEP and its progenies.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+
+<span></span><span class="c1"># Get cell index list for the cells of interest</span>
+<span class="n">clusters</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Ery_0&#39;</span><span class="p">,</span> <span class="s1">&#39;Ery_1&#39;</span><span class="p">,</span> <span class="s1">&#39;Ery_2&#39;</span><span class="p">,</span> <span class="s1">&#39;Ery_3&#39;</span><span class="p">,</span> <span class="s1">&#39;Ery_4&#39;</span><span class="p">,</span> <span class="s1">&#39;Ery_5&#39;</span><span class="p">,</span> <span class="s1">&#39;Ery_6&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;Ery_7&#39;</span><span class="p">,</span> <span class="s1">&#39;Ery_8&#39;</span><span class="p">,</span> <span class="s1">&#39;Ery_9&#39;</span><span class="p">,</span> <span class="s1">&#39;MEP_0&#39;</span><span class="p">,</span> <span class="s1">&#39;Mk_0&#39;</span><span class="p">]</span>
+<span class="n">cell_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">oracle</span><span class="o">.</span><span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s2">&quot;louvain_annot&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">clusters</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># Check</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cell_idx</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[   0    2    4 ... 2666 2668 2670]
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">dev</span> <span class="o">=</span> <span class="n">Oracle_development_module</span><span class="p">()</span>
+
+<span class="c1"># Load development flow</span>
+<span class="n">dev</span><span class="o">.</span><span class="n">load_differentiation_reference_data</span><span class="p">(</span><span class="n">gradient_object</span><span class="o">=</span><span class="n">gradient</span><span class="p">)</span>
+
+<span class="c1"># Load simulation result</span>
+<span class="n">dev</span><span class="o">.</span><span class="n">load_perturb_simulation_data</span><span class="p">(</span><span class="n">oracle_object</span><span class="o">=</span><span class="n">oracle</span><span class="p">,</span>
+                                 <span class="n">cell_idx_use</span><span class="o">=</span><span class="n">cell_idx</span><span class="p">,</span> <span class="c1"># Enter cell id list</span>
+                                 <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Lineage_MEP&quot;</span> <span class="c1"># Name of this cell group. You can enter arbitrary name.</span>
+                                 <span class="p">)</span>
+
+<span class="c1"># Calculate stats</span>
+<span class="n">dev</span><span class="o">.</span><span class="n">calculate_inner_product</span><span class="p">()</span>
+<span class="n">dev</span><span class="o">.</span><span class="n">calculate_digitized_ip</span><span class="p">(</span><span class="n">n_bins</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Let&#39;s visualize the results</span>
+<span class="n">dev</span><span class="o">.</span><span class="n">visualize_development_module_layout_0</span><span class="p">(</span><span class="n">s</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+                                          <span class="n">scale_for_simulation</span><span class="o">=</span><span class="n">scale_simulation</span><span class="p">,</span>
+                                          <span class="n">s_grid</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+                                          <span class="n">scale_for_pseudotime</span><span class="o">=</span><span class="n">scale_dev</span><span class="p">,</span>
+                                          <span class="n">vm</span><span class="o">=</span><span class="mf">0.03</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_58_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_58_0.png" style="width: 1130px; height: 794px;" />
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
 </div>
 </div>
 
@@ -946,10 +1631,10 @@ Status
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../modules/index.html" class="btn btn-neutral float-right" title="API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../../tutorials/scrnaprocess.html" class="btn btn-neutral float-right" title="1. scRNA-seq data preparation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../../tutorials/simulation.html" class="btn btn-neutral float-left" title="5. Simulation with GRNs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../../tutorials/simulation.html" class="btn btn-neutral float-left" title="1. Simulation with GRNs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

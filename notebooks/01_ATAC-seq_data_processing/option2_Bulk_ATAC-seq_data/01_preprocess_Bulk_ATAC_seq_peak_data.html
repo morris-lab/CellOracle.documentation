@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>0. Import libraries &mdash; celloracle 0.6.9 documentation</title>
+  <title>Overview &mdash; celloracle 0.6.9 documentation</title>
   
 
   
@@ -39,8 +39,8 @@
     
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="2. Transcription factor binding motif scan" href="../../../tutorials/motifscan.html" />
-    <link rel="prev" title="0. Import libraries" href="../option1_scATAC-seq_data_analysis_with_cicero/02_preprocess_peak_data.html" /> 
+    <link rel="next" title="1. Transcription factor binding motif scan" href="../../../tutorials/motifscan.html" />
+    <link rel="prev" title="Overview" href="../option1_scATAC-seq_data_analysis_with_cicero/02_preprocess_peak_data.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -93,21 +93,23 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../../tutorials/index.html">Tutorial</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="../../../tutorials/atac.html">1. ATAC-seq data preprocessing</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/atac.html#a-extract-tf-binding-information-from-scatac-seq-data">A. Extract TF binding information from scATAC-seq data</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../../../tutorials/atac.html#b-extract-tf-binding-information-from-bulk-atac-seq-data-or-chip-seq-data">B. Extract TF binding information from bulk ATAC-seq data or Chip-seq data</a><ul class="current">
-<li class="toctree-l4 current"><a class="current reference internal" href="#">0. Import libraries</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#1.-Load-bed-file">1. Load bed file</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#2.-Make-TSS-annotation">2. Make TSS annotation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#3.-Save-data">3. Save data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/index.html#what-the-tutorial-covers">What the tutorial covers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/index.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/index.html#code-and-data-availability">Code and data availability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/index.html#getting-started">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/index.html#grn-model-construction-and-network-analysis">GRN model construction and Network analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/index.html#in-silico-gene-perturbation-with-grns">in silico Gene perturbation with GRNs</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../tutorials/index.html#prepare-input-data">Prepare input data</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/scrnaprocess.html">1. scRNA-seq data preparation</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../../tutorials/base_grn.html">2. Base GRN input data preparation</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/base_grn.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/base_grn.html#option1-data-preprocessing-of-scatac-seq-data">Option1. Data preprocessing of scATAC-seq data</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../../../tutorials/base_grn.html#option2-data-preprocessing-of-bulk-atac-seq-data">Option2. Data preprocessing of bulk ATAC-seq data</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/motifscan.html">2. Transcription factor binding motif scan</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/scrnaprocess.html">3. Single-cell RNA-seq data preprocessing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/networkanalysis.html">4. Network analysis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/simulation.html">5. Simulation with GRNs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/index.html#tf-motif-scan">TF motif scan</a></li>
 </ul>
 </li>
 </ul>
@@ -170,9 +172,9 @@
         
           <li><a href="../../../tutorials/index.html">Tutorial</a> &raquo;</li>
         
-          <li><a href="../../../tutorials/atac.html"><span class="section-number">1. </span>ATAC-seq data preprocessing</a> &raquo;</li>
+          <li><a href="../../../tutorials/base_grn.html"><span class="section-number">2. </span>Base GRN input data preparation</a> &raquo;</li>
         
-      <li>0. Import libraries</li>
+      <li>Overview</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -446,10 +448,18 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
+<div class="section" id="Overview">
+<h1>Overview<a class="headerlink" href="#Overview" title="Permalink to this headline">¶</a></h1>
+<p>In this notebook, we will make TSS annotation in the bulk scATAC-seq data to get input data of base-GRN construction.</p>
+<div class="section" id="Notebook-file">
+<h2>Notebook file<a class="headerlink" href="#Notebook-file" title="Permalink to this headline">¶</a></h2>
+<p>Notebook file is available here. <a class="reference external" href="https://github.com/morris-lab/CellOracle/blob/master/docs/notebooks/01_ATAC-seq_data_processing/option2_Bulk_ATAC-seq_data/01_preprocess_Bulk_ATAC_seq_peak_data.ipynb">https://github.com/morris-lab/CellOracle/blob/master/docs/notebooks/01_ATAC-seq_data_processing/option2_Bulk_ATAC-seq_data/01_preprocess_Bulk_ATAC_seq_peak_data.ipynb</a></p>
+</div>
+</div>
 <div class="section" id="0.-Import-libraries">
 <h1>0. Import libraries<a class="headerlink" href="#0.-Import-libraries" title="Permalink to this headline">¶</a></h1>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -472,7 +482,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -482,24 +492,51 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 </div>
-<div class="section" id="1.-Load-bed-file">
-<h1>1. Load bed file<a class="headerlink" href="#1.-Load-bed-file" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="1.-Load-input-data">
+<h1>1. Load input data<a class="headerlink" href="#1.-Load-input-data" title="Permalink to this headline">¶</a></h1>
 <p>Import ATAC-seq bed file. This script can also be used with DNase-seq or Chip-seq data.</p>
-<div class="nbinput nblast docutils container">
+<p>Here, we use bulk ATAC-seq data. Please prepare bulk ATAC-seq data as a bed file format.</p>
+<p>You can download the demo file by running the following command: If the file download fails, please manually download and unzip the data.</p>
+<p><a class="reference external" href="https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/bulk_ATAC_seq_peak_data.bed">https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/bulk_ATAC_seq_peak_data.bed</a></p>
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">file_path_of_bed_file</span> <span class="o">=</span> <span class="s2">&quot;data/all_peaks.bed&quot;</span>
+
+<span></span><span class="c1"># Download file.</span>
+<span class="o">!</span>wget https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/bulk_ATAC_seq_peak_data.bed
+
+<span class="c1"># If you are using macOS, please try the following command.</span>
+<span class="c1">#!curl -O https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/bulk_ATAC_seq_peak_data.bed</span>
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+--2021-07-07 21:38:59--  https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/bulk_ATAC_seq_peak_data.bed
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.110.133, 185.199.109.133, 185.199.108.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.110.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 10446347 (10.0M) [text/plain]
+Saving to: ‘bulk_ATAC_seq_peak_data.bed’
+
+bulk_ATAC_seq_peak_ 100%[===================&gt;]   9.96M  --.-KB/s    in 0.1s
+
+2021-07-07 21:39:00 (80.3 MB/s) - ‘bulk_ATAC_seq_peak_data.bed’ saved [10446347/10446347]
+
+</pre></div></div>
+</div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Load bed_file</span>
+<span class="n">file_path_of_bed_file</span> <span class="o">=</span> <span class="s2">&quot;bulk_ATAC_seq_peak_data.bed&quot;</span>
 <span class="n">bed</span> <span class="o">=</span> <span class="n">ma</span><span class="o">.</span><span class="n">read_bed</span><span class="p">(</span><span class="n">file_path_of_bed_file</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">bed</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="n">bed</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -515,7 +552,7 @@ div.rendered_html tbody tr:hover {
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -545,35 +582,35 @@ div.rendered_html tbody tr:hover {
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
+      <th>0</th>
       <td>chr1</td>
       <td>3002478</td>
       <td>3002968</td>
       <td>chr1_3002478_3002968</td>
     </tr>
     <tr>
-      <td>1</td>
+      <th>1</th>
       <td>chr1</td>
       <td>3084739</td>
       <td>3085712</td>
       <td>chr1_3084739_3085712</td>
     </tr>
     <tr>
-      <td>2</td>
+      <th>2</th>
       <td>chr1</td>
       <td>3103576</td>
       <td>3104022</td>
       <td>chr1_3103576_3104022</td>
     </tr>
     <tr>
-      <td>3</td>
+      <th>3</th>
       <td>chr1</td>
       <td>3106871</td>
       <td>3107210</td>
       <td>chr1_3106871_3107210</td>
     </tr>
     <tr>
-      <td>4</td>
+      <th>4</th>
       <td>chr1</td>
       <td>3108932</td>
       <td>3109158</td>
@@ -584,7 +621,7 @@ div.rendered_html tbody tr:hover {
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -595,7 +632,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -610,7 +647,7 @@ array([&#39;chr1_3002478_3002968&#39;, &#39;chr1_3084739_3085712&#39;,
 <h1>2. Make TSS annotation<a class="headerlink" href="#2.-Make-TSS-annotation" title="Permalink to this headline">¶</a></h1>
 <p>IMPORTANT: Please make sure that you are setting the correct ref genome!</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -631,7 +668,7 @@ tss peaks in que: 24822
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -662,7 +699,7 @@ tss peaks in que: 24822
   </thead>
   <tbody>
     <tr>
-      <td>24817</td>
+      <th>24817</th>
       <td>chr2</td>
       <td>60560211</td>
       <td>60561602</td>
@@ -670,7 +707,7 @@ tss peaks in que: 24822
       <td>-</td>
     </tr>
     <tr>
-      <td>24818</td>
+      <th>24818</th>
       <td>chr15</td>
       <td>3975177</td>
       <td>3978654</td>
@@ -678,7 +715,7 @@ tss peaks in que: 24822
       <td>-</td>
     </tr>
     <tr>
-      <td>24819</td>
+      <th>24819</th>
       <td>chr14</td>
       <td>67690701</td>
       <td>67692101</td>
@@ -686,7 +723,7 @@ tss peaks in que: 24822
       <td>-</td>
     </tr>
     <tr>
-      <td>24820</td>
+      <th>24820</th>
       <td>chr17</td>
       <td>48455247</td>
       <td>48455773</td>
@@ -694,7 +731,7 @@ tss peaks in que: 24822
       <td>+</td>
     </tr>
     <tr>
-      <td>24821</td>
+      <th>24821</th>
       <td>chr10</td>
       <td>59861192</td>
       <td>59861608</td>
@@ -706,7 +743,7 @@ tss peaks in que: 24822
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -729,7 +766,7 @@ tss peaks in que: 24822
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -757,27 +794,27 @@ tss peaks in que: 24822
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
+      <th>0</th>
       <td>chr7_50691730_50692032</td>
       <td>Nkg7</td>
     </tr>
     <tr>
-      <td>1</td>
+      <th>1</th>
       <td>chr7_50692077_50692785</td>
       <td>Nkg7</td>
     </tr>
     <tr>
-      <td>2</td>
+      <th>2</th>
       <td>chr13_93564413_93564836</td>
       <td>Thbs4</td>
     </tr>
     <tr>
-      <td>3</td>
+      <th>3</th>
       <td>chr13_14613429_14615645</td>
       <td>Hecw1</td>
     </tr>
     <tr>
-      <td>4</td>
+      <th>4</th>
       <td>chr3_99688753_99689665</td>
       <td>Spag17</td>
     </tr>
@@ -793,7 +830,7 @@ tss peaks in que: 24822
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">tss_annotated</span><span class="o">.</span><span class="n">to_parquet</span><span class="p">(</span><span class="s2">&quot;peak_file.parquet&quot;</span><span class="p">)</span>
+<span></span><span class="n">tss_annotated</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;processed_peak_file.csv&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -808,10 +845,10 @@ tss peaks in que: 24822
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../../tutorials/motifscan.html" class="btn btn-neutral float-right" title="2. Transcription factor binding motif scan" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../../../tutorials/motifscan.html" class="btn btn-neutral float-right" title="1. Transcription factor binding motif scan" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../option1_scATAC-seq_data_analysis_with_cicero/02_preprocess_peak_data.html" class="btn btn-neutral float-left" title="0. Import libraries" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../option1_scATAC-seq_data_analysis_with_cicero/02_preprocess_peak_data.html" class="btn btn-neutral float-left" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
