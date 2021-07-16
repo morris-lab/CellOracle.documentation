@@ -40,7 +40,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="1. scRNA-seq data preparation" href="../../tutorials/scrnaprocess.html" />
-    <link rel="prev" title="1. Simulation with GRNs" href="../../tutorials/simulation.html" /> 
+    <link rel="prev" title="1. in silico gene perturbation with GRNs" href="../../tutorials/simulation.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -97,24 +97,16 @@
 <li class="toctree-l2"><a class="reference internal" href="../../tutorials/index.html#prerequisites">Prerequisites</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../tutorials/index.html#code-and-data-availability">Code and data availability</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../tutorials/index.html#getting-started">Getting started</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../tutorials/index.html#grn-model-construction-and-network-analysis">GRN model construction and Network analysis</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../../tutorials/index.html#in-silico-gene-perturbation-with-grns">in silico Gene perturbation with GRNs</a><ul class="current">
-<li class="toctree-l3 current"><a class="reference internal" href="../../tutorials/simulation.html">1. Simulation with GRNs</a><ul class="current">
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Overview</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#0.-Import-libraries">0. Import libraries</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#1.-Load-data">1. Load data</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#2.-Make-predictive-models-for-simulation">2. Make predictive models for simulation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#3.-in-silico-TF-Perturbation-analysis">3. in silico TF Perturbation analysis</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#4.-Visualization">4. Visualization</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#5.-Compare-simulation-vector-with-development-vectors">5. Compare simulation vector with development vectors</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#5.5-Show-results">5.5 Show results</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#6.-Focus-on-a-single-development-lineage-to-interpret-the-results-in-detail">6. Focus on a single development lineage to interpret the results in detail</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../tutorials/index.html#index">Index</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/index.html#grn-model-construction-and-network-analysis">GRN model construction and Network analysis</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../tutorials/index.html#in-silico-gene-perturbation-with-grns">in silico gene perturbation with GRNs</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="../../tutorials/simulation.html">1. in silico gene perturbation with GRNs</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/index.html#prepare-input-data">Prepare input data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/index.html#tf-motif-scan-for-base-grn-construction">TF motif scan for base-GRN construction</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../tutorials/index.html#prepare-input-data">Prepare input data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../tutorials/index.html#tf-motif-scan">TF motif scan</a></li>
 </ul>
 </li>
 </ul>
@@ -177,7 +169,7 @@
         
           <li><a href="../../tutorials/index.html">Tutorial</a> &raquo;</li>
         
-          <li><a href="../../tutorials/simulation.html"><span class="section-number">1. </span>Simulation with GRNs</a> &raquo;</li>
+          <li><a href="../../tutorials/simulation.html"><span class="section-number">1. </span>in silico gene perturbation with GRNs</a> &raquo;</li>
         
       <li>Overview</li>
     
@@ -464,8 +456,9 @@ div.rendered_html tbody tr:hover {
 <h2>Data<a class="headerlink" href="#Data" title="Permalink to this headline">¶</a></h2>
 <p>In this notebook, CellOracle uses two input data below for the GRN model construction.</p>
 <ul class="simple">
-<li><p><strong>Input data1: Oracle object</strong>. Please look at the previous notebook to know how to make a <code class="docutils literal notranslate"><span class="pre">Oracle</span></code> object from scRNA-seq. In this tutorial, we use demo data made from hematopoiesis scRNA-seq data. We can load the demo <code class="docutils literal notranslate"><span class="pre">Oracle</span></code> object as follows.</p></li>
+<li><p><strong>Input data1: Oracle object</strong>. Please look at the previous notebook to know how to make a <code class="docutils literal notranslate"><span class="pre">Oracle</span></code> object from scRNA-seq. <a class="reference external" href="https://morris-lab.github.io/CellOracle.documentation/notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html">https://morris-lab.github.io/CellOracle.documentation/notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html</a></p></li>
 </ul>
+<p>In this tutorial, we use demo data made from hematopoiesis scRNA-seq data. We can load the demo <code class="docutils literal notranslate"><span class="pre">Oracle</span></code> object as follows.</p>
 <p><code class="docutils literal notranslate"><span class="pre">oracle</span> <span class="pre">=</span> <span class="pre">co.data.load_tutorial_oracle_object()</span></code></p>
 <ul class="simple">
 <li><p><strong>Input data2: Links object</strong>. <code class="docutils literal notranslate"><span class="pre">Links</span></code> object is a class to store GRN data. We need GRN models stored as a <code class="docutils literal notranslate"><span class="pre">Links</span></code> object for simulation. In this tutorial, we use demo GRNs made from hematopoiesis scRNA-seq data and mouse sciATAC-seq atlas base-GRN. We can load the demo <code class="docutils literal notranslate"><span class="pre">Links</span></code> object as follows.</p></li>
@@ -632,27 +625,7 @@ Status
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div class="highlight"><pre>
-fitting GRN again...
-calculating GRN in Ery_0
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
 <script type="application/vnd.jupyter.widget-view+json">{"model_id": "5db6cb2ffc724fc9afd3f66bd8c9dfcc", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-
-genes_in_gem: 1999
-models made for 1085 genes
-calculating GRN in Ery_1
-</pre></div></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
@@ -664,29 +637,7 @@ calculating GRN in Ery_1
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div class="highlight"><pre>
-
-genes_in_gem: 1999
-models made for 1073 genes
-calculating GRN in Ery_2
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
 <script type="application/vnd.jupyter.widget-view+json">{"model_id": "e9d96a8444ef47a6869bd9054c8e00ec", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-
-genes_in_gem: 1999
-models made for 1070 genes
-calculating GRN in Ery_3
-</pre></div></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
@@ -698,29 +649,7 @@ calculating GRN in Ery_3
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div class="highlight"><pre>
-
-genes_in_gem: 1999
-models made for 1086 genes
-calculating GRN in Ery_4
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
 <script type="application/vnd.jupyter.widget-view+json">{"model_id": "e4db661140ea475fa77af32922b444fb", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-
-genes_in_gem: 1999
-models made for 1087 genes
-calculating GRN in Ery_5
-</pre></div></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
@@ -732,29 +661,7 @@ calculating GRN in Ery_5
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div class="highlight"><pre>
-
-genes_in_gem: 1999
-models made for 1146 genes
-calculating GRN in Ery_6
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
 <script type="application/vnd.jupyter.widget-view+json">{"model_id": "990895d8651c4928a18c85aa30aac829", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-
-genes_in_gem: 1999
-models made for 1095 genes
-calculating GRN in Ery_7
-</pre></div></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
@@ -766,29 +673,7 @@ calculating GRN in Ery_7
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div class="highlight"><pre>
-
-genes_in_gem: 1999
-models made for 1061 genes
-calculating GRN in Ery_8
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
 <script type="application/vnd.jupyter.widget-view+json">{"model_id": "f1fb1199e9104238a6cacd5a5e3743a4", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-
-genes_in_gem: 1999
-models made for 1109 genes
-calculating GRN in Ery_9
-</pre></div></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
@@ -800,29 +685,7 @@ calculating GRN in Ery_9
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div class="highlight"><pre>
-
-genes_in_gem: 1999
-models made for 1111 genes
-calculating GRN in GMP_0
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
 <script type="application/vnd.jupyter.widget-view+json">{"model_id": "09760a26b823485bb76b3c078c27729b", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-
-genes_in_gem: 1999
-models made for 1094 genes
-calculating GRN in GMP_1
-</pre></div></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
@@ -834,29 +697,7 @@ calculating GRN in GMP_1
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div class="highlight"><pre>
-
-genes_in_gem: 1999
-models made for 1110 genes
-calculating GRN in GMP_2
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
 <script type="application/vnd.jupyter.widget-view+json">{"model_id": "cbacac95ff144227be9ec3dc68e7fc9b", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-
-genes_in_gem: 1999
-models made for 1106 genes
-calculating GRN in GMPl_0
-</pre></div></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
@@ -868,29 +709,7 @@ calculating GRN in GMPl_0
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div class="highlight"><pre>
-
-genes_in_gem: 1999
-models made for 1082 genes
-calculating GRN in GMPl_1
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
 <script type="application/vnd.jupyter.widget-view+json">{"model_id": "a38a70f113864e6eb0389f1b584bc730", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-
-genes_in_gem: 1999
-models made for 1089 genes
-calculating GRN in Gran_0
-</pre></div></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
@@ -902,29 +721,7 @@ calculating GRN in Gran_0
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div class="highlight"><pre>
-
-genes_in_gem: 1999
-models made for 1059 genes
-calculating GRN in Gran_1
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
 <script type="application/vnd.jupyter.widget-view+json">{"model_id": "29bb4d2ffd98408e888b3aa45e8c5eea", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-
-genes_in_gem: 1999
-models made for 1075 genes
-calculating GRN in Gran_2
-</pre></div></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
@@ -936,29 +733,7 @@ calculating GRN in Gran_2
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div class="highlight"><pre>
-
-genes_in_gem: 1999
-models made for 1102 genes
-calculating GRN in Gran_3
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
 <script type="application/vnd.jupyter.widget-view+json">{"model_id": "8848d5a9d4c2422198845d6b6c82efcf", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-
-genes_in_gem: 1999
-models made for 1191 genes
-calculating GRN in MEP_0
-</pre></div></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
@@ -970,29 +745,7 @@ calculating GRN in MEP_0
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div class="highlight"><pre>
-
-genes_in_gem: 1999
-models made for 1142 genes
-calculating GRN in Mk_0
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
 <script type="application/vnd.jupyter.widget-view+json">{"model_id": "39d731532c5a4fb6820d8e6d7a59fa9e", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-
-genes_in_gem: 1999
-models made for 1104 genes
-calculating GRN in Mo_0
-</pre></div></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
@@ -1004,45 +757,13 @@ calculating GRN in Mo_0
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div class="highlight"><pre>
-
-genes_in_gem: 1999
-models made for 1087 genes
-calculating GRN in Mo_1
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
 <script type="application/vnd.jupyter.widget-view+json">{"model_id": "d224cf5e0a644f3c88df1f3d1340989f", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-
-genes_in_gem: 1999
-models made for 1112 genes
-calculating GRN in Mo_2
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "e4c7173cc1094fd3bc40e842cd00f9e1", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div class="highlight"><pre>
-
-genes_in_gem: 1999
-models made for 1076 genes
-</pre></div></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "e4c7173cc1094fd3bc40e842cd00f9e1", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 </div>
 <div class="section" id="3.-in-silico-TF-Perturbation-analysis">
@@ -1284,16 +1005,18 @@ Variability score of Gene Gata1 is too low. Simulation accuracy may be poor with
 <ul class="simple">
 <li><p>As shown above, we can use celloracle’s simulation to infer how TF perturbations affect cell identity. The simulation results are provided in the form of a vector field map.</p></li>
 <li><p>To interpret the results, it is necessary to take into account the direction of natural differentiation. We will compare the simulated perturbation vectors with the development vector. By comparing them, we can intuitively understand how TF is involved in cell fate determination during development. This perspective is also important for the estimation of experimental perturbation results</p></li>
-<li><p>Here, we show an example to calculate the vector field of development using pseudotime gradient. In short, the process is as follows.</p></li>
+<li><p>Here, we show an example to calculate the vector field of development using <strong>pseudotime gradient</strong>. In short, the process is as follows.</p></li>
 </ul>
 <ol class="arabic simple">
-<li><p>Transfer pseudotime data into n x n grid point.</p></li>
+<li><p>Transfer <strong>pseudotime data</strong> into n x n grid point.</p></li>
 <li><p>Calculate the 2D gradient of pseudotime to get vector field</p></li>
 <li><p>Compare in silico TF perturbation vector field with development vector field by calculating inner product between these two vectors.</p></li>
 </ol>
 <ul class="simple">
 <li><p>Also, there are many other options to get vector field of development flow from scRNA-seq data, and you can select another option. For example, RNA velocity analysis is a good way to estimate the direction of cell differentiation. Choose the method that best suits your data.</p></li>
 </ul>
+<p>In the analysis below, we need to use <strong>pseudotime</strong> data. Pseudotime data is included in the demo data. <strong>If you try to analyze your scRNA-seq data, please calculate pseudotime before starting this analysis.</strong></p>
+<p>We provide a tutorial notebook introducing how to calculate pseudotime. <a class="reference external" href="https://morris-lab.github.io/CellOracle.documentation/tutorials/pseudotime.html">https://morris-lab.github.io/CellOracle.documentation/tutorials/pseudotime.html</a></p>
 <p>We use pseudotime data for an input of this analysis. Pleas calculate continuous pseudotime in advance. Please look at another notebook for details on how to calculate pseudotime.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
@@ -1312,7 +1035,7 @@ Variability score of Gene Gata1 is too low. Simulation accuracy may be poor with
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_37_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_37_0.png" style="width: 369px; height: 369px;" />
+<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_38_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_38_0.png" style="width: 369px; height: 369px;" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -1343,7 +1066,7 @@ Variability score of Gene Gata1 is too low. Simulation accuracy may be poor with
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_41_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_41_0.png" style="width: 293px; height: 301px;" />
+<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_42_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_42_0.png" style="width: 293px; height: 301px;" />
 </div>
 </div>
 <p>Next, we will transfer pseudotime data into grid points. For this calculation we can chose two method.</p>
@@ -1365,22 +1088,11 @@ Variability score of Gene Gata1 is too low. Simulation accuracy may be poor with
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-/home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages/sklearn/linear_model/_ridge.py:148: LinAlgWarning:
-
-Ill-conditioned matrix (rcond=1.11032e-17): result may not be accurate.
-
-</pre></div></div>
-</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_44_1.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_44_1.png" style="width: 572px; height: 301px;" />
+<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_45_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_45_0.png" style="width: 572px; height: 301px;" />
 </div>
 </div>
 <p>Calculate 2D vector map that represents the gradient of pseudotime. After the gradient calculation, the length of the vector will be normalized automatically.</p>
@@ -1403,7 +1115,7 @@ Ill-conditioned matrix (rcond=1.11032e-17): result may not be accurate.
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_46_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_46_0.png" style="width: 1409px; height: 315px;" />
+<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_47_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_47_0.png" style="width: 1409px; height: 315px;" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -1421,7 +1133,7 @@ Ill-conditioned matrix (rcond=1.11032e-17): result may not be accurate.
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_47_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_47_0.png" style="width: 349px; height: 340px;" />
+<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_48_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_48_0.png" style="width: 349px; height: 340px;" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -1441,11 +1153,11 @@ Ill-conditioned matrix (rcond=1.11032e-17): result may not be accurate.
 <li><p>Inner product can be a positive value when two vectors are pointing in the same direction.</p></li>
 <li><p>Inner product can be a negative value when two vectors are pointing in the opposite direction.</p></li>
 </ul>
-<p><img alt="98b32ff20bce4e16ad87069bc23e3020" src="https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/innerproduct_explantion_1.png" /></p>
+<p><img alt="7298890449f44bdf9937d1801c17f1bb" src="https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/innerproduct_explantion_1.png" /></p>
 <ul class="simple">
 <li><p>The length of vector also affects the absolute value of inner product value.</p></li>
 </ul>
-<p><img alt="5b348e5ab5ec40ad9f8755e0684b3f01" src="https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/innerproduct_explantion_2.png" /></p>
+<p><img alt="da9429d0025b4d50a2259bf7ee2fa081" src="https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/innerproduct_explantion_2.png" /></p>
 <p>In summary, - <strong>a negative inner product</strong> means that perturbation might <strong>block differentiation</strong>. - <strong>a positive inner product</strong> means that perturbation might <strong>promote differentiation</strong>.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
@@ -1470,9 +1182,6 @@ Ill-conditioned matrix (rcond=1.11032e-17): result may not be accurate.
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="5.5-Show-results">
-<h1>5.5 Show results<a class="headerlink" href="#5.5-Show-results" title="Permalink to this headline">¶</a></h1>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
@@ -1491,7 +1200,7 @@ Ill-conditioned matrix (rcond=1.11032e-17): result may not be accurate.
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_52_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_52_0.png" style="width: 1130px; height: 794px;" />
+<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_53_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_53_0.png" style="width: 1130px; height: 794px;" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -1509,7 +1218,7 @@ Ill-conditioned matrix (rcond=1.11032e-17): result may not be accurate.
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_53_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_53_0.png" style="width: 349px; height: 340px;" />
+<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_54_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_54_0.png" style="width: 349px; height: 340px;" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -1528,7 +1237,7 @@ Ill-conditioned matrix (rcond=1.11032e-17): result may not be accurate.
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_54_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_54_0.png" style="width: 349px; height: 340px;" />
+<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_55_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_55_0.png" style="width: 349px; height: 340px;" />
 </div>
 </div>
 </div>
@@ -1600,7 +1309,7 @@ Ill-conditioned matrix (rcond=1.11032e-17): result may not be accurate.
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_58_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_58_0.png" style="width: 1130px; height: 794px;" />
+<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_59_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_59_0.png" style="width: 1130px; height: 794px;" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -1634,7 +1343,7 @@ Ill-conditioned matrix (rcond=1.11032e-17): result may not be accurate.
         <a href="../../tutorials/scrnaprocess.html" class="btn btn-neutral float-right" title="1. scRNA-seq data preparation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../../tutorials/simulation.html" class="btn btn-neutral float-left" title="1. Simulation with GRNs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../../tutorials/simulation.html" class="btn btn-neutral float-left" title="1. in silico gene perturbation with GRNs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

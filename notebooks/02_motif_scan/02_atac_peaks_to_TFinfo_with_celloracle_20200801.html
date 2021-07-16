@@ -97,15 +97,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../../tutorials/index.html#prerequisites">Prerequisites</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../tutorials/index.html#code-and-data-availability">Code and data availability</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../tutorials/index.html#getting-started">Getting started</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../tutorials/index.html#grn-model-construction-and-network-analysis">GRN model construction and Network analysis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../tutorials/index.html#in-silico-gene-perturbation-with-grns">in silico gene perturbation with GRNs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../tutorials/index.html#prepare-input-data">Prepare input data</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../../tutorials/index.html#tf-motif-scan">TF motif scan</a><ul class="current">
-<li class="toctree-l3 current"><a class="reference internal" href="../../tutorials/motifscan.html">1. Transcription factor binding motif scan</a><ul class="current">
-<li class="toctree-l4 current"><a class="reference internal" href="../../tutorials/motifscan.html#scan-dna-sequences-searching-for-tf-binding-motifs">Scan DNA sequences searching for TF binding motifs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../tutorials/motifscan.html#optional-step-1-how-to-use-different-motif-data">[Optional step 1] How to use different motif data</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../tutorials/motifscan.html#optional-step-2-how-to-use-different-motif-data">Optional step 2] How to use different motif data</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../tutorials/motifscan.html#optional-step-2-how-to-make-custom-motifs-for-celloracle-motif-analysis">[Optional step 2] How to Make custom motifs for celloracle motif analysis</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../tutorials/index.html#index">Index</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/index.html#grn-model-construction-and-network-analysis">GRN model construction and Network analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/index.html#in-silico-gene-perturbation-with-grns">in silico gene perturbation with GRNs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/index.html#prepare-input-data">Prepare input data</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../tutorials/index.html#tf-motif-scan-for-base-grn-construction">TF motif scan for base-GRN construction</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="../../tutorials/motifscan.html">1. Transcription factor binding motif scan</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../tutorials/motifscan.html#how-to-use-different-motif-data">2. How to use different motif data</a></li>
 </ul>
 </li>
 </ul>
@@ -547,7 +545,10 @@ mm10 is installed.
 </div>
 <div class="section" id="2.-Load-data">
 <h1>2. Load data<a class="headerlink" href="#2.-Load-data" title="Permalink to this headline">¶</a></h1>
-<p>In this notebook, we explain how to make base GRN data. As a input data, we need scATAC-seq file in the following format.</p>
+<p>In this notebook, we explain how to make base GRN data.</p>
+<p>Please look at the previous steps to see an example of input data preparation method.</p>
+<p><a class="reference external" href="https://morris-lab.github.io/CellOracle.documentation/tutorials/base_grn.html#step1-scatac-seq-analysis-with-cicero">https://morris-lab.github.io/CellOracle.documentation/tutorials/base_grn.html#step1-scatac-seq-analysis-with-cicero</a></p>
+<p>As a input data, we need scATAC-seq file in the following format.</p>
 <ul class="simple">
 <li><p>Prepare input data as a csv file with tree columns.</p></li>
 <li><p>The first column is index.</p></li>
@@ -555,9 +556,9 @@ mm10 is installed.
 <li><p>The third column is gene_short_name.</p></li>
 </ul>
 <p>The csv file should be like this.</p>
-<p><img alt="11ac37eebcb34d21a83676bc62a39101" src="https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/processed_peak_csv.png" /></p>
+<p><img alt="309a24f390814e37ac9ef419a20891e3" src="https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/processed_peak_csv.png" /></p>
 <p>We load this csv file using <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code> to make pandas.DataFrame like this.</p>
-<p><img alt="36a0521064f440bda203086fef31717d" src="https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/processed_peak_df.png" /></p>
+<p><img alt="214e4f778c5b4958a3c5a55643b8e02c" src="https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/processed_peak_df.png" /></p>
 <p>You can download the demo file by running the following command: If the file download fails, please manually download and unzip the data.</p>
 <p><a class="reference external" href="https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/processed_peak_file.csv">https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/processed_peak_file.csv</a></p>
 <div class="nbinput docutils container">
@@ -1146,6 +1147,17 @@ Peaks after filtering:  15777
 <span class="c1"># If you want, you can save the result as a dictionary as follows.</span>
 <span class="c1">#td = tfi.to_dictionary(dictionary_type=&quot;targetgene2TFs&quot;)</span>
 <span class="c1">#save_as_pickled_object(td, os.path.join(folder, &quot;TFinfo_targetgene2TFs.pickled&quot;))</span>
+</pre></div>
+</div>
+</div>
+<p><strong>We will use this base-GRN data in the GRN construction section.</strong></p>
+<p><a class="reference external" href="https://morris-lab.github.io/CellOracle.documentation/tutorials/networkanalysis.html">https://morris-lab.github.io/CellOracle.documentation/tutorials/networkanalysis.html</a></p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
 </pre></div>
 </div>
 </div>
