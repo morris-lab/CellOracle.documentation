@@ -238,7 +238,7 @@
 <ul class="simple">
 <li><p>Pre-built docker image is available through <a class="reference external" href="https://hub.docker.com/repository/docker/kenjikamimoto126/celloracle_ubuntu">Docker Hub</a> .</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">push</span> <span class="n">kenjikamimoto126</span><span class="o">/</span><span class="n">celloracle_ubuntu</span><span class="p">:</span><span class="n">latest</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">pull</span> <span class="n">kenjikamimoto126</span><span class="o">/</span><span class="n">celloracle_ubuntu</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -256,7 +256,7 @@
 <li><p>Operating system: macOS or Linux are highly recommended. CellOraclewas developed and tested in Linux and macOS.</p></li>
 <li><p>We found that the celloracle calculation may be EXTREMELY SLOW under an environment of Windows Subsystem for Linux (WSL). We do not recommend using WSL.</p></li>
 <li><p>While you can install CellOracle in Windows OS, please do so at your own risk and responsibility. We DO NOT provide any support for the use in the Windows OS.</p></li>
-<li><p>Memory: 8 G byte or more.  Memory usage also depends on your scRNA-seq data. Especially in silico perturbation requires large amount of memory.</p></li>
+<li><p>Memory: 16 G byte or more.  Memory usage also depends on your data. Especially in silico perturbation requires large amount of memory.</p></li>
 <li><p>CPU: Core i5 or better processor. GRN inference supports multicore calculation. Higher number of CPU cores enables fast calculation.</p></li>
 </ul>
 </div>
