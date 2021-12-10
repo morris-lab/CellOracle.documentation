@@ -7,7 +7,7 @@
   <script type="text/javascript">
 
       var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-203123345-1']);
+      _gaq.push(['_setAccount', 'G-1K2Q12QE4R']);
       _gaq.push(['_trackPageview']);
 
       (function() {
@@ -1088,8 +1088,8 @@ Dimensional reduction (or 2D trajectory graph) should be in anndata.obsm.</p></l
 </dd></dl>
 
 <dl class="py method">
-<dt id="celloracle.Oracle.plot_mc_result_as_kde">
-<code class="sig-name descname">plot_mc_result_as_kde</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n_time</span></em>, <em class="sig-param"><span class="n">args</span><span class="o">=</span><span class="default_value">{}</span></em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.Oracle.plot_mc_result_as_kde" title="Permalink to this definition">¶</a></dt>
+<dt id="celloracle.Oracle.plot_mc_results_as_kde">
+<code class="sig-name descname">plot_mc_results_as_kde</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n_time</span></em>, <em class="sig-param"><span class="n">args</span><span class="o">=</span><span class="default_value">{}</span></em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.Oracle.plot_mc_results_as_kde" title="Permalink to this definition">¶</a></dt>
 <dd><p>Pick up one timepoint in the cell state-transition simulation and plot as a kde plot.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1103,25 +1103,8 @@ See seaborn documentation for details (<a class="reference external" href="https
 </dd></dl>
 
 <dl class="py method">
-<dt id="celloracle.Oracle.plot_mc_result_as_trajectory">
-<code class="sig-name descname">plot_mc_result_as_trajectory</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cell_name</span></em>, <em class="sig-param"><span class="n">time_range</span></em>, <em class="sig-param"><span class="n">args</span><span class="o">=</span><span class="default_value">{}</span></em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.Oracle.plot_mc_result_as_trajectory" title="Permalink to this definition">¶</a></dt>
-<dd><p>Pick up several timepoints in the cell state-transition simulation and plot as a line plot.
-This function can be used to visualize how cell-state changes after perturbation focusing on a specific cell.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>cell_name</strong> (<em>str</em>) – cell name. chose from adata.obs.index</p></li>
-<li><p><strong>time_range</strong> (<em>list of int</em>) – the list of index in Markov simulation</p></li>
-<li><p><strong>args</strong> (<em>dictionary</em>) – dictionary for the arguments for matplotlib.pyplit.plot.
-See matplotlib documentation for details (<a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.plot.html#matplotlib.pyplot.plot">https://matplotlib.org/api/_as_gen/matplotlib.pyplot.plot.html#matplotlib.pyplot.plot</a>).</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="celloracle.Oracle.plot_mc_resutls_as_sankey">
-<code class="sig-name descname">plot_mc_resutls_as_sankey</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cluster_use</span></em>, <em class="sig-param"><span class="n">start</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">end</span><span class="o">=</span><span class="default_value">- 1</span></em>, <em class="sig-param"><span class="n">order</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">font_size</span><span class="o">=</span><span class="default_value">10</span></em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.Oracle.plot_mc_resutls_as_sankey" title="Permalink to this definition">¶</a></dt>
+<dt id="celloracle.Oracle.plot_mc_results_as_sankey">
+<code class="sig-name descname">plot_mc_results_as_sankey</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cluster_use</span></em>, <em class="sig-param"><span class="n">start</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">end</span><span class="o">=</span><span class="default_value">- 1</span></em>, <em class="sig-param"><span class="n">order</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">font_size</span><span class="o">=</span><span class="default_value">10</span></em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.Oracle.plot_mc_results_as_sankey" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot the simulated cell state-transition as a Sankey-diagram after groping by the cluster.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1133,6 +1116,23 @@ You can use any cluster information in anndata.obs.</p></li>
 if you set [end=-1], the final step of Markov simulation will be used.</p></li>
 <li><p><strong>order</strong> (<em>list of str</em>) – The order of cluster name in the Sankey-diagram.</p></li>
 <li><p><strong>font_size</strong> (<em>int</em>) – Font size for cluster name label in the Sankey diagram.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="celloracle.Oracle.plot_mc_results_as_trajectory">
+<code class="sig-name descname">plot_mc_results_as_trajectory</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cell_name</span></em>, <em class="sig-param"><span class="n">time_range</span></em>, <em class="sig-param"><span class="n">args</span><span class="o">=</span><span class="default_value">{}</span></em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.Oracle.plot_mc_results_as_trajectory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pick up several timepoints in the cell state-transition simulation and plot as a line plot.
+This function can be used to visualize how cell-state changes after perturbation focusing on a specific cell.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cell_name</strong> (<em>str</em>) – cell name. chose from adata.obs.index</p></li>
+<li><p><strong>time_range</strong> (<em>list of int</em>) – the list of index in Markov simulation</p></li>
+<li><p><strong>args</strong> (<em>dictionary</em>) – dictionary for the arguments for matplotlib.pyplit.plot.
+See matplotlib documentation for details (<a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.plot.html#matplotlib.pyplot.plot">https://matplotlib.org/api/_as_gen/matplotlib.pyplot.plot.html#matplotlib.pyplot.plot</a>).</p></li>
 </ul>
 </dd>
 </dl>
