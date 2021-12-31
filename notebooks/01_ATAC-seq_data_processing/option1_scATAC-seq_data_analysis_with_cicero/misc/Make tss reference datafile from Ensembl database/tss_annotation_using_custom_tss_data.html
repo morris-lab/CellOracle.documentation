@@ -1,0 +1,803 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-214970391-3']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Overview &mdash; celloracle 0.8.4 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
+        <script src="../../../../../_static/jquery.js"></script>
+        <script src="../../../../../_static/underscore.js"></script>
+        <script src="../../../../../_static/doctools.js"></script>
+        <script src="../../../../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home" alt="Documentation Home"> celloracle
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../index.html">Welcome to celloracle’s documentation!</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../installation/index.html">Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../tutorials/index.html">Tutorial</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../modules/index.html">API</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../changelog/index.html">Changelog</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../license/index.html">License</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../citation/index.html">Authors and citations</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../contact/index.html">Contact</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">celloracle</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Overview</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../../_sources/notebooks/01_ATAC-seq_data_processing/option1_scATAC-seq_data_analysis_with_cicero/misc/Make tss reference datafile from Ensembl database/tss_annotation_using_custom_tss_data.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="Overview">
+<h1>Overview<a class="headerlink" href="#Overview" title="Permalink to this headline">¶</a></h1>
+<p>In this notebook, we will make TSS annotation in the Cicero coaccessible peak data to get input data of base-GRN construction. - First, we pick up peaks around the transcription starting site (TSS). - Second, we merge cicero data with the peaks around TSS. - Then we remove peaks that have a weak connection to TSS peak so that the final product includes TSS peaks and peaks that have a strong connection with the TSS peaks. We use this information as an active promoter/enhancer elements.</p>
+<div class="section" id="Although-CellOracle-supports-basic-model-organisms-and-reference-genomes,-you-may-want-to-use-a-different-reference-genome-that-is-not-in-the-supported-reference-genome-list.">
+<h2>Although CellOracle supports basic model organisms and reference genomes, you may want to use a different reference genome that is not in the supported reference genome list.<a class="headerlink" href="#Although-CellOracle-supports-basic-model-organisms-and-reference-genomes,-you-may-want-to-use-a-different-reference-genome-that-is-not-in-the-supported-reference-genome-list." title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="Here,-we-introduce-how-to-use-custom-TSS-database-for-the-annotation-process-the-reference-genome-not-in-the-default-CellOracle.">
+<h2>Here, we introduce how to use custom TSS database for the annotation process the reference genome not in the default CellOracle.<a class="headerlink" href="#Here,-we-introduce-how-to-use-custom-TSS-database-for-the-annotation-process-the-reference-genome-not-in-the-default-CellOracle." title="Permalink to this headline">¶</a></h2>
+<p>Please lookt at another notebook for the detailed process to make the custom TSS database for your species of interest.</p>
+</div>
+</div>
+<div class="section" id="!!-Caution!!-This-is-NOT-part-of-CellOracle-tutorial.">
+<h1>!! Caution!! This is NOT part of CellOracle tutorial.<a class="headerlink" href="#!!-Caution!!-This-is-NOT-part-of-CellOracle-tutorial." title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>This notebook includes unusual usage of CellOracle.</p></li>
+<li><p>The analysis might require expertise of python and DNA sequence analysis, but this notebook does not aim to explain them all, and please use this notebook by your responsibility.</p></li>
+</ul>
+</div>
+<div class="section" id="0.-Import-libraries">
+<h1>0. Import libraries<a class="headerlink" href="#0.-Import-libraries" title="Permalink to this headline">¶</a></h1>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">shutil</span><span class="o">,</span> <span class="nn">importlib</span><span class="o">,</span> <span class="nn">glob</span>
+<span class="kn">from</span> <span class="nn">tqdm.notebook</span> <span class="kn">import</span> <span class="n">tqdm</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">celloracle</span> <span class="kn">import</span> <span class="n">motif_analysis</span> <span class="k">as</span> <span class="n">ma</span>
+<span class="kn">import</span> <span class="nn">celloracle</span> <span class="k">as</span> <span class="nn">co</span>
+<span class="n">co</span><span class="o">.</span><span class="n">__version__</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;0.8.4&#39;
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;retina&#39;
+
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;savefig.dpi&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">300</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="1.-Load-ATAC-seq-peak-data">
+<h1>1. Load ATAC-seq peak data<a class="headerlink" href="#1.-Load-ATAC-seq-peak-data" title="Permalink to this headline">¶</a></h1>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Load scATAC-seq peak list.</span>
+<span class="n">peaks</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;Cavpor3.0_tss_info.bed&quot;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">peaks</span> <span class="o">=</span> <span class="n">peaks</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">100</span><span class="p">:</span><span class="mi">200</span><span class="p">,:]</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">peaks</span> <span class="o">=</span> <span class="n">peaks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">peaks</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;str&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">peaks</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;str&#39;</span><span class="p">)</span>
+<span class="n">peaks</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">peaks</span><span class="p">)</span>
+<span class="n">peaks</span> <span class="o">=</span> <span class="n">peaks</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">peaks</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">peaks</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;peaks_example.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Load scATAC-seq peak list.</span>
+<span class="n">peaks</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;peaks_example.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">peaks</span> <span class="o">=</span> <span class="n">peaks</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">values</span>
+<span class="n">peaks</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([&#39;DS562855.1_17325102_17326202&#39;, &#39;DS562855.1_17604709_17605809&#39;,
+       &#39;DS562855.1_17717213_17718313&#39;, &#39;DS562855.1_17793186_17794286&#39;,
+       &#39;DS562855.1_17850610_17851710&#39;, &#39;DS562855.1_17927367_17928467&#39;,
+       &#39;DS562855.1_17963096_17964196&#39;, &#39;DS562855.1_17981058_17982158&#39;,
+       &#39;DS562855.1_17984493_17985593&#39;, &#39;DS562855.1_18107565_18108665&#39;,
+       &#39;DS562855.1_18165123_18166223&#39;, &#39;DS562855.1_18244816_18245916&#39;,
+       &#39;DS562855.1_19083904_19085004&#39;, &#39;DS562855.1_19139148_19140248&#39;,
+       &#39;DS562855.1_18763492_18764592&#39;, &#39;DS562855.1_19261363_19262463&#39;,
+       &#39;DS562855.1_19432676_19433776&#39;, &#39;DS562855.1_19447039_19448139&#39;,
+       &#39;DS562855.1_19469701_19470801&#39;, &#39;DS562855.1_19545326_19546426&#39;,
+       &#39;DS562855.1_19600418_19601518&#39;, &#39;DS562855.1_20259647_20260747&#39;,
+       &#39;DS562855.1_20358849_20359949&#39;, &#39;DS562855.1_20487020_20488120&#39;,
+       &#39;DS562855.1_20483135_20484235&#39;, &#39;DS562855.1_20607536_20608636&#39;,
+       &#39;DS562855.1_20687876_20688976&#39;, &#39;DS562855.1_20687876_20688976&#39;,
+       &#39;DS562855.1_20691098_20692198&#39;, &#39;DS562855.1_20797258_20798358&#39;,
+       &#39;DS562855.1_20796859_20797959&#39;, &#39;DS562855.1_20865081_20866181&#39;,
+       &#39;DS562855.1_20851113_20852213&#39;, &#39;DS562855.1_20864982_20866082&#39;,
+       &#39;DS562855.1_20820597_20821697&#39;, &#39;DS562855.1_20869367_20870467&#39;,
+       &#39;DS562855.1_20931260_20932360&#39;, &#39;DS562855.1_20930958_20932058&#39;,
+       &#39;DS562855.1_20930874_20931974&#39;, &#39;DS562855.1_20910513_20911613&#39;,
+       &#39;DS562855.1_20930832_20931932&#39;, &#39;DS562855.1_20975923_20977023&#39;,
+       &#39;DS562855.1_20975923_20977023&#39;, &#39;DS562855.1_21028333_21029433&#39;,
+       &#39;DS562855.1_21044723_21045823&#39;, &#39;DS562855.1_21070169_21071269&#39;,
+       &#39;DS562855.1_21237963_21239063&#39;, &#39;DS562855.1_21263108_21264208&#39;,
+       &#39;DS562855.1_21636253_21637353&#39;, &#39;DS562855.1_21645638_21646738&#39;,
+       &#39;DS562855.1_21671741_21672841&#39;, &#39;DS562855.1_22376594_22377694&#39;,
+       &#39;DS562855.1_22679232_22680332&#39;, &#39;DS562855.1_23054281_23055381&#39;,
+       &#39;DS562855.1_23078558_23079658&#39;, &#39;DS562855.1_23091892_23092992&#39;,
+       &#39;DS562855.1_23131090_23132190&#39;, &#39;DS562855.1_23836621_23837721&#39;,
+       &#39;DS562855.1_23941930_23943030&#39;, &#39;DS562855.1_23927381_23928481&#39;,
+       &#39;DS562855.1_23981205_23982305&#39;, &#39;DS562855.1_24006813_24007913&#39;,
+       &#39;DS562855.1_24018616_24019716&#39;, &#39;DS562855.1_24247214_24248314&#39;,
+       &#39;DS562855.1_24338611_24339711&#39;, &#39;DS562855.1_24767458_24768558&#39;,
+       &#39;DS562855.1_24928442_24929542&#39;, &#39;DS562855.1_25014962_25016062&#39;,
+       &#39;DS562855.1_25024283_25025383&#39;, &#39;DS562855.1_25086948_25088048&#39;,
+       &#39;DS562855.1_25234257_25235357&#39;, &#39;DS562855.1_25287704_25288804&#39;,
+       &#39;DS562855.1_26402003_26403103&#39;, &#39;DS562855.1_26513868_26514968&#39;,
+       &#39;DS562855.1_26558371_26559471&#39;, &#39;DS562855.1_26759465_26760565&#39;,
+       &#39;DS562855.1_27347552_27348652&#39;, &#39;DS562855.1_27577221_27578321&#39;,
+       &#39;DS562855.1_27718782_27719882&#39;, &#39;DS562855.1_27917760_27918860&#39;,
+       &#39;DS562855.1_28018334_28019434&#39;, &#39;DS562855.1_28133452_28134552&#39;,
+       &#39;DS562855.1_28257472_28258572&#39;, &#39;DS562855.1_28257478_28258578&#39;,
+       &#39;DS562855.1_28284228_28285328&#39;, &#39;DS562855.1_28673851_28674951&#39;,
+       &#39;DS562855.1_28697999_28699099&#39;, &#39;DS562855.1_28785102_28786202&#39;,
+       &#39;DS562855.1_28866031_28867131&#39;, &#39;DS562855.1_28895390_28896490&#39;,
+       &#39;DS562855.1_29802833_29803933&#39;, &#39;DS562855.1_29802740_29803840&#39;,
+       &#39;DS562855.1_29802740_29803840&#39;, &#39;DS562855.1_30001562_30002662&#39;,
+       &#39;DS562855.1_30173889_30174989&#39;, &#39;DS562855.1_30556086_30557186&#39;,
+       &#39;DS562855.1_31289869_31290969&#39;, &#39;DS562855.1_32080107_32081207&#39;,
+       &#39;DS562855.1_32196830_32197930&#39;, &#39;DS562855.1_32196830_32197930&#39;],
+      dtype=object)
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="2.-Make-TSS-annotation">
+<h1>2. Make TSS annotation<a class="headerlink" href="#2.-Make-TSS-annotation" title="Permalink to this headline">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[55]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">tss_annotated</span> <span class="o">=</span> <span class="n">ma</span><span class="o">.</span><span class="n">get_tss_info</span><span class="p">(</span><span class="n">peak_str_list</span><span class="o">=</span><span class="n">peaks</span><span class="p">,</span>
+                                <span class="n">ref_genome</span><span class="o">=</span><span class="s2">&quot;Cavpor3.0&quot;</span><span class="p">,</span>
+                                <span class="n">custom_tss_file_path</span><span class="o">=</span><span class="s2">&quot;Cavpor3.0_tss_info.bed&quot;</span><span class="c1">##!! Set custom TSS bed file here</span>
+                                <span class="p">)</span> <span class="c1">##!! Set custom TSS bed file here</span>
+
+<span class="c1"># Check results</span>
+<span class="n">tss_annotated</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+que bed peaks: 100
+tss peaks in que: 130
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[55]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>chr</th>
+      <th>start</th>
+      <th>end</th>
+      <th>gene_short_name</th>
+      <th>strand</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>DS562855.1</td>
+      <td>17325102</td>
+      <td>17326202</td>
+      <td>7SK</td>
+      <td>+</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>DS562855.1</td>
+      <td>17604709</td>
+      <td>17605809</td>
+      <td>KCNS2</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>DS562855.1</td>
+      <td>17717213</td>
+      <td>17718313</td>
+      <td>NIPAL2</td>
+      <td>+</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>DS562855.1</td>
+      <td>17793186</td>
+      <td>17794286</td>
+      <td>U6</td>
+      <td>+</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>DS562855.1</td>
+      <td>17850610</td>
+      <td>17851710</td>
+      <td>POP1</td>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Samantha Morris Lab
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

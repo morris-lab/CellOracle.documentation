@@ -18,7 +18,7 @@
     </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Overview &mdash; celloracle 0.7.1 documentation</title>
+  <title>Overview &mdash; celloracle 0.8.4 documentation</title>
   
 
   
@@ -102,26 +102,8 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation/index.html">Installation</a></li>
 </ul>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../../../tutorials/index.html">Tutorial</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/index.html#what-the-tutorial-covers">What the tutorial covers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/index.html#prerequisites">Prerequisites</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/index.html#code-and-data-availability">Code and data availability</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/index.html#getting-started">Getting started</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../../../tutorials/index.html#index">Index</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/index.html#grn-model-construction-and-network-analysis">GRN model construction and Network analysis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/index.html#in-silico-gene-perturbation-with-grns">in silico gene perturbation with GRNs</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../../../tutorials/index.html#prepare-input-data">Prepare input data</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/scrnaprocess.html">1. scRNA-seq data preparation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/pseudotime.html">2. Pseudotime calculation</a></li>
-<li class="toctree-l4 current"><a class="reference internal" href="../../../tutorials/base_grn.html">3. Base GRN input data preparation</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/index.html#tf-motif-scan-for-base-grn-construction">TF motif scan for base-GRN construction</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/index.html">Tutorial</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../modules/index.html">API</a></li>
@@ -487,12 +469,31 @@ div.rendered_html tbody tr:hover {
 <span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">shutil</span><span class="o">,</span> <span class="nn">importlib</span><span class="o">,</span> <span class="nn">glob</span>
 <span class="kn">from</span> <span class="nn">tqdm.notebook</span> <span class="kn">import</span> <span class="n">tqdm</span>
 
-<span class="kn">from</span> <span class="nn">celloracle</span> <span class="kn">import</span> <span class="n">motif_analysis</span> <span class="k">as</span> <span class="n">ma</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">celloracle</span> <span class="kn">import</span> <span class="n">motif_analysis</span> <span class="k">as</span> <span class="n">ma</span>
+<span class="kn">import</span> <span class="nn">celloracle</span> <span class="k">as</span> <span class="nn">co</span>
+<span class="n">co</span><span class="o">.</span><span class="n">__version__</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;0.8.3&#39;
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -504,8 +505,8 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 </div>
-<div class="section" id="1.-Load-data-made-with-cicero">
-<h1>1. Load data made with cicero<a class="headerlink" href="#1.-Load-data-made-with-cicero" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="1.-Load-scATAC-peak-data-and-peak-connection-data-made-with-cicero">
+<h1>1. Load scATAC peak data and peak connection data made with cicero<a class="headerlink" href="#1.-Load-scATAC-peak-data-and-peak-connection-data-made-with-cicero" title="Permalink to this headline">¶</a></h1>
 <p>In this notebook, we explain how to process Cicero output. Please look at the previous step to know how to get this data yourself. <a class="reference external" href="https://morris-lab.github.io/CellOracle.documentation/tutorials/base_grn.html#step1-scatac-seq-analysis-with-cicero">https://morris-lab.github.io/CellOracle.documentation/tutorials/base_grn.html#step1-scatac-seq-analysis-with-cicero</a></p>
 <p>Here, we use preprosessed Cicero data that were made from scATAC-seq data.</p>
 <p>You can download the demo file by running the following command: If the file download fails, please manually download and unzip the data.</p>
@@ -658,9 +659,9 @@ array([&#39;chr10_100006139_100006389&#39;, &#39;chr10_100015291_100017830&#39;,
 <h1>2. Make TSS annotation<a class="headerlink" href="#2.-Make-TSS-annotation" title="Permalink to this headline">¶</a></h1>
 <p>If your scATAC-seq data was generated with mm10 reference genome, please set <code class="docutils literal notranslate"><span class="pre">ref_genome=&quot;mm10&quot;</span></code>.</p>
 <p>You can check supported reference genome using <code class="docutils literal notranslate"><span class="pre">ma.SUPPORTED_REF_GENOME</span></code></p>
-<p>If your reference genome is not in the list, please send a request through github issue page.</p>
+<p>If your reference genome is not in the list, please send a request to us through github issue page.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -669,31 +670,183 @@ array([&#39;chr10_100006139_100006389&#39;, &#39;chr10_100015291_100017830&#39;,
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-{&#39;Human&#39;: [&#39;hg38&#39;, &#39;hg19&#39;],
- &#39;Mouse&#39;: [&#39;mm10&#39;, &#39;mm9&#39;],
- &#39;S.cerevisiae&#39;: [&#39;sacCer2&#39;, &#39;sacCer3&#39;],
- &#39;Zebrafish&#39;: [&#39;danRer7&#39;, &#39;danRer10&#39;, &#39;danRer11&#39;],
- &#39;Xenopus&#39;: [&#39;xenTro2&#39;, &#39;xenTro3&#39;],
- &#39;Rat&#39;: [&#39;rn4&#39;, &#39;rn5&#39;, &#39;rn6&#39;],
- &#39;Drosophila&#39;: [&#39;dm3&#39;, &#39;dm6&#39;],
- &#39;C.elegans&#39;: [&#39;ce6&#39;, &#39;ce10&#39;],
- &#39;Arabidopsis&#39;: [&#39;tair10&#39;],
- &#39;Chicken&#39;: [&#39;galGal4&#39;, &#39;galGal5&#39;, &#39;galGal6&#39;]}
-</pre></div></div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>species</th>
+      <th>ref_genome</th>
+      <th>provider</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Human</td>
+      <td>hg38</td>
+      <td>UCSC</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Human</td>
+      <td>hg19</td>
+      <td>UCSC</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Mouse</td>
+      <td>mm10</td>
+      <td>UCSC</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Mouse</td>
+      <td>mm9</td>
+      <td>UCSC</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>S.cerevisiae</td>
+      <td>sacCer2</td>
+      <td>UCSC</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>S.cerevisiae</td>
+      <td>sacCer3</td>
+      <td>UCSC</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Zebrafish</td>
+      <td>danRer7</td>
+      <td>UCSC</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Zebrafish</td>
+      <td>danRer10</td>
+      <td>UCSC</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Zebrafish</td>
+      <td>danRer11</td>
+      <td>UCSC</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Xenopus</td>
+      <td>xenTro2</td>
+      <td>UCSC</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Xenopus</td>
+      <td>xenTro3</td>
+      <td>UCSC</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Rat</td>
+      <td>rn4</td>
+      <td>UCSC</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Rat</td>
+      <td>rn5</td>
+      <td>UCSC</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Rat</td>
+      <td>rn6</td>
+      <td>UCSC</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Drosophila</td>
+      <td>dm3</td>
+      <td>UCSC</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Drosophila</td>
+      <td>dm6</td>
+      <td>UCSC</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>C.elegans</td>
+      <td>ce6</td>
+      <td>UCSC</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>C.elegans</td>
+      <td>ce10</td>
+      <td>UCSC</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>Arabidopsis</td>
+      <td>TAIR10</td>
+      <td>Ensembl</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Chicken</td>
+      <td>galGal4</td>
+      <td>UCSC</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>Chicken</td>
+      <td>galGal5</td>
+      <td>UCSC</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>Chicken</td>
+      <td>galGal6</td>
+      <td>UCSC</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>Guinea_Pig</td>
+      <td>Cavpor3.0</td>
+      <td>Ensembl</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-
-<span></span><span class="n">tss_annotated</span> <span class="o">=</span> <span class="n">ma</span><span class="o">.</span><span class="n">get_tss_info</span><span class="p">(</span><span class="n">peak_str_list</span><span class="o">=</span><span class="n">peaks</span><span class="p">,</span> <span class="n">ref_genome</span><span class="o">=</span><span class="s2">&quot;mm10&quot;</span><span class="p">)</span> <span class="c1">##!! Set reference genome here</span>
-
+<span></span><span class="c1">##!! Please make sure to specify the correct reference genome here</span>
+<span class="n">tss_annotated</span> <span class="o">=</span> <span class="n">ma</span><span class="o">.</span><span class="n">get_tss_info</span><span class="p">(</span><span class="n">peak_str_list</span><span class="o">=</span><span class="n">peaks</span><span class="p">,</span> <span class="n">ref_genome</span><span class="o">=</span><span class="s2">&quot;mm10&quot;</span><span class="p">)</span>
 
 <span class="c1"># Check results</span>
 <span class="n">tss_annotated</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>

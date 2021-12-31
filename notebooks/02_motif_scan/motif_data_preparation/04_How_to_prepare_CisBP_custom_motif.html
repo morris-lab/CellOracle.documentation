@@ -18,7 +18,7 @@
     </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>0. Overview: How to Make custom motifs for celloracle motif scan. &mdash; celloracle 0.7.1 documentation</title>
+  <title>0. Overview: How to Make custom motifs for celloracle motif scan. &mdash; celloracle 0.8.4 documentation</title>
   
 
   
@@ -489,16 +489,16 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
---2021-07-25 11:46:07--  http://cisbp.ccbr.utoronto.ca/data/2.00/DataFiles/Bulk_downloads/EntireDataset/PWMs.zip
+--2021-12-28 17:07:52--  http://cisbp.ccbr.utoronto.ca/data/2.00/DataFiles/Bulk_downloads/EntireDataset/PWMs.zip
 Resolving cisbp.ccbr.utoronto.ca (cisbp.ccbr.utoronto.ca)... 142.150.52.218
 Connecting to cisbp.ccbr.utoronto.ca (cisbp.ccbr.utoronto.ca)|142.150.52.218|:80... connected.
 HTTP request sent, awaiting response... 200 OK
 Length: 4945608 (4.7M) [application/zip]
 Saving to: ‘PWMs.zip’
 
-PWMs.zip            100%[===================&gt;]   4.72M  1.02MB/s    in 5.3s
+PWMs.zip            100%[===================&gt;]   4.72M  1.44MB/s    in 3.3s
 
-2021-07-25 11:46:12 (918 KB/s) - ‘PWMs.zip’ saved [4945608/4945608]
+2021-12-28 17:07:55 (1.44 MB/s) - ‘PWMs.zip’ saved [4945608/4945608]
 
 Archive:  PWMs.zip
   inflating: pwms/M00001_2.00.txt
@@ -12009,16 +12009,16 @@ Archive:  PWMs.zip
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
---2021-07-25 11:46:14--  http://cisbp.ccbr.utoronto.ca/data/2.00/DataFiles/Bulk_downloads/EntireDataset/TF_Information_all_motifs.txt.zip
+--2021-12-28 17:08:07--  http://cisbp.ccbr.utoronto.ca/data/2.00/DataFiles/Bulk_downloads/EntireDataset/TF_Information_all_motifs.txt.zip
 Resolving cisbp.ccbr.utoronto.ca (cisbp.ccbr.utoronto.ca)... 142.150.52.218
 Connecting to cisbp.ccbr.utoronto.ca (cisbp.ccbr.utoronto.ca)|142.150.52.218|:80... connected.
 HTTP request sent, awaiting response... 200 OK
 Length: 115455298 (110M) [application/zip]
 Saving to: ‘TF_Information_all_motifs.txt.zip’
 
-TF_Information_all_ 100%[===================&gt;] 110.11M  1.52MB/s    in 36s
+TF_Information_all_ 100%[===================&gt;] 110.11M  22.5MB/s    in 18s
 
-2021-07-25 11:46:50 (3.03 MB/s) - ‘TF_Information_all_motifs.txt.zip’ saved [115455298/115455298]
+2021-12-28 17:08:25 (6.22 MB/s) - ‘TF_Information_all_motifs.txt.zip’ saved [115455298/115455298]
 
 Archive:  TF_Information_all_motifs.txt.zip
   inflating: TF_Information_all_motifs.txt
@@ -12040,7 +12040,7 @@ Archive:  TF_Information_all_motifs.txt.zip
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-2021-07-25 11:47:35,439 [6855] WARNING  py.warnings:99: [JupyterRequire] /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages/IPython/core/interactiveshell.py:3072: DtypeWarning: Columns (19) have mixed types.Specify dtype option on import or set low_memory=False.
+2021-12-28 17:25:05,804 [3205] WARNING  py.warnings:99: [JupyterRequire] /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages/IPython/core/interactiveshell.py:3072: DtypeWarning: Columns (19) have mixed types.Specify dtype option on import or set low_memory=False.
   interactivity=interactivity, compiler=compiler, result=result)
 
 </pre></div></div>
@@ -12221,7 +12221,7 @@ Archive:  TF_Information_all_motifs.txt.zip
 <div class="section" id="2.-Define-custom-functions">
 <h1>2. Define custom functions<a class="headerlink" href="#2.-Define-custom-functions" title="Permalink to this headline">¶</a></h1>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -12306,7 +12306,7 @@ Archive:  TF_Information_all_motifs.txt.zip
 <div class="section" id="3.-Pick-up-motif-information-for-one-species-and-save-as-gimmemotif-pfm-file-format.">
 <h1>3. Pick up motif information for one species and save as gimmemotif pfm file format.<a class="headerlink" href="#3.-Pick-up-motif-information-for-one-species-and-save-as-gimmemotif-pfm-file-format." title="Permalink to this headline">¶</a></h1>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -13068,13 +13068,13 @@ Zymoseptoria_tritici
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Pick up motif information for one species and save as gimmemotif pfm file format.</span>
 
-<span class="n">species</span> <span class="o">=</span> <span class="s2">&quot;Danio_rerio&quot;</span>
+<span class="n">species</span> <span class="o">=</span> <span class="s2">&quot;Cavia_porcellus&quot;</span>
 <span class="n">make_motif_file_from_cisbp_data</span><span class="p">(</span><span class="n">pwm_folder_path</span><span class="o">=</span><span class="s2">&quot;pwms&quot;</span><span class="p">,</span> <span class="n">tfinfo_df</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">species</span><span class="o">=</span><span class="n">species</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -13084,15 +13084,15 @@ Zymoseptoria_tritici
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-(6133,)
-(109560, 4) 5298
+(6567,)
+(72445, 4) 5683
 </pre></div></div>
 </div>
 </div>
 <div class="section" id="4.-Check-results">
 <h1>4. Check results<a class="headerlink" href="#4.-Check-results" title="Permalink to this headline">¶</a></h1>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -13107,21 +13107,21 @@ Zymoseptoria_tritici
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 [M00008_2.00_nnnAAww,
- M00045_2.00_GTAAACAA,
+ M00044_2.00_nrTAAACAn,
  M00056_2.00_TAATAAAT,
+ M00060_2.00_nnnTTCnnn,
  M00066_2.00_nsGTTGCyAn,
  M00070_2.00_nrAACAATAnn,
  M00111_2.00_nGCCynnGGs,
  M00112_2.00_CCTsrGGCnA,
  M00113_2.00_nsCCnnAGGs,
- M00114_2.00_nnGCCynnGG,
- M00115_2.00_nnATnAAAn]
+ M00114_2.00_nnGCCynnGG]
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -13143,7 +13143,7 @@ Zymoseptoria_tritici
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -13153,6 +13153,59 @@ Zymoseptoria_tritici
 
 </pre></div>
 </div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ls</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+01_How_to_load_gimmemotifs_motif_data.ipynb
+02_How_to_load_CisBPv2_motif_data.ipynb
+03_How_to_make_custom_motif.ipynb
+04_How_to_prepare_CisBP_custom_motif.ipynb
+05_How_to_prepare_CisBP_custom_motif_Arabidopsis.ipynb
+CisBP_ver2_Cavia_porcellus.motif2factors.txt
+CisBP_ver2_Cavia_porcellus.pfm
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">!</span>rm Cis*
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ls</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+01_How_to_load_gimmemotifs_motif_data.ipynb
+02_How_to_load_CisBPv2_motif_data.ipynb
+03_How_to_make_custom_motif.ipynb
+04_How_to_prepare_CisBP_custom_motif.ipynb
+05_How_to_prepare_CisBP_custom_motif_Arabidopsis.ipynb
+</pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
