@@ -246,16 +246,33 @@
 </div>
 <div class="section" id="id4">
 <h2><a class="reference external" href="https://github.com/cran/rnetcarto/blob/master/src/rgraph/README.md">rnetcarto</a><a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
-<p>Please install <code class="docutils literal notranslate"><span class="pre">rnetcarto</span></code> with the following r-script or <a class="reference external" href="https://github.com/cran/rnetcarto/blob/master/src/rgraph/README.md">the author’s instruction</a> .
-<code class="docutils literal notranslate"><span class="pre">rnetcarto</span></code> requires  <a class="reference external" href="https://www.gnu.org/software/gsl/">the GNU scientific libraries</a> .</p>
-<p>If you use ubuntu, you can install the GNU scientific libraries as follows.</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">rnetcarto</span></code> requires  <a class="reference external" href="https://www.gnu.org/software/gsl/">the GNU scientific libraries</a> .</p></li>
+</ol>
+<blockquote>
+<div><p>Please make sure your computational environment has GNU scientific libraries.
+In short, you can quickly install GNU scientific libraries as follows.</p>
+<p>For Linux users, please run the code below in the terminal.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">libgsl</span><span class="o">-</span><span class="n">dev</span>
 </pre></div>
 </div>
-<p>In R console,</p>
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">install.packages</span><span class="p">(</span><span class="s">&quot;rnetcarto&quot;</span><span class="p">)</span>
+<p>For MacOS users, please run the code below in the terminal.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">brew</span> <span class="n">install</span> <span class="n">gsl</span>
 </pre></div>
 </div>
+<p>For more infoamation about GNU scientific library installation, please look at <a class="reference external" href="https://gist.github.com/TysonRayJones/af7bedcdb8dc59868c7966232b4da903">here</a> .</p>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p><code class="docutils literal notranslate"><span class="pre">rnetcarto</span></code> is temporaliry unavailable through CRAN (at Jan 5 2021).</p></li>
+</ol>
+<blockquote>
+<div><p>But you can install <code class="docutils literal notranslate"><span class="pre">rnetcarto</span></code> with <a class="reference external" href="https://cran.r-project.org/src/contrib/Archive/rnetcarto/">source file</a> .</p>
+<p>In short, please run the code below in R console.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">install.packages</span><span class="p">(</span><span class="s">&quot;https://cran.r-project.org/src/contrib/Archive/rnetcarto/rnetcarto_0.2.4.tar.gz&quot;</span><span class="p">,</span>
+                 <span class="n">repos</span> <span class="o">=</span> <span class="kc">NULL</span><span class="p">,</span> <span class="n">type</span> <span class="o">=</span> <span class="s">&quot;source&quot;</span><span class="p">,</span> <span class="n">configure.args</span> <span class="o">=</span> <span class="s">&#39;--host=host&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
 </div>
 </div>
 
