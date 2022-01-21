@@ -18,7 +18,7 @@
     </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Overview &mdash; celloracle 0.8.4 documentation</title>
+  <title>Overview &mdash; celloracle 0.9.0 documentation</title>
   
 
   
@@ -445,7 +445,7 @@ div.rendered_html tbody tr:hover {
 </style>
 <div class="section" id="Overview">
 <h1>Overview<a class="headerlink" href="#Overview" title="Permalink to this headline">¶</a></h1>
-<p>In this notebook, we will make TSS annotation in the bulk scATAC-seq data to get input data of base-GRN construction.</p>
+<p>In this notebook, we will annotate the transcription starts sites (TSSs) in bulk scATAC-seq data to get the active promoter information for base GRN construction.</p>
 <div class="section" id="Notebook-file">
 <h2>Notebook file<a class="headerlink" href="#Notebook-file" title="Permalink to this headline">¶</a></h2>
 <p>Notebook file is available here. <a class="reference external" href="https://github.com/morris-lab/CellOracle/blob/master/docs/notebooks/01_ATAC-seq_data_processing/option2_Bulk_ATAC-seq_data/01_preprocess_Bulk_ATAC_seq_peak_data.ipynb">https://github.com/morris-lab/CellOracle/blob/master/docs/notebooks/01_ATAC-seq_data_processing/option2_Bulk_ATAC-seq_data/01_preprocess_Bulk_ATAC_seq_peak_data.ipynb</a></p>
@@ -490,8 +490,9 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="1.-Load-input-data">
 <h1>1. Load input data<a class="headerlink" href="#1.-Load-input-data" title="Permalink to this headline">¶</a></h1>
 <p>Import ATAC-seq bed file. This script can also be used with DNase-seq or Chip-seq data.</p>
-<p>Here, we use bulk ATAC-seq data. Please prepare bulk ATAC-seq data as a bed file format.</p>
-<p>You can download the demo file by running the following command: If the file download fails, please manually download and unzip the data.</p>
+<p>Here, we use bulk ATAC-seq data. Please prepare the bulk ATAC-seq data as a bed file format.</p>
+<p>You can download the demo file by running the following command:</p>
+<p>Note: If the file download fails, please manually download and unzip the data.</p>
 <p><a class="reference external" href="https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/bulk_ATAC_seq_peak_data.bed">https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/bulk_ATAC_seq_peak_data.bed</a></p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
@@ -640,7 +641,7 @@ array([&#39;chr1_3002478_3002968&#39;, &#39;chr1_3084739_3085712&#39;,
 </div>
 <div class="section" id="2.-Make-TSS-annotation">
 <h1>2. Make TSS annotation<a class="headerlink" href="#2.-Make-TSS-annotation" title="Permalink to this headline">¶</a></h1>
-<p>IMPORTANT: Please make sure that you are setting the correct ref genome!</p>
+<p>IMPORTANT: Please make sure that you are setting the correct reference genome!</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
@@ -829,7 +830,7 @@ tss peaks in que: 24822
 </pre></div>
 </div>
 </div>
-<p><strong>Please go to next step: Transcriptoin factor motif scan</strong></p>
+<p><strong>Please go to the next step: Transcriptioin factor motif scan</strong></p>
 <p><a class="reference external" href="https://morris-lab.github.io/CellOracle.documentation/tutorials/motifscan.html">https://morris-lab.github.io/CellOracle.documentation/tutorials/motifscan.html</a></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:

@@ -18,7 +18,7 @@
     </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Overview &mdash; celloracle 0.8.4 documentation</title>
+  <title>Overview &mdash; celloracle 0.9.0 documentation</title>
   
 
   
@@ -51,7 +51,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="1. scRNA-seq data preparation" href="../../tutorials/scrnaprocess.html" />
-    <link rel="prev" title="1. in silico gene perturbation with GRNs" href="../../tutorials/simulation.html" /> 
+    <link rel="prev" title="1. In silico gene perturbation with GRNs" href="../../tutorials/simulation.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -109,9 +109,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../../tutorials/index.html#code-and-data-availability">Code and data availability</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../tutorials/index.html#getting-started">Getting started</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../tutorials/index.html#index">Index</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../../tutorials/index.html#grn-model-construction-and-network-analysis">GRN model construction and Network analysis</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../../tutorials/index.html#in-silico-gene-perturbation-with-grns">in silico gene perturbation with GRNs</a><ul class="current">
-<li class="toctree-l4 current"><a class="reference internal" href="../../tutorials/simulation.html">1. in silico gene perturbation with GRNs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/index.html#grn-model-construction-and-network-analysis">GRN model construction and network analysis</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../tutorials/index.html#in-silico-gene-perturbation-with-grns">In silico gene perturbation with GRNs</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="../../tutorials/simulation.html">1. In silico gene perturbation with GRNs</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../tutorials/index.html#prepare-input-data">Prepare input data</a></li>
@@ -183,7 +183,7 @@
         
           <li><a href="../../tutorials/index.html">Tutorial</a> &raquo;</li>
         
-          <li><a href="../../tutorials/simulation.html"><span class="section-number">1. </span>in silico gene perturbation with GRNs</a> &raquo;</li>
+          <li><a href="../../tutorials/simulation.html"><span class="section-number">1. </span>In silico gene perturbation with GRNs</a> &raquo;</li>
         
       <li>Overview</li>
     
@@ -461,40 +461,41 @@ div.rendered_html tbody tr:hover {
 </style>
 <div class="section" id="Overview">
 <h1>Overview<a class="headerlink" href="#Overview" title="Permalink to this headline">¶</a></h1>
-<p>This notebook describes how to do in silico TF perturbation using GRN models. Please read our paper first to know about the CellOracle algorithm.</p>
+<p>This notebook describes how to run in silico TF perturbations with the GRN models. Please read our paper to learn more about the CellOracle algorithm.</p>
 <div class="section" id="Notebook-file">
 <h2>Notebook file<a class="headerlink" href="#Notebook-file" title="Permalink to this headline">¶</a></h2>
 <p>Notebook file is available at CellOracle GitHub. <a class="reference external" href="https://github.com/morris-lab/CellOracle/blob/master/docs/notebooks/05_simulation/Gata1_KO_simulation_with_Paul_etal_2015_data.ipynb">https://github.com/morris-lab/CellOracle/blob/master/docs/notebooks/05_simulation/Gata1_KO_simulation_with_Paul_etal_2015_data.ipynb</a></p>
 </div>
 <div class="section" id="Data">
 <h2>Data<a class="headerlink" href="#Data" title="Permalink to this headline">¶</a></h2>
-<p>In this notebook, CellOracle uses two input data below for the GRN model construction.</p>
+<p>In this notebook, CellOracle uses two types of input data.</p>
 <ul class="simple">
-<li><p><strong>Input data1: Oracle object</strong>. Please look at the previous notebook to know how to make a <code class="docutils literal notranslate"><span class="pre">Oracle</span></code> object from scRNA-seq. <a class="reference external" href="https://morris-lab.github.io/CellOracle.documentation/notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html">https://morris-lab.github.io/CellOracle.documentation/notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html</a></p></li>
+<li><p><strong>Input data 1: Oracle object</strong>. Please look at the previous notebook to learn how to make an <code class="docutils literal notranslate"><span class="pre">Oracle</span></code> object from scRNA-seq. <a class="reference external" href="https://morris-lab.github.io/CellOracle.documentation/notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html">https://morris-lab.github.io/CellOracle.documentation/notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.html</a></p></li>
 </ul>
-<p>In this tutorial, we use demo data made from hematopoiesis scRNA-seq data. We can load the demo <code class="docutils literal notranslate"><span class="pre">Oracle</span></code> object as follows.</p>
+<p>In this tutorial, we will use the mouse hematopoiesis demo data (Paul et al., 2015). We can load the demo <code class="docutils literal notranslate"><span class="pre">Oracle</span></code> object using the command below.</p>
 <p><code class="docutils literal notranslate"><span class="pre">oracle</span> <span class="pre">=</span> <span class="pre">co.data.load_tutorial_oracle_object()</span></code></p>
 <ul class="simple">
-<li><p><strong>Input data2: Links object</strong>. <code class="docutils literal notranslate"><span class="pre">Links</span></code> object is a class to store GRN data. We need GRN models stored as a <code class="docutils literal notranslate"><span class="pre">Links</span></code> object for simulation. In this tutorial, we use demo GRNs made from hematopoiesis scRNA-seq data and mouse sciATAC-seq atlas base-GRN. We can load the demo <code class="docutils literal notranslate"><span class="pre">Links</span></code> object as follows.</p></li>
+<li><p><strong>Input data 2: Links object</strong>. The <code class="docutils literal notranslate"><span class="pre">Links</span></code> oobject stores the GRN data used in the simulations. In this tutorial, we use demo GRNs calculated from the hematopoiesis scRNA-seq data above and one of the mouse sci-ATAC-seq atlas base GRNs. We can load the demo <code class="docutils literal notranslate"><span class="pre">Links</span></code> object with this command.</p></li>
 </ul>
 <p><code class="docutils literal notranslate"><span class="pre">links</span> <span class="pre">=</span> <span class="pre">co.data.load_tutorial_links_object()</span></code></p>
 </div>
 <div class="section" id="What-you-can-do">
 <h2>What you can do<a class="headerlink" href="#What-you-can-do" title="Permalink to this headline">¶</a></h2>
-<p>In this notebook, we perform two analyzes.</p>
+<p>In this notebook, we perform two analyses.</p>
 <ol class="arabic simple">
-<li><p><strong>in silico TF perturbation</strong> to simulate cell identity shift. CellOracle uses the GRN model to simulate cell identity shift in response to TF perturbation. For this analysis, you need to construct GRN models in this notebook first.</p></li>
-<li><p><strong>Compare simulation vector with development vectors</strong>. In order to properly interpret the simulation results, it is very important to consider the natural direction of development. First, I will show you how to get a pseudo-time gradient vector field that represents the direction of development. Then, we compare the CellOracle TF perturbation simulation vector field with the development vector field by calculating the inner product score. See below for more information.</p></li>
+<li><p><strong>in silico TF perturbation</strong> to simulate cell identity shifts. CellOracle uses the GRN model to simulate cell identity shifts in response to TF perturbations. For this analysis, you will need the GRN models from the previous notebook.</p></li>
+<li><p><strong>Compare simulation vectors with developmental vectors</strong>. In order to properly interpret the simulation results, it is also important to consider the natural direction of development. First, we will calculate a pseudotime gradient vector field to recapitulate the developmental flow. Then, we will compare the CellOracle TF perturbation vector field with the developmental vector field by calculating the inner product scores. Let’s call the inner product value as <strong>perturbation score (PS)</strong>.
+Please see the <strong>step 5.6</strong> for detail.</p></li>
 </ol>
 </div>
 <div class="section" id="Custom-data-class-/-object">
 <h2>Custom data class / object<a class="headerlink" href="#Custom-data-class-/-object" title="Permalink to this headline">¶</a></h2>
 <p>In this notebook, CellOracle uses four custom classes, <code class="docutils literal notranslate"><span class="pre">Oracle</span></code>, <code class="docutils literal notranslate"><span class="pre">Links</span></code>, <code class="docutils literal notranslate"><span class="pre">Gradient_calculator</span></code>, and <code class="docutils literal notranslate"><span class="pre">Oracle_development_module</span></code>.</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Oracle</span></code> is the main class in the CellOracle package. It will do almost all calculations of GRN model construction and TF perturbation simulation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Oracle</span></code> is the main class in the CellOracle package. It is responsible for most of the calculations during GRN model construction and TF perturbation simulations.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Links</span></code> is a class to store GRN data.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Gradient_calculator</span></code> calculates development vector field using pseudotime information. We need the pseudotime data for this calculation. Please see another notebook how to get pseudotime data.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Oracle_development_module</span></code> integrates <code class="docutils literal notranslate"><span class="pre">Oracle</span></code> object data and <code class="docutils literal notranslate"><span class="pre">Gradient_calculator</span></code> object data to analyze how TF perturbation affects on the developmental process. It have many visualization functions.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Gradient_calculator</span></code> calculates the developmental vector field from the pseudotime results. If you do not have pseudotime data for your trajectory, please see the pseudotime notebook to calculate this information. <a class="reference external" href="https://morris-lab.github.io/CellOracle.documentation/tutorials/pseudotime.html">https://morris-lab.github.io/CellOracle.documentation/tutorials/pseudotime.html</a></p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Oracle_development_module</span></code> integrates the <code class="docutils literal notranslate"><span class="pre">Oracle</span></code> object data and the <code class="docutils literal notranslate"><span class="pre">Gradient_calculator</span></code> object data to analyze how TF perturbation affects on the developmental process. It also has many visualization functions.</p></li>
 </ul>
 </div>
 </div>
@@ -518,7 +519,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<p>This notebook was made with celloracle version 0.7.0. Please use celloracle&gt;=0.7.0. Otherwise you may get an error.</p>
+<p>This notebook was made with celloracle version 0.9.0. <strong>Please use celloracle&gt;=0.9.0.</strong> Otherwise, you may get an error.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
@@ -535,7 +536,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&#39;0.7.0&#39;
+&#39;0.9.0&#39;
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -566,17 +567,18 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="1.-Load-data">
 <h1>1. Load data<a class="headerlink" href="#1.-Load-data" title="Permalink to this headline">¶</a></h1>
-<p>Load the oracle object. See the previous notebook for the notes on how to prepare the oracle object.</p>
+<p>Load the oracle object. See the previous notebook for information on initializing an <code class="docutils literal notranslate"><span class="pre">Oracle</span></code> object.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># oracle = co.load_hdf5(&quot;ORACLE OBJECT PATH&quot;)</span>
-
-<span class="c1"># Here, we load tutorial oracle object.</span>
+<span></span><span class="c1"># Load the tutorial oracle object.</span>
 <span class="n">oracle</span> <span class="o">=</span> <span class="n">co</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">load_tutorial_oracle_object</span><span class="p">()</span>
 <span class="n">oracle</span>
+
+<span class="c1"># Attention!! Please use the function below when you use your data.</span>
+<span class="c1"># oracle = co.load_hdf5(&quot;ORACLE OBJECT PATH&quot;)</span>
 </pre></div>
 </div>
 </div>
@@ -607,23 +609,24 @@ Status
     GRN calculation for simulation: Not finished
 </pre></div></div>
 </div>
-<p>In the previous notebook, we calculated GRNs. Now, we will use these GRNs for simulation. We import GRNs which were saved in the Links object.</p>
+<p>In the previous notebook, we calculated the GRNs. Now, we will use these GRNs for the perturbation simulations. First, we will import the GRNs from the <code class="docutils literal notranslate"><span class="pre">Links</span></code> object.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># links = co.load_hdf5(&quot;YOUR LINK OBJCT PATH&quot;)</span>
-
-<span class="c1"># Here, we load demo links object for the training purpose.</span>
+<span></span><span class="c1"># Here, we load demo links object for the training purpose.</span>
 <span class="n">links</span> <span class="o">=</span> <span class="n">co</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">load_tutorial_links_object</span><span class="p">()</span>
+
+<span class="c1"># Attention!! Please use the function below when you use your data.</span>
+<span class="c1"># links = co.load_hdf5(&quot;YOUR LINK OBJCT PATH&quot;)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="2.-Make-predictive-models-for-simulation">
 <h1>2. Make predictive models for simulation<a class="headerlink" href="#2.-Make-predictive-models-for-simulation" title="Permalink to this headline">¶</a></h1>
-<p>We will fit ridge regression models again. This process takes less time than the GRN inference in the previous notebook because we use already filtered GRN models.</p>
+<p>Here, we will need to fit the ridge regression models again. This process will take less time than the GRN inference in the previous notebook, because we are using the filtered GRN models.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
@@ -639,153 +642,153 @@ Status
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "5db6cb2ffc724fc9afd3f66bd8c9dfcc", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "ea8d6357b6fd46488e058eec5891e07f", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "8b57c58e91484670b3dff8465a7a2304", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "28e07892f27a45d58dd360539c2219a4", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "e9d96a8444ef47a6869bd9054c8e00ec", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "96802bf70fba408fb1546abb3ad10b39", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "1ff78d6b3a5143cca5edabd754385dee", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "c3f320b227434c23a83adfbd86e01c5d", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "e4db661140ea475fa77af32922b444fb", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "b30b757517ec4ce69e38a16460a49502", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "376c501e49de4c82a19982c86373bc5c", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "cbd11588f133475588b8d0f34ebf00f2", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "990895d8651c4928a18c85aa30aac829", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "cbfe3abb83ad4bd680c1516b9be2e534", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "a808375145874b68868ccb71ba4d3f1d", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "2c23ec8ce6a644b3a978c15f4fb23dd5", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "f1fb1199e9104238a6cacd5a5e3743a4", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "557862f0029c493e8f802c206c8c7d64", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "b2b421ddf744430c9332549f6d4bdd48", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "7bbf2b2398e641a693a7a68b758389bf", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "09760a26b823485bb76b3c078c27729b", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "e1887ecf5a834da4bdb8754d1bb83047", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "4b09a766183e4c8bbddb854df4c1fc23", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "e877ddc4d6dd4823a50611f9d72911bf", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "cbacac95ff144227be9ec3dc68e7fc9b", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "ba2081340dce4517bd8591a34266b521", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "4bf03ee336db422f986513b808be2a59", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "8b189b986063402589869926d6098805", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "a38a70f113864e6eb0389f1b584bc730", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "bc5d9a8409d341d7b8a2bd851de0cdd3", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "3fa8962daac54bd5b86a6ee50516b1cd", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "2f57ab2b13004a33a9aa4db800275a26", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "29bb4d2ffd98408e888b3aa45e8c5eea", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "5acff084b33f4601b17c62e96177d664", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "b999d375d2874ab8929be96a560e859d", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "b726f23502c54190875593d4bf1923db", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "8848d5a9d4c2422198845d6b6c82efcf", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "5638cc99a913411e89239bb994b19cb5", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "168bc47205dc4d57a1150d0564bccd09", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "a9f31728e35b45c4b2a814ad05e59123", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "39d731532c5a4fb6820d8e6d7a59fa9e", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "6cf506ded9384e88bb4818db64b94794", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "0831fde9c5154497830425230106f195", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "6747a17a88e74c4eb799b58aa5bb02be", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "d224cf5e0a644f3c88df1f3d1340989f", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "4f99b326f8804872be4a1339cf1fbdb9", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "e4c7173cc1094fd3bc40e842cd00f9e1", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "02b6519589af463f90a5c51f87858964", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 </div>
-<div class="section" id="3.-in-silico-TF-Perturbation-analysis">
-<h1>3. in silico TF Perturbation analysis<a class="headerlink" href="#3.-in-silico-TF-Perturbation-analysis" title="Permalink to this headline">¶</a></h1>
-<p>Next, we will simulate the TF perturbation effects on cell identity to investigate its function and regulatory mechanism. See the celloracle paper for the details and scientific premise on the algorithm.</p>
-<p>In this notebook, we’ll show an example of the simulation; we’ll simulate knock-out of Gata1 gene in the hematopoiesis trajectory.</p>
+<div class="section" id="3.-In-silico-TF-perturbation-analysis">
+<h1>3. In silico TF perturbation analysis<a class="headerlink" href="#3.-In-silico-TF-perturbation-analysis" title="Permalink to this headline">¶</a></h1>
+<p>Next, we will simulate the TF perturbation effects on cell identity to investigate its potential functions and regulatory mechanisms. Please see the CellOracle paper for more details on scientific rationale.</p>
+<p>In this notebook, we will simulate the knockout of the Gata1 gene in the hematopoiesis trajectory.</p>
 <p>Previous studies have shown that Gata1 is one of the TFs that regulates cell fate decisions in myeloid progenitors. Additionally, Gata1 has been shown to affect erythroid cell differentiation.</p>
-<p>Here, we will analyze Gata1 for the demonstration of celloracle; Celloracle try to recapitulate the previous findings of Gata1 gene above.</p>
+<p>Here, we will use CellOracle to analyze Gata1 and attempt to recapitulate the previous findings from above.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
@@ -802,7 +805,7 @@ Status
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_17_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_17_0.png" style="width: 941px; height: 265px;" />
+<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_17_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_17_0.png" style="width: 940px; height: 265px;" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -824,10 +827,10 @@ Status
 </div>
 </div>
 <ul class="simple">
-<li><p>You can use any gene expression value to enter in silico perturbations, but please avoid extremely high values that are far from the natural gene expression range. The upper limit allowed is twice the maximum gene expression.</p></li>
+<li><p>You can use any gene expression value in the in silico perturbations, but please avoid extremely high values that are far from the natural gene expression range. The upper limit allowed is twice the maximum gene expression.</p></li>
 </ul>
-<p>Here we simulate Gata1 KO; we predict what happens to the cells if Gata1 gene expression changed into 0.</p>
-<div class="nbinput docutils container">
+<p>To simulate Gata1 KO, we will set Gata1 expression to 0.</p>
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
@@ -838,17 +841,9 @@ Status
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Variability score of Gene Gata1 is too low. Simulation accuracy may be poor with this gene.
-</pre></div></div>
-</div>
 <ul class="simple">
-<li><p>The steps above simulated global future gene expression shift after perturbation. This prediction is based on iterative calculations of signal propagation within the GRN. Please look at our paper for more information.</p></li>
-<li><p>The next step is to calculate the probability of cell state transitions based on the simulation data. You can use the transition probabilities between cells to predict how cells will change after a perturbation.</p></li>
+<li><p>The steps above simulated tge global future gene expression shift after perturbation. This prediction is based on iterative calculations of signal propagation calculations within the GRN. Please look at our paper for more information.</p></li>
+<li><p>The next step calculates the probability of cell state transitions based on the simulation data. You can use the transition probabilities between cells to predict how cells will change after a perturbation.</p></li>
 <li><p>This transition probability will be used later.</p></li>
 </ul>
 <div class="nbinput nblast docutils container">
@@ -862,25 +857,25 @@ Variability score of Gene Gata1 is too low. Simulation accuracy may be poor with
                                 <span class="n">sampled_fraction</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="c1"># Calculate embedding</span>
-<span class="n">oracle</span><span class="o">.</span><span class="n">calculate_embedding_shift</span><span class="p">(</span><span class="n">sigma_corr</span> <span class="o">=</span> <span class="mf">0.05</span><span class="p">)</span>
+<span class="n">oracle</span><span class="o">.</span><span class="n">calculate_embedding_shift</span><span class="p">(</span><span class="n">sigma_corr</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="4.-Visualization">
 <h1>4. Visualization<a class="headerlink" href="#4.-Visualization" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="Caution:-It-is-very-important-to-find-optimal-scale-parameter.">
-<h2>Caution: It is very important to find optimal <code class="docutils literal notranslate"><span class="pre">scale</span></code> parameter.<a class="headerlink" href="#Caution:-It-is-very-important-to-find-optimal-scale-parameter." title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Caution:-It-is-very-important-to-find-the-optimal-scale-parameter.">
+<h2>Caution: It is very important to find the optimal <code class="docutils literal notranslate"><span class="pre">scale</span></code> parameter.<a class="headerlink" href="#Caution:-It-is-very-important-to-find-the-optimal-scale-parameter." title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>We need to adjust the <code class="docutils literal notranslate"><span class="pre">scale</span></code> parameter. Please seek to find the optimal <code class="docutils literal notranslate"><span class="pre">scale</span></code> parameter that provides good visualization.</p></li>
-<li><p>If you don’t see any vector, you can try the smaller <code class="docutils literal notranslate"><span class="pre">scale</span></code> parameter to magnify vector length. However, if you see large vectors in the right panel, which is a randomized simulation, it means that the scale parameters are too small.</p></li>
+<li><p>We will need to adjust the <code class="docutils literal notranslate"><span class="pre">scale</span></code> parameter. Please seek to find the optimal <code class="docutils literal notranslate"><span class="pre">scale</span></code> parameter for the data based on your data.</p></li>
+<li><p>If the vectors are not visible, you can try a smaller <code class="docutils literal notranslate"><span class="pre">scale</span></code> parameter to magnify the vector length. However, if you see large vectors in the randomized simulation (right panel), it means that the scale parameter is too small.</p></li>
 </ul>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span>  <span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span>
+<span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span>  <span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">13</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
 
 <span class="n">scale</span> <span class="o">=</span> <span class="mi">25</span>
 <span class="c1"># Show quiver plot</span>
@@ -899,30 +894,30 @@ Variability score of Gene Gata1 is too low. Simulation accuracy may be poor with
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_25_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_25_0.png" style="width: 851px; height: 410px;" />
+<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_25_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_25_0.png" style="width: 739px; height: 356px;" />
 </div>
 </div>
 <div class="section" id="4.2.-Vector-field-graph">
 <h3>4.2. Vector field graph<a class="headerlink" href="#4.2.-Vector-field-graph" title="Permalink to this headline">¶</a></h3>
-<p>We can visualize simulation result as a vector field graph. Single cell transition vectors are grouped by grid point.</p>
+<p>We will visualize the simulation results as a vector field on a digitized grid. Single cell transition vectors are grouped by grid point.</p>
 </div>
 </div>
 <div class="section" id="4.2.1-Find-parameters-for-n_grid-and-min_mass">
 <h2>4.2.1 Find parameters for n_grid and min_mass<a class="headerlink" href="#4.2.1-Find-parameters-for-n_grid-and-min_mass" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">n_grid</span></code>: Number of grid point.</p>
-<p><code class="docutils literal notranslate"><span class="pre">min_mass</span></code>: Threshold value for the cell density The appropriate values for these parameters depends on the data. Please find appropriate values as follows.</p>
+<p><code class="docutils literal notranslate"><span class="pre">n_grid</span></code>: Number of grid points.</p>
+<p><code class="docutils literal notranslate"><span class="pre">min_mass</span></code>: Threshold value for the cell density. The appropriate values for these parameters depends on the data. Please find appropriate values using the helper functions below.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># n_grid = 40 is a good point to start with.</span>
+<span></span><span class="c1"># n_grid = 40 is a good starting value.</span>
 <span class="n">n_grid</span> <span class="o">=</span> <span class="mi">40</span>
 <span class="n">oracle</span><span class="o">.</span><span class="n">calculate_p_mass</span><span class="p">(</span><span class="n">smooth</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">n_grid</span><span class="o">=</span><span class="n">n_grid</span><span class="p">,</span> <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<p>Please run <code class="docutils literal notranslate"><span class="pre">oracle.suggest_mass_thresholds()</span></code>to find appropriate <code class="docutils literal notranslate"><span class="pre">min_mass</span></code> parameter. It will give you some examples.</p>
+<p>Please run <code class="docutils literal notranslate"><span class="pre">oracle.suggest_mass_thresholds()</span></code> to display a range of <code class="docutils literal notranslate"><span class="pre">min_mass</span></code> parameter values and choose a value to fit the data.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
@@ -940,7 +935,7 @@ Variability score of Gene Gata1 is too low. Simulation accuracy may be poor with
 <img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_29_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_29_0.png" style="width: 1130px; height: 845px;" />
 </div>
 </div>
-<p>According to the results, the appropriate <code class="docutils literal notranslate"><span class="pre">min_mass</span></code> is around 0.011.</p>
+<p>According to the results, the optimal <code class="docutils literal notranslate"><span class="pre">min_mass</span></code> is around 0.011.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
@@ -963,14 +958,14 @@ Variability score of Gene Gata1 is too low. Simulation accuracy may be poor with
 <h2>4.2.2 Plot vector fields<a class="headerlink" href="#4.2.2-Plot-vector-fields" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Again, we need to adjust the <code class="docutils literal notranslate"><span class="pre">scale</span></code> parameter. Please seek to find the optimal <code class="docutils literal notranslate"><span class="pre">scale</span></code> parameter that provides good visualization.</p></li>
-<li><p>If you don’t see any vector, you can try the smaller <code class="docutils literal notranslate"><span class="pre">scale</span></code> parameter to magnify vector length. However, if you see large vectors in the right panel, which is a randomized simulation, it means that the scale parameters are too small.</p></li>
+<li><p>If you don’t see any vector, you can try the smaller <code class="docutils literal notranslate"><span class="pre">scale</span></code> parameter to magnify the vector length. However, if you see large vectors in the randomized simulation (right panel), it means the scale parameter is too small.</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span>  <span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span>
+<span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span>  <span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">13</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
 
 <span class="n">scale_simulation</span> <span class="o">=</span> <span class="mf">0.5</span>
 <span class="c1"># Show quiver plot</span>
@@ -989,11 +984,11 @@ Variability score of Gene Gata1 is too low. Simulation accuracy may be poor with
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_33_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_33_0.png" style="width: 851px; height: 410px;" />
+<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_33_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_33_0.png" style="width: 739px; height: 356px;" />
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1017,23 +1012,22 @@ Variability score of Gene Gata1 is too low. Simulation accuracy may be poor with
 <div class="section" id="5.-Compare-simulation-vector-with-development-vectors">
 <h1>5. Compare simulation vector with development vectors<a class="headerlink" href="#5.-Compare-simulation-vector-with-development-vectors" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
-<li><p>As shown above, we can use celloracle’s simulation to infer how TF perturbations affect cell identity. The simulation results are provided in the form of a vector field map.</p></li>
-<li><p>To interpret the results, it is necessary to take into account the direction of natural differentiation. We will compare the simulated perturbation vectors with the development vector. By comparing them, we can intuitively understand how TF is involved in cell fate determination during development. This perspective is also important for the estimation of experimental perturbation results</p></li>
-<li><p>Here, we show an example to calculate the vector field of development using <strong>pseudotime gradient</strong>. In short, the process is as follows.</p></li>
+<li><p>As shown above, we can simulate how TF perturbations affect cell identity and visualize the results as a vector field map.</p></li>
+<li><p>To interpret the results, it is necessary to take into account the direction of natural differentiation. We will compare the simulated perturbation vectors with the developmental gradient vectors. By comparing them, we can intuitively understand how TFs impact cell fate determination during development. This perspective is also important for estimating the experimental perturbation results.</p></li>
+<li><p>Here, we will calculate the development vector field using <strong>pseudotime gradient</strong> as follows.</p></li>
 </ul>
 <ol class="arabic simple">
-<li><p>Transfer <strong>pseudotime data</strong> into n x n grid point.</p></li>
-<li><p>Calculate the 2D gradient of pseudotime to get vector field</p></li>
-<li><p>Compare in silico TF perturbation vector field with development vector field by calculating inner product between these two vectors.</p></li>
+<li><p>Transfer the <strong>pseudotime data</strong> into an n x n digitized grid.</p></li>
+<li><p>Calculate the 2D gradient of pseudotime to get vector field.</p></li>
+<li><p>Compare the in silico TF perturbation vector field with the development vector field by calculating inner product between these two vectors.</p></li>
 </ol>
 <ul class="simple">
-<li><p>Also, there are many other options to get vector field of development flow from scRNA-seq data, and you can select another option. For example, RNA velocity analysis is a good way to estimate the direction of cell differentiation. Choose the method that best suits your data.</p></li>
+<li><p>Note: Other methods may be used to represent a continuous scRNA-seq trajectory flow. For example, RNA velocity analysis is a good way to estimate the direction of cell differentiation. Choose the method that best suits your data.</p></li>
 </ul>
-<p>In the analysis below, we need to use <strong>pseudotime</strong> data. Pseudotime data is included in the demo data. <strong>If you try to analyze your scRNA-seq data, please calculate pseudotime before starting this analysis.</strong></p>
-<p>We provide a tutorial notebook introducing how to calculate pseudotime. <a class="reference external" href="https://morris-lab.github.io/CellOracle.documentation/tutorials/pseudotime.html">https://morris-lab.github.io/CellOracle.documentation/tutorials/pseudotime.html</a></p>
-<p>We use pseudotime data for an input of this analysis. Pleas calculate continuous pseudotime in advance. Please look at another notebook for details on how to calculate pseudotime.</p>
+<p>In the analysis below, we will use <strong>pseudotime</strong> data. Pseudotime data is included in the demo data. <strong>If you are analyzing your own scRNA-seq data, please calculate pseudotime before starting this analysis.</strong></p>
+<p>Refer to the following link below to see an example about calculating pseudotime for scRNA-seq data. <a class="reference external" href="https://morris-lab.github.io/CellOracle.documentation/tutorials/pseudotime.html">https://morris-lab.github.io/CellOracle.documentation/tutorials/pseudotime.html</a></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1053,7 +1047,7 @@ Variability score of Gene Gata1 is too low. Simulation accuracy may be poor with
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1064,10 +1058,10 @@ Variability score of Gene Gata1 is too low. Simulation accuracy may be poor with
 </pre></div>
 </div>
 </div>
-<p>We need to select <code class="docutils literal notranslate"><span class="pre">n_grid</span></code> and <code class="docutils literal notranslate"><span class="pre">min_mass</span></code> to make grid point. <code class="docutils literal notranslate"><span class="pre">n_grid</span></code>: Number of grid point.</p>
+<p>We need to set <code class="docutils literal notranslate"><span class="pre">n_grid</span></code> and <code class="docutils literal notranslate"><span class="pre">min_mass</span></code> for the pseudotime grid point calculation too. <code class="docutils literal notranslate"><span class="pre">n_grid</span></code>: Number of grid point.</p>
 <p>We already know approproate values for them. Please set the same values as step 4.2.1 above.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1083,18 +1077,18 @@ Variability score of Gene Gata1 is too low. Simulation accuracy may be poor with
 <img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_42_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_42_0.png" style="width: 293px; height: 301px;" />
 </div>
 </div>
-<p>Next, we will transfer pseudotime data into grid points. For this calculation we can chose two method.</p>
+<p>Next, we convert the pseudotime data into grid points. For this calculation we can chose one of two methods.</p>
 <ul class="simple">
-<li><p>knn: K-Nearesr Neighbor regressor. You need to set number of neighbor. Please adjust <code class="docutils literal notranslate"><span class="pre">n_knn</span></code> searching for best results.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">knn</span></code>: K-Nearesr Neighbor regression. You will need to set number of neighbors. Please adjust <code class="docutils literal notranslate"><span class="pre">n_knn</span></code> for best results.This will depend on the population size and density of your scRNA-seq data.</p></li>
 </ul>
 <p><code class="docutils literal notranslate"><span class="pre">gradient.transfer_data_into_grid(args={&quot;method&quot;:</span> <span class="pre">&quot;knn&quot;,</span> <span class="pre">&quot;n_knn&quot;:50})</span></code></p>
 <ul class="simple">
-<li><p>polynomial: Polynomial regression using x-axis and y-axis of dimensional reduction space.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">polynomial</span></code>: Polynomial regression using x-axis and y-axis of dimensional reduction space.</p></li>
 </ul>
-<p>In general, this method will be more robust. Please use this method if k-nn does not work. <code class="docutils literal notranslate"><span class="pre">n_poly</span></code> is the number of degree for the polynomial regression model. Please try to find appropriate<code class="docutils literal notranslate"><span class="pre">n_poly</span></code> searching for best results.</p>
+<p>In general, this method will be more robust. Please use this method if knn method does not work. <code class="docutils literal notranslate"><span class="pre">n_poly</span></code> is the number of degrees for the polynomial regression model. Please try to find appropriate<code class="docutils literal notranslate"><span class="pre">n_poly</span></code> searching for best results.</p>
 <p><code class="docutils literal notranslate"><span class="pre">gradient.transfer_data_into_grid(args={&quot;method&quot;:</span> <span class="pre">&quot;polynomial&quot;,</span> <span class="pre">&quot;n_poly&quot;:3})</span></code></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1109,10 +1103,10 @@ Variability score of Gene Gata1 is too low. Simulation accuracy may be poor with
 <img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_45_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_45_0.png" style="width: 572px; height: 301px;" />
 </div>
 </div>
-<p>Calculate 2D vector map that represents the gradient of pseudotime. After the gradient calculation, the length of the vector will be normalized automatically.</p>
-<p>Please adjust <code class="docutils literal notranslate"><span class="pre">scale</span></code> parameter to adjust vector length.</p>
+<p>Calculate the 2D vector map to represents the pseudotime gradient. After the gradient calculation, the length of the vector will be normalized automatically.</p>
+<p>Please adjust the <code class="docutils literal notranslate"><span class="pre">scale</span></code> parameter to adjust vector length visualization.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1133,7 +1127,7 @@ Variability score of Gene Gata1 is too low. Simulation accuracy may be poor with
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1160,21 +1154,24 @@ Variability score of Gene Gata1 is too low. Simulation accuracy may be poor with
 </pre></div>
 </div>
 </div>
-<p>We will use the inner product to compare the 2D vector map of perturb-simulation and development quantitatively. &gt; If you are not familiar with Inner product / Dot product, please see <a class="reference external" href="https://en.wikipedia.org/wiki/Dot_product">https://en.wikipedia.org/wiki/Dot_product</a></p>
+<p>We will use the inner product calculations to quantitatively compare the 2D developmental flow and perturbation simulation vectors. &gt; If you are not familiar with Inner product / Dot product, please see <a class="reference external" href="https://en.wikipedia.org/wiki/Dot_product">https://en.wikipedia.org/wiki/Dot_product</a></p>
 <ul class="simple">
-<li><p>The inner product represents the similarity between two vectors.</p></li>
+<li><p><strong>The inner product represents the similarity between two vectors.</strong></p></li>
 <li><p>Using the inner product, we compare the 2D vector field of perturbation simulation and development flow.</p></li>
-<li><p>Inner product can be a positive value when two vectors are pointing in the same direction.</p></li>
-<li><p>Inner product can be a negative value when two vectors are pointing in the opposite direction.</p></li>
+<li><p>The inner product will be a positive value when two vectors are pointing in the same direction.</p></li>
+<li><p>Conversely, the inner product will be a negative value when two vectors are pointing in the opposing directions.</p></li>
 </ul>
-<p><img alt="a41bd569675241a0a1170c10246d58f7" src="https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/innerproduct_explantion_1.png" /></p>
+<p><img alt="52f9722cdcb540f789c9e09ba2e8b3ff" src="https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/innerproduct_explantion_1.png" /></p>
 <ul class="simple">
-<li><p>The length of vector also affects the absolute value of inner product value.</p></li>
+<li><p>The length of the vectors also affects the magnitude of inner product value.</p></li>
 </ul>
-<p><img alt="e4d4384fef3f4ad7bd707a0a8b2e098e" src="https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/innerproduct_explantion_2.png" /></p>
-<p>In summary, - <strong>a negative inner product</strong> means that perturbation might <strong>block differentiation</strong>. - <strong>a positive inner product</strong> means that perturbation might <strong>promote differentiation</strong>.</p>
+<p>In summary, we quantitatively compare the directionality and size of vectors between perturbation simulation and natural differentiation using inner product, and we define the score as <strong>perturbation score (PS)</strong>.</p>
+<ul class="simple">
+<li><p><strong>A negative PS</strong> means that the TF perturbation would <strong>block differentiation</strong>.</p></li>
+<li><p><strong>A positive PS</strong> means that the TF perturbation would <strong>promote differentiation</strong>.</p></li>
+</ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1197,7 +1194,7 @@ Variability score of Gene Gata1 is too low. Simulation accuracy may be poor with
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1218,11 +1215,11 @@ Variability score of Gene Gata1 is too low. Simulation accuracy may be poor with
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Show inner product score</span>
+<span></span><span class="c1"># Show perturbation scores</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
 <span class="n">dev</span><span class="o">.</span><span class="n">plot_inner_product_on_grid</span><span class="p">(</span><span class="n">vm</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
 </pre></div>
@@ -1236,11 +1233,11 @@ Variability score of Gene Gata1 is too low. Simulation accuracy may be poor with
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Show inner product score with perturbation simulation vector field</span>
+<span></span><span class="c1"># Show perturbation scores with perturbation simulation vector field</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
 <span class="n">dev</span><span class="o">.</span><span class="n">plot_inner_product_on_grid</span><span class="p">(</span><span class="n">vm</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
 <span class="n">dev</span><span class="o">.</span><span class="n">plot_simulation_flow_on_grid</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="n">scale_simulation</span><span class="p">,</span> <span class="n">show_background</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
@@ -1257,20 +1254,19 @@ Variability score of Gene Gata1 is too low. Simulation accuracy may be poor with
 </div>
 <div class="section" id="6.-Focus-on-a-single-development-lineage-to-interpret-the-results-in-detail">
 <h1>6. Focus on a single development lineage to interpret the results in detail<a class="headerlink" href="#6.-Focus-on-a-single-development-lineage-to-interpret-the-results-in-detail" title="Permalink to this headline">¶</a></h1>
-<p>So far, we have used <code class="docutils literal notranslate"><span class="pre">Oracle_development_module</span></code> to analyze the whole cell population. If you input the index for the cells of interest, Oracle_development_module will analyze subset data.</p>
-<p>In this example, let’s analyze MEP and its progenies.</p>
+<p>So far, we have used the <code class="docutils literal notranslate"><span class="pre">Oracle_development_module</span></code> to analyze the whole cell population. However, the <code class="docutils literal notranslate"><span class="pre">Oracle_development_module</span></code> can also analyze specific subpopulations.</p>
+<p>In this example, we will analyze the MEP lineage.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-
 <span></span><span class="c1"># Get cell index list for the cells of interest</span>
 <span class="n">clusters</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Ery_0&#39;</span><span class="p">,</span> <span class="s1">&#39;Ery_1&#39;</span><span class="p">,</span> <span class="s1">&#39;Ery_2&#39;</span><span class="p">,</span> <span class="s1">&#39;Ery_3&#39;</span><span class="p">,</span> <span class="s1">&#39;Ery_4&#39;</span><span class="p">,</span> <span class="s1">&#39;Ery_5&#39;</span><span class="p">,</span> <span class="s1">&#39;Ery_6&#39;</span><span class="p">,</span>
             <span class="s1">&#39;Ery_7&#39;</span><span class="p">,</span> <span class="s1">&#39;Ery_8&#39;</span><span class="p">,</span> <span class="s1">&#39;Ery_9&#39;</span><span class="p">,</span> <span class="s1">&#39;MEP_0&#39;</span><span class="p">,</span> <span class="s1">&#39;Mk_0&#39;</span><span class="p">]</span>
 <span class="n">cell_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">oracle</span><span class="o">.</span><span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s2">&quot;louvain_annot&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">clusters</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
 
-<span class="c1"># Check</span>
+<span class="c1"># Check index</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">cell_idx</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1284,7 +1280,7 @@ Variability score of Gene Gata1 is too low. Simulation accuracy may be poor with
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1299,14 +1295,14 @@ Variability score of Gene Gata1 is too low. Simulation accuracy may be poor with
                                  <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Lineage_MEP&quot;</span> <span class="c1"># Name of this cell group. You can enter arbitrary name.</span>
                                  <span class="p">)</span>
 
-<span class="c1"># Calculate stats</span>
+<span class="c1"># Calculation</span>
 <span class="n">dev</span><span class="o">.</span><span class="n">calculate_inner_product</span><span class="p">()</span>
 <span class="n">dev</span><span class="o">.</span><span class="n">calculate_digitized_ip</span><span class="p">(</span><span class="n">n_bins</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1326,13 +1322,35 @@ Variability score of Gene Gata1 is too low. Simulation accuracy may be poor with
 <img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_59_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_59_0.png" style="width: 1130px; height: 794px;" />
 </div>
 </div>
+<p><strong>Attention: We have changed the default color scheme for the perturbation score visualization at CellOracle = 0.9.0.</strong> If you would like to use the previous blue and red color scheme, please run the following command to change the color scheme.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>
+<span></span><span class="kn">from</span> <span class="nn">celloracle.visualizations.config</span> <span class="kn">import</span> <span class="n">CONFIG</span>
+<span class="n">CONFIG</span><span class="p">[</span><span class="s2">&quot;cmap_ps&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;coolwarm&quot;</span>
 </pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">dev</span><span class="o">.</span><span class="n">visualize_development_module_layout_0</span><span class="p">(</span><span class="n">s</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+                                          <span class="n">scale_for_simulation</span><span class="o">=</span><span class="n">scale_simulation</span><span class="p">,</span>
+                                          <span class="n">s_grid</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+                                          <span class="n">scale_for_pseudotime</span><span class="o">=</span><span class="n">scale_dev</span><span class="p">,</span>
+                                          <span class="n">vm</span><span class="o">=</span><span class="mf">0.03</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_62_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_62_0.png" style="width: 1130px; height: 794px;" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -1357,7 +1375,7 @@ Variability score of Gene Gata1 is too low. Simulation accuracy may be poor with
         <a href="../../tutorials/scrnaprocess.html" class="btn btn-neutral float-right" title="1. scRNA-seq data preparation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../../tutorials/simulation.html" class="btn btn-neutral float-left" title="1. in silico gene perturbation with GRNs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../../tutorials/simulation.html" class="btn btn-neutral float-left" title="1. In silico gene perturbation with GRNs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

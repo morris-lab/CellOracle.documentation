@@ -18,7 +18,7 @@
     </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Overview &mdash; celloracle 0.8.4 documentation</title>
+  <title>Overview &mdash; celloracle 0.9.0 documentation</title>
   
 
   
@@ -445,29 +445,35 @@ div.rendered_html tbody tr:hover {
 </style>
 <div class="section" id="Overview">
 <h1>Overview<a class="headerlink" href="#Overview" title="Permalink to this headline">¶</a></h1>
-<p>This notebook will show an example of how to process scRNA-seq data using scRNA-seq data of hematopoiesis. (Paul, F., Arkin, Y., Giladi, A., Jaitin, D. A., Kenigsberg, E., Keren-Shaul, H., et al. (2015). Transcriptional Heterogeneity and Lineage Commitment in Myeloid Progenitors. Cell, 163(7), 1663–1677. <a class="reference external" href="http://doi.org/10.1016/j.cell.2015.11.013">http://doi.org/10.1016/j.cell.2015.11.013</a>).</p>
-<p>You can easily download this scRNA-seq data with a scanpy function.</p>
+<p>This notebook will demonstrate scRNA-seq preprocessing using data from hematopoiesis. (Paul, F., Arkin, Y., Giladi, A., Jaitin, D. A., Kenigsberg, E., Keren-Shaul, H., et al. (2015). Transcriptional Heterogeneity and Lineage Commitment in Myeloid Progenitors. Cell, 163(7), 1663–1677. <a class="reference external" href="http://doi.org/10.1016/j.cell.2015.11.013">http://doi.org/10.1016/j.cell.2015.11.013</a>).</p>
+<p>You can easily download this scRNA-seq data using Scanpy.</p>
 <div class="section" id="Notebook-file">
 <h2>Notebook file<a class="headerlink" href="#Notebook-file" title="Permalink to this headline">¶</a></h2>
-<p>Notebook file is available at CellOracle GitHub. <a class="reference external" href="https://github.com/morris-lab/CellOracle/blob/master/docs/notebooks/03_scRNA-seq_data_preprocessing/scanpy_preprocessing_with_Paul_etal_2015_data.ipynb">https://github.com/morris-lab/CellOracle/blob/master/docs/notebooks/03_scRNA-seq_data_preprocessing/scanpy_preprocessing_with_Paul_etal_2015_data.ipynb</a></p>
+<p>Notebook file is available on CellOracle’s GitHub page. <a class="reference external" href="https://github.com/morris-lab/CellOracle/blob/master/docs/notebooks/03_scRNA-seq_data_preprocessing/scanpy_preprocessing_with_Paul_etal_2015_data.ipynb">https://github.com/morris-lab/CellOracle/blob/master/docs/notebooks/03_scRNA-seq_data_preprocessing/scanpy_preprocessing_with_Paul_etal_2015_data.ipynb</a></p>
 </div>
 <div class="section" id="Steps">
 <h2>Steps<a class="headerlink" href="#Steps" title="Permalink to this headline">¶</a></h2>
-<p>We need to do following scRNA-seq processing.</p>
+<p>To preprocess the scRNA-seq data, we will do the following:</p>
 <ol class="arabic simple">
 <li><p><strong>Variable gene selection and normalization.</strong></p></li>
-<li><p><strong>Log transformation.</strong> Although we need to do log-transformation, CellOracle also needs the raw gene expression value in later process. We keep raw count data in a layer of anndata.</p></li>
+<li><p><strong>Log transformation.</strong> Like many preprocessing workflows, we need to log transform the data. However, CellOracle also needs the raw gene expression values, which we will store in an anndata layer.</p></li>
 <li><p><strong>Cell clustering.</strong></p></li>
-<li><p><strong>Dimensional reduction.</strong> We need to prepare 2D embedding data. Make sure that the 2D embedding properly represents the identity of the cell. Good Cell Oracle simulation results cannot be obtained if there is biologically inappropriate embedded data.</p></li>
+<li><p><strong>Dimensional reduction.</strong> We need to prepare the 2D embedding data. Please make sure that the 2D embedding properly represents the cell identities and processes of interest. Also, please consider the resolution and continuity of the data. CellOracle’s simulation results are only informative when the embedding is consistent with the questions being investigated.</p></li>
 </ol>
 </div>
 <div class="section" id="Caution">
 <h2>Caution<a class="headerlink" href="#Caution" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>This notebook is intended to explain <strong>how to prepare the input data for CellOracle analysis</strong>. This is <strong>NOT</strong> the CellOracle analysis itself. Also, this notebook does NOT use <code class="docutils literal notranslate"><span class="pre">celloracle</span></code> in this notebook.</p></li>
-<li><p>Instead, we use <code class="docutils literal notranslate"><span class="pre">scanpy</span></code> and <code class="docutils literal notranslate"><span class="pre">anndata</span></code> to process and store scRNA-seq data. If you are new to these packages, pelase read the documentation to learn them in advance.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">scanpy</span></code> documentation: <a class="reference external" href="https://scanpy.readthedocs.io/en/stable/">https://scanpy.readthedocs.io/en/stable/</a></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">anndata</span></code> documentation: <a class="reference external" href="https://anndata.readthedocs.io/en/latest/">https://anndata.readthedocs.io/en/latest/</a></p></li>
+<li><p>This notebook is intended to help users <strong>prepare the input data for CellOracle analysis</strong>. This is <strong>NOT</strong> the CellOracle analysis itself. Also, this notebook does NOT use <code class="docutils literal notranslate"><span class="pre">celloracle</span></code> in this notebook.</p></li>
+<li><p>Instead, we use <code class="docutils literal notranslate"><span class="pre">Scanpy</span></code> and <code class="docutils literal notranslate"><span class="pre">Anndata</span></code> to process and store the scRNA-seq data. If you are new to these packages, please learn about them in advance.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Scanpy</span></code> documentation: <a class="reference external" href="https://scanpy.readthedocs.io/en/stable/">https://scanpy.readthedocs.io/en/stable/</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Anndata</span></code> documentation: <a class="reference external" href="https://anndata.readthedocs.io/en/latest/">https://anndata.readthedocs.io/en/latest/</a></p></li>
+</ul>
+</div>
+<div class="section" id="Acknowledgement">
+<h2>Acknowledgement<a class="headerlink" href="#Acknowledgement" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>This scRNA-seq preprocessing notebook was made based on the Scanpy’s tutorial. <a class="reference external" href="https://scanpy-tutorials.readthedocs.io/en/latest/paga-paul15.html">https://scanpy-tutorials.readthedocs.io/en/latest/paga-paul15.html</a></p></li>
 </ul>
 </div>
 </div>
@@ -506,7 +512,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Download dataset. You can change the code blow if you use another data.</span>
+<span></span><span class="c1"># Download dataset. You can change the code blow to use your data.</span>
 <span class="n">adata</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">paul15</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -560,7 +566,7 @@ Trying to set attribute `.uns` of view, making a copy.
 <h1>4. Identification of highly variable genes<a class="headerlink" href="#4.-Identification-of-highly-variable-genes" title="Permalink to this headline">¶</a></h1>
 <p><strong>This step is essential. Please do not skip this step.</strong></p>
 <blockquote>
-<div><p>By removing non-variable genes, we can reduce the calculation time during the GRN reconstruction and simulation. Also, it will improve the accuracy of GRN inference by removing noisy genes. We recommend using the top 2000~3000 variable genes.</p>
+<div><p>Removing non-variable genes reduces the calculation time during the GRN reconstruction and simulation steps. It also improves the overall accuracy of the GRN inference by removing noisy genes. We recommend using the top 2000~3000 variable genes.</p>
 </div></blockquote>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
@@ -593,10 +599,12 @@ Trying to set attribute `.obs` of view, making a copy.
 <div class="section" id="5.-Log-transformation">
 <h1>5. Log transformation<a class="headerlink" href="#5.-Log-transformation" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
-<li><p>We will do log transformation and scaling because these are necessary for PCA, clustering, and differential gene calculations.</p></li>
-<li><p>We also need non-transformed gene expression data for celloracle analysis. Thus, <strong>we need to keep gene expression data as a separate layer of anndata before the log transformation.</strong></p></li>
+<li><ul>
+<li><p>We need to log transform and scale the data before we calculate the principal components, clusters, and differentially expressed genes.</p></li>
 </ul>
-<p><code class="docutils literal notranslate"><span class="pre">adata.layers[&quot;raw_count&quot;]</span> <span class="pre">=</span> <span class="pre">adata.raw.X.copy()</span></code></p>
+</li>
+<li><p>We also need to <strong>keep the non-transformed gene expression data in a separate anndata layer</strong> before the log transformation. We will use this data for celloracle analysis later.</p></li>
+</ul>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
@@ -614,9 +622,9 @@ Trying to set attribute `.obs` of view, making a copy.
 </div>
 </div>
 </div>
-<div class="section" id="6.-PCA-and-find-neighbors">
-<h1>6. PCA and find neighbors<a class="headerlink" href="#6.-PCA-and-find-neighbors" title="Permalink to this headline">¶</a></h1>
-<p>This step is necessary to perform later dimensional reduction and clustering.</p>
+<div class="section" id="6.-PCA-and-neighbor-calculations">
+<h1>6. PCA and neighbor calculations<a class="headerlink" href="#6.-PCA-and-neighbor-calculations" title="Permalink to this headline">¶</a></h1>
+<p>These calculations are necessary to perform the dimensionality reduction and clustering steps.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
@@ -647,19 +655,12 @@ Trying to set attribute `.obs` of view, making a copy.
 </div>
 </div>
 </div>
-<div class="section" id="8.-Dimensional-reduction-using-PAGA-and-Force">
-<h1>8. Dimensional reduction using PAGA and Force<a class="headerlink" href="#8.-Dimensional-reduction-using-PAGA-and-Force" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><p>Dimensional reduction is one of the most important parts of the scRNA-seq analysis.Celloracle needs dimensional reduction embeddings to simulate cell transition.</p></li>
-<li><p>Please choose a proper algorithm for dimensional reduction for your scRNA-seq data so that the embedding appropriately represents its developmental trajectory. We recommend using one of the following dimensional reduction algorithms (or trajectory inference algorithms)</p></li>
-<li><p>UMAP: <a class="reference external" href="https://scanpy.readthedocs.io/en/stable/generated/scanpy.tl.umap.html#scanpy.tl.umap">https://scanpy.readthedocs.io/en/stable/generated/scanpy.tl.umap.html#scanpy.tl.umap</a></p></li>
-<li><p>TSNE: <a class="reference external" href="https://scanpy.readthedocs.io/en/stable/generated/scanpy.tl.tsne.html#scanpy.tl.tsne">https://scanpy.readthedocs.io/en/stable/generated/scanpy.tl.tsne.html#scanpy.tl.tsne</a></p></li>
-<li><p>Diffusion map: <a class="reference external" href="https://scanpy.readthedocs.io/en/stable/generated/scanpy.tl.diffmap.html#scanpy.tl.diffmap">https://scanpy.readthedocs.io/en/stable/generated/scanpy.tl.diffmap.html#scanpy.tl.diffmap</a></p></li>
-<li><p>Force-directed graph drawing: <a class="reference external" href="https://scanpy.readthedocs.io/en/stable/generated/scanpy.tl.draw_graph.html#scanpy.tl.draw_graph">https://scanpy.readthedocs.io/en/stable/generated/scanpy.tl.draw_graph.html#scanpy.tl.draw_graph</a></p></li>
-<li><p>In this example, we use a workflow introduced in the scanpy trajectory inference tutorial. <a class="reference external" href="https://scanpy-tutorials.readthedocs.io/en/latest/paga-paul15.html">https://scanpy-tutorials.readthedocs.io/en/latest/paga-paul15.html</a> This method is combination of three algorithms:diffusion map, force-directed graph, PAGA.</p></li>
-<li><p>Step1: Calculate PAGA graph. PAGA data will be used for the initial status of force-directed graph calculation.</p></li>
-<li><p>Step2: Force-directed graph calculation.</p></li>
-</ul>
+<div class="section" id="8.-Dimensionality-reduction-using-PAGA-and-force-directed-graphs">
+<h1>8. Dimensionality reduction using PAGA and force-directed graphs<a class="headerlink" href="#8.-Dimensionality-reduction-using-PAGA-and-force-directed-graphs" title="Permalink to this headline">¶</a></h1>
+<p>The dimensionality reduction step requires careful consideration when preparing data for a CellOracle analysis. For a successful analysis, the embedding should recapitulate the cellular transition of interest.</p>
+<p>Please choose an algorithm that can accurately represent the developmental trajectory of your data. We recommend using one of the following dimensional reduction algorithms (or trajectory inference algorithms). - UMAP: <a class="reference external" href="https://scanpy.readthedocs.io/en/stable/generated/scanpy.tl.umap.html#scanpy.tl.umap">https://scanpy.readthedocs.io/en/stable/generated/scanpy.tl.umap.html#scanpy.tl.umap</a> - TSNE: <a class="reference external" href="https://scanpy.readthedocs.io/en/stable/generated/scanpy.tl.tsne.html#scanpy.tl.tsne">https://scanpy.readthedocs.io/en/stable/generated/scanpy.tl.tsne.html#scanpy.tl.tsne</a> - Diffusion map:
+<a class="reference external" href="https://scanpy.readthedocs.io/en/stable/generated/scanpy.tl.diffmap.html#scanpy.tl.diffmap">https://scanpy.readthedocs.io/en/stable/generated/scanpy.tl.diffmap.html#scanpy.tl.diffmap</a> - Force-directed graph drawing: <a class="reference external" href="https://scanpy.readthedocs.io/en/stable/generated/scanpy.tl.draw_graph.html#scanpy.tl.draw_graph">https://scanpy.readthedocs.io/en/stable/generated/scanpy.tl.draw_graph.html#scanpy.tl.draw_graph</a></p>
+<p>In this example, we use the workflow introduced in the scanpy trajectory inference tutorial. <a class="reference external" href="https://scanpy-tutorials.readthedocs.io/en/latest/paga-paul15.html">https://scanpy-tutorials.readthedocs.io/en/latest/paga-paul15.html</a> This method uses a combination of three algorithms:diffusion map, force-directed graph, and PAGA. - Step1: Calculate the PAGA graph.The PAGA data will determine the initial cluster positions for the force-directed graph calculation. - Step2: Calculate the force-directed graph.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
@@ -797,9 +798,9 @@ Trying to set attribute `.obs` of view, making a copy.
 </div>
 </div>
 </div>
-<div class="section" id="10.-[Optional-step]-Make-annotation-for-cluster">
-<h1>10. [Optional step] Make annotation for cluster<a class="headerlink" href="#10.-[Optional-step]-Make-annotation-for-cluster" title="Permalink to this headline">¶</a></h1>
-<p>Based on the marker gene expression and previous reports, we will manually annotate each cluster.</p>
+<div class="section" id="10.-[Optional-step]-Cluster-annotation">
+<h1>10. [Optional step] Cluster annotation<a class="headerlink" href="#10.-[Optional-step]-Cluster-annotation" title="Permalink to this headline">¶</a></h1>
+<p>We will annotate the clusters based on the marker gene expression.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
@@ -844,7 +845,7 @@ Categories (23, object): [5, 2, 12, 13, ..., 20, 14, 15, 21]
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Make anottation dictionary</span>
+<span></span><span class="c1"># Make cluster anottation dictionary</span>
 <span class="n">annotation</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;MEP&quot;</span><span class="p">:[</span><span class="mi">5</span><span class="p">],</span>
               <span class="s2">&quot;Erythroids&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">18</span><span class="p">],</span>
               <span class="s2">&quot;Megakaryocytes&quot;</span><span class="p">:[</span><span class="mi">17</span><span class="p">,</span> <span class="mi">22</span><span class="p">],</span>
@@ -855,14 +856,14 @@ Categories (23, object): [5, 2, 12, 13, ..., 20, 14, 15, 21]
               <span class="s2">&quot;DC&quot;</span><span class="p">:[</span><span class="mi">21</span><span class="p">],</span>
               <span class="s2">&quot;Lymphoid&quot;</span><span class="p">:[</span><span class="mi">20</span><span class="p">]}</span>
 
-<span class="c1"># change dictionary format</span>
+<span class="c1"># Change dictionary format</span>
 <span class="n">annotation_rev</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">cluster_list</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">annotation</span><span class="p">:</span>
         <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="ow">in</span> <span class="n">annotation</span><span class="p">[</span><span class="n">k</span><span class="p">]:</span>
             <span class="n">annotation_rev</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">k</span>
 
-<span class="c1"># check dictionary</span>
+<span class="c1"># Check dictionary</span>
 <span class="n">annotation_rev</span>
 </pre></div>
 </div>
@@ -925,7 +926,7 @@ Categories (23, object): [5, 2, 12, 13, ..., 20, 14, 15, 21]
 <img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_35_0.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_35_0.png" style="width: 615px; height: 292px;" />
 </div>
 </div>
-<p>We’ll make another annotation manually for each Louvain clusters.</p>
+<p>We’ll also annotate the indivisual Louvain clusters.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
@@ -1004,7 +1005,7 @@ Categories (23, object): [5, 2, 12, 13, ..., 20, 14, 15, 21]
 </div>
 <div class="section" id="11.-[Optional-step]-Subset-cells">
 <h1>11. [Optional step] Subset cells<a class="headerlink" href="#11.-[Optional-step]-Subset-cells" title="Permalink to this headline">¶</a></h1>
-<p>In this tutorial, we are using scRNA-seq data of hematopoiesis. In the latter part, we will focus on the cell fate decision in the myeloid lineage. So we will remove non-myeloid cell cluster; DC and Lymphoid cell cluster.</p>
+<p>During the CellOracle analysis, we will focus on the myeloid lineage. Since the non-myeloid clusters (i.e. the DC and lymphoid clusters) will not be analyzed, we will choose to remove them now.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>

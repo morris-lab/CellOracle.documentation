@@ -18,7 +18,7 @@
     </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Overview &mdash; celloracle 0.8.4 documentation</title>
+  <title>Overview &mdash; celloracle 0.9.0 documentation</title>
   
 
   
@@ -109,8 +109,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../../tutorials/index.html#code-and-data-availability">Code and data availability</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../tutorials/index.html#getting-started">Getting started</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../tutorials/index.html#index">Index</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../../tutorials/index.html#grn-model-construction-and-network-analysis">GRN model construction and Network analysis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../tutorials/index.html#in-silico-gene-perturbation-with-grns">in silico gene perturbation with GRNs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/index.html#grn-model-construction-and-network-analysis">GRN model construction and network analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/index.html#in-silico-gene-perturbation-with-grns">In silico gene perturbation with GRNs</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../../tutorials/index.html#prepare-input-data">Prepare input data</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="../../tutorials/scrnaprocess.html">1. scRNA-seq data preparation</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="../../tutorials/pseudotime.html">2. Pseudotime calculation</a></li>
@@ -465,7 +465,7 @@ div.rendered_html tbody tr:hover {
 <h1>Overview<a class="headerlink" href="#Overview" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="Aim">
 <h2>Aim<a class="headerlink" href="#Aim" title="Permalink to this headline">¶</a></h2>
-<p>To interpret the celloracle simulation results, it is essential to compare the direction of the perturbation effect with natural differentiation. By comparing them, you can intuitively understand how TF is involved in cell fate determination during development. This perspective is also needed when estimating experimental perturbation results using celloracle simulations.</p>
+<p>To interpret the simulation results, it is essential to compare the direction of the perturbation effect with the developmental flow of the trajectory. This comparison will allow us to assess the perturbation’s overall effect (i.e. block or promote differentiation), and intuitively understand how TF is involved in cell fate determination during development.</p>
 </div>
 <div class="section" id="Method-summary">
 <h2>Method summary<a class="headerlink" href="#Method-summary" title="Permalink to this headline">¶</a></h2>
@@ -474,21 +474,27 @@ div.rendered_html tbody tr:hover {
 <li><p>Calculate the pseudotime using the diffusion pseudotime method (dpt).</p></li>
 <li><p>Transfer pseudotime data to grid points</p></li>
 <li><p>Calculate the 2D gradient vector field using the pseudotime on the grid points</p></li>
-<li><p>Compute the inner product value between the 2D gradient vector and the celloracle simulation vector to compare the simulated cell identity shift direction with the development direction.</p></li>
+<li><p>Compare the perturbation and pseudotime vector fields by computing their inner product values.</p></li>
 </ol>
-<p><strong>In this notebook, we will do step1: pseudotime calculation.</strong> The pseudotime calculation part consists of these steps below. 1. Set lineage information and split the cells into several lineage brahches 2. Set root cells manually 3. Calculate pseudotime with dpt algorithm. 4. Re-aggregate scRNA-seq data into one data</p>
+<p><strong>In this notebook, we will do step1: pseudotime calculation.</strong> This step is divided into the following parts:</p>
+<ol class="arabic simple">
+<li><p>Set the lineage information and split the cells into several lineage brahches.</p></li>
+<li><p>Set root cells for each lineage.</p></li>
+<li><p>Calculate pseudotime with DPT algorithm.</p></li>
+<li><p>Re-aggregate scRNA-seq data into one data</p></li>
+</ol>
 </div>
 <div class="section" id="Custom-class-/-object">
 <h2>Custom class / object<a class="headerlink" href="#Custom-class-/-object" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">Pseudotime_calculator</span></code>: This is a class for the pseudotime calculation. This class help us calculate pseudotime from scRNA-seq data. We need to specify a root cell. Also, scRNA-seq need to have a diffusion map &gt;Under the hood, Pseudotime_calculator uses “dpt” algorithm. For more information of dpt algorithm and root cell, please look at the scanpy web documentation. <a class="reference external" href="https://scanpy.readthedocs.io/en/stable/api/scanpy.tl.dpt.html#scanpy.tl.dpt">https://scanpy.readthedocs.io/en/stable/api/scanpy.tl.dpt.html#scanpy.tl.dpt</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">Pseudotime_calculator</span></code>: This is a class for the pseudotime calculation. This class help us calculate pseudotime from scRNA-seq data. We need to specify a root cell. Also, scRNA-seq need to have a diffusion map. &gt;Under the hood, the <code class="docutils literal notranslate"><span class="pre">Pseudotime_calculator</span></code> uses “dpt” algorithm. For more information of dpt algorithm and root cell, please look at the scanpy web documentation. <a class="reference external" href="https://scanpy.readthedocs.io/en/stable/api/scanpy.tl.dpt.html#scanpy.tl.dpt">https://scanpy.readthedocs.io/en/stable/api/scanpy.tl.dpt.html#scanpy.tl.dpt</a></p>
 </div>
 <div class="section" id="Data">
 <h2>Data<a class="headerlink" href="#Data" title="Permalink to this headline">¶</a></h2>
-<p>Pseudo-time calculation requires preprocessed scRNA-seq data in anndata format. You need to do neighbor calculation and diffusion map calculation in advance. If you have processed the scRNA-seq data according to our tutorial (link), these calculations have already been performed. - Neighbor calculation: <a class="reference external" href="https://scanpy.readthedocs.io/en/stable/generated/scanpy.pp.neighbors.html#scanpy.pp.neighbors">https://scanpy.readthedocs.io/en/stable/generated/scanpy.pp.neighbors.html#scanpy.pp.neighbors</a> - Diffusion map calculation:
+<p>Pseudo-time calculation requires preprocessed scRNA-seq data in anndata format. You need to do neighbor calculation and diffusion map calculation in advance. If you have processed the scRNA-seq data according to our tutorial, these calculations have already been performed. - Neighbor calculation: <a class="reference external" href="https://scanpy.readthedocs.io/en/stable/generated/scanpy.pp.neighbors.html#scanpy.pp.neighbors">https://scanpy.readthedocs.io/en/stable/generated/scanpy.pp.neighbors.html#scanpy.pp.neighbors</a> - Diffusion map calculation:
 <a class="reference external" href="https://scanpy.readthedocs.io/en/stable/generated/scanpy.tl.diffmap.html#scanpy.tl.diffmap">https://scanpy.readthedocs.io/en/stable/generated/scanpy.tl.diffmap.html#scanpy.tl.diffmap</a></p>
 </div>
-<div class="section" id="Install-additional-python-package">
-<h2>Install additional python package<a class="headerlink" href="#Install-additional-python-package" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Install-additional-python-package-(This-is-an-optional-step.)">
+<h2>Install additional python package (This is an optional step.)<a class="headerlink" href="#Install-additional-python-package-(This-is-an-optional-step.)" title="Permalink to this headline">¶</a></h2>
 <p>This notebook we recommend using another python package, <code class="docutils literal notranslate"><span class="pre">plotly</span></code>.</p>
 <p>Please install <code class="docutils literal notranslate"><span class="pre">plotly</span></code> in advance.</p>
 <p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">plotly</span></code></p>
@@ -498,7 +504,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="Caution">
 <h2>Caution<a class="headerlink" href="#Caution" title="Permalink to this headline">¶</a></h2>
-<p>Here, we will introduce an example of a pseudotime calculation method using the diffusion pseudotime method. This is NOT celloracle analysis itself. If you want to use another different algorithm for the pseudotime calculation, you can use anything.</p>
+<p>Here, we will introduce an example of a pseudotime calculation using the diffusion pseudotime method. This is NOT CellOracle analysis itself, but just a data preparation step. In addition to the dpt method introduced here, CellOracle also accepts output from any pseudotime method.</p>
 </div>
 </div>
 <div class="section" id="0.-Import-libraries">
@@ -572,12 +578,11 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="1.-Load-data">
 <h1>1. Load data<a class="headerlink" href="#1.-Load-data" title="Permalink to this headline">¶</a></h1>
-<p>We can add pseudotime calculation to an oracle object or to anndata.</p>
 <ul class="simple">
-<li><p>If you have oracle object, please run <strong>1.1.[Option1] Load oracle data.</strong></p></li>
-<li><p>If you have not made oracle object yet and want to calculate pseudotime using anndata, please run <strong>1.2.[Option2] Load anndata.</strong></p></li>
+<li><p>If you have <code class="docutils literal notranslate"><span class="pre">Oracle</span></code> object, please run <strong>1.1.[Option1] Load oracle data.</strong></p></li>
+<li><p>If you have not made an <code class="docutils literal notranslate"><span class="pre">Oracle</span></code> object yet and want to calculate pseudotime using <code class="docutils literal notranslate"><span class="pre">Anndata</span></code> object, please run <strong>1.2.[Option2] Load anndata.</strong></p></li>
 </ul>
-<p>In this notebook, we load demo oracle object to add pseudotime.</p>
+<p>In this notebook, we will load demo <code class="docutils literal notranslate"><span class="pre">Oracle</span></code> object and add pseudotime information to it.</p>
 <div class="section" id="1.1.-[Option1]-Load-oracle-data">
 <h2>1.1. [Option1] Load oracle data<a class="headerlink" href="#1.1.-[Option1]-Load-oracle-data" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
@@ -619,7 +624,7 @@ div.rendered_html tbody tr:hover {
 <h1>2. Pseudotime calculation<a class="headerlink" href="#2.-Pseudotime-calculation" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="2.1.-Add-lineage-information">
 <h2>2.1. Add lineage information<a class="headerlink" href="#2.1.-Add-lineage-information" title="Permalink to this headline">¶</a></h2>
-<p>We will calculate pseudotime for each lineage. We need to set lineage information first.</p>
+<p>Pseudotime calculation can be done for each lineage. We can define these lineages below.</p>
 <div class="section" id="2.1.1-Check-clustering-unit">
 <h3>2.1.1 Check clustering unit<a class="headerlink" href="#2.1.1-Check-clustering-unit" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
@@ -661,26 +666,26 @@ Cluster list [&#39;Ery_0&#39;, &#39;Ery_1&#39;, &#39;Ery_2&#39;, &#39;Ery_3&#39;
 </div>
 <div class="section" id="2.1.2.-Define-llineage">
 <h3>2.1.2. Define llineage<a class="headerlink" href="#2.1.2.-Define-llineage" title="Permalink to this headline">¶</a></h3>
-<p>We will make lineage annotation on the scRNA-seq data. For example, this scRNA-seq data include roughly two lineages: megakaryocytes-erythroid (ME) lineage and granulocytes-monocyte (GM) lineage.</p>
+<p>We will make lineage annotation on the scRNA-seq data. For example, the demo scRNA-seq data include roughly two lineages: megakaryocytes-erythroid (ME) lineage and granulocytes-monocyte (GM) lineage.</p>
 <p>To get better pseudotime information, calculate the pseudotime for each cell lineage individually. Then, all pseudotime information of each lineage are merged into one.</p>
-<p>Here is an example of setting lineage information. Lineage structure and number may vary depending on the data. Please adjust them on demand.</p>
+<p>Lineages can be specified using lists. The lineage structure and number of branches will vary depending on the dataset. Please adjust the code as necessary to match your data.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># These cluster can be classified into either MEP lineage or GMP lineage</span>
+<span></span><span class="c1"># Here, clusters can be classified into either MEP lineage or GMP lineage</span>
 
 <span class="n">clusters_in_ME_lineage</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Ery_0&#39;</span><span class="p">,</span> <span class="s1">&#39;Ery_1&#39;</span><span class="p">,</span> <span class="s1">&#39;Ery_2&#39;</span><span class="p">,</span> <span class="s1">&#39;Ery_3&#39;</span><span class="p">,</span> <span class="s1">&#39;Ery_4&#39;</span><span class="p">,</span> <span class="s1">&#39;Ery_5&#39;</span><span class="p">,</span>
                           <span class="s1">&#39;Ery_6&#39;</span><span class="p">,</span> <span class="s1">&#39;Ery_7&#39;</span><span class="p">,</span> <span class="s1">&#39;Ery_8&#39;</span><span class="p">,</span> <span class="s1">&#39;Ery_9&#39;</span><span class="p">,</span> <span class="s1">&#39;MEP_0&#39;</span><span class="p">,</span> <span class="s1">&#39;Mk_0&#39;</span><span class="p">]</span>
 <span class="n">clusters_in_GM_lineage</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;GMP_0&#39;</span><span class="p">,</span> <span class="s1">&#39;GMP_1&#39;</span><span class="p">,</span> <span class="s1">&#39;GMP_2&#39;</span><span class="p">,</span> <span class="s1">&#39;GMPl_0&#39;</span><span class="p">,</span> <span class="s1">&#39;GMPl_1&#39;</span><span class="p">,</span> <span class="s1">&#39;Gran_0&#39;</span><span class="p">,</span>
                           <span class="s1">&#39;Gran_1&#39;</span><span class="p">,</span> <span class="s1">&#39;Gran_2&#39;</span><span class="p">,</span> <span class="s1">&#39;Gran_3&#39;</span><span class="p">,</span> <span class="s1">&#39;Mo_0&#39;</span><span class="p">,</span> <span class="s1">&#39;Mo_1&#39;</span><span class="p">,</span> <span class="s1">&#39;Mo_2&#39;</span><span class="p">]</span>
 
-<span class="c1"># Make dictionary</span>
+<span class="c1"># Make a dictionary</span>
 <span class="n">lineage_dictionary</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Lineage_ME&quot;</span><span class="p">:</span> <span class="n">clusters_in_ME_lineage</span><span class="p">,</span>
            <span class="s2">&quot;Lineage_GM&quot;</span><span class="p">:</span> <span class="n">clusters_in_GM_lineage</span><span class="p">}</span>
 
-<span class="c1"># Inpur lineage information into pseudotime object</span>
+<span class="c1"># Input lineage information into pseudotime object</span>
 <span class="n">pt</span><span class="o">.</span><span class="n">set_lineage</span><span class="p">(</span><span class="n">lineage_dictionary</span><span class="o">=</span><span class="n">lineage_dictionary</span><span class="p">)</span>
 
 <span class="c1"># Visualize lineage information</span>
@@ -706,24 +711,24 @@ Cluster list [&#39;Ery_0&#39;, &#39;Ery_1&#39;, &#39;Ery_2&#39;, &#39;Ery_3&#39;
 </div>
 <div class="section" id="2.2.-Add-root-cell-information">
 <h2>2.2. Add root cell information<a class="headerlink" href="#2.2.-Add-root-cell-information" title="Permalink to this headline">¶</a></h2>
-<p>The pseudotime calculation with dpt requires to input root cell. We will manyally estimate root cell for each lineage.</p>
-<p>Please read documentation (<a class="reference external" href="https://scanpy.readthedocs.io/en/stable/api/scanpy.tl.dpt.html#scanpy.tl.dpt">https://scanpy.readthedocs.io/en/stable/api/scanpy.tl.dpt.html#scanpy.tl.dpt</a>) to find detailed information about dpt algorithm and root cells</p>
-<div class="section" id="2.2.1.-(optional)-Interactive-visualization-of-cell-name">
-<h3>2.2.1. (optional) Interactive visualization of cell name<a class="headerlink" href="#2.2.1.-(optional)-Interactive-visualization-of-cell-name" title="Permalink to this headline">¶</a></h3>
-<p>This notebook we recommend using another python package, <code class="docutils literal notranslate"><span class="pre">plotly</span></code>.</p>
+<p>The DPT pseudotime calculation requires the user to specify a root cell. We will manually estimate the root cell for each lineage.</p>
+<p>Please read documentation (<a class="reference external" href="https://scanpy.readthedocs.io/en/stable/api/scanpy.tl.dpt.html#scanpy.tl.dpt">https://scanpy.readthedocs.io/en/stable/api/scanpy.tl.dpt.html#scanpy.tl.dpt</a>) to find detailed information about the DPT algorithm and root cells</p>
+<div class="section" id="2.2.1.-(Optional-step)-Interactive-visualization-of-cell-name">
+<h3>2.2.1. (Optional step) Interactive visualization of cell name<a class="headerlink" href="#2.2.1.-(Optional-step)-Interactive-visualization-of-cell-name" title="Permalink to this headline">¶</a></h3>
+<p>We recommend using another python package, <code class="docutils literal notranslate"><span class="pre">plotly</span></code> to find the cell id for root cell.</p>
 <p>Please install <code class="docutils literal notranslate"><span class="pre">plotly</span></code> in advance.</p>
 <p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">plotly</span></code></p>
 <blockquote>
 <div><p>Plotly is a toolkit for interactive visualization. We recommend using plotly to pick up root cells in this notebook. For more information, please look at plotly web site. <a class="reference external" href="https://plotly.com">https://plotly.com</a></p>
 </div></blockquote>
-<p><strong>Using plotly, we can visualize cell name interactively. It helps us pick up a root cell.</strong> This is an example image. <a href="#id2"><span class="problematic" id="id3">|dcbcb5f7ba364ee28f9af3bc9b23012b|</span></a></p>
+<p><strong>Using plotly, we can visualize cell IDs interactively. It helps us pick up a root cell.</strong> This is an example image. <a href="#id2"><span class="problematic" id="id3">|2d94e0fbec574735877398efda2498f9|</span></a></p>
 <p><a class="reference external" href="https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/screenshot_01.png">https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/screenshot_01.png</a></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Show interactive plot using plotly. Please make sure you installed plotly.</span>
+<span></span><span class="c1"># Show interactive plot using plotly. Please make sure that plotly is installed.</span>
 
 <span class="k">try</span><span class="p">:</span>
     <span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
@@ -739,8 +744,7 @@ Cluster list [&#39;Ery_0&#39;, &#39;Ery_1&#39;, &#39;Ery_2&#39;, &#39;Ery_3&#39;
          <span class="n">embedding_key</span><span class="o">=</span><span class="n">pt</span><span class="o">.</span><span class="n">obsm_key</span><span class="p">,</span>
          <span class="n">cluster_column_name</span><span class="o">=</span><span class="n">pt</span><span class="o">.</span><span class="n">cluster_column_name</span><span class="p">)</span>
 <span class="k">except</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Found error. Did you install plotly? Please read the instruction above.&quot;</span><span class="p">)</span>
-
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Plotly not found in your environment. Did you install plotly? Please read the instruction above.&quot;</span><span class="p">)</span>
 
 </pre></div>
 </div>
@@ -753,7 +757,7 @@ Cluster list [&#39;Ery_0&#39;, &#39;Ery_1&#39;, &#39;Ery_2&#39;, &#39;Ery_3&#39;
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">#  Estimated root cell name for each lineage</span>
+<span></span><span class="c1"># Estimated root cell name for each lineage</span>
 <span class="n">root_cells</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Lineage_MEP&quot;</span><span class="p">:</span> <span class="s2">&quot;1539&quot;</span><span class="p">,</span> <span class="s2">&quot;Lineage_GMP&quot;</span><span class="p">:</span> <span class="s2">&quot;2244&quot;</span><span class="p">}</span>
 <span class="n">pt</span><span class="o">.</span><span class="n">set_root_cells</span><span class="p">(</span><span class="n">root_cells</span><span class="o">=</span><span class="n">root_cells</span><span class="p">)</span>
 </pre></div>
@@ -769,7 +773,6 @@ Cluster list [&#39;Ery_0&#39;, &#39;Ery_1&#39;, &#39;Ery_2&#39;, &#39;Ery_3&#39;
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Check root cell and lineage</span>
 <span class="n">pt</span><span class="o">.</span><span class="n">plot_root_cells</span><span class="p">()</span>
-
 </pre></div>
 </div>
 </div>
@@ -791,7 +794,7 @@ Cluster list [&#39;Ery_0&#39;, &#39;Ery_1&#39;, &#39;Ery_2&#39;, &#39;Ery_3&#39;
 </div>
 <div class="section" id="2.3.-Pseudotime-calculation">
 <h2>2.3. Pseudotime calculation<a class="headerlink" href="#2.3.-Pseudotime-calculation" title="Permalink to this headline">¶</a></h2>
-<p>You need to do neighbor calculation and diffusion map calculation in advance. If you have processed the scRNA-seq data according to our tutorial, these calculations have already been performed. - Neighbor calculation: <a class="reference external" href="https://scanpy.readthedocs.io/en/stable/generated/scanpy.pp.neighbors.html#scanpy.pp.neighbors">https://scanpy.readthedocs.io/en/stable/generated/scanpy.pp.neighbors.html#scanpy.pp.neighbors</a> - Diffusion map calculation: <a class="reference external" href="https://scanpy.readthedocs.io/en/stable/generated/scanpy.tl.diffmap.html#scanpy.tl.diffmap">https://scanpy.readthedocs.io/en/stable/generated/scanpy.tl.diffmap.html#scanpy.tl.diffmap</a></p>
+<p>You need to calculate neighbors and the diffusion map before funning DPT. If you have processed the scRNA-seq data according to our tutorial, these calculations have already been performed. - Neighbor calculation: <a class="reference external" href="https://scanpy.readthedocs.io/en/stable/generated/scanpy.pp.neighbors.html#scanpy.pp.neighbors">https://scanpy.readthedocs.io/en/stable/generated/scanpy.pp.neighbors.html#scanpy.pp.neighbors</a> - Diffusion map calculation: <a class="reference external" href="https://scanpy.readthedocs.io/en/stable/generated/scanpy.tl.diffmap.html#scanpy.tl.diffmap">https://scanpy.readthedocs.io/en/stable/generated/scanpy.tl.diffmap.html#scanpy.tl.diffmap</a></p>
 <div class="section" id="2.3.1.-Check-diffusion-map">
 <h3>2.3.1. Check diffusion map<a class="headerlink" href="#2.3.1.-Check-diffusion-map" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
@@ -801,7 +804,6 @@ Cluster list [&#39;Ery_0&#39;, &#39;Ery_1&#39;, &#39;Ery_2&#39;, &#39;Ery_3&#39;
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Check diffusion map data.</span>
 <span class="s2">&quot;X_diffmap&quot;</span> <span class="ow">in</span> <span class="n">pt</span><span class="o">.</span><span class="n">adata</span><span class="o">.</span><span class="n">obsm</span>
-
 </pre></div>
 </div>
 </div>
@@ -814,7 +816,7 @@ Cluster list [&#39;Ery_0&#39;, &#39;Ery_1&#39;, &#39;Ery_2&#39;, &#39;Ery_3&#39;
 True
 </pre></div></div>
 </div>
-<p>Calculate diffusion map if your adata does not have diffusion map data</p>
+<p>Calculate diffusion map if your anndata object does not have diffusion map data.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
@@ -825,7 +827,7 @@ True
 </pre></div>
 </div>
 </div>
-<p>Diffusion maps can be calculated in the anther dimensionality reduction space. Please adjust this parameter “use_rep” to get another better results if you have a issue in the following calculation.</p>
+<p>Diffusion maps can be calculated using another dimensionality reduction space. Please adjust the “use_rep” parameter to specify alternate embeddings.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>

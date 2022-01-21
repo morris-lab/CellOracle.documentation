@@ -18,7 +18,7 @@
     </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>1. scRNA-seq data preparation &mdash; celloracle 0.8.4 documentation</title>
+  <title>1. scRNA-seq data preparation &mdash; celloracle 0.9.0 documentation</title>
   
 
   
@@ -214,11 +214,11 @@
 <span id="scrnaprocess"></span><h1><span class="section-number">1. </span>scRNA-seq data preparation<a class="headerlink" href="#scrna-seq-data-preparation" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p>In advance to CellOrale analysis, scRNA-seq data should be processed.
-Please prepare scRNA-seq data as an <cite>anndata</cite> using <cite>scanpy</cite>.</p>
+<p>Before starting a CellOracle analysis, the scRNA-seq data must be preprocessed.
+Please prepare the scRNA-seq data as an <cite>anndata object</cite> using Scanpy.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><cite>scanpy</cite> is a python toolkit for scRNA-seq data analysis. If you are new to scanpy, pelase read the documentation to learn it in advance.</p>
+<p>Scanpy is a python toolkit for scRNA-seq data analysis. If you are new to Scanpy, please read the documentation to learn it in advance.</p>
 <blockquote>
 <div><ul class="simple">
 <li><p>scanpy documentation: <a class="reference external" href="https://scanpy.readthedocs.io/en/stable/">https://scanpy.readthedocs.io/en/stable/</a></p></li>
@@ -228,13 +228,13 @@ Please prepare scRNA-seq data as an <cite>anndata</cite> using <cite>scanpy</cit
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>In this section, we intend to introduce an example of how to prepare the <strong>input data</strong> for CellOracle analysis.
-<strong>This is NOT the CellOracle analysis itself.</strong> We do NOT use celloracle in this notebook.</p>
+<p>In this section, we will introduce an example of how to prepare the <strong>input data</strong> for CellOracle analysis.
+<strong>This is NOT the CellOracle analysis itself.</strong> We do NOT use CellOracle in this scRNA-seq data preprocessing steps.</p>
 </div>
 </div>
 <div class="section" id="a-scrna-seq-data-preprocessing-with-scanpy">
-<h2>A. scRNA-seq data preprocessing with scanpy<a class="headerlink" href="#a-scrna-seq-data-preprocessing-with-scanpy" title="Permalink to this headline">¶</a></h2>
-<p>Please download notebooks from <a class="reference external" href="https://github.com/morris-lab/CellOracle/blob/master/docs/notebooks/03_scRNA-seq_data_preprocessing/scanpy_preprocessing_with_Paul_etal_2015_data.ipynb">here</a> .
+<h2>A. scRNA-seq data preprocessing with Scanpy<a class="headerlink" href="#a-scrna-seq-data-preprocessing-with-scanpy" title="Permalink to this headline">¶</a></h2>
+<p>Please download the notebook from <a class="reference external" href="https://github.com/morris-lab/CellOracle/blob/master/docs/notebooks/03_scRNA-seq_data_preprocessing/scanpy_preprocessing_with_Paul_etal_2015_data.ipynb">here</a> .
 Or please click below to view the content.</p>
 <div class="toctree-wrapper compound">
 <ul>
@@ -242,6 +242,7 @@ Or please click below to view the content.</p>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/03_scRNA-seq_data_preprocessing/scanpy_preprocessing_with_Paul_etal_2015_data.html#Notebook-file">Notebook file</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/03_scRNA-seq_data_preprocessing/scanpy_preprocessing_with_Paul_etal_2015_data.html#Steps">Steps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/03_scRNA-seq_data_preprocessing/scanpy_preprocessing_with_Paul_etal_2015_data.html#Caution">Caution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/03_scRNA-seq_data_preprocessing/scanpy_preprocessing_with_Paul_etal_2015_data.html#Acknowledgement">Acknowledgement</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/03_scRNA-seq_data_preprocessing/scanpy_preprocessing_with_Paul_etal_2015_data.html#0.-Import-libraries">0. Import libraries</a></li>
@@ -250,11 +251,11 @@ Or please click below to view the content.</p>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/03_scRNA-seq_data_preprocessing/scanpy_preprocessing_with_Paul_etal_2015_data.html#3.-Normalization">3. Normalization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/03_scRNA-seq_data_preprocessing/scanpy_preprocessing_with_Paul_etal_2015_data.html#4.-Identification-of-highly-variable-genes">4. Identification of highly variable genes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/03_scRNA-seq_data_preprocessing/scanpy_preprocessing_with_Paul_etal_2015_data.html#5.-Log-transformation">5. Log transformation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/03_scRNA-seq_data_preprocessing/scanpy_preprocessing_with_Paul_etal_2015_data.html#6.-PCA-and-find-neighbors">6. PCA and find neighbors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/03_scRNA-seq_data_preprocessing/scanpy_preprocessing_with_Paul_etal_2015_data.html#6.-PCA-and-neighbor-calculations">6. PCA and neighbor calculations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/03_scRNA-seq_data_preprocessing/scanpy_preprocessing_with_Paul_etal_2015_data.html#7.-Cell-clustering">7. Cell clustering</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/03_scRNA-seq_data_preprocessing/scanpy_preprocessing_with_Paul_etal_2015_data.html#8.-Dimensional-reduction-using-PAGA-and-Force">8. Dimensional reduction using PAGA and Force</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/03_scRNA-seq_data_preprocessing/scanpy_preprocessing_with_Paul_etal_2015_data.html#8.-Dimensionality-reduction-using-PAGA-and-force-directed-graphs">8. Dimensionality reduction using PAGA and force-directed graphs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/03_scRNA-seq_data_preprocessing/scanpy_preprocessing_with_Paul_etal_2015_data.html#9.-Check-data">9. Check data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/03_scRNA-seq_data_preprocessing/scanpy_preprocessing_with_Paul_etal_2015_data.html#10.-[Optional-step]-Make-annotation-for-cluster">10. [Optional step] Make annotation for cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/03_scRNA-seq_data_preprocessing/scanpy_preprocessing_with_Paul_etal_2015_data.html#10.-[Optional-step]-Cluster-annotation">10. [Optional step] Cluster annotation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/03_scRNA-seq_data_preprocessing/scanpy_preprocessing_with_Paul_etal_2015_data.html#11.-[Optional-step]-Subset-cells">11. [Optional step] Subset cells</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/03_scRNA-seq_data_preprocessing/scanpy_preprocessing_with_Paul_etal_2015_data.html#12.-Save-processed-data">12. Save processed data</a></li>
 </ul>
@@ -265,9 +266,9 @@ Or please click below to view the content.</p>
 <p>R notebook … comming in the future update.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If you use <code class="docutils literal notranslate"><span class="pre">Seurat</span></code> for preprocessing, you need to convert the scRNA-seq data (Seurat object) into anndata to analyze the data with <code class="docutils literal notranslate"><span class="pre">celloracle</span></code>.
-<code class="docutils literal notranslate"><span class="pre">celloracle</span></code> has a python API and command-line API to convert a Seurat object into an anndata.
-Please go to the documentation of celloracle’s API documentation for more information.</p>
+<p>If you used <code class="docutils literal notranslate"><span class="pre">Seurat</span></code> for preprocessing, you will need to convert your Seurat object into an anndata object.
+CellOracle has a python API and command-line API to help users with this data conversion.
+Please go to the documentation of CellOracle’s API documentation for more information.</p>
 </div>
 </div>
 </div>

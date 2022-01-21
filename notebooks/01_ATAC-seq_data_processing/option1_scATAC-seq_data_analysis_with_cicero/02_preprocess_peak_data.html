@@ -18,7 +18,7 @@
     </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Overview &mdash; celloracle 0.8.4 documentation</title>
+  <title>Overview &mdash; celloracle 0.9.0 documentation</title>
   
 
   
@@ -445,10 +445,10 @@ div.rendered_html tbody tr:hover {
 </style>
 <div class="section" id="Overview">
 <h1>Overview<a class="headerlink" href="#Overview" title="Permalink to this headline">¶</a></h1>
-<p>In this notebook, we will make TSS annotation in the Cicero coaccessible peak data to get input data of base-GRN construction. - First, we pick up peaks around the transcription starting site (TSS). - Second, we merge cicero data with the peaks around TSS. - Then we remove peaks that have a weak connection to TSS peak so that the final product includes TSS peaks and peaks that have a strong connection with the TSS peaks. We use this information as an active promoter/enhancer elements.</p>
+<p>Before building the base GRN, we need to annotate the coaccessible peaks and filter our active promoter/enhancer elements. First, we will identify the peaks around transcription starting sites (TSS). We will then merge the Cicero data with the TSS peak information and filter any peaks with weak connections to the TSS peaks. As such, the filtered peak data will only include TSS peaks and peaks with strong TSS connections. These will be our active promoter/enhancer elements for our base GRN.</p>
 <div class="section" id="Notebook-file">
 <h2>Notebook file<a class="headerlink" href="#Notebook-file" title="Permalink to this headline">¶</a></h2>
-<p>Notebook file is available at CellOracle GitHub. <a class="reference external" href="https://github.com/morris-lab/CellOracle/blob/master/docs/notebooks/01_ATAC-seq_data_processing/option1_scATAC-seq_data_analysis_with_cicero/02_preprocess_peak_data.ipynb">https://github.com/morris-lab/CellOracle/blob/master/docs/notebooks/01_ATAC-seq_data_processing/option1_scATAC-seq_data_analysis_with_cicero/02_preprocess_peak_data.ipynb</a></p>
+<p>Notebook file is available on CellOracle GitHub page. <a class="reference external" href="https://github.com/morris-lab/CellOracle/blob/master/docs/notebooks/01_ATAC-seq_data_processing/option1_scATAC-seq_data_analysis_with_cicero/02_preprocess_peak_data.ipynb">https://github.com/morris-lab/CellOracle/blob/master/docs/notebooks/01_ATAC-seq_data_processing/option1_scATAC-seq_data_analysis_with_cicero/02_preprocess_peak_data.ipynb</a></p>
 </div>
 </div>
 <div class="section" id="0.-Import-libraries">
@@ -505,12 +505,12 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 </div>
-<div class="section" id="1.-Load-scATAC-peak-data-and-peak-connection-data-made-with-cicero">
-<h1>1. Load scATAC peak data and peak connection data made with cicero<a class="headerlink" href="#1.-Load-scATAC-peak-data-and-peak-connection-data-made-with-cicero" title="Permalink to this headline">¶</a></h1>
-<p>In this notebook, we explain how to process Cicero output. Please look at the previous step to know how to get this data yourself. <a class="reference external" href="https://morris-lab.github.io/CellOracle.documentation/tutorials/base_grn.html#step1-scatac-seq-analysis-with-cicero">https://morris-lab.github.io/CellOracle.documentation/tutorials/base_grn.html#step1-scatac-seq-analysis-with-cicero</a></p>
-<p>Here, we use preprosessed Cicero data that were made from scATAC-seq data.</p>
-<p>You can download the demo file by running the following command: If the file download fails, please manually download and unzip the data.</p>
-<p><a class="reference external" href="https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/all_peaks.csv">https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/all_peaks.csv</a></p>
+<div class="section" id="1.-Load-scATAC-peak-data-and-peak-connection-data-made-with-Cicero">
+<h1>1. Load scATAC peak data and peak connection data made with Cicero<a class="headerlink" href="#1.-Load-scATAC-peak-data-and-peak-connection-data-made-with-Cicero" title="Permalink to this headline">¶</a></h1>
+<p>In this notebook, we will annotate and filter output from Cicero. Please refer to the previous step to learn about data preparation with Cicero. <a class="reference external" href="https://morris-lab.github.io/CellOracle.documentation/tutorials/base_grn.html#step1-scatac-seq-analysis-with-cicero">https://morris-lab.github.io/CellOracle.documentation/tutorials/base_grn.html#step1-scatac-seq-analysis-with-cicero</a></p>
+<p>Here, we will use the preprocessed fetal brain scATAC-seq data from step 1.</p>
+<p>You can download the demo file by running the following command.</p>
+<p>Note: If the download fails, please manually download and unzip the data. <a class="reference external" href="https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/all_peaks.csv">https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/all_peaks.csv</a></p>
 <p><a class="reference external" href="https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/cicero_connections.csv">https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/cicero_connections.csv</a></p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
@@ -585,7 +585,7 @@ array([&#39;chr10_100006139_100006389&#39;, &#39;chr10_100015291_100017830&#39;,
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Load cicero coaccess score.</span>
+<span></span><span class="c1"># Load Cicero coaccessibility scores.</span>
 <span class="n">cicero_connections</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;cicero_connections.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">cicero_connections</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
@@ -655,11 +655,11 @@ array([&#39;chr10_100006139_100006389&#39;, &#39;chr10_100015291_100017830&#39;,
 </div></div>
 </div>
 </div>
-<div class="section" id="2.-Make-TSS-annotation">
-<h1>2. Make TSS annotation<a class="headerlink" href="#2.-Make-TSS-annotation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="2.-Annotate-transcription-start-sites-(TSSs)¶">
+<h1>2. Annotate transcription start sites (TSSs)¶<a class="headerlink" href="#2.-Annotate-transcription-start-sites-(TSSs)¶" title="Permalink to this headline">¶</a></h1>
 <p>If your scATAC-seq data was generated with mm10 reference genome, please set <code class="docutils literal notranslate"><span class="pre">ref_genome=&quot;mm10&quot;</span></code>.</p>
 <p>You can check supported reference genome using <code class="docutils literal notranslate"><span class="pre">ma.SUPPORTED_REF_GENOME</span></code></p>
-<p>If your reference genome is not in the list, please send a request to us through github issue page.</p>
+<p>If your reference genome is not in the list, please send a request to us through CellOracle GitHub issue page.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
@@ -940,11 +940,11 @@ tss peaks in que: 17238
 </div>
 <div class="section" id="3.-Integrate-TSS-info-and-cicero-connections">
 <h1>3. Integrate TSS info and cicero connections<a class="headerlink" href="#3.-Integrate-TSS-info-and-cicero-connections" title="Permalink to this headline">¶</a></h1>
-<p>he output file after the integration process has three columns: <code class="docutils literal notranslate"><span class="pre">[&quot;peak_id&quot;,</span> <span class="pre">&quot;gene_short_name&quot;,</span> <span class="pre">&quot;coaccess&quot;</span></code>].</p>
+<p>The output file after the integration process has three columns: <code class="docutils literal notranslate"><span class="pre">[&quot;peak_id&quot;,</span> <span class="pre">&quot;gene_short_name&quot;,</span> <span class="pre">&quot;coaccess&quot;</span></code>].</p>
 <ul class="simple">
-<li><p>“peak_id” is either the TSS peak or the peaks that have a connection with the TSS peak.</p></li>
+<li><p>“peak_id” is either the TSS peak or the peaks that have a connection to a TSS peak.</p></li>
 <li><p>“gene_short_name” is the gene name that associated with the TSS site.</p></li>
-<li><p>“coaccess” is the co-access score between a peak and TSS peak. If the score is 1, it means that the peak is TSS itself.</p></li>
+<li><p>“coaccess” is the coaccessibility score between the peak and a TSS peak. If the score is 1, it means that the peak is a TSS itself.</p></li>
 </ul>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
@@ -1032,7 +1032,7 @@ tss peaks in que: 17238
 </div>
 <div class="section" id="4.-Filter-peaks">
 <h1>4. Filter peaks<a class="headerlink" href="#4.-Filter-peaks" title="Permalink to this headline">¶</a></h1>
-<p>Remove peaks that have weak coaccess score.</p>
+<p>Remove peaks with weak coaccessibility scores.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
@@ -1121,7 +1121,7 @@ tss peaks in que: 17238
 </div>
 <div class="section" id="5.-Save-data">
 <h1>5. Save data<a class="headerlink" href="#5.-Save-data" title="Permalink to this headline">¶</a></h1>
-<p>Save the promoter/enhancer peak.</p>
+<p>Save the promoter/enhancer peaks.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>

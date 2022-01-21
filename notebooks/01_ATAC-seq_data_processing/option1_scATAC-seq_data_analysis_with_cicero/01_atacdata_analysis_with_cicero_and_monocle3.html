@@ -18,7 +18,7 @@
     </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Overview &mdash; celloracle 0.8.4 documentation</title>
+  <title>Overview &mdash; celloracle 0.9.0 documentation</title>
   
 
   
@@ -445,19 +445,20 @@ div.rendered_html tbody tr:hover {
 </style>
 <div class="section" id="Overview">
 <h1>Overview<a class="headerlink" href="#Overview" title="Permalink to this headline">¶</a></h1>
-<p>This notebook is an example R script on how to prepare the input data for building a CellOracle-based GRN. We aim to extract cis-regulated connections between scATAC-seq peaks. Here, we will introduce the data preparation method using Cicero.</p>
+<p>This notebook is an example R script on how to prepare the input data prior to building a base GRN. Here, we use Cicero to extract the cis-regulatory connections between scATAC-seq peaks.</p>
 <div class="section" id="Notebook-file">
 <h2>Notebook file<a class="headerlink" href="#Notebook-file" title="Permalink to this headline">¶</a></h2>
-<p>Notebook file is available at CellOracle GitHub. We have jupyter notebook (with R kernel) and R notebook. The contents are same. Please download and run either one.</p>
+<p>This notebook is available on CellOracle’s GitHub page as this jupyter notebook (with R kernel) or an R notebook. The notebooks are identical. Please use whichever one you prefer.</p>
 <ul class="simple">
+<li><p>Jupyter notebook with R kernel: <a class="reference external" href="https://github.com/morris-lab/CellOracle/blob/master/docs/notebooks/01_ATAC-seq_data_processing/option1_scATAC-seq_data_analysis_with_cicero/01_atacdata_analysis_with_cicero_and_monocle3.ipynb">https://github.com/morris-lab/CellOracle/blob/master/docs/notebooks/01_ATAC-seq_data_processing/option1_scATAC-seq_data_analysis_with_cicero/01_atacdata_analysis_with_cicero_and_monocle3.ipynb</a></p></li>
 <li><p>R notebook: <a class="reference external" href="https://github.com/morris-lab/CellOracle/blob/master/docs/notebooks/01_ATAC-seq_data_processing/option1_scATAC-seq_data_analysis_with_cicero/01_atacdata_analysis_with_cicero_and_monocle3.Rmd">https://github.com/morris-lab/CellOracle/blob/master/docs/notebooks/01_ATAC-seq_data_processing/option1_scATAC-seq_data_analysis_with_cicero/01_atacdata_analysis_with_cicero_and_monocle3.Rmd</a></p></li>
 </ul>
 </div>
 <div class="section" id="CAUTION:">
 <h2>CAUTION:<a class="headerlink" href="#CAUTION:" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>This notebook is intended to explain <strong>how to prepare the input data for CellOracle analysis</strong>. This is <strong>NOT</strong> the CellOracle analysis itself. Also, this notebook does NOT use <code class="docutils literal notranslate"><span class="pre">celloracle</span></code> in this notebook.</p></li>
-<li><p>Here, we use <code class="docutils literal notranslate"><span class="pre">Cicero</span></code> to process scATAC-seq data. If you are new to this packages, pelase read the documentation to learn them in advance.</p></li>
+<li><p>This notebook is intended to <strong>demonstrate data preprocessing steps prior to starting a CellOracle analysis</strong>. CellOracle is NOT used in this notebook, and this notebook is not the CellOracle analysis.</p></li>
+<li><p>Here, we will use <code class="docutils literal notranslate"><span class="pre">Cicero</span></code> to process scATAC-seq data. If you are new to this packages, pelase review the Cicero’s documentation to learn the basic process of Cicero in advance.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Cicero</span></code> documentation: <a class="reference external" href="https://cole-trapnell-lab.github.io/cicero-release/docs_m3/">https://cole-trapnell-lab.github.io/cicero-release/docs_m3/</a></p></li>
 </ul>
 </div>
@@ -477,8 +478,9 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="1.-Download-data">
 <h1>1. Download data<a class="headerlink" href="#1.-Download-data" title="Permalink to this headline">¶</a></h1>
-<p>This tutorial uses fetal brain acATAC-seq data obtained from a 10x genomics database. If you want to analyze your scATAC-seq data, you do not need to download these data.</p>
-<p>You can download the demo file by running the following command: If the file download fails, please manually download and unzip the data. <a class="reference external" href="http://cf.10xgenomics.com/samples/cell-atac/1.1.0/atac_v1_E18_brain_fresh_5k/atac_v1_E18_brain_fresh_5k_filtered_peak_bc_matrix.tar.gz">http://cf.10xgenomics.com/samples/cell-atac/1.1.0/atac_v1_E18_brain_fresh_5k/atac_v1_E18_brain_fresh_5k_filtered_peak_bc_matrix.tar.gz</a></p>
+<p>This tutorial uses fetal brain scATAC-seq data from a 10x Genomics database. If you’re using your own scATAC-seq data, you will not need to download this dataset.</p>
+<p>You can download the demo file with the following command.</p>
+<p><strong>Note: If the file download fails, please manually download and unzip the data.</strong> <a class="reference external" href="http://cf.10xgenomics.com/samples/cell-atac/1.1.0/atac_v1_E18_brain_fresh_5k/atac_v1_E18_brain_fresh_5k_filtered_peak_bc_matrix.tar.gz">http://cf.10xgenomics.com/samples/cell-atac/1.1.0/atac_v1_E18_brain_fresh_5k/atac_v1_E18_brain_fresh_5k_filtered_peak_bc_matrix.tar.gz</a></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
@@ -500,7 +502,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-r notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># You can substitute the data path below with the data path of your scATAC data.</span>
+<span></span><span class="c1"># You can substitute the data path below to your scATAC-seq data.</span>
 <span class="n">data_folder</span> <span class="o">&lt;-</span> <span class="s">&quot;data/filtered_peak_bc_matrix&quot;</span>
 
 <span class="c1"># Create a folder to save results</span>
@@ -584,8 +586,8 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 </div>
-<div class="section" id="4.-Process-cicero-CDS-object">
-<h1>4. Process cicero-CDS object<a class="headerlink" href="#4.-Process-cicero-CDS-object" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="4.-Process-Cicero-CDS-object">
+<h1>4. Process Cicero-CDS object<a class="headerlink" href="#4.-Process-Cicero-CDS-object" title="Permalink to this headline">¶</a></h1>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
@@ -606,7 +608,7 @@ div.rendered_html tbody tr:hover {
 
 <span class="n">cicero_cds</span> <span class="o">&lt;-</span> <span class="nf">make_cicero_cds</span><span class="p">(</span><span class="n">input_cds</span><span class="p">,</span> <span class="n">reduced_coordinates</span> <span class="o">=</span> <span class="n">umap_coords</span><span class="p">)</span>
 
-<span class="c1"># Save cds object if you want</span>
+<span class="c1"># Save Cds object (Optional)</span>
 <span class="c1">#saveRDS(cicero_cds, paste0(output_folder, &quot;/cicero_cds.Rds&quot;))</span>
 
 
@@ -629,17 +631,17 @@ Median shared cells bin-bin: 0
 </div>
 <div class="section" id="5.-Load-reference-genome-information">
 <h1>5. Load reference genome information<a class="headerlink" href="#5.-Load-reference-genome-information" title="Permalink to this headline">¶</a></h1>
-<p>To run cicero, you need to get a genomic coordinate file that contains the length of each chromosome. You can download the mm10 genomic information with the following command.</p>
-<p>If your scATAC-seq data was generated with another reference genome, you need to get the genome coordinate file for the reference genome you used. See the Cicero documentation for more information.</p>
+<p>To run Cicero, you need to get a genomic coordinate file that contains the length of each chromosome. You can download the mm10 genomic information with the following command.</p>
+<p>If your scATAC-seq data was generated with a different reference genome, you will need to get the genome coordinates file for the reference genome you used. See the Cicero documentation for more information.</p>
 <p><a class="reference external" href="https://cole-trapnell-lab.github.io/cicero-release/docs_m3/#installing-cicero">https://cole-trapnell-lab.github.io/cicero-release/docs_m3/#installing-cicero</a></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-r notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># !!Please make sure that the reference genome information below match the reference genome of your scATAC-seq data.</span>
+<span></span><span class="c1"># !!Please make sure that the reference genome information below matches your scATAC-seq reference genome.</span>
 
-<span class="c1"># If your scATAC-seq uses mm10 reference genome, you can read chromosome length file with the following command.</span>
+<span class="c1"># If your scATAC-seq was aligned to the mm10 reference genome, you can read the chromosome length file using the following command.</span>
 <span class="nf">download.file</span><span class="p">(</span><span class="n">url</span> <span class="o">=</span> <span class="s">&quot;https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/mm10_chromosome_length.txt&quot;</span><span class="p">,</span>
               <span class="n">destfile</span> <span class="o">=</span> <span class="s">&quot;./mm10_chromosome_length.txt&quot;</span><span class="p">)</span>
 <span class="n">chromosome_length</span> <span class="o">&lt;-</span> <span class="nf">read.table</span><span class="p">(</span><span class="s">&quot;./mm10_chromosome_length.txt&quot;</span><span class="p">)</span>
@@ -667,7 +669,7 @@ Median shared cells bin-bin: 0
 <span></span><span class="c1"># Run the main function</span>
 <span class="n">conns</span> <span class="o">&lt;-</span> <span class="nf">run_cicero</span><span class="p">(</span><span class="n">cicero_cds</span><span class="p">,</span> <span class="n">chromosome_length</span><span class="p">)</span> <span class="c1"># Takes a few minutes to run</span>
 
-<span class="c1"># Save results if you want</span>
+<span class="c1"># Save results (Optional)</span>
 <span class="c1">#saveRDS(conns, paste0(output_folder, &quot;/cicero_connections.Rds&quot;))</span>
 
 <span class="c1"># Check results</span>

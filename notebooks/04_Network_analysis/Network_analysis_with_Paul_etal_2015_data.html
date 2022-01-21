@@ -18,7 +18,7 @@
     </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Overview &mdash; celloracle 0.8.4 documentation</title>
+  <title>Overview &mdash; celloracle 0.9.0 documentation</title>
   
 
   
@@ -50,8 +50,8 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="1. in silico gene perturbation with GRNs" href="../../tutorials/simulation.html" />
-    <link rel="prev" title="1. GRN model construction and Network analysis" href="../../tutorials/networkanalysis.html" /> 
+    <link rel="next" title="1. In silico gene perturbation with GRNs" href="../../tutorials/simulation.html" />
+    <link rel="prev" title="1. GRN model construction and network analysis" href="../../tutorials/networkanalysis.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -109,11 +109,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../../tutorials/index.html#code-and-data-availability">Code and data availability</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../tutorials/index.html#getting-started">Getting started</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../tutorials/index.html#index">Index</a><ul class="current">
-<li class="toctree-l3 current"><a class="reference internal" href="../../tutorials/index.html#grn-model-construction-and-network-analysis">GRN model construction and Network analysis</a><ul class="current">
-<li class="toctree-l4 current"><a class="reference internal" href="../../tutorials/networkanalysis.html">1. GRN model construction and Network analysis</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../tutorials/index.html#grn-model-construction-and-network-analysis">GRN model construction and network analysis</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="../../tutorials/networkanalysis.html">1. GRN model construction and network analysis</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../tutorials/index.html#in-silico-gene-perturbation-with-grns">in silico gene perturbation with GRNs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/index.html#in-silico-gene-perturbation-with-grns">In silico gene perturbation with GRNs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../tutorials/index.html#prepare-input-data">Prepare input data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../tutorials/index.html#tf-motif-scan-for-base-grn-construction">TF motif scan for base-GRN construction</a></li>
 </ul>
@@ -183,7 +183,7 @@
         
           <li><a href="../../tutorials/index.html">Tutorial</a> &raquo;</li>
         
-          <li><a href="../../tutorials/networkanalysis.html"><span class="section-number">1. </span>GRN model construction and Network analysis</a> &raquo;</li>
+          <li><a href="../../tutorials/networkanalysis.html"><span class="section-number">1. </span>GRN model construction and network analysis</a> &raquo;</li>
         
       <li>Overview</li>
     
@@ -461,59 +461,60 @@ div.rendered_html tbody tr:hover {
 </style>
 <div class="section" id="Overview">
 <h1>Overview<a class="headerlink" href="#Overview" title="Permalink to this headline">¶</a></h1>
-<p>This notebook describes how to construct GRN models. Please read our paper first to know about the CellOracle algorithm.</p>
+<p>This notebook describes how to construct GRN models in CellOracle. Please read our paper first to know about the CellOracle’s GRN modeling algorithm.</p>
+<p>Last update: 1/20/2022, Kenji Kamimoto</p>
 <div class="section" id="Notebook-file">
 <h2>Notebook file<a class="headerlink" href="#Notebook-file" title="Permalink to this headline">¶</a></h2>
-<p>Notebook file is available at CellOracle GitHub. <a class="reference external" href="https://github.com/morris-lab/CellOracle/blob/master/docs/notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.ipynb">https://github.com/morris-lab/CellOracle/blob/master/docs/notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.ipynb</a></p>
+<p>Notebook file is available on CellOracle’s GitHub page. <a class="reference external" href="https://github.com/morris-lab/CellOracle/blob/master/docs/notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.ipynb">https://github.com/morris-lab/CellOracle/blob/master/docs/notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.ipynb</a></p>
 </div>
 <div class="section" id="Data">
 <h2>Data<a class="headerlink" href="#Data" title="Permalink to this headline">¶</a></h2>
-<p>CellOracle uses two input data below for the GRN model construction.</p>
+<p>CellOracle uses two types of input data during the GRN model construction.</p>
 <ul>
-<li><p><strong>Input data1: scRNA-seq data</strong>. Please look at the previous section to know the scRNA-seq data preprocessing method. <a class="reference external" href="https://morris-lab.github.io/CellOracle.documentation/tutorials/scrnaprocess.html">https://morris-lab.github.io/CellOracle.documentation/tutorials/scrnaprocess.html</a></p></li>
-<li><p><strong>Input data2: Base-GRN</strong>. Base-GRN is a binary matrix (or list) that represents the TF-target gene connection. Please look at our paper to know the concept of base-GRN.</p></li>
-<li><p>CellOracle typically uses base-GRN constructed from scATAC-seq. If you want to create custom base-GRN from your data, please look at another notebook on how to get base-GRN from your scATAC-seq data. <a class="reference external" href="https://morris-lab.github.io/CellOracle.documentation/tutorials/base_grn.html">https://morris-lab.github.io/CellOracle.documentation/tutorials/base_grn.html</a></p></li>
+<li><p><strong>Input data 1: scRNA-seq data</strong>. Please look at the previous section to learn about the scRNA-seq data preprocessing. <a class="reference external" href="https://morris-lab.github.io/CellOracle.documentation/tutorials/scrnaprocess.html">https://morris-lab.github.io/CellOracle.documentation/tutorials/scrnaprocess.html</a></p></li>
+<li><p><strong>Input data 2: Base-GRN</strong>. The base GRN represents the TF-target gene connections. The data structure is a binary 2D matrix or linklist. Please look at our paper to know the concept of base GRN.</p></li>
+<li><p>CellOracle typically uses a base GRN constructed from scATAC-seq data. If you would like to create a custom base GRN using your scATAC-seq data, please refer to the following notebook. <a class="reference external" href="https://morris-lab.github.io/CellOracle.documentation/tutorials/base_grn.html">https://morris-lab.github.io/CellOracle.documentation/tutorials/base_grn.html</a></p></li>
 <li><div class="line-block">
-<div class="line">If you do not have any scATAC-seq data that correspond / similar to the cell type of the scRNA-seq data, please use pre-built base-GRN.</div>
+<div class="line">If you do not have any sample-specific scATAC-seq data that correspond to the same/similar cell type of the scRNA-seq data, please use pre-built base GRN.</div>
 </div>
 </li>
-<li><p>We provide multiple options for pre-built base-GRN. For mouse analysis, we recommend using base-GRN constructed from the mouse sciATAC-seq atlas dataset. It includes various tissue and various cell types. Another option is base-GRN constructed from promoter sequence. We provide promoter base-GRN for ten species.</p></li>
+<li><p>We provide multiple options for pre-built base GRN. For analyses in mice, we recommend using a base GRN built from the mouse sciATAC-seq Atlas dataset. It includes various tissues and various cell types. Another option is using base GRN constructed from promoter database. We provide promoter base GRNs for ten species.</p></li>
 </ul>
 </div>
 <div class="section" id="What-you-can-do">
 <h2>What you can do<a class="headerlink" href="#What-you-can-do" title="Permalink to this headline">¶</a></h2>
-<p>After constructing the CellOracle GRN model, you can do two analyses.</p>
+<p>After constructing the CellOracle GRN models, you can do two analyses.</p>
 <ol class="arabic simple">
-<li><p><strong>in silico TF perturbation</strong> to simulate cell identity shift. CellOracle uses the GRN model to simulate cell identity shift in response to TF perturbation. For this analysis, you need to construct GRN models in this notebook first.</p></li>
-<li><p><strong>Network analysis</strong> using graph theory. You can analyze the GRN model itself. We provide several functions for Network analysis using graph theory.</p></li>
+<li><p><strong>in silico TF perturbation analysis</strong>. CellOracle uses the GRN models to simulate cell identity shifts in response to TF perturbation. For this analysis, you must first construct your GRN models in this notebook.</p></li>
+<li><p><strong>Network analysis</strong>. You can analyze the GRN models using graph theory. We provide several functions.</p></li>
 </ol>
 <ul class="simple">
-<li><p>CellOracle construct cluster-wise GRN model. You can compare the GRN model structure between clusters. By comparing GRN models, you can investigate the cell type-specific GRN configuration and rewiring process of this GRN.</p></li>
-<li><p>You can export the network models. You can analyze the GRN model using any method you like.</p></li>
+<li><p>CellOracle construct cluster-wise GRN models. You can compare the GRN model structure between clusters, which allows you to investigate the cell type-specific GRN configurations and explore structual changes as GRNs are rewired along the cell differentiation trajectory.</p></li>
+<li><p>You can also export the network models and analyze the GRN models using external packages or softwares.</p></li>
 </ul>
 </div>
-<div class="section" id="Custom-data-class-/-object">
-<h2>Custom data class / object<a class="headerlink" href="#Custom-data-class-/-object" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Custom-data-classes-/-objects">
+<h2>Custom data classes / objects<a class="headerlink" href="#Custom-data-classes-/-objects" title="Permalink to this headline">¶</a></h2>
 <p>In this notebook, CellOracle uses two custom classes, <code class="docutils literal notranslate"><span class="pre">Oracle</span></code> and <code class="docutils literal notranslate"><span class="pre">Links</span></code>.</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Oracle</span></code> is the main class in the CellOracle package. It will do almost all calculations of GRN model construction and TF perturbation simulation. <code class="docutils literal notranslate"><span class="pre">Oracle</span></code> will do the following calculation sequentially.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Oracle</span></code> is the main class in the CellOracle package. It is responsible for almost all the GRN model construction and TF perturbation simulation. <code class="docutils literal notranslate"><span class="pre">Oracle</span></code> does the following calculations sequentially.</p></li>
 </ul>
 <ol class="arabic simple">
-<li><p>Import scRNA-sequence data. Please look at another notebook to learn preprocessing method.</p></li>
-<li><p>Import base-GRN data.</p></li>
+<li><p>Import scRNA-sequence data. Please refer to the data preparation notebooks to learn about data preparation procedures.</p></li>
+<li><p>Import base GRN data.</p></li>
 <li><p>scRNA-seq data processing.</p></li>
 <li><p>GRN model construction.</p></li>
-<li><p>in silico petrurbation. We will describe how to do it in the following notebook.</p></li>
+<li><p>in silico petrurbation. We will describe how to do this in the following notebook.</p></li>
 </ol>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Links</span></code> is a class to store GRN data. Also, it has many functions for network analysis and visualization.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Links</span></code> is a class to store GRN data. It also conteins many functions for network analysis and visualization.</p></li>
 </ul>
 </div>
 </div>
 <div class="section" id="0.-Import-libraries">
 <h1>0. Import libraries<a class="headerlink" href="#0.-Import-libraries" title="Permalink to this headline">¶</a></h1>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -532,7 +533,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -542,16 +543,16 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&#39;0.6.17&#39;
+&#39;0.8.5&#39;
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -561,13 +562,12 @@ div.rendered_html tbody tr:hover {
 
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">]</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;savefig.dpi&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">300</span>
-
 </pre></div>
 </div>
 </div>
-<p>Celloracle uses some R libraries in network analysis. Please make sure that all dependent R libraries are installed on your computer. You can test the installation with the following command.</p>
+<p>Celloracle utilizes several R libraries for network analysis. Please make sure that these R libraries are installed on your computer if you would like to perform network analysis (<strong>Step 6</strong> in this notebook). You can test the installation with the following command.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -587,7 +587,7 @@ checking R library installation: rnetcarto -&gt; OK
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -599,28 +599,29 @@ checking R library installation: rnetcarto -&gt; OK
 </div>
 <div class="section" id="1.-Load-data">
 <h1>1. Load data<a class="headerlink" href="#1.-Load-data" title="Permalink to this headline">¶</a></h1>
-<p>Please refer to the previous notebook in the tutorial for an example of how to process scRNA-seq data. <a class="reference external" href="https://morris-lab.github.io/CellOracle.documentation/tutorials/scrnaprocess.html">https://morris-lab.github.io/CellOracle.documentation/tutorials/scrnaprocess.html</a></p>
-<p>We need scRNA-seq data as anndata.</p>
+<p>Please refer to the previous notebook to learn about scRNA-seq data processing. <a class="reference external" href="https://morris-lab.github.io/CellOracle.documentation/tutorials/scrnaprocess.html">https://morris-lab.github.io/CellOracle.documentation/tutorials/scrnaprocess.html</a></p>
+<p>The scRNA-seq data must be in the anndata format.</p>
 <blockquote>
-<div><p><strong>This CellOracle tutorial notebook assume the user have a basic knoledge and experience of scRNA-seq analysis with scanpy and anndata.</strong> This notebook do not intend to give introductory knowledge about scanpy and anndata. If you are not familiar with them, please look at the documentation and tutorials of annata (<a class="reference external" href="https://anndata.readthedocs.io/en/stable/">https://anndata.readthedocs.io/en/stable/</a>) and Scanpy (<a class="reference external" href="https://scanpy.readthedocs.io/en/stable/">https://scanpy.readthedocs.io/en/stable/</a>).</p>
+<div><p><strong>This CellOracle tutorial notebook assumes the user has basic knowledge and experience with scRNA-seq analysis using Scanpy and Anndata.</strong> This notebook is not intended to be an introduction to Scanpy or Anndata. If you are not familiar with them, please learn them using the documentation and tutorials for Scanpy (<a class="reference external" href="https://scanpy.readthedocs.io/en/stable/">https://scanpy.readthedocs.io/en/stable/</a>) and annata (<a class="reference external" href="https://anndata.readthedocs.io/en/stable/">https://anndata.readthedocs.io/en/stable/</a>).</p>
 </div></blockquote>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Load data. !!Replace the data path below when you use another data.</span>
-<span class="c1"># adata = sc.read_h5ad(&quot;DATAPATH&quot;)</span>
-
+<span></span><span class="c1"># Load data.</span>
 <span class="c1"># Here, we will use a hematopoiesis data by Paul 2015.</span>
 <span class="c1"># You can load preprocessed data using a celloracle function as follows.</span>
 <span class="n">adata</span> <span class="o">=</span> <span class="n">co</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">load_Paul2015_data</span><span class="p">()</span>
 <span class="n">adata</span>
+
+<span class="c1"># Attention: Replace the data path below when using your data.</span>
+<span class="c1"># adata = sc.read_h5ad(&quot;DATAPATH&quot;)</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -635,8 +636,8 @@ AnnData object with n_obs × n_vars = 2671 × 1999
     obsp: &#39;connectivities&#39;, &#39;distances&#39;
 </pre></div></div>
 </div>
-<p>If your scRNA-seq data includes more than 20-30K cells, we recommend doing downsampling. It is because the later simulation process will require large amount of memory if you have large data.</p>
-<p>Also, please pay attention to the number of genes. If you are following the instruction in the previous tutorial notebook, the scRNA-seq data should include only top 2~3K variable genes. If you have more than 3K genes, it might cause problems in the later steps.</p>
+<p>If your scRNA-seq data includes more than 20-30K cells, we recommend downsampling your data. If you do not, please note the perturbation simulations may require large amounts of memory in the next notebook.</p>
+<p>Also, please pay attention to the number of genes. If you are following the instruction from the previous tutorial notebook, the scRNA-seq data should include only top 2~3K variable genes. If you have more than 3K genes, it may cause issues downstream.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
@@ -661,7 +662,7 @@ Gene number is :1999
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Random downsampling into 30K cells if the anndata include more than 30 K cells.</span>
+<span></span><span class="c1"># Random downsampling into 30K cells if the anndata object include more than 30 K cells.</span>
 <span class="n">n_cells_downsample</span> <span class="o">=</span> <span class="mi">30000</span>
 
 <span class="k">if</span> <span class="n">adata</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">n_cells_downsample</span><span class="p">:</span>
@@ -687,15 +688,15 @@ Gene number is :1999
 Cell number is :2671
 </pre></div></div>
 </div>
-<p>For the GRN inference, celloracle needs base-GRN. - There are several ways to make base-GRN. We can typically generate TF information from scATAC-seq data or bulk ATAC-seq data. Please refer to the first step of the tutorial for the details of this process. <a class="reference external" href="https://morris-lab.github.io/CellOracle.documentation/tutorials/base_grn.html">https://morris-lab.github.io/CellOracle.documentation/tutorials/base_grn.html</a></p>
+<p>To infer cluster-specific GRNs, CellOracle requires a base GRN. - There are several ways to make a base GRN. We can typically generate base GRN from scATAC-seq data or bulk ATAC-seq data. Please refer to the first step of the tutorial to learn more about this process. <a class="reference external" href="https://morris-lab.github.io/CellOracle.documentation/tutorials/base_grn.html">https://morris-lab.github.io/CellOracle.documentation/tutorials/base_grn.html</a></p>
 <ul class="simple">
-<li><p>If you do not have your scATAC-seq data, you can use some built-in base-GRN data.</p></li>
-<li><p>Base-GRN made from mouse sci-ATAC-seq atlas dataset: The built-in base-GRN was made from various tissue/cell-types (<a class="reference external" href="http://atlas.gs.washington.edu/mouse-atac/">http://atlas.gs.washington.edu/mouse-atac/</a>). We recommend using this for mouse scRNA-seq data. Please load this data as follows.</p></li>
+<li><p>If you do not have your scATAC-seq data, you can use one of the built-in base GRNs options below.</p></li>
+<li><p>Base GRNs made from mouse sci-ATAC-seq atlas : The built-in base GRN was made from various tissue/cell-types found in the atlas (<a class="reference external" href="http://atlas.gs.washington.edu/mouse-atac/">http://atlas.gs.washington.edu/mouse-atac/</a>). We recommend using this for mouse scRNA-seq data. Please load this data as follows.</p></li>
 </ul>
 <p><code class="docutils literal notranslate"><span class="pre">base_GRN</span> <span class="pre">=</span> <span class="pre">co.data.load_mouse_scATAC_atlas_base_GRN()</span></code></p>
 <ul class="simple">
-<li><p>Promoter base-GRN: We provide base-GRN made from promoter DNA-sequencing for ten species. You can load this data as follos.</p></li>
-<li><p>For Human: <code class="docutils literal notranslate"><span class="pre">base_GRN</span> <span class="pre">=</span> <span class="pre">co.data.load_human_promoter_base_GRN()</span></code></p></li>
+<li><p>Promoter base GRN: We also provide base GRN made from promoter DNA-sequences for ten species. You can load this data as follows.</p></li>
+<li><p>e.g. for Human: <code class="docutils literal notranslate"><span class="pre">base_GRN</span> <span class="pre">=</span> <span class="pre">co.data.load_human_promoter_base_GRN()</span></code></p></li>
 </ul>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
@@ -885,7 +886,7 @@ Cell number is :2671
 </div>
 <div class="section" id="2.-Initiate-Oracle-object">
 <h1>2. Initiate Oracle object<a class="headerlink" href="#2.-Initiate-Oracle-object" title="Permalink to this headline">¶</a></h1>
-<p>We can use Oracle for the data preprocessing and GRN inference steps. The Oracle object stores all of the necessary information and does the calculations with its internal functions. We instantiate an Oracle object, then input the gene expression data (anndata) and a TFinfo into the Oracle object.</p>
+<p>We will use an Oracle object during the data preprocessing and GRN inference steps. Using its internal functions, the Oracle object computes and stores all of the necessary information for these calculations. To begin, we will instantiate a new Oracle object and input our gene expression data (anndata) and TF info (base GRN).</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
@@ -896,10 +897,10 @@ Cell number is :2671
 </pre></div>
 </div>
 </div>
-<p>For the celloracle analysis, the anndata shoud include (1) gene expression count, (2) clustering information, (3) trajectory (dimensional reduction embeddings) data. Please refer to another notebook for more information on anndata preprocessing.</p>
-<p>When you load a scRNA-seq data, please enter <strong>the name of clustering data</strong> and <strong>dimensional reduction data.</strong> - The clustering data should be to be stored in the attribute of <code class="docutils literal notranslate"><span class="pre">obs</span></code> in the anndata. &gt; You can check it by the following command. &gt; &gt; <code class="docutils literal notranslate"><span class="pre">adata.obs.columns</span></code></p>
+<p>For the CellOracle analysis, your anndata should include (1) gene expression counts, (2) clustering information, and (3) trajectory (dimensional reduction embedding) data. Please refer to a previous notebook for more information on anndata preprocessing.</p>
+<p>When you load the scRNA-seq data, please enter <strong>the name of the clustering data</strong> and <strong>the name of the dimensionality reduction.</strong> - The clustering data should be to be stored in the <code class="docutils literal notranslate"><span class="pre">obs</span></code> the attribute of anndata. &gt; You can check it using the following command. &gt; &gt; <code class="docutils literal notranslate"><span class="pre">adata.obs.columns</span></code></p>
 <ul class="simple">
-<li><p>Dimensional reduction data suppose to be stored in the attribute of “obsm” in the anndata. &gt; You can check it by the following command. &gt; &gt; <code class="docutils literal notranslate"><span class="pre">adata.obsm.keys()</span></code></p></li>
+<li><p>Dimensional reduction data is stored in the <code class="docutils literal notranslate"><span class="pre">obsm</span></code> the attribute of anndata. &gt; You can check it with the following command. &gt; &gt; <code class="docutils literal notranslate"><span class="pre">adata.obsm.keys()</span></code></p></li>
 </ul>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
@@ -926,7 +927,7 @@ dimensional reduction:  [&#39;X_diffmap&#39;, &#39;X_draw_graph_fa&#39;, &#39;X_
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># In this notebook, we use raw mRNA count as an input of Oracle object.</span>
+<span></span><span class="c1"># In this notebook, we use the unscaled mRNA count for the nput of Oracle object.</span>
 <span class="n">adata</span><span class="o">.</span><span class="n">X</span> <span class="o">=</span> <span class="n">adata</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="s2">&quot;raw_count&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
 <span class="c1"># Instantiate Oracle object.</span>
@@ -949,14 +950,14 @@ dimensional reduction:  [&#39;X_diffmap&#39;, &#39;X_draw_graph_fa&#39;, &#39;X_
 </pre></div>
 </div>
 </div>
-<p>We can add additional TF-target gene pair manually.</p>
-<p>For example, if there is a study or database that includes specific TF-target pairs, you can use such information in the following way.</p>
+<p>We can add additional TF-target gene pairs manually.</p>
+<p>For example, if there is a study or database that includes specific TF-target pairs, you can include this information using a python dictionary.</p>
 <div class="section" id="2.3.1.-Make-dictionary">
 <h2>2.3.1. Make dictionary<a class="headerlink" href="#2.3.1.-Make-dictionary" title="Permalink to this headline">¶</a></h2>
 <p>Here, we will introduce how to manually add TF-target gene pair data.</p>
-<p>As an example, we will use TF binding data that was published in supplemental table 4 in the paper. (<a class="reference external" href="http://doi.org/10.1016/j.cell.2015.11.013">http://doi.org/10.1016/j.cell.2015.11.013</a>).</p>
-<p>You can dowmload this file by running the following command. If it fails, please download manually. <a class="reference external" href="https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/TF_data_in_Paul15.csv">https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/TF_data_in_Paul15.csv</a></p>
-<p>In order to import TF data into the Oracle object, we need to convert them into a python dictionary. The dictionary keys is a target gene, and dictionary value is a list of regulatory candidate TFs.</p>
+<p>As an example, we will use TF binding data from supplemental table 4 in the Paul et al., (2015) paper. (<a class="reference external" href="http://doi.org/10.1016/j.cell.2015.11.013">http://doi.org/10.1016/j.cell.2015.11.013</a>).</p>
+<p>You can download this file by running the command below. Or download it manually here. <a class="reference external" href="https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/TF_data_in_Paul15.csv">https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/TF_data_in_Paul15.csv</a></p>
+<p>In order to import the TF data into the Oracle object, we need to convert it into a python dictionary. The dictionary keys will be the target gene, and dictionary values will be a list of regulatory candidate TFs.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
@@ -993,7 +994,7 @@ TF_data_in_Paul15.c 100%[===================&gt;]   1.73K  --.-KB/s    in 0s
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># We have TF and its target gene information. This is from a supplemental Fig of Paul et. al, (2015).</span>
+<span></span><span class="c1"># Load the TF and target gene information from Paul et al. (2015).</span>
 <span class="n">Paul_15_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;TF_data_in_Paul15.csv&quot;</span><span class="p">)</span>
 <span class="n">Paul_15_data</span>
 
@@ -1062,7 +1063,7 @@ TF_data_in_Paul15.c 100%[===================&gt;]   1.73K  --.-KB/s    in 0s
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Make dictionary: dictionary Key is TF, dictionary Value is list of target genes</span>
+<span></span><span class="c1"># Make dictionary: dictionary key is TF and dictionary value is list of target genes.</span>
 <span class="n">TF_to_TG_dictionary</span> <span class="o">=</span> <span class="p">{}</span>
 
 <span class="k">for</span> <span class="n">TF</span><span class="p">,</span> <span class="n">TGs</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">Paul_15_data</span><span class="o">.</span><span class="n">TF</span><span class="p">,</span> <span class="n">Paul_15_data</span><span class="o">.</span><span class="n">Target_genes</span><span class="p">):</span>
@@ -1071,10 +1072,8 @@ TF_data_in_Paul15.c 100%[===================&gt;]   1.73K  --.-KB/s    in 0s
     <span class="c1"># store target gene list in a dictionary</span>
     <span class="n">TF_to_TG_dictionary</span><span class="p">[</span><span class="n">TF</span><span class="p">]</span> <span class="o">=</span> <span class="n">TG_list</span>
 
-<span class="c1"># We have to make a dictionary, in which a Key is Target gene and value is TF.</span>
 <span class="c1"># We invert the dictionary above using a utility function in celloracle.</span>
 <span class="n">TG_to_TF_dictionary</span> <span class="o">=</span> <span class="n">co</span><span class="o">.</span><span class="n">utility</span><span class="o">.</span><span class="n">inverse_dictionary</span><span class="p">(</span><span class="n">TF_to_TG_dictionary</span><span class="p">)</span>
-
 </pre></div>
 </div>
 </div>
@@ -1085,8 +1084,8 @@ TF_data_in_Paul15.c 100%[===================&gt;]   1.73K  --.-KB/s    in 0s
 <script type="application/vnd.jupyter.widget-view+json">{"model_id": "e4825d927bf34e16b427bdccc1b9968d", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 </div>
-<div class="section" id="2.3.2.-Add-TF-informatio-dictionary-into-the-oracle-object">
-<h2>2.3.2. Add TF informatio dictionary into the oracle object<a class="headerlink" href="#2.3.2.-Add-TF-informatio-dictionary-into-the-oracle-object" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="2.3.2.-Add-TF-information-dictionary-into-the-oracle-object">
+<h2>2.3.2. Add TF information dictionary into the oracle object<a class="headerlink" href="#2.3.2.-Add-TF-information-dictionary-into-the-oracle-object" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
@@ -1099,10 +1098,10 @@ TF_data_in_Paul15.c 100%[===================&gt;]   1.73K  --.-KB/s    in 0s
 </div>
 </div>
 </div>
-<div class="section" id="3.-Knn-imputation">
-<h1>3. Knn imputation<a class="headerlink" href="#3.-Knn-imputation" title="Permalink to this headline">¶</a></h1>
-<p>Celloracle uses the same strategy as velocyto for visualizing cell transitions. This process requires KNN imputation in advance.</p>
-<p>For the KNN imputation, we need PCA and PC selection first.</p>
+<div class="section" id="3.-KNN-imputation">
+<h1>3. KNN imputation<a class="headerlink" href="#3.-KNN-imputation" title="Permalink to this headline">¶</a></h1>
+<p>CellOracle uses the same strategy as velocyto for visualizing cell transitions. This process requires KNN imputation in advance.</p>
+<p>For the KNN imputation, we first need to calculate and select PCs.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
@@ -1177,7 +1176,7 @@ Auto-selected k is :66
 </div>
 <div class="section" id="4.-Save-and-Load.">
 <h1>4. Save and Load.<a class="headerlink" href="#4.-Save-and-Load." title="Permalink to this headline">¶</a></h1>
-<p>You can save <code class="docutils literal notranslate"><span class="pre">Oracle</span></code> object using <code class="docutils literal notranslate"><span class="pre">Oracle.to_hdf5(FILE_NAME.celloracle.oracle)</span></code>.</p>
+<p>You can save your <code class="docutils literal notranslate"><span class="pre">Oracle</span></code> object using <code class="docutils literal notranslate"><span class="pre">Oracle.to_hdf5(FILE_NAME.celloracle.oracle)</span></code>.</p>
 <p>Pleasae use <code class="docutils literal notranslate"><span class="pre">co.load_hdf5(FILE_NAME.celloracle.oracle)</span></code> to load the saved file.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
@@ -1202,10 +1201,10 @@ Auto-selected k is :66
 </div>
 <div class="section" id="5.-GRN-calculation">
 <h1>5. GRN calculation<a class="headerlink" href="#5.-GRN-calculation" title="Permalink to this headline">¶</a></h1>
-<p>The next step is constructing a cluster-specific GRN for all clusters.</p>
+<p>The next step constructs a cluster-specific GRN for all clusters.</p>
 <ul class="simple">
-<li><p>You can calculate GRNs with the <code class="docutils literal notranslate"><span class="pre">get_links</span></code> function, and the function returns GRNs as a <code class="docutils literal notranslate"><span class="pre">Links</span></code> object. The <code class="docutils literal notranslate"><span class="pre">Links</span></code> object stores inferred GRNs and the corresponding metadata. You can do network analysis with the <code class="docutils literal notranslate"><span class="pre">Links</span></code> object.</p></li>
-<li><p>The GRN will be calculated for each cluster/sub-group. In the example below, we construct GRN for each unit of the “louvain_annot” clustering.</p></li>
+<li><p>You can calculate GRNs with the <code class="docutils literal notranslate"><span class="pre">get_links</span></code> function, and it will return the results as a <code class="docutils literal notranslate"><span class="pre">Links</span></code> object. The <code class="docutils literal notranslate"><span class="pre">Links</span></code> object stores the inferred GRNs and the corresponding metadata. Most network structure analysis is performed with the <code class="docutils literal notranslate"><span class="pre">Links</span></code> object.</p></li>
+<li><p>A GRN will be calculated for each cluster/sub-group. In the example below, we construct GRN for each unit of the “louvain_annot” clustering.</p></li>
 </ul>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
@@ -1231,13 +1230,13 @@ Auto-selected k is :66
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="o">%%time</span>
 <span class="c1"># Calculate GRN for each population in &quot;louvain_annot&quot; clustering unit.</span>
-<span class="c1"># This step may take long time.(~30 minutes)</span>
+<span class="c1"># This step may take some time.(~30 minutes)</span>
 <span class="n">links</span> <span class="o">=</span> <span class="n">oracle</span><span class="o">.</span><span class="n">get_links</span><span class="p">(</span><span class="n">cluster_name_for_GRN_unit</span><span class="o">=</span><span class="s2">&quot;louvain_annot&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
                          <span class="n">verbose_level</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">test_mode</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<p>Although celloracle has many functions for network analysis, you can analyze GRNs by hand if you choose. The raw GRN data is stored as a dictionary of dataframe in the attribute of <code class="docutils literal notranslate"><span class="pre">links_dict</span></code>.</p>
+<p>Although CellOracle has many functions for network analysis, you can export and analyze GRNs using another software if you chose. The raw GRN data is stored as a dictionary of dataframe in the <code class="docutils literal notranslate"><span class="pre">links_dict</span></code> attribute.</p>
 <p>For example, you can get the GRN for the “Ery_0” cluster with the following commands.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
@@ -1416,8 +1415,8 @@ dict_keys([&#39;Ery_0&#39;, &#39;Ery_1&#39;, &#39;Ery_2&#39;, &#39;Ery_3&#39;, &
 </pre></div>
 </div>
 </div>
-<p>The links object has a color information in an attribute, <code class="docutils literal notranslate"><span class="pre">palette</span></code>. This information is used for the visualization</p>
-<p>The sample will be visualized in that order. Here we can change color and order.</p>
+<p>The links object stores color information in the <code class="docutils literal notranslate"><span class="pre">palette</span></code> attribute. This information is used when visualizing the clusters.</p>
+<p>The sample will be visualized in that order. Here we can change both the cluster colors and order.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
 </pre></div>
@@ -1698,16 +1697,26 @@ dict_keys([&#39;Ery_0&#39;, &#39;Ery_1&#39;, &#39;Ery_2&#39;, &#39;Ery_3&#39;, &
 </table>
 </div></div>
 </div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Save Links object.</span>
+<span class="n">links</span><span class="o">.</span><span class="n">to_hdf5</span><span class="p">(</span><span class="n">file_path</span><span class="o">=</span><span class="s2">&quot;links.celloracle.links&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="6.-Network-preprocessing">
 <h1>6. Network preprocessing<a class="headerlink" href="#6.-Network-preprocessing" title="Permalink to this headline">¶</a></h1>
-<p>Using base-GRN, CellOracle constructs GRN models as lits of a directed edge between TF and its target gene. We need to remove weak edges or insignificant edges before doing network analysis.</p>
+<p>Using the base GRN, CellOracle constructs the GRN models as a lits of directed edges between a TF and its target genes. We need to remove the weak edges or insignificant edges before doing network structure analysis.</p>
 <p>We filter the network edges as follows.</p>
 <ol class="arabic simple">
 <li><p>Remove uncertain network edges based on the p-value.</p></li>
-<li><p>Remove weak network edge. In this tutorial, we pick up the top 2000 edges by edge strength.</p></li>
+<li><p>Remove weak network edge. In this tutorial, we keep the top 2000 edges ranked by edge strength.</p></li>
 </ol>
-<p>The raw network data is stored as an attribute, <code class="docutils literal notranslate"><span class="pre">links_dict</span></code>, while filtered network data is stored in <code class="docutils literal notranslate"><span class="pre">filtered_links</span></code>.</p>
+<p>The raw network data is stored in the <code class="docutils literal notranslate"><span class="pre">links_dict</span></code> attribute, while the filtered network data is stored in the <code class="docutils literal notranslate"><span class="pre">filtered_links</span></code> attribute.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
@@ -1746,168 +1755,168 @@ dict_keys([&#39;Ery_0&#39;, &#39;Ery_1&#39;, &#39;Ery_2&#39;, &#39;Ery_3&#39;, &
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_59_0.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_59_0.png" style="width: 561px; height: 318px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_60_0.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_60_0.png" style="width: 561px; height: 318px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_59_1.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_59_1.png" style="width: 559px; height: 318px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_60_1.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_60_1.png" style="width: 559px; height: 318px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_59_2.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_59_2.png" style="width: 559px; height: 318px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_60_2.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_60_2.png" style="width: 559px; height: 318px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_59_3.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_59_3.png" style="width: 559px; height: 318px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_60_3.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_60_3.png" style="width: 559px; height: 318px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_59_4.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_59_4.png" style="width: 559px; height: 318px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_60_4.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_60_4.png" style="width: 559px; height: 318px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_59_5.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_59_5.png" style="width: 559px; height: 318px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_60_5.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_60_5.png" style="width: 559px; height: 318px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_59_6.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_59_6.png" style="width: 559px; height: 318px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_60_6.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_60_6.png" style="width: 559px; height: 318px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_59_7.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_59_7.png" style="width: 559px; height: 318px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_60_7.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_60_7.png" style="width: 559px; height: 318px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_59_8.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_59_8.png" style="width: 559px; height: 318px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_60_8.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_60_8.png" style="width: 559px; height: 318px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_59_9.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_59_9.png" style="width: 559px; height: 318px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_60_9.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_60_9.png" style="width: 559px; height: 318px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_59_10.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_59_10.png" style="width: 559px; height: 318px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_60_10.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_60_10.png" style="width: 559px; height: 318px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_59_11.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_59_11.png" style="width: 559px; height: 318px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_60_11.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_60_11.png" style="width: 559px; height: 318px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_59_12.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_59_12.png" style="width: 559px; height: 318px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_60_12.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_60_12.png" style="width: 559px; height: 318px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_59_13.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_59_13.png" style="width: 559px; height: 318px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_60_13.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_60_13.png" style="width: 559px; height: 318px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_59_14.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_59_14.png" style="width: 559px; height: 318px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_60_14.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_60_14.png" style="width: 559px; height: 318px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_59_15.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_59_15.png" style="width: 559px; height: 318px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_60_15.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_60_15.png" style="width: 559px; height: 318px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_59_16.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_59_16.png" style="width: 559px; height: 318px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_60_16.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_60_16.png" style="width: 559px; height: 318px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_59_17.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_59_17.png" style="width: 559px; height: 318px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_60_17.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_60_17.png" style="width: 559px; height: 318px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_59_18.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_59_18.png" style="width: 559px; height: 318px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_60_18.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_60_18.png" style="width: 559px; height: 318px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_59_19.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_59_19.png" style="width: 559px; height: 318px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_60_19.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_60_19.png" style="width: 559px; height: 318px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_59_20.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_59_20.png" style="width: 559px; height: 318px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_60_20.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_60_20.png" style="width: 559px; height: 318px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_59_21.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_59_21.png" style="width: 559px; height: 318px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_60_21.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_60_21.png" style="width: 559px; height: 318px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_59_22.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_59_22.png" style="width: 559px; height: 318px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_60_22.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_60_22.png" style="width: 559px; height: 318px;" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_59_23.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_59_23.png" style="width: 559px; height: 318px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_60_23.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_60_23.png" style="width: 559px; height: 318px;" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -1919,7 +1928,7 @@ dict_keys([&#39;Ery_0&#39;, &#39;Ery_1&#39;, &#39;Ery_2&#39;, &#39;Ery_3&#39;, &
 </pre></div>
 </div>
 </div>
-<p>Next, we calculate several network score using some R libraries. Please make sure that R libraries are installed in your PC before running the command below.</p>
+<p>Next, we calculate several network scores using the R libraries. Please make sure that the R libraries are installed in your PC before running the command below.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
@@ -2142,7 +2151,7 @@ Mo_1: finished.
 <p>5 rows × 22 columns</p>
 </div></div>
 </div>
-<p>Save processed GRN. We use this file in in silico TF perturbation analysis.</p>
+<p>Save processed GRNs. We will use this file during the in in silico TF perturbation analysis.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
 </pre></div>
@@ -2164,13 +2173,13 @@ Mo_1: finished.
 </pre></div>
 </div>
 </div>
-<p><strong>If you are not interested in Network analysis and jut want to do TF perturbation simulation, you can skip the network analysis described below. Please go to next step: in silico gene perturbation with GRNs</strong></p>
+<p><strong>If you are not interested in network analysis you can skip the steps described below. Please go to the next step: in silico gene perturbation with GRNs</strong></p>
 <p><a class="reference external" href="https://morris-lab.github.io/CellOracle.documentation/tutorials/simulation.html">https://morris-lab.github.io/CellOracle.documentation/tutorials/simulation.html</a></p>
 </div>
 <div class="section" id="7.-Network-analysis;-Network-score-for-each-gene">
 <h1>7. Network analysis; Network score for each gene<a class="headerlink" href="#7.-Network-analysis;-Network-score-for-each-gene" title="Permalink to this headline">¶</a></h1>
-<p>The <code class="docutils literal notranslate"><span class="pre">Links</span></code> class has many functions to visualize network score. See the documentation for the details of the functions.</p>
-<p>We have calculated several network scores using different centrality metrics. &gt;The centrality score is one of the important indicators of network structure (<a class="reference external" href="https://en.wikipedia.org/wiki/Centrality">https://en.wikipedia.org/wiki/Centrality</a>).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Links</span></code> class has many functions to visualize network score. See the web documentation to learn more about these functions.</p>
+<p>We have calculated several network scores using different centrality metrics. &gt;Centrality matrics are is one of the important indicators of network structure (<a class="reference external" href="https://en.wikipedia.org/wiki/Centrality">https://en.wikipedia.org/wiki/Centrality</a>).</p>
 <p>Let’s visualize genes with high network centrality.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
@@ -2219,7 +2228,7 @@ Mo_1: finished.
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Visualize top n-th genes that have high scores.</span>
+<span></span><span class="c1"># Visualize top n-th genes with high scores.</span>
 <span class="n">links</span><span class="o">.</span><span class="n">plot_scores_as_rank</span><span class="p">(</span><span class="n">cluster</span><span class="o">=</span><span class="s2">&quot;MEP_0&quot;</span><span class="p">,</span> <span class="n">n_gene</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">save_folder</span><span class="si">}</span><span class="s2">/ranked_score&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -2228,42 +2237,42 @@ Mo_1: finished.
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_72_0.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_72_0.png" style="width: 208px; height: 319px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_73_0.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_73_0.png" style="width: 208px; height: 319px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_72_1.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_72_1.png" style="width: 208px; height: 319px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_73_1.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_73_1.png" style="width: 208px; height: 319px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_72_2.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_72_2.png" style="width: 216px; height: 319px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_73_2.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_73_2.png" style="width: 216px; height: 319px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_72_3.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_72_3.png" style="width: 216px; height: 319px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_73_3.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_73_3.png" style="width: 216px; height: 319px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_72_4.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_72_4.png" style="width: 210px; height: 319px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_73_4.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_73_4.png" style="width: 210px; height: 319px;" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_72_5.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_72_5.png" style="width: 253px; height: 318px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_73_5.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_73_5.png" style="width: 253px; height: 318px;" />
 </div>
 </div>
 <p>By comparing network scores between two clusters, we can analyze differences in GRN structure.</p>
@@ -2283,7 +2292,7 @@ Mo_1: finished.
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_75_0.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_75_0.png" style="width: 410px; height: 304px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_76_0.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_76_0.png" style="width: 410px; height: 304px;" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -2303,7 +2312,7 @@ Mo_1: finished.
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_76_0.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_76_0.png" style="width: 400px; height: 304px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_77_0.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_77_0.png" style="width: 400px; height: 304px;" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -2322,11 +2331,11 @@ Mo_1: finished.
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_77_0.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_77_0.png" style="width: 402px; height: 304px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_78_0.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_78_0.png" style="width: 402px; height: 304px;" />
 </div>
 </div>
-<p>In the following session, we focus on how a gene’s network score changes during the differentiation.</p>
-<p>Using Gata2, we introduce how to visualize networks scores dynamics.</p>
+<p>In the following section, we focus on how a gene’s network score changes during the differentiation.</p>
+<p>We will introduce how to visualize networks scores dynamics using Gata2 as an example.</p>
 <p>Gata2 is known to play an essential role in the early MEP and GMP populations. .</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
@@ -2342,10 +2351,10 @@ Mo_1: finished.
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_79_0.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_79_0.png" style="width: 409px; height: 300px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_80_0.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_80_0.png" style="width: 409px; height: 300px;" />
 </div>
 </div>
-<p>If a gene have no connections in a cluster, it is impossible to calculate network degree scores. Thus the scores will not be shown. For example, Cebpa have no connection in the erythloids clusters, and there is no degree scores for Cebpa in these clusters as follows.</p>
+<p>If a gene does not have network edge in a cluster, the network scores cannot be calculated and the scores will not be shown. For example, Cebpa have no network edge in the erythloids cluster GRNs. Thus these clusters do not have centrality scores in the plot below.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
 </pre></div>
@@ -2359,10 +2368,10 @@ Mo_1: finished.
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_81_0.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_81_0.png" style="width: 406px; height: 300px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_82_0.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_82_0.png" style="width: 406px; height: 300px;" />
 </div>
 </div>
-<p>You can check filtered network edge as follows.</p>
+<p>You can check the filtered network edge as follows.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[62]:
 </pre></div>
@@ -2501,10 +2510,10 @@ Mo_1: finished.
 </table>
 </div></div>
 </div>
-<p>We can calculate gene cartography as follows.</p>
-<p>The gene cartography will be calculated for the GRN in each cluster.</p>
+<p>We can also compute gene cartography plots.</p>
+<p>A gene cartography will be calculated for the each GRN.</p>
 <blockquote>
-<div><p>Gene cartography is a method for gene network analysis. The method classifies gene into several groups using the network module structure and connections. For more information on gene cartography, please refer to the following paper (<a class="reference external" href="https://www.nature.com/articles/nature03288">https://www.nature.com/articles/nature03288</a>).</p>
+<div><p><strong>Gene cartography</strong> is a method for gene network analysis. The method classifies gene into several groups using the network module structure and connections. For more information on gene cartography, please refer to the following paper (<a class="reference external" href="https://www.nature.com/articles/nature03288">https://www.nature.com/articles/nature03288</a>).</p>
 </div></blockquote>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[64]:
@@ -2525,168 +2534,168 @@ Mo_1: finished.
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_87_0.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_87_0.png" style="width: 363px; height: 264px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_88_0.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_88_0.png" style="width: 363px; height: 264px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_87_1.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_87_1.png" style="width: 361px; height: 264px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_88_1.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_88_1.png" style="width: 361px; height: 264px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_87_2.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_87_2.png" style="width: 354px; height: 264px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_88_2.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_88_2.png" style="width: 354px; height: 264px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_87_3.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_87_3.png" style="width: 361px; height: 264px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_88_3.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_88_3.png" style="width: 361px; height: 264px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_87_4.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_87_4.png" style="width: 354px; height: 264px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_88_4.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_88_4.png" style="width: 354px; height: 264px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_87_5.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_87_5.png" style="width: 361px; height: 264px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_88_5.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_88_5.png" style="width: 361px; height: 264px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_87_6.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_87_6.png" style="width: 361px; height: 264px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_88_6.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_88_6.png" style="width: 361px; height: 264px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_87_7.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_87_7.png" style="width: 361px; height: 264px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_88_7.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_88_7.png" style="width: 361px; height: 264px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_87_8.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_87_8.png" style="width: 361px; height: 264px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_88_8.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_88_8.png" style="width: 361px; height: 264px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_87_9.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_87_9.png" style="width: 361px; height: 264px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_88_9.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_88_9.png" style="width: 361px; height: 264px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_87_10.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_87_10.png" style="width: 363px; height: 264px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_88_10.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_88_10.png" style="width: 363px; height: 264px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_87_11.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_87_11.png" style="width: 354px; height: 264px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_88_11.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_88_11.png" style="width: 354px; height: 264px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_87_12.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_87_12.png" style="width: 361px; height: 264px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_88_12.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_88_12.png" style="width: 361px; height: 264px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_87_13.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_87_13.png" style="width: 354px; height: 264px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_88_13.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_88_13.png" style="width: 354px; height: 264px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_87_14.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_87_14.png" style="width: 354px; height: 264px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_88_14.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_88_14.png" style="width: 354px; height: 264px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_87_15.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_87_15.png" style="width: 354px; height: 264px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_88_15.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_88_15.png" style="width: 354px; height: 264px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_87_16.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_87_16.png" style="width: 354px; height: 264px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_88_16.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_88_16.png" style="width: 354px; height: 264px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_87_17.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_87_17.png" style="width: 354px; height: 264px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_88_17.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_88_17.png" style="width: 354px; height: 264px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_87_18.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_87_18.png" style="width: 361px; height: 264px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_88_18.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_88_18.png" style="width: 361px; height: 264px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_87_19.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_87_19.png" style="width: 354px; height: 264px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_88_19.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_88_19.png" style="width: 354px; height: 264px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_87_20.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_87_20.png" style="width: 354px; height: 264px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_88_20.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_88_20.png" style="width: 354px; height: 264px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_87_21.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_87_21.png" style="width: 361px; height: 264px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_88_21.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_88_21.png" style="width: 361px; height: 264px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_87_22.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_87_22.png" style="width: 363px; height: 264px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_88_22.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_88_22.png" style="width: 363px; height: 264px;" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_87_23.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_87_23.png" style="width: 361px; height: 264px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_88_23.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_88_23.png" style="width: 361px; height: 264px;" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -2706,13 +2715,13 @@ Mo_1: finished.
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_88_0.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_88_0.png" style="width: 294px; height: 481px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_89_0.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_89_0.png" style="width: 294px; height: 481px;" />
 </div>
 </div>
 </div>
 <div class="section" id="8.-Network-analysis;-network-score-distribution">
 <h1>8. Network analysis; network score distribution<a class="headerlink" href="#8.-Network-analysis;-network-score-distribution" title="Permalink to this headline">¶</a></h1>
-<p>Next, we visualize the distribution of network score to get insight into the global trend of the GRNs.</p>
+<p>Next, we visualize the network score distributions to get insight into the global network trends.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
@@ -2741,7 +2750,7 @@ Mo_1: finished.
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_92_0.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_92_0.png" style="width: 388px; height: 263px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_93_0.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_93_0.png" style="width: 388px; height: 263px;" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -2762,7 +2771,7 @@ Mo_1: finished.
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_93_0.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_93_0.png" style="width: 381px; height: 259px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_94_0.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_94_0.png" style="width: 381px; height: 259px;" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -2781,10 +2790,10 @@ Mo_1: finished.
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_95_0.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_95_0.png" style="width: 398px; height: 263px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_96_0.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_96_0.png" style="width: 398px; height: 263px;" />
 </div>
 </div>
-<p>Please go to next step: in silico gene perturbation with GRNs**</p>
+<p>Please go to the next step: <strong>in silico gene perturbation with GRNs</strong></p>
 <p><a class="reference external" href="https://morris-lab.github.io/CellOracle.documentation/tutorials/simulation.html">https://morris-lab.github.io/CellOracle.documentation/tutorials/simulation.html</a></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
@@ -2805,10 +2814,10 @@ Mo_1: finished.
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../tutorials/simulation.html" class="btn btn-neutral float-right" title="1. in silico gene perturbation with GRNs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../../tutorials/simulation.html" class="btn btn-neutral float-right" title="1. In silico gene perturbation with GRNs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../../tutorials/networkanalysis.html" class="btn btn-neutral float-left" title="1. GRN model construction and Network analysis" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../../tutorials/networkanalysis.html" class="btn btn-neutral float-left" title="1. GRN model construction and network analysis" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
