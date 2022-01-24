@@ -18,7 +18,7 @@
     </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>0. Import libraries &mdash; celloracle 0.9.0 documentation</title>
+  <title>0. Import libraries &mdash; celloracle 0.9.1 documentation</title>
   
 
   
@@ -95,7 +95,7 @@
             
             
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../index.html">Welcome to celloracle’s documentation!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Welcome to CellOracle’s documentation!</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">Installation</a></li>
@@ -440,7 +440,7 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="0.-Import-libraries">
 <h1>0. Import libraries<a class="headerlink" href="#0.-Import-libraries" title="Permalink to this headline">¶</a></h1>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -459,7 +459,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -469,16 +469,16 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&#39;0.5.1&#39;
+&#39;0.9.1&#39;
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1158,6 +1158,7 @@ Auto-selected k is :66
 </div>
 <div class="section" id="5.1.-Get-GRNs">
 <h2>5.1. Get GRNs<a class="headerlink" href="#5.1.-Get-GRNs" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">n_jobs</span></code> parameter in <code class="docutils literal notranslate"><span class="pre">get_links</span></code> function controls number of jobs to run in parallel. -1 means using all processors. !!This <code class="docutils literal notranslate"><span class="pre">n_jobs</span></code> parameter is only available on celloracle &gt;= 0.9.1.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
@@ -1167,7 +1168,7 @@ Auto-selected k is :66
 <span class="c1"># Calculate GRN for each population in &quot;louvain_annot&quot; clustering unit.</span>
 <span class="c1"># This step may take long time.</span>
 <span class="n">links</span> <span class="o">=</span> <span class="n">oracle</span><span class="o">.</span><span class="n">get_links</span><span class="p">(</span><span class="n">cluster_name_for_GRN_unit</span><span class="o">=</span><span class="s2">&quot;louvain_annot&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-                         <span class="n">verbose_level</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">test_mode</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+                         <span class="n">verbose_level</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">test_mode</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
 
 
 
@@ -1807,13 +1808,14 @@ dict_keys([&#39;Ery_0&#39;, &#39;Ery_1&#39;, &#39;Ery_2&#39;, &#39;Ery_3&#39;, &
 <div class="section" id="5.3.-Calculate-netowrk-score">
 <h2>5.3. Calculate netowrk score<a class="headerlink" href="#5.3.-Calculate-netowrk-score" title="Permalink to this headline">¶</a></h2>
 <p>Next, we calculate several network score using some R libraries. Please make sure that R libraries are installed in your PC before running the command below.</p>
+<p><code class="docutils literal notranslate"><span class="pre">n_jobs</span></code> parameter in <code class="docutils literal notranslate"><span class="pre">get_score</span></code> function controls number of jobs to run in parallel. -1 means using all processors. !!This parameter is only available on celloracle &gt;= 0.9.1.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Calculate network scores. It takes several minutes.</span>
-<span class="n">links</span><span class="o">.</span><span class="n">get_score</span><span class="p">()</span>
+<span class="n">links</span><span class="o">.</span><span class="n">get_score</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

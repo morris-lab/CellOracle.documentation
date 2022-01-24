@@ -18,7 +18,7 @@
     </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>celloracle.network_analysis module &mdash; celloracle 0.9.0 documentation</title>
+  <title>celloracle.network_analysis module &mdash; celloracle 0.9.1 documentation</title>
   
 
   
@@ -97,7 +97,7 @@
             
             
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome to celloracle’s documentation!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome to CellOracle’s documentation!</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Installation</a></li>
@@ -341,7 +341,7 @@ The network data has several types of network weight, so you have to select whic
 
 <dl class="py method">
 <dt id="celloracle.network_analysis.Links.get_score">
-<code class="sig-name descname">get_score</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">test_mode</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.network_analysis.Links.get_score" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_score</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">test_mode</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">n_jobs</span><span class="o">=</span><span class="default_value">- 1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.network_analysis.Links.get_score" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get several network sores using R libraries.
 Make sure all dependent R libraries are installed in your environment before running this function.
 You can check the installation for the R libraries by running test_installation() in network_analysis module.</p>
@@ -537,7 +537,7 @@ Plots will not be saved if [save=None]. Default is None.</p></li>
 
 <dl class="py function">
 <dt id="celloracle.network_analysis.get_links">
-<code class="sig-prename descclassname">celloracle.network_analysis.</code><code class="sig-name descname">get_links</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">oracle_object</span></em>, <em class="sig-param"><span class="n">cluster_name_for_GRN_unit</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">alpha</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">bagging_number</span><span class="o">=</span><span class="default_value">20</span></em>, <em class="sig-param"><span class="n">verbose_level</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">test_mode</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">model_method</span><span class="o">=</span><span class="default_value">'bagging_ridge'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.network_analysis.get_links" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">celloracle.network_analysis.</code><code class="sig-name descname">get_links</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">oracle_object</span></em>, <em class="sig-param"><span class="n">cluster_name_for_GRN_unit</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">alpha</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">bagging_number</span><span class="o">=</span><span class="default_value">20</span></em>, <em class="sig-param"><span class="n">verbose_level</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">test_mode</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">model_method</span><span class="o">=</span><span class="default_value">'bagging_ridge'</span></em>, <em class="sig-param"><span class="n">n_jobs</span><span class="o">=</span><span class="default_value">- 1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.network_analysis.get_links" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make GRN for each cluster and returns results as a Links object.
 Several preprocessing should be done before using this function.</p>
 <dl class="field-list simple">
@@ -554,6 +554,7 @@ if [verbose_level &gt; 0], one progress bar will be shown.
 if [verbose_level == 0], no progress bar will be shown.</p></li>
 <li><p><strong>test_mode</strong> (<em>bool</em>) – If test_mode is True, GRN calculation will be done for only one cluster rather than all clusters.</p></li>
 <li><p><strong>model_method</strong> (<em>str</em>) – Chose modeling algorithm. “bagging_ridge” or “bayesian_ridge”</p></li>
+<li><p><strong>n_jobs</strong> (<em>int</em>) – Number of cpu cores for parallel calculation.  -1 means using all available cores. Default is -1.</p></li>
 </ul>
 </dd>
 </dl>
