@@ -107,24 +107,20 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">API</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="index.html#command-line-api">Command Line API</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="index.html#python-api">Python API</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Custom class in celloracle</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#modules-for-atac-seq-analysis">Modules for ATAC-seq analysis</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="celloracle.motif_analysis.html">celloracle.motif_analysis module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Custom class in celloracle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#modules-for-atac-seq-analysis">Modules for ATAC-seq analysis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="celloracle.motif_analysis.html">celloracle.motif_analysis module</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#modules-for-network-analysis">Modules for Network analysis</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="celloracle.network_analysis.html">celloracle.network_analysis module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#modules-for-network-analysis">Modules for Network analysis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="celloracle.network_analysis.html">celloracle.network_analysis module</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#other-modules">Other modules</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="celloracle.go_analysis.html">celloracle.go_analysis module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="celloracle.utility.html">celloracle.utility module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="celloracle.data.html">celloracle.data module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="celloracle.data_conversion.html">celloracle.data_conversion module</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#other-modules">Other modules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="celloracle.go_analysis.html">celloracle.go_analysis module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="celloracle.utility.html">celloracle.utility module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="celloracle.data.html">celloracle.data module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="celloracle.data_conversion.html">celloracle.data_conversion module</a></li>
 </ul>
 </li>
 </ul>
@@ -347,11 +343,21 @@ The network data has several types of network weight, so you have to select whic
 </dd></dl>
 
 <dl class="py method">
+<dt id="celloracle.Links.get_network_score">
+<code class="sig-name descname">get_network_score</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.Links.get_network_score" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Get several network sores using igraph library.
+The following scores are calculated: [‘degree_all’, ‘degree_centrality_all’, ‘degree_in’,</p>
+</div></blockquote>
+<p>‘degree_centrality_in’, ‘degree_out’, ‘degree_centrality_out’,
+‘betweenness_centrality’, ‘eigenvector_centrality’]</p>
+</dd></dl>
+
+<dl class="py method">
 <dt id="celloracle.Links.get_score">
 <code class="sig-name descname">get_score</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">test_mode</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">n_jobs</span><span class="o">=</span><span class="default_value">- 1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.Links.get_score" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get several network sores using R libraries.
-Make sure all dependent R libraries are installed in your environment before running this function.
-You can check the installation for the R libraries by running test_installation() in network_analysis module.</p>
+<dd><p>Get several network sores using R-igraph, linkcomm, and rnetcarto.
+This require R packages.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -363,7 +369,7 @@ Please read the original paper describing gene network cartography for more info
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>links</strong> (<a class="reference internal" href="celloracle.network_analysis.html#celloracle.network_analysis.Links" title="celloracle.network_analysis.Links"><em>Links</em></a>) – See network_analysis.Links class for detail.</p></li>
+<li><p><strong>links</strong> (<a class="reference internal" href="#celloracle.Links" title="celloracle.Links"><em>Links</em></a>) – See network_analysis.Links class for detail.</p></li>
 <li><p><strong>gois</strong> (<em>list of srt</em>) – List of gene name to highlight.</p></li>
 <li><p><strong>clusters</strong> (<em>list of str</em>) – List of cluster name to analyze. If None, all clusters in Links object will be analyzed.</p></li>
 <li><p><strong>scatter</strong> (<em>bool</em>) – Whether to make a scatter plot.</p></li>
@@ -388,7 +394,7 @@ Please read the original paper of gene network cartography for the principle of 
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>links</strong> (<a class="reference internal" href="celloracle.network_analysis.html#celloracle.network_analysis.Links" title="celloracle.network_analysis.Links"><em>Links</em></a>) – See network_analysis.Links class for detail.</p></li>
+<li><p><strong>links</strong> (<a class="reference internal" href="#celloracle.Links" title="celloracle.Links"><em>Links</em></a>) – See network_analysis.Links class for detail.</p></li>
 <li><p><strong>gois</strong> (<em>list of srt</em>) – List of gene name to highlight.</p></li>
 <li><p><strong>save</strong> (<em>str</em>) – Folder path to save plots. If the folder does not exist in the path, the function creates the folder.
 Plots will not be saved if [save=None]. Default is None.</p></li>
@@ -405,7 +411,7 @@ The network degree will be visualized in both linear scale and log scale.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>links</strong> (<a class="reference internal" href="celloracle.network_analysis.html#celloracle.network_analysis.Links" title="celloracle.network_analysis.Links"><em>Links</em></a>) – See network_analysis.Links class for detail.</p></li>
+<li><p><strong>links</strong> (<a class="reference internal" href="#celloracle.Links" title="celloracle.Links"><em>Links</em></a>) – See network_analysis.Links class for detail.</p></li>
 <li><p><strong>plot_model</strong> (<em>bool</em>) – Whether to plot linear approximation line.</p></li>
 <li><p><strong>save</strong> (<em>str</em>) – Folder path to save plots. If the folder does not exist in the path, the function creates the folder.
 Plots will not be saved if [save=None]. Default is None.</p></li>
@@ -439,7 +445,7 @@ Plots will not be saved if [save=None]. Default is None.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>links</strong> (<a class="reference internal" href="celloracle.network_analysis.html#celloracle.network_analysis.Links" title="celloracle.network_analysis.Links"><em>Links</em></a>) – See network_analysis.Links class for detail.</p></li>
+<li><p><strong>links</strong> (<a class="reference internal" href="#celloracle.Links" title="celloracle.Links"><em>Links</em></a>) – See network_analysis.Links class for detail.</p></li>
 <li><p><strong>value</strong> (<em>srt</em>) – The network score type.</p></li>
 <li><p><strong>cluster1</strong> (<em>str</em>) – Cluster name. Network scores in cluster1 will be visualized in the x-axis.</p></li>
 <li><p><strong>cluster2</strong> (<em>str</em>) – Cluster name. Network scores in cluster2 will be visualized in the y-axis.</p></li>
@@ -460,7 +466,7 @@ An individual data point is a network edge (gene).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>links</strong> (<a class="reference internal" href="celloracle.network_analysis.html#celloracle.network_analysis.Links" title="celloracle.network_analysis.Links"><em>Links</em></a>) – See Links class for details.</p></li>
+<li><p><strong>links</strong> (<a class="reference internal" href="#celloracle.Links" title="celloracle.Links"><em>Links</em></a>) – See Links class for details.</p></li>
 <li><p><strong>values</strong> (<em>list of str</em>) – The list of score to visualize. If it is None, all of the network score will be used.</p></li>
 <li><p><strong>method</strong> (<em>str</em>) – Plotting method. Select either “boxplot” or “barplot”.</p></li>
 <li><p><strong>save</strong> (<em>str</em>) – Folder path to save plots. If the folder does not exist in the path, the function creates the folder.
@@ -478,7 +484,7 @@ This function visualizes the network score for a specific gene between clusters 
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>links</strong> (<a class="reference internal" href="celloracle.network_analysis.html#celloracle.network_analysis.Links" title="celloracle.network_analysis.Links"><em>Links</em></a>) – See network_analysis.Links class for detail.</p></li>
+<li><p><strong>links</strong> (<a class="reference internal" href="#celloracle.Links" title="celloracle.Links"><em>Links</em></a>) – See network_analysis.Links class for detail.</p></li>
 <li><p><strong>goi</strong> (<em>srt</em>) – Gene name.</p></li>
 <li><p><strong>save</strong> (<em>str</em>) – Folder path to save plots. If the folder does not exist in the path, the function creates the folder.
 Plots will not be saved if [save=None]. Default is None.</p></li>
@@ -494,7 +500,7 @@ Plots will not be saved if [save=None]. Default is None.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>links</strong> (<a class="reference internal" href="celloracle.network_analysis.html#celloracle.network_analysis.Links" title="celloracle.network_analysis.Links"><em>Links</em></a>) – See network_analysis.Links class for detail.</p></li>
+<li><p><strong>links</strong> (<a class="reference internal" href="#celloracle.Links" title="celloracle.Links"><em>Links</em></a>) – See network_analysis.Links class for detail.</p></li>
 <li><p><strong>cluster</strong> (<em>str</em>) – Cluster name to analyze.</p></li>
 <li><p><strong>n_gene</strong> (<em>int</em>) – Number of genes to plot. Default is 50.</p></li>
 <li><p><strong>save</strong> (<em>str</em>) – Folder path to save plots. If the folder does not exist in the path, the function creates the folder.
@@ -912,6 +918,12 @@ Values in the old TF dictionary will remain.</p>
 <dd></dd></dl>
 
 <dl class="py method">
+<dt id="celloracle.Oracle.calculate_randomized_coef_table">
+<code class="sig-name descname">calculate_randomized_coef_table</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">random_seed</span><span class="o">=</span><span class="default_value">123</span></em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.Oracle.calculate_randomized_coef_table" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate randomized GRN coef table.</p>
+</dd></dl>
+
+<dl class="py method">
 <dt id="celloracle.Oracle.change_cluster_unit">
 <code class="sig-name descname">change_cluster_unit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">new_cluster_column_name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.Oracle.change_cluster_unit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Change clustering unit.
@@ -994,7 +1006,7 @@ If you select a higher value, it will reduce the chance of overfitting.</p></li>
 This function can be used to reconstruct GRNs based on pre-existing GRNs saved in Links object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>links_object</strong> (<a class="reference internal" href="celloracle.network_analysis.html#celloracle.network_analysis.Links" title="celloracle.network_analysis.Links"><em>Links</em></a>) – Please see the explanation of Links class.</p>
+<dd class="field-odd"><p><strong>links_object</strong> (<a class="reference internal" href="#celloracle.Links" title="celloracle.Links"><em>Links</em></a>) – Please see the explanation of Links class.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1172,7 +1184,7 @@ You can simulate the process multiple times to get a robust outcome.</p>
 
 <dl class="py method">
 <dt id="celloracle.Oracle.simulate_shift">
-<code class="sig-name descname">simulate_shift</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">perturb_condition</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">GRN_unit</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">n_propagation</span><span class="o">=</span><span class="default_value">3</span></em>, <em class="sig-param"><span class="n">ignore_warning</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.Oracle.simulate_shift" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">simulate_shift</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">perturb_condition</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">GRN_unit</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">n_propagation</span><span class="o">=</span><span class="default_value">3</span></em>, <em class="sig-param"><span class="n">ignore_warning</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">use_randomized_GRN</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.Oracle.simulate_shift" title="Permalink to this definition">¶</a></dt>
 <dd><p>Simulate signal propagation with GRNs. Please see the CellOracle paper for details.
 This function simulates a gene expression pattern in the near future.
 Simulated values will be stored in anndata.layers: [“simulated_count”]</p>
@@ -1265,9 +1277,7 @@ Default is None.</p></li>
 <dl class="py function">
 <dt id="celloracle.test_R_libraries_installation">
 <code class="sig-prename descclassname">celloracle.</code><code class="sig-name descname">test_R_libraries_installation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">show_all_stdout</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.test_R_libraries_installation" title="Permalink to this definition">¶</a></dt>
-<dd><p>CellOracle.network_analysis use several R libraries for network analysis.
-This is a test function to check for instalation of the necessary R libraries.</p>
-</dd></dl>
+<dd></dd></dl>
 
 </div>
 <div class="section" id="modules-for-atac-seq-analysis">

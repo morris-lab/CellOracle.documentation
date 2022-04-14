@@ -107,17 +107,13 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">API</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="index.html#command-line-api">Command Line API</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="index.html#python-api">Python API</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="celloracle.html">Custom class in celloracle</a></li>
-<li class="toctree-l3"><a class="reference internal" href="celloracle.html#modules-for-atac-seq-analysis">Modules for ATAC-seq analysis</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="celloracle.html#modules-for-network-analysis">Modules for Network analysis</a><ul class="current">
-<li class="toctree-l4 current"><a class="current reference internal" href="#">celloracle.network_analysis module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="celloracle.html">Custom class in celloracle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="celloracle.html#modules-for-atac-seq-analysis">Modules for ATAC-seq analysis</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="celloracle.html#modules-for-network-analysis">Modules for Network analysis</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">celloracle.network_analysis module</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="celloracle.html#other-modules">Other modules</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="celloracle.html#other-modules">Other modules</a></li>
 </ul>
 </li>
 </ul>
@@ -340,11 +336,21 @@ The network data has several types of network weight, so you have to select whic
 </dd></dl>
 
 <dl class="py method">
+<dt id="celloracle.network_analysis.Links.get_network_score">
+<code class="sig-name descname">get_network_score</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.network_analysis.Links.get_network_score" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Get several network sores using igraph library.
+The following scores are calculated: [‘degree_all’, ‘degree_centrality_all’, ‘degree_in’,</p>
+</div></blockquote>
+<p>‘degree_centrality_in’, ‘degree_out’, ‘degree_centrality_out’,
+‘betweenness_centrality’, ‘eigenvector_centrality’]</p>
+</dd></dl>
+
+<dl class="py method">
 <dt id="celloracle.network_analysis.Links.get_score">
 <code class="sig-name descname">get_score</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">test_mode</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">n_jobs</span><span class="o">=</span><span class="default_value">- 1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.network_analysis.Links.get_score" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get several network sores using R libraries.
-Make sure all dependent R libraries are installed in your environment before running this function.
-You can check the installation for the R libraries by running test_installation() in network_analysis module.</p>
+<dd><p>Get several network sores using R-igraph, linkcomm, and rnetcarto.
+This require R packages.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -598,13 +604,6 @@ if [verbose_level == 0], no progress bar will be shown.</p></li>
 <dt id="celloracle.network_analysis.set_R_path">
 <code class="sig-prename descclassname">celloracle.network_analysis.</code><code class="sig-name descname">set_R_path</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">R_path</span></em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.network_analysis.set_R_path" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
-
-<dl class="py function">
-<dt id="celloracle.network_analysis.test_R_libraries_installation">
-<code class="sig-prename descclassname">celloracle.network_analysis.</code><code class="sig-name descname">test_R_libraries_installation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">show_all_stdout</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.network_analysis.test_R_libraries_installation" title="Permalink to this definition">¶</a></dt>
-<dd><p>CellOracle.network_analysis use several R libraries for network analysis.
-This is a test function to check for instalation of the necessary R libraries.</p>
-</dd></dl>
 
 <dl class="py function">
 <dt id="celloracle.network_analysis.transfer_scores_from_links_to_adata">

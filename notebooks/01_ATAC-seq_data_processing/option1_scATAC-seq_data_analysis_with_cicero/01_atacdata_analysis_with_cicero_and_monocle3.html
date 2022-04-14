@@ -102,8 +102,26 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation/index.html">Installation</a></li>
 </ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/index.html">Tutorial</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../tutorials/index.html">Tutorial</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/index.html#what-the-tutorial-covers">What the tutorial covers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/index.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/index.html#code-and-data-availability">Code and data availability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/index.html#getting-started">Getting started</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../tutorials/index.html#index">Index</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/index.html#grn-model-construction-and-network-analysis">GRN model construction and network analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/index.html#in-silico-gene-perturbation-with-grns">In silico gene perturbation with GRNs</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../../tutorials/index.html#prepare-input-data">Prepare input data</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/scrnaprocess.html">1. scRNA-seq data preparation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/pseudotime.html">2. Pseudotime calculation</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../../../tutorials/base_grn.html">3. Base GRN input data preparation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/index.html#tf-motif-scan-for-base-grn-construction">TF motif scan for base-GRN construction</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../modules/index.html">API</a></li>
@@ -460,6 +478,7 @@ div.rendered_html tbody tr:hover {
 <li><p>This notebook is intended to <strong>demonstrate data preprocessing steps prior to starting a CellOracle analysis</strong>. CellOracle is NOT used in this notebook, and this notebook is not the CellOracle analysis.</p></li>
 <li><p>Here, we will use <code class="docutils literal notranslate"><span class="pre">Cicero</span></code> to process scATAC-seq data. If you are new to this packages, pelase review the Cicero’s documentation to learn the basic process of Cicero in advance.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Cicero</span></code> documentation: <a class="reference external" href="https://cole-trapnell-lab.github.io/cicero-release/docs_m3/">https://cole-trapnell-lab.github.io/cicero-release/docs_m3/</a></p></li>
+<li><p>The R library, cicero and monocle3 is NOT the part of celloracle package. <strong>Please install them yourself if you use this notebook</strong>.</p></li>
 </ul>
 </div>
 </div>
