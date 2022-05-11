@@ -548,7 +548,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&#39;0.10.1&#39;
+&#39;0.10.5&#39;
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -565,8 +565,8 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -574,19 +574,8 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-R path: /usr/bin/R
-checking R library installation: igraph -&gt; OK
-checking R library installation: linkcomm -&gt; OK
-checking R library installation: rnetcarto -&gt; OK
-</pre></div></div>
-</div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -604,7 +593,7 @@ checking R library installation: rnetcarto -&gt; OK
 <div><p><strong>This CellOracle tutorial notebook assumes the user has basic knowledge and experience with scRNA-seq analysis using Scanpy and Anndata.</strong> This notebook is not intended to be an introduction to Scanpy or Anndata. If you are not familiar with them, please learn them using the documentation and tutorials for Scanpy (<a class="reference external" href="https://scanpy.readthedocs.io/en/stable/">https://scanpy.readthedocs.io/en/stable/</a>) and annata (<a class="reference external" href="https://anndata.readthedocs.io/en/stable/">https://anndata.readthedocs.io/en/stable/</a>).</p>
 </div></blockquote>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -619,8 +608,22 @@ checking R library installation: rnetcarto -&gt; OK
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Data not found in the local folder. Loading data from github. Data will be saved at /home/k/celloracle_data/anndata
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "ae9ff6bafb114df2b2114b5f51a8a0a7", "version_major": 2, "version_minor": 0}</script></div>
+</div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -638,7 +641,7 @@ AnnData object with n_obs × n_vars = 2671 × 1999
 <p>If your scRNA-seq data includes more than 20-30K cells, we recommend downsampling your data. If you do not, please note the perturbation simulations may require large amounts of memory in the next notebook.</p>
 <p>Also, please pay attention to the number of genes. If you are following the instruction from the previous tutorial notebook, the scRNA-seq data should include only top 2~3K variable genes. If you have more than 3K genes, it may cause issues downstream.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -657,7 +660,7 @@ Gene number is :1999
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -671,7 +674,7 @@ Gene number is :1999
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -698,7 +701,7 @@ Cell number is :2671
 <li><p>e.g. for Human: <code class="docutils literal notranslate"><span class="pre">base_GRN</span> <span class="pre">=</span> <span class="pre">co.data.load_human_promoter_base_GRN()</span></code></p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -710,8 +713,22 @@ Cell number is :2671
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Data not found in the local folder. Loading data from github. Data will be saved at /home/k/celloracle_data/TFinfo_data
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "c9ab7d3e032e4a83bab689263e79403e", "version_major": 2, "version_minor": 0}</script></div>
+</div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -887,7 +904,7 @@ Cell number is :2671
 <h1>2. Initiate Oracle object<a class="headerlink" href="#2.-Initiate-Oracle-object" title="Permalink to this headline">¶</a></h1>
 <p>We will use an Oracle object during the data preprocessing and GRN inference steps. Using its internal functions, the Oracle object computes and stores all of the necessary information for these calculations. To begin, we will instantiate a new Oracle object and input our gene expression data (anndata) and TF info (base GRN).</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -902,7 +919,7 @@ Cell number is :2671
 <li><p>Dimensional reduction data is stored in the <code class="docutils literal notranslate"><span class="pre">obsm</span></code> the attribute of anndata. &gt; You can check it with the following command. &gt; &gt; <code class="docutils literal notranslate"><span class="pre">adata.obsm.keys()</span></code></p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -922,7 +939,7 @@ dimensional reduction:  [&#39;X_diffmap&#39;, &#39;X_draw_graph_fa&#39;, &#39;X_
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -937,7 +954,7 @@ dimensional reduction:  [&#39;X_diffmap&#39;, &#39;X_draw_graph_fa&#39;, &#39;X_
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -958,7 +975,7 @@ dimensional reduction:  [&#39;X_diffmap&#39;, &#39;X_draw_graph_fa&#39;, &#39;X_
 <p>You can download this file by running the command below. Or download it manually here. <a class="reference external" href="https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/TF_data_in_Paul15.csv">https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/TF_data_in_Paul15.csv</a></p>
 <p>In order to import the TF data into the Oracle object, we need to convert it into a python dictionary. The dictionary keys will be the target gene, and dictionary values will be a list of regulatory candidate TFs.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -975,21 +992,21 @@ dimensional reduction:  [&#39;X_diffmap&#39;, &#39;X_draw_graph_fa&#39;, &#39;X_
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
---2021-06-09 15:13:52--  https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/notebooks/04_Network_analysis/TF_data_in_Paul15.csv
-Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.110.133, 185.199.109.133, 185.199.108.133, ...
-Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.110.133|:443... connected.
+--2022-05-07 18:28:33--  https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/TF_data_in_Paul15.csv
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.109.133, 185.199.108.133, 185.199.111.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.109.133|:443... connected.
 HTTP request sent, awaiting response... 200 OK
-Length: 1768 (1.7K) [text/plain]
-Saving to: ‘TF_data_in_Paul15.csv’
+Length: 1771 (1.7K) [text/plain]
+Saving to: ‘TF_data_in_Paul15.csv.2’
 
 TF_data_in_Paul15.c 100%[===================&gt;]   1.73K  --.-KB/s    in 0s
 
-2021-06-09 15:13:52 (11.8 MB/s) - ‘TF_data_in_Paul15.csv’ saved [1768/1768]
+2022-05-07 18:28:33 (38.3 MB/s) - ‘TF_data_in_Paul15.csv.2’ saved [1771/1771]
 
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1001,7 +1018,7 @@ TF_data_in_Paul15.c 100%[===================&gt;]   1.73K  --.-KB/s    in 0s
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1058,7 +1075,7 @@ TF_data_in_Paul15.c 100%[===================&gt;]   1.73K  --.-KB/s    in 0s
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1080,13 +1097,13 @@ TF_data_in_Paul15.c 100%[===================&gt;]   1.73K  --.-KB/s    in 0s
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "17184a41ebb84be6a45d18db1a596f4c", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "3ccd72003e0347369518fa8c5b00eb57", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 </div>
 <div class="section" id="2.3.2.-Add-TF-information-dictionary-into-the-oracle-object">
 <h2>2.3.2. Add TF information dictionary into the oracle object<a class="headerlink" href="#2.3.2.-Add-TF-information-dictionary-into-the-oracle-object" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1102,7 +1119,7 @@ TF_data_in_Paul15.c 100%[===================&gt;]   1.73K  --.-KB/s    in 0s
 <p>CellOracle uses the same strategy as velocyto for visualizing cell transitions. This process requires KNN imputation in advance.</p>
 <p>For the KNN imputation, we first need to calculate and select PCs.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1135,7 +1152,7 @@ TF_data_in_Paul15.c 100%[===================&gt;]   1.73K  --.-KB/s    in 0s
 </div>
 <p>Estimate the optimal number of nearest neighbors for KNN imputation.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1153,7 +1170,7 @@ cell number is :2671
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1171,7 +1188,7 @@ Auto-selected k is :66
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1186,7 +1203,7 @@ Auto-selected k is :66
 <p>You can save your <code class="docutils literal notranslate"><span class="pre">Oracle</span></code> object using <code class="docutils literal notranslate"><span class="pre">Oracle.to_hdf5(FILE_NAME.celloracle.oracle)</span></code>.</p>
 <p>Pleasae use <code class="docutils literal notranslate"><span class="pre">co.load_hdf5(FILE_NAME.celloracle.oracle)</span></code> to load the saved file.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1196,7 +1213,7 @@ Auto-selected k is :66
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1214,7 +1231,7 @@ Auto-selected k is :66
 <li><p>A GRN will be calculated for each cluster/sub-group. In the example below, we construct GRN for each unit of the “louvain_annot” clustering.</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1231,7 +1248,7 @@ Auto-selected k is :66
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1247,7 +1264,7 @@ Auto-selected k is :66
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "ac383dec4a2c499ab591bfe57e1c8acb", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "9da6ca52184e47b29985e7a7393c95f4", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
@@ -1261,7 +1278,7 @@ inferring GRN for Ery_0...
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "53421f4a89d44a6d808da7ee27dc96e4", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "15d5a37143a9439d8b03253b9e03fbfa", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
@@ -1275,7 +1292,7 @@ inferring GRN for Ery_1...
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "4abe95c9d13c456e8e3530897229d545", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "62301631ffbc4b2ca81c39fc13ee0c63", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
@@ -1289,7 +1306,7 @@ inferring GRN for Ery_2...
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "f85b724e3b914c358581ec9c5da1c45e", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "ca6f0bdb0b0d4dbc846445ef53e8347c", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
@@ -1303,7 +1320,7 @@ inferring GRN for Ery_3...
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "4258a2a681084dde80b2b6aacf3b322f", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "7034a560731e4ef8ae475a077112b38c", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
@@ -1317,7 +1334,7 @@ inferring GRN for Ery_4...
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "0fb49c63d8fd4505a97a440b761f1886", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "e56abf51279045b0908c17761d922242", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
@@ -1331,7 +1348,7 @@ inferring GRN for Ery_5...
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "237eabe51d3648c4916869e975cd9dbb", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "34ad9fd87ff045c48e0aecb3d4cb6957", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
@@ -1345,7 +1362,7 @@ inferring GRN for Ery_6...
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "9297b7d3a4bc4d7db75d7439c48bd821", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "00b7f80309524e61bc61272e657af298", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
@@ -1359,7 +1376,7 @@ inferring GRN for Ery_7...
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "08593962c3fc41ae9d110ac532758a63", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "d29a9fb10ced46638a35c241c8831fb6", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
@@ -1373,7 +1390,7 @@ inferring GRN for Ery_8...
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "164b765a8eda482283b7397def057cd4", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "eebbc9f683674bd29003af9ded7e7b88", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
@@ -1387,7 +1404,7 @@ inferring GRN for Ery_9...
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "d188f1124c1f4fdd845ad05ded7717df", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "72c4c4c0e63c47ac91d13cf7c53fce40", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
@@ -1401,7 +1418,7 @@ inferring GRN for GMP_0...
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "3073cc48592b45deb504bad6daa1accb", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "58d23705c58f422db44840594e0ee65b", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
@@ -1415,7 +1432,7 @@ inferring GRN for GMP_1...
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "4a7c9bdd9d5541c6a75edd618aae8593", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "3304b5d757a0437db382c456d2e395ff", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
@@ -1429,7 +1446,7 @@ inferring GRN for GMP_2...
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "bf37a61154f14dd59f9b2f05daf3b8ed", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "de87227ddfd943dd8519a96747fd3eb2", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
@@ -1443,7 +1460,7 @@ inferring GRN for GMPl_0...
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "655ce7f3aa364cc2b42ff7db74a96a8f", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "c867db60e46b47898661d23a216f00ea", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
@@ -1457,7 +1474,7 @@ inferring GRN for GMPl_1...
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "7dcfc3eefede4d9c909254ca7fd61e70", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "1d5e3ecfed874ba4a7fa14439c90ab13", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
@@ -1471,7 +1488,7 @@ inferring GRN for Gran_0...
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "c513b83ce6f64ef6a358e31c75860e2b", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "f2e72ca84c844397bece767c377b1b64", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
@@ -1485,7 +1502,7 @@ inferring GRN for Gran_1...
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "8831d4e3661a480a9b7219124cdbb2e2", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "8d2b4df337184064b97c86549e0b011b", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
@@ -1499,7 +1516,7 @@ inferring GRN for Gran_2...
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "959fbfbdd89649209b773e7e9600d713", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "1a44544ebae24aa5b3abe6e47cdac524", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
@@ -1513,7 +1530,7 @@ inferring GRN for Gran_3...
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "555111dc46364dfc812916ea11b66be9", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "6dab451bc186485d9606e626f46d0c17", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
@@ -1527,7 +1544,7 @@ inferring GRN for MEP_0...
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "818d3ec2aa11443fad93179e5746997d", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "ca7e93398e1849789668980de4008b95", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
@@ -1541,7 +1558,7 @@ inferring GRN for Mk_0...
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "5640c346992a411cae0ca464ced3ff79", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "dfa691e903954117a9ce085e461172e6", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
@@ -1555,7 +1572,7 @@ inferring GRN for Mo_0...
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "b90422f3fd3e412fac04ebca7c28014e", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "6d76de4f28fd4d9bbe6cf900e3f1bcb2", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
@@ -1569,7 +1586,7 @@ inferring GRN for Mo_1...
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "caae047446104d6280788e6e590d5093", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "e086541cb130443c9e1de1798e60aa7f", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
@@ -1583,21 +1600,21 @@ inferring GRN for Mo_2...
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "a9b7ed82b09a454b928455a20a243585", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "e160101e20b747829aa729ad8119b0c7", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-CPU times: user 15min 53s, sys: 28.2 s, total: 16min 21s
-Wall time: 16min 34s
+CPU times: user 16min 9s, sys: 18.3 s, total: 16min 27s
+Wall time: 19min 8s
 </pre></div></div>
 </div>
 <p>Although CellOracle has many functions for network analysis, you can export and analyze GRNs using another software if you chose. The raw GRN data is stored as a dictionary of dataframe in the <code class="docutils literal notranslate"><span class="pre">links_dict</span></code> attribute.</p>
 <p>For example, you can get the GRN for the “Ery_0” cluster with the following commands.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1606,7 +1623,7 @@ Wall time: 16min 34s
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1615,7 +1632,7 @@ dict_keys([&#39;Ery_0&#39;, &#39;Ery_1&#39;, &#39;Ery_2&#39;, &#39;Ery_3&#39;, &
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1624,7 +1641,7 @@ dict_keys([&#39;Ery_0&#39;, &#39;Ery_1&#39;, &#39;Ery_2&#39;, &#39;Ery_3&#39;, &
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1657,48 +1674,48 @@ dict_keys([&#39;Ery_0&#39;, &#39;Ery_1&#39;, &#39;Ery_2&#39;, &#39;Ery_3&#39;, &
   <tbody>
     <tr>
       <th>0</th>
-      <td>Klf2</td>
+      <td>Elf1</td>
       <td>0610007L01Rik</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>NaN</td>
-      <td>-0.000000</td>
+      <td>0.003746</td>
+      <td>0.003746</td>
+      <td>1.440512e-03</td>
+      <td>2.841483</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Nfkb1</td>
+      <td>Mef2c</td>
       <td>0610007L01Rik</td>
-      <td>0.003939</td>
-      <td>0.003939</td>
-      <td>1.073624e-02</td>
-      <td>1.969148</td>
+      <td>-0.007328</td>
+      <td>0.007328</td>
+      <td>1.365241e-04</td>
+      <td>3.864791</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Ets1</td>
+      <td>Chd2</td>
       <td>0610007L01Rik</td>
-      <td>0.012473</td>
-      <td>0.012473</td>
-      <td>1.324632e-08</td>
-      <td>7.877905</td>
+      <td>-0.010170</td>
+      <td>0.010170</td>
+      <td>4.160059e-06</td>
+      <td>5.380900</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Chd2</td>
+      <td>Irf7</td>
       <td>0610007L01Rik</td>
-      <td>-0.010744</td>
-      <td>0.010744</td>
-      <td>4.196722e-07</td>
-      <td>6.377090</td>
+      <td>-0.009342</td>
+      <td>0.009342</td>
+      <td>2.462105e-06</td>
+      <td>5.608693</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Mycn</td>
+      <td>Stat3</td>
       <td>0610007L01Rik</td>
-      <td>-0.002120</td>
-      <td>0.002120</td>
-      <td>2.182405e-01</td>
-      <td>0.661065</td>
+      <td>-0.008464</td>
+      <td>0.008464</td>
+      <td>1.636075e-04</td>
+      <td>3.786197</td>
     </tr>
     <tr>
       <th>...</th>
@@ -1711,48 +1728,48 @@ dict_keys([&#39;Ery_0&#39;, &#39;Ery_1&#39;, &#39;Ery_2&#39;, &#39;Ery_3&#39;, &
     </tr>
     <tr>
       <th>74932</th>
-      <td>Stat5a</td>
+      <td>Nfkb1</td>
       <td>Zyx</td>
-      <td>-0.018057</td>
-      <td>0.018057</td>
-      <td>2.196474e-06</td>
-      <td>5.658274</td>
+      <td>0.015513</td>
+      <td>0.015513</td>
+      <td>6.787753e-06</td>
+      <td>5.168274</td>
     </tr>
     <tr>
       <th>74933</th>
-      <td>Elf1</td>
+      <td>Zbtb4</td>
       <td>Zyx</td>
-      <td>0.003506</td>
-      <td>0.003506</td>
-      <td>7.699489e-02</td>
-      <td>1.113538</td>
+      <td>0.000247</td>
+      <td>0.000247</td>
+      <td>8.890848e-01</td>
+      <td>0.051057</td>
     </tr>
     <tr>
       <th>74934</th>
-      <td>Prdm5</td>
+      <td>Klf4</td>
       <td>Zyx</td>
-      <td>-0.003168</td>
-      <td>0.003168</td>
-      <td>1.803649e-01</td>
-      <td>0.743848</td>
+      <td>-0.005566</td>
+      <td>0.005566</td>
+      <td>9.731835e-08</td>
+      <td>7.011805</td>
     </tr>
     <tr>
       <th>74935</th>
-      <td>Cxxc1</td>
+      <td>Nfia</td>
       <td>Zyx</td>
-      <td>-0.008056</td>
-      <td>0.008056</td>
-      <td>4.062705e-04</td>
-      <td>3.391185</td>
+      <td>-0.026013</td>
+      <td>0.026013</td>
+      <td>2.981702e-10</td>
+      <td>9.525536</td>
     </tr>
     <tr>
       <th>74936</th>
-      <td>Irf1</td>
+      <td>Rel</td>
       <td>Zyx</td>
-      <td>-0.011635</td>
-      <td>0.011635</td>
-      <td>3.854386e-05</td>
-      <td>4.414045</td>
+      <td>-0.002867</td>
+      <td>0.002867</td>
+      <td>1.196048e-01</td>
+      <td>0.922251</td>
     </tr>
   </tbody>
 </table>
@@ -1761,7 +1778,7 @@ dict_keys([&#39;Ery_0&#39;, &#39;Ery_1&#39;, &#39;Ery_2&#39;, &#39;Ery_3&#39;, &
 </div>
 <p>You can export the file as follows.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1776,7 +1793,7 @@ dict_keys([&#39;Ery_0&#39;, &#39;Ery_1&#39;, &#39;Ery_2&#39;, &#39;Ery_3&#39;, &
 <p>The links object stores color information in the <code class="docutils literal notranslate"><span class="pre">palette</span></code> attribute. This information is used when visualizing the clusters.</p>
 <p>The sample will be visualized in that order. Here we can change both the cluster colors and order.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1786,7 +1803,7 @@ dict_keys([&#39;Ery_0&#39;, &#39;Ery_1&#39;, &#39;Ery_2&#39;, &#39;Ery_3&#39;, &
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1913,7 +1930,7 @@ dict_keys([&#39;Ery_0&#39;, &#39;Ery_1&#39;, &#39;Ery_2&#39;, &#39;Ery_3&#39;, &
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1929,7 +1946,7 @@ dict_keys([&#39;Ery_0&#39;, &#39;Ery_1&#39;, &#39;Ery_2&#39;, &#39;Ery_3&#39;, &
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -2056,7 +2073,7 @@ dict_keys([&#39;Ery_0&#39;, &#39;Ery_1&#39;, &#39;Ery_2&#39;, &#39;Ery_3&#39;, &
 </div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2076,7 +2093,7 @@ dict_keys([&#39;Ery_0&#39;, &#39;Ery_1&#39;, &#39;Ery_2&#39;, &#39;Ery_3&#39;, &
 </ol>
 <p>The raw network data is stored in the <code class="docutils literal notranslate"><span class="pre">links_dict</span></code> attribute, while the filtered network data is stored in the <code class="docutils literal notranslate"><span class="pre">filtered_links</span></code> attribute.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2090,7 +2107,7 @@ dict_keys([&#39;Ery_0&#39;, &#39;Ery_1&#39;, &#39;Ery_2&#39;, &#39;Ery_3&#39;, &
 </div></blockquote>
 <p>Please keep in mind that the degree distribution may change depending on the filtering threshold.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2099,7 +2116,7 @@ dict_keys([&#39;Ery_0&#39;, &#39;Ery_1&#39;, &#39;Ery_2&#39;, &#39;Ery_3&#39;, &
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2316,7 +2333,7 @@ GMPl_0
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_59_27.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_59_27.png" style="width: 560px; height: 318px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_59_27.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_59_27.png" style="width: 559px; height: 318px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
@@ -2436,7 +2453,7 @@ Mo_0
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_59_43.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_59_43.png" style="width: 560px; height: 318px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_59_43.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_59_43.png" style="width: 559px; height: 318px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
@@ -2470,7 +2487,7 @@ Mo_2
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2482,7 +2499,7 @@ Mo_2
 <p>Although previous version of celloracle, <code class="docutils literal notranslate"><span class="pre">links.get_score()</span></code> required R packages for the netowrk score calculation, the function was replaced with new function, <code class="docutils literal notranslate"><span class="pre">links.get_network_scores()</span></code>, which does NOT require any R package. This new function can be available with celloracle &gt;= 0.10.0.</p>
 <p>The old function, <code class="docutils literal notranslate"><span class="pre">links.get_score()</span></code> is still available, but it will be removed in the future version.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2493,7 +2510,7 @@ Mo_2
 </div>
 <p>The score is stored as a attribute <code class="docutils literal notranslate"><span class="pre">merged_score</span></code>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2502,7 +2519,7 @@ Mo_2
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -2545,19 +2562,19 @@ Mo_2
       <td>0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.025287</td>
+      <td>0.026116</td>
       <td>Ery_0</td>
     </tr>
     <tr>
       <th>1300001I01Rik</th>
-      <td>3</td>
-      <td>0.005435</td>
-      <td>3</td>
-      <td>0.005435</td>
+      <td>2</td>
+      <td>0.003623</td>
+      <td>2</td>
+      <td>0.003623</td>
       <td>0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.065949</td>
+      <td>0.054690</td>
       <td>Ery_0</td>
     </tr>
     <tr>
@@ -2569,7 +2586,7 @@ Mo_2
       <td>0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.012939</td>
+      <td>0.012897</td>
       <td>Ery_0</td>
     </tr>
     <tr>
@@ -2581,7 +2598,7 @@ Mo_2
       <td>0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.115369</td>
+      <td>0.128980</td>
       <td>Ery_0</td>
     </tr>
     <tr>
@@ -2593,7 +2610,7 @@ Mo_2
       <td>0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.007329</td>
+      <td>0.006488</td>
       <td>Ery_0</td>
     </tr>
   </tbody>
@@ -2602,7 +2619,7 @@ Mo_2
 </div>
 <p>Save processed GRNs. We will use this file during the in in silico TF perturbation analysis.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2612,7 +2629,7 @@ Mo_2
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2631,7 +2648,7 @@ Mo_2
 <p>We have calculated several network scores using different centrality metrics. &gt;Centrality matrics are is one of the important indicators of network structure (<a class="reference external" href="https://en.wikipedia.org/wiki/Centrality">https://en.wikipedia.org/wiki/Centrality</a>).</p>
 <p>Let’s visualize genes with high network centrality.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2641,7 +2658,7 @@ Mo_2
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -2673,7 +2690,7 @@ Mo_2
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2693,7 +2710,7 @@ Mo_2
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_72_1.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_72_1.png" style="width: 208px; height: 319px;" />
+<img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_72_1.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Paul_etal_2015_data_72_1.png" style="width: 216px; height: 319px;" />
 </div>
 </div>
 <div class="nboutput docutils container">
@@ -2719,7 +2736,7 @@ Mo_2
 </div>
 <p>By comparing network scores between two clusters, we can analyze differences in GRN structure.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2738,7 +2755,7 @@ Mo_2
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2758,7 +2775,7 @@ Mo_2
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2780,7 +2797,7 @@ Mo_2
 <p>We will introduce how to visualize networks scores dynamics using Gata2 as an example.</p>
 <p>Gata2 is known to play an essential role in the early MEP and GMP populations. .</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2806,7 +2823,7 @@ Gata2
 </div>
 <p>If a gene does not have network edge in a cluster, the network scores cannot be calculated and the scores will not be shown. For example, Cebpa have no network edge in the erythloids cluster GRNs. Thus these clusters do not have centrality scores in the plot below.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2831,7 +2848,7 @@ Cebpa
 </div>
 <p>You can check the filtered network edge as follows.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2842,7 +2859,7 @@ Cebpa
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -2874,49 +2891,49 @@ Cebpa
   </thead>
   <tbody>
     <tr>
-      <th>5513</th>
+      <th>5506</th>
       <td>Gata2</td>
       <td>Apoe</td>
-      <td>0.104739</td>
-      <td>0.104739</td>
-      <td>2.733532e-15</td>
-      <td>14.563276</td>
+      <td>0.109033</td>
+      <td>0.109033</td>
+      <td>1.107226e-11</td>
+      <td>10.955764</td>
     </tr>
     <tr>
-      <th>5510</th>
-      <td>Zfhx3</td>
-      <td>Apoe</td>
-      <td>0.096349</td>
-      <td>0.096349</td>
-      <td>4.500256e-14</td>
-      <td>13.346763</td>
-    </tr>
-    <tr>
-      <th>69223</th>
-      <td>Elf1</td>
-      <td>Top2a</td>
-      <td>0.093669</td>
-      <td>0.093669</td>
-      <td>5.660438e-13</td>
-      <td>12.247150</td>
-    </tr>
-    <tr>
-      <th>56733</th>
+      <th>56740</th>
       <td>Gata2</td>
       <td>Rhd</td>
-      <td>-0.093533</td>
-      <td>0.093533</td>
-      <td>1.233370e-11</td>
-      <td>10.908907</td>
+      <td>-0.096525</td>
+      <td>0.096525</td>
+      <td>4.285978e-16</td>
+      <td>15.367950</td>
     </tr>
     <tr>
-      <th>5540</th>
+      <th>5519</th>
       <td>Nfatc3</td>
       <td>Apoe</td>
-      <td>-0.088600</td>
-      <td>0.088600</td>
-      <td>1.138016e-15</td>
-      <td>14.943852</td>
+      <td>-0.095612</td>
+      <td>0.095612</td>
+      <td>1.146930e-16</td>
+      <td>15.940463</td>
+    </tr>
+    <tr>
+      <th>69218</th>
+      <td>Elf1</td>
+      <td>Top2a</td>
+      <td>0.093966</td>
+      <td>0.093966</td>
+      <td>3.595857e-08</td>
+      <td>7.444198</td>
+    </tr>
+    <tr>
+      <th>5550</th>
+      <td>Zfhx3</td>
+      <td>Apoe</td>
+      <td>0.093560</td>
+      <td>0.093560</td>
+      <td>1.515266e-15</td>
+      <td>14.819511</td>
     </tr>
   </tbody>
 </table>
@@ -2924,7 +2941,7 @@ Cebpa
 </div>
 <p>You can confirm that there is no Cebpa connection in Ery_0 cluster.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2933,7 +2950,7 @@ Cebpa
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -2964,6 +2981,15 @@ Cebpa
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <th>45587</th>
+      <td>Cebpa</td>
+      <td>Nrgn</td>
+      <td>0.023446</td>
+      <td>0.023446</td>
+      <td>2.765830e-13</td>
+      <td>12.558175</td>
+    </tr>
   </tbody>
 </table>
 </div></div>
@@ -2973,7 +2999,7 @@ Cebpa
 <h1>8. Network analysis; network score distribution<a class="headerlink" href="#8.-Network-analysis;-network-score-distribution" title="Permalink to this headline">¶</a></h1>
 <p>Next, we visualize the network score distributions to get insight into the global network trends.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2982,7 +3008,7 @@ Cebpa
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3012,7 +3038,7 @@ degree_centrality_all
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3041,7 +3067,7 @@ eigenvector_centrality
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>

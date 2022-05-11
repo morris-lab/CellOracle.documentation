@@ -15,12 +15,29 @@ Docker image
 ::
 
     docker pull kenjikamimoto126/celloracle_ubuntu
+    docker run -dit kenjikamimoto126/celloracle_ubuntu:latest
+
+- Check the container ID of the running celloracle container:
+
+::
+
+    docker ps -a
+
+- Login to the running container:
+
+::
+
+    docker exec -it <container-ID> sh
 
 
 - This docker image was built based on Ubuntu 20.04.
 - Python dependent packages and celloracle are installed in an anaconda environment, celloracle_env. This environment will be activated automatically when you log in.
 - R dependent libraries for network analysis are installed. Also, Seurat V3, Monocle3, and Cicero are installed.
 - After logging in, the user switches from the root user to the following user. Username: user. Password: pass.
+
+::
+
+    su user
 
 
 Install CellOracle
@@ -41,7 +58,7 @@ Python Requirements
 ^^^^^^^^^^^^^^^^^^^
 
 - CellOracle was developed using python 3.6. It is also tested with python 3.8. We do not support python 2.7x or python <=3.5.
-- CellOracle is currently a beta version and it is not available through PyPI or anaconda distribution yet. Please install CellOracle from our GitHub repository according to the instruction below.
+- CellOracle is available through `PyPI <https://pypi.org/project/celloracle/>`_. You can also download and install celloracle from our `CellOracle  GitHub repository <https://github.com/morris-lab/CellOracle>`_ .
 
 CellOracle installation using conda and pip
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -59,7 +76,7 @@ CellOracle installation using conda and pip
 
   ::
 
-      pip install git+https://github.com/morris-lab/CellOracle.git
+      pip install celloracle
 
 
 If you get an error, please look at the troubleshooting page below.

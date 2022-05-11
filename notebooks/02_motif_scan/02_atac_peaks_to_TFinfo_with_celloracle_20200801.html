@@ -505,7 +505,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&#39;0.10.1&#39;
+&#39;0.10.5&#39;
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -575,9 +575,9 @@ mm10 is installed.
 <p><a class="reference external" href="https://morris-lab.github.io/CellOracle.documentation/tutorials/base_grn.html#step1-scatac-seq-analysis-with-cicero">https://morris-lab.github.io/CellOracle.documentation/tutorials/base_grn.html#step1-scatac-seq-analysis-with-cicero</a></p>
 <p>The scATAC-seq file needs to be converted in a csv file three columns: - The first column is index. - The second column is peak_id. - The third column is gene_short_name.</p>
 <p>A correctly formatted file will look like this:</p>
-<p><img alt="0756c53e10b9472fa55a4ab26282c607" src="https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/processed_peak_csv.png" /></p>
+<p><img alt="12afab51f8a0475d8c8ac4a4f3abe71c" src="https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/processed_peak_csv.png" /></p>
 <p>We will load the .csv file as a <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code> using pd.read_csv().</p>
-<p><img alt="ad7fb0658f25474c9076fdce210a68d7" src="https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/processed_peak_df.png" /></p>
+<p><img alt="0cc0b6ba609745c89dd7c4d2b42134a5" src="https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/processed_peak_df.png" /></p>
 <p>You can download the demo file by running the following command.</p>
 <p>Note: If the file download fails, please manually download and unzip the data.</p>
 <p><a class="reference external" href="https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/processed_peak_file.csv">https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/processed_peak_file.csv</a></p>
@@ -600,16 +600,16 @@ mm10 is installed.
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
---2022-04-14 16:50:51--  https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/processed_peak_file.csv
-Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.108.133, 185.199.111.133, 185.199.110.133, ...
-Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.108.133|:443... connected.
+--2022-05-07 18:00:42--  https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/processed_peak_file.csv
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.111.133, 185.199.110.133, 185.199.109.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.111.133|:443... connected.
 HTTP request sent, awaiting response... 200 OK
 Length: 569448 (556K) [text/plain]
 Saving to: ‘processed_peak_file.csv’
 
-processed_peak_file 100%[===================&gt;] 556.10K  --.-KB/s    in 0.01s
+processed_peak_file 100%[===================&gt;] 556.10K  --.-KB/s    in 0.008s
 
-2022-04-14 16:50:51 (41.1 MB/s) - ‘processed_peak_file.csv’ saved [569448/569448]
+2022-05-07 18:00:43 (67.9 MB/s) - ‘processed_peak_file.csv’ saved [569448/569448]
 
 </pre></div></div>
 </div>
@@ -852,15 +852,15 @@ Motif scan started .. It may take long time.
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "c0231bef8f264febaba43ed3c0015f9b", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "6e4a431199cf452599cdddce80462f81", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-CPU times: user 14min 40s, sys: 29.2 s, total: 15min 9s
-Wall time: 15min 9s
+CPU times: user 19min 32s, sys: 34.7 s, total: 20min 7s
+Wall time: 20min 10s
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -911,7 +911,7 @@ Wall time: 15min 9s
       <td>chr10_100015291_100017830</td>
       <td>GM.5.0.Homeodomain.0001</td>
       <td>TGIF1</td>
-      <td>ENSG00000234254, TGIF1</td>
+      <td>TGIF1, ENSG00000234254</td>
       <td>10.288487</td>
       <td>1003</td>
       <td>1</td>
@@ -987,7 +987,7 @@ Wall time: 15min 9s
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Filtering finished: 13239270 -&gt; 2487700
+Filtering finished: 13227320 -&gt; 2510015
 1. Converting scanned results into one-hot encoded dataframe.
 </pre></div></div>
 </div>
@@ -995,7 +995,7 @@ Filtering finished: 13239270 -&gt; 2487700
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "3a3ecb388cb2424f8907ea5de0261e31", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "0437d48c90994a98804ddcb9e7511fef", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
@@ -1009,13 +1009,13 @@ Filtering finished: 13239270 -&gt; 2487700
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "af838a42e59b4588b638f79cbd46381b", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "fa8b1570b1d4485b949f16d558031132", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "f1a8d3fb56084410b4bfb2c79deba4e4", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "597e6535a77542c299e322fdf23b4ded", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 </div>
 <div class="section" id="5.-Get-final-base-GRN">
@@ -1086,8 +1086,8 @@ Filtering finished: 13239270 -&gt; 2487700
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
@@ -1098,7 +1098,7 @@ Filtering finished: 13239270 -&gt; 2487700
       <td>0.0</td>
       <td>1.0</td>
       <td>0.0</td>
-      <td>1.0</td>
+      <td>0.0</td>
       <td>0.0</td>
     </tr>
     <tr>
@@ -1134,8 +1134,8 @@ Filtering finished: 13239270 -&gt; 2487700
       <td>1.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
@@ -1199,7 +1199,7 @@ Filtering finished: 13239270 -&gt; 2487700
     </tr>
   </tbody>
 </table>
-<p>5 rows × 1093 columns</p>
+<p>5 rows × 1096 columns</p>
 </div></div>
 </div>
 </div>
