@@ -4,8 +4,8 @@ CellOracle docker image quick start and additional notes
 ========================================================
 
 
-In this documentation, We provide example commands for our docker image below. But we are not aiming to provide general guidances on how to use docker.
-We highly recommend learning about docker if you are not familiar with it, and make sure you have adequate knowledge about docker prior to start celloracle analysis with docker. 
+In this documentation, We provide example commands for our celloracle docker image below. But we are not aiming to provide detailed information about general docker usage.
+We highly recommend learning about docker if you are not familiar with it, and make sure you have adequate knowledge about docker prior to start celloracle analysis with docker.
 
 Quick start
 ^^^^^^^^^^^
