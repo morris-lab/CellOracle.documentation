@@ -1,0 +1,340 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-214970391-3']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>CellOracle docker image quick start and additional notes &mdash; celloracle 0.9.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Python dependent library installation troubleshooting" href="python_step_by_step_installation.html" />
+    <link rel="prev" title="Installation" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> celloracle
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome to CellOracle’s documentation!</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Installation</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#docker-image">Docker image</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">CellOracle docker image quick start and additional notes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#quick-start">Quick start</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#docker-image-build-information">Docker image build information</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#install-celloracle">Install CellOracle</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorial</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules/index.html">API</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../changelog/index.html">Changelog</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../license/index.html">License</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../citation/index.html">Authors and citations</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contact/index.html">Contact</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">celloracle</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Installation</a> &raquo;</li>
+        
+      <li>CellOracle docker image quick start and additional notes</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/installation/docker_additional_information.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="celloracle-docker-image-quick-start-and-additional-notes">
+<span id="docker-additional-information"></span><h1>CellOracle docker image quick start and additional notes<a class="headerlink" href="#celloracle-docker-image-quick-start-and-additional-notes" title="Permalink to this headline">¶</a></h1>
+<p>In this documentation, We provide example commands for our docker image below. But we are not aiming to provide general guidances on how to use docker.
+We highly recommend learning about docker if you are not familiar with it, and make sure you have adequate knowledge about docker prior to start celloracle analysis with docker.</p>
+<div class="section" id="quick-start">
+<h2>Quick start<a class="headerlink" href="#quick-start" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Download celloracle docker image from docker Hub.</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">pull</span> <span class="n">kenjikamimoto126</span><span class="o">/</span><span class="n">celloracle_ubuntu</span><span class="p">:</span><span class="n">latest</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Make and start running docker container.</p></li>
+</ol>
+<ul class="simple">
+<li><p>As we recommend using jupyter notebook (or jupyter lab), we need to set up port. Here, we connect docker container port 8888 with local host port 8888.</p></li>
+<li><p>To access files smoothly, we can use <a class="reference external" href="https://docs.docker.com/storage/bind-mounts/">bind mount</a>. Here, we will mount the <cite>data_folder</cite>, a directory in your local machine.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>mkdir data_folder # Create data folder in your local environment.
+docker run -dit \
+  --name celloracle_container \
+  -p 8888:8888 \
+  -v $(pwd)/data_folder:/root/data_folder \
+  celloracle_ubuntu:latest
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Enter the docker container.</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">container</span> <span class="n">exec</span> <span class="o">-</span><span class="n">it</span> <span class="n">celloracle_container</span> <span class="n">bash</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>In the docker container environment, start jupyter notebook as follows.</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span>
+<span class="n">jupyter</span> <span class="n">notebook</span> <span class="o">--</span><span class="n">port</span><span class="o">=</span><span class="mi">8888</span> <span class="o">--</span><span class="n">ip</span><span class="o">=</span><span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span> <span class="o">--</span><span class="n">allow</span><span class="o">-</span><span class="n">root</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">browser</span>
+</pre></div>
+</div>
+<p>After starting jupyter, please open your browser and enter <a class="reference external" href="http://localhost:8888">http://localhost:8888</a> to access jupyter notebook running in the docker container.
+You need to enter a token to access jupyter. The token can be found in your terminal running jupyter notebook.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<ul class="simple">
+<li><p>We found that the CellOracle calculations may be EXTREMELY SLOW in a Windows Subsystem for Linux (WSL). Please don’t use docker on Windows OS.</p></li>
+<li><p>You may have issue if enough computational resource is not assigned to your docker container. Please make sure you have enough memory.</p></li>
+<li><p>If you found bug or error in the docker installation, please let us know through <a class="reference external" href="https://github.com/morris-lab/CellOracle/issues">GitHub issue page</a>.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="docker-image-build-information">
+<h2>Docker image build information<a class="headerlink" href="#docker-image-build-information" title="Permalink to this headline">¶</a></h2>
+<p>We built our docker image using Dockerfile automatic build function.
+The Dockerfile is available <a class="reference external" href="https://github.com/morris-lab/CellOracle/blob/master/docs/dockerfile">here</a>.
+You can modify it to create custom docker image by yourself.
+If you make custom environment, please do so on your responsibility.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="python_step_by_step_installation.html" class="btn btn-neutral float-right" title="Python dependent library installation troubleshooting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Samantha Morris Lab
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

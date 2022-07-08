@@ -530,6 +530,18 @@ Please see the <strong>step 5.6</strong> for detail.</p></li>
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+2022-05-24 16:00:53,165 [31567] WARNING  py.warnings:99: [JupyterRequire] /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages/requests/__init__.py:91: RequestsDependencyWarning:
+
+urllib3 (1.26.9) or chardet (3.0.4) doesn&#39;t match a supported version!
+
+
+</pre></div></div>
+</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
@@ -582,20 +594,6 @@ Please see the <strong>step 5.6</strong> for detail.</p></li>
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Data not found in the local folder. Loading data from github. Data will be saved at /home/k/celloracle_data/tutorial_data
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "20956a1a7af64843a66c9762c5d884ba", "version_major": 2, "version_minor": 0}</script></div>
-</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
@@ -624,7 +622,7 @@ Status
 </pre></div></div>
 </div>
 <p>In the previous notebook, we calculated the GRNs. Now, we will use these GRNs for the perturbation simulations. First, we will import the GRNs from the <code class="docutils literal notranslate"><span class="pre">Links</span></code> object.</p>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
@@ -637,425 +635,28 @@ Status
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Data not found in the local folder. Loading data from github. Data will be saved at /home/k/celloracle_data/tutorial_data
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "2dbb501d358b4af2a841dadd69888ef0", "version_major": 2, "version_minor": 0}</script></div>
-</div>
 </div>
 <div class="section" id="2.-Make-predictive-models-for-simulation">
 <h1>2. Make predictive models for simulation<a class="headerlink" href="#2.-Make-predictive-models-for-simulation" title="Permalink to this headline">¶</a></h1>
 <p>Here, we will need to fit the ridge regression models again. This process will take less time than the GRN inference in the previous notebook, because we are using the filtered GRN models.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">links</span><span class="o">.</span><span class="n">filter_links</span><span class="p">()</span>
 <span class="n">oracle</span><span class="o">.</span><span class="n">get_cluster_specific_TFdict_from_Links</span><span class="p">(</span><span class="n">links_object</span><span class="o">=</span><span class="n">links</span><span class="p">)</span>
-<span class="n">oracle</span><span class="o">.</span><span class="n">fit_GRN_for_simulation</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">use_cluster_specific_TFdict</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">oracle</span><span class="o">.</span><span class="n">fit_GRN_for_simulation</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+                              <span class="n">use_cluster_specific_TFdict</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-fitting GRN again...
-calculating GRN in Ery_0
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "144db180e3e74df4b1120ec6ffafb639", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-genes_in_gem: 1999
-models made for 1088 genes
-calculating GRN in Ery_1
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "ba6c0b40b63b423c9cd9d23444ba65ea", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-genes_in_gem: 1999
-models made for 1081 genes
-calculating GRN in Ery_2
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "8673b19d3d1c409594867ed1e94f8183", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-genes_in_gem: 1999
-models made for 1060 genes
-calculating GRN in Ery_3
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "1844dc638fce4c41aae97ea4c76b591a", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-genes_in_gem: 1999
-models made for 1081 genes
-calculating GRN in Ery_4
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "f388f32723c14dbc9e2366b2b1c8084a", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-genes_in_gem: 1999
-models made for 1095 genes
-calculating GRN in Ery_5
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "0af4a7a047d54c0298288b68d642f449", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-genes_in_gem: 1999
-models made for 1145 genes
-calculating GRN in Ery_6
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "7b69fd20202847f7ac331680d4a1ab2b", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-genes_in_gem: 1999
-models made for 1106 genes
-calculating GRN in Ery_7
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "c865dd90a3e144f3be65fb8e31de447a", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-genes_in_gem: 1999
-models made for 1064 genes
-calculating GRN in Ery_8
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "69e235c8c3864e1fa16cde7e3582b889", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-genes_in_gem: 1999
-models made for 1111 genes
-calculating GRN in Ery_9
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "9225d18e8fee4a1d913c9939058bd406", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-genes_in_gem: 1999
-models made for 1116 genes
-calculating GRN in GMP_0
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "148fe3ae3bc54e48ba13dbf671cbcffc", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-genes_in_gem: 1999
-models made for 1104 genes
-calculating GRN in GMP_1
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "b18e81d6a64a4b68afcc7b2050d03e27", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-genes_in_gem: 1999
-models made for 1113 genes
-calculating GRN in GMP_2
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "8e19177e8ebb4fce9f0ecd6b61d303f0", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-genes_in_gem: 1999
-models made for 1115 genes
-calculating GRN in GMPl_0
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "351cde28a6644cc3b058ae68a0c3dbb4", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-genes_in_gem: 1999
-models made for 1097 genes
-calculating GRN in GMPl_1
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "5cfbe421ef5c480798c40e516d0ca396", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-genes_in_gem: 1999
-models made for 1085 genes
-calculating GRN in Gran_0
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "f0c5be0999494ecea63f37526e216b8f", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-genes_in_gem: 1999
-models made for 1064 genes
-calculating GRN in Gran_1
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "ea91107bafa9458d95194273ee01fd8b", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-genes_in_gem: 1999
-models made for 1065 genes
-calculating GRN in Gran_2
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "fc3b569e944645989f1b29c904bb22b8", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-genes_in_gem: 1999
-models made for 1096 genes
-calculating GRN in Gran_3
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "54c91627f76243ccb1c406e24bb78729", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-genes_in_gem: 1999
-models made for 1190 genes
-calculating GRN in MEP_0
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "9e423a241aa94198912632742f5638ec", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-genes_in_gem: 1999
-models made for 1134 genes
-calculating GRN in Mk_0
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "84b12c1dfd8047b2a1e5220574b8826e", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-genes_in_gem: 1999
-models made for 1109 genes
-calculating GRN in Mo_0
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "3b1a828ffe494953969670748aeec7de", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-genes_in_gem: 1999
-models made for 1088 genes
-calculating GRN in Mo_1
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "6b4c885a4c784f9b99fbd80841ee8b35", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-genes_in_gem: 1999
-models made for 1109 genes
-calculating GRN in Mo_2
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "aea0bec143c94326a0b68f3e87f53314", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-genes_in_gem: 1999
-models made for 1075 genes
+fitting GRN again...
 </pre></div></div>
 </div>
 </div>
@@ -1426,7 +1027,7 @@ models made for 1075 genes
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Save gradient object if you want.</span>
-<span class="c1">#gradient.to_hdf5(&quot;../data/Paul_etal.celloracle.gradient&quot;)</span>
+<span class="c1">#gradient.to_hdf5(&quot;Paul_etal.celloracle.gradient&quot;)</span>
 </pre></div>
 </div>
 </div>
@@ -1437,7 +1038,7 @@ models made for 1075 genes
 <li><p>The inner product will be a positive value when two vectors are pointing in the same direction.</p></li>
 <li><p>Conversely, the inner product will be a negative value when two vectors are pointing in the opposing directions.</p></li>
 </ul>
-<p><img alt="dc3cdb8ea94b4034b839b031cd912094" src="https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/innerproduct_explantion_1.png" /></p>
+<p><img alt="4b3873d55ecb421ca118b2bbab49b7e0" src="https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/innerproduct_explantion_1.png" /></p>
 <ul class="simple">
 <li><p>The length of the vectors also affects the magnitude of inner product value.</p></li>
 </ul>
@@ -1568,7 +1169,7 @@ models made for 1075 genes
 <span class="c1"># Load simulation result</span>
 <span class="n">dev</span><span class="o">.</span><span class="n">load_perturb_simulation_data</span><span class="p">(</span><span class="n">oracle_object</span><span class="o">=</span><span class="n">oracle</span><span class="p">,</span>
                                  <span class="n">cell_idx_use</span><span class="o">=</span><span class="n">cell_idx</span><span class="p">,</span> <span class="c1"># Enter cell id list</span>
-                                 <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Lineage_MEP&quot;</span> <span class="c1"># Name of this cell group. You can enter arbitrary name.</span>
+                                 <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Lineage_MEP&quot;</span> <span class="c1"># Name of this cell group. You can enter any name.</span>
                                  <span class="p">)</span>
 
 <span class="c1"># Calculation</span>

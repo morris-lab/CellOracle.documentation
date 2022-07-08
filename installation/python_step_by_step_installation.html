@@ -253,13 +253,45 @@ You may find the solution for each of these in the links below.</p>
 </pre></div>
 </div>
 </div>
+<div class="section" id="id4">
+<h2><a class="reference external" href="https://daler.github.io/pybedtools/">pybedtools</a><a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>If you have an error related to the pybedtools installation, please install pybedtools using anaconda.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">bioconda</span> <span class="n">pybedtools</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pybedtools is python wrapper of bedtools. If you get “NotImplementedError” during ATAC-seq peak processing step, please try to install bedtools.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">bedtools</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="section" id="install-gimmemotifs-with-conda">
 <h2>Install gimmemotifs with conda<a class="headerlink" href="#install-gimmemotifs-with-conda" title="Permalink to this headline">¶</a></h2>
 <p>If you failed installation in the gimmemotifs installation step, please install gimmemotifs solely first.
-Also, if your jupyter notebook kernel keep dying during TF motif scan, it means your gimmemotifs installation has a problem.
-In that case, please re-install gimmemotifs using conda.</p>
+We recommend installing gimmemotifs using conda prior to celloracle installation.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">bioconda</span> <span class="n">gimmemotifs</span>
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If your jupyter notebook kernel keep dying during TF motif scan, there are mainly two possibilities below.</p>
+<ol class="arabic simple">
+<li><p>Your kernel might be killed because of memory shortage. Please make sure you have enough memory.</p></li>
+</ol>
+<p>2. If you have enough memory, there is most likely a problem with the gimmemotifs installation in your environment.
+Please uninstall gimmemotifs and re-install gimmemotifs using conda.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">uninstall</span> <span class="n">gimmemotifs</span> <span class="o">-</span><span class="n">y</span>
+<span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">bioconda</span> <span class="n">gimmemotifs</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>We found gimmemotifs might have installation issue with anaconda bioconda channel (at 7/7/2022).
+If you fail to install gimmemotifs with anaconda, we recommend installing it using anaconda’s offline mode.
+More information can be found <a class="reference external" href="https://github.com/vanheeringen-lab/gimmemotifs/issues/271">here</a>.</p>
 </div>
 </div>
 <div class="section" id="if-you-encounter-an-error-related-to-certifi">

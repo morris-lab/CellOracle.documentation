@@ -50,7 +50,7 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Python dependent library installation troubleshooting" href="python_step_by_step_installation.html" />
+    <link rel="next" title="CellOracle docker image quick start and additional notes" href="docker_additional_information.html" />
     <link rel="prev" title="Welcome to CellOracle’s documentation!" href="../index.html" /> 
 </head>
 
@@ -101,7 +101,10 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#docker-image">Docker image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#docker-image">Docker image</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="docker_additional_information.html">CellOracle docker image quick start and additional notes</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#install-celloracle">Install CellOracle</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#system-requirements">System Requirements</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#python-requirements">Python Requirements</a></li>
@@ -224,36 +227,23 @@
 </style>
 <div class="section" id="installation">
 <span id="install"></span><h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
-<p>CellOracle uses several python libraries and R libraries. Please follow the guide below to install CellOracle and its dependent software.</p>
+<p>Please follow the guide below to install CellOracle and its dependent software.</p>
 <div class="section" id="docker-image">
 <span id="require"></span><h2>Docker image<a class="headerlink" href="#docker-image" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Pre-built docker image is available through <a class="reference external" href="https://hub.docker.com/repository/docker/kenjikamimoto126/celloracle_ubuntu">Docker Hub</a> .</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">pull</span> <span class="n">kenjikamimoto126</span><span class="o">/</span><span class="n">celloracle_ubuntu</span>
-<span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">dit</span> <span class="n">kenjikamimoto126</span><span class="o">/</span><span class="n">celloracle_ubuntu</span><span class="p">:</span><span class="n">latest</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>Check the container ID of the running celloracle container:</p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">ps</span> <span class="o">-</span><span class="n">a</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>Login to the running container:</p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">exec</span> <span class="o">-</span><span class="n">it</span> <span class="o">&lt;</span><span class="n">container</span><span class="o">-</span><span class="n">ID</span><span class="o">&gt;</span> <span class="n">sh</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">pull</span> <span class="n">kenjikamimoto126</span><span class="o">/</span><span class="n">celloracle_ubuntu</span><span class="p">:</span><span class="n">latest</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>This docker image was built based on Ubuntu 20.04.</p></li>
 <li><p>Python dependent packages and celloracle are installed in an anaconda environment, celloracle_env. This environment will be activated automatically when you log in.</p></li>
-<li><p>Seurat V3, Monocle3, and Cicero are installed. Although they are not the part of CellOracle software, they are useful for the input data preparation prior to CellOracle analysis.</p></li>
-<li><p>After logging in, the user switches from the root user to the following user. Username: user. Password: pass.</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">su</span> <span class="n">user</span>
-</pre></div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="docker_additional_information.html">CellOracle docker image quick start and additional notes</a></li>
+</ul>
 </div>
 </div>
 <div class="section" id="install-celloracle">
@@ -264,7 +254,7 @@
 <li><p>Operating system: macOS or Linux are highly recommended. CellOracle was developed and tested in Linux and macOS.</p></li>
 <li><p>We found that the CellOracle calculations may be EXTREMELY SLOW in a Windows Subsystem for Linux (WSL). We do not recommend using WSL.</p></li>
 <li><p>While you can install CellOracle using the Windows OS, please do so at your own risk and responsibility. We DO NOT provide any support for the use with the Windows OS.</p></li>
-<li><p>Memory: 16 G byte or more.  Memory usage also depends on the size of your scRNA-seq dataset. Please note that in silico perturbation requires large amount of memory.</p></li>
+<li><p>Memory: 16 G byte or more.  Memory usage also depends on the size of your scRNA-seq dataset. Please note that in silico perturbation, may require large amount of memory.</p></li>
 <li><p>CPU: Core i5 or better processor. CellOracle’s GRN inference function supports multicore calculation. Utilizing more CPU cores enables faster calculations.</p></li>
 </ul>
 </div>
@@ -332,7 +322,7 @@ If you just want to try CellOracle main tutorials, <span class="xref std std-doc
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="python_step_by_step_installation.html" class="btn btn-neutral float-right" title="Python dependent library installation troubleshooting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="docker_additional_information.html" class="btn btn-neutral float-right" title="CellOracle docker image quick start and additional notes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../index.html" class="btn btn-neutral float-left" title="Welcome to CellOracle’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
