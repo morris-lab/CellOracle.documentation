@@ -18,7 +18,7 @@
     </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Overview &mdash; celloracle 0.9.1 documentation</title>
+  <title>Overview &mdash; celloracle 0.10.7 documentation</title>
   
 
   
@@ -102,26 +102,8 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation/index.html">Installation</a></li>
 </ul>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../../../tutorials/index.html">Tutorial</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/index.html#what-the-tutorial-covers">What the tutorial covers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/index.html#prerequisites">Prerequisites</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/index.html#code-and-data-availability">Code and data availability</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/index.html#getting-started">Getting started</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../../../tutorials/index.html#index">Index</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/index.html#grn-model-construction-and-network-analysis">GRN model construction and network analysis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/index.html#in-silico-gene-perturbation-with-grns">In silico gene perturbation with GRNs</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../../../tutorials/index.html#prepare-input-data">Prepare input data</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/scrnaprocess.html">1. scRNA-seq data preparation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../tutorials/pseudotime.html">2. Pseudotime calculation</a></li>
-<li class="toctree-l4 current"><a class="reference internal" href="../../../tutorials/base_grn.html">3. Base GRN input data preparation</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/index.html#tf-motif-scan-for-base-grn-construction">TF motif scan for base-GRN construction</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/index.html">Tutorial</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../modules/index.html">API</a></li>
@@ -472,7 +454,7 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="0.-Import-libraries">
 <h1>0. Import libraries<a class="headerlink" href="#0.-Import-libraries" title="Permalink to this headline">¶</a></h1>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -491,7 +473,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -502,16 +484,16 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&#39;0.10.5&#39;
+&#39;0.10.7&#39;
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -679,7 +661,7 @@ array([&#39;chr10_100006139_100006389&#39;, &#39;chr10_100015291_100017830&#39;,
 <p>You can check supported reference genome using <code class="docutils literal notranslate"><span class="pre">ma.SUPPORTED_REF_GENOME</span></code></p>
 <p>If your reference genome is not in the list, please send a request to us through CellOracle GitHub issue page.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -688,7 +670,7 @@ array([&#39;chr10_100006139_100006389&#39;, &#39;chr10_100015291_100017830&#39;,
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -731,128 +713,140 @@ array([&#39;chr10_100006139_100006389&#39;, &#39;chr10_100015291_100017830&#39;,
     <tr>
       <th>2</th>
       <td>Mouse</td>
-      <td>mm10</td>
+      <td>mm39</td>
       <td>UCSC</td>
     </tr>
     <tr>
       <th>3</th>
       <td>Mouse</td>
-      <td>mm9</td>
+      <td>mm10</td>
       <td>UCSC</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>S.cerevisiae</td>
-      <td>sacCer2</td>
+      <td>Mouse</td>
+      <td>mm9</td>
       <td>UCSC</td>
     </tr>
     <tr>
       <th>5</th>
       <td>S.cerevisiae</td>
-      <td>sacCer3</td>
+      <td>sacCer2</td>
       <td>UCSC</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>Zebrafish</td>
-      <td>danRer7</td>
+      <td>S.cerevisiae</td>
+      <td>sacCer3</td>
       <td>UCSC</td>
     </tr>
     <tr>
       <th>7</th>
       <td>Zebrafish</td>
-      <td>danRer10</td>
+      <td>danRer7</td>
       <td>UCSC</td>
     </tr>
     <tr>
       <th>8</th>
       <td>Zebrafish</td>
-      <td>danRer11</td>
+      <td>danRer10</td>
       <td>UCSC</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>Xenopus</td>
-      <td>xenTro2</td>
+      <td>Zebrafish</td>
+      <td>danRer11</td>
       <td>UCSC</td>
     </tr>
     <tr>
       <th>10</th>
       <td>Xenopus</td>
-      <td>xenTro3</td>
+      <td>xenTro2</td>
       <td>UCSC</td>
     </tr>
     <tr>
       <th>11</th>
-      <td>Rat</td>
-      <td>rn4</td>
+      <td>Xenopus</td>
+      <td>xenTro3</td>
       <td>UCSC</td>
     </tr>
     <tr>
       <th>12</th>
       <td>Rat</td>
-      <td>rn5</td>
+      <td>rn4</td>
       <td>UCSC</td>
     </tr>
     <tr>
       <th>13</th>
       <td>Rat</td>
-      <td>rn6</td>
+      <td>rn5</td>
       <td>UCSC</td>
     </tr>
     <tr>
       <th>14</th>
-      <td>Drosophila</td>
-      <td>dm3</td>
+      <td>Rat</td>
+      <td>rn6</td>
       <td>UCSC</td>
     </tr>
     <tr>
       <th>15</th>
       <td>Drosophila</td>
-      <td>dm6</td>
+      <td>dm3</td>
       <td>UCSC</td>
     </tr>
     <tr>
       <th>16</th>
-      <td>C.elegans</td>
-      <td>ce6</td>
+      <td>Drosophila</td>
+      <td>dm6</td>
       <td>UCSC</td>
     </tr>
     <tr>
       <th>17</th>
       <td>C.elegans</td>
-      <td>ce10</td>
+      <td>ce6</td>
       <td>UCSC</td>
     </tr>
     <tr>
       <th>18</th>
+      <td>C.elegans</td>
+      <td>ce10</td>
+      <td>UCSC</td>
+    </tr>
+    <tr>
+      <th>19</th>
       <td>Arabidopsis</td>
       <td>TAIR10</td>
       <td>Ensembl</td>
     </tr>
     <tr>
-      <th>19</th>
+      <th>20</th>
       <td>Chicken</td>
       <td>galGal4</td>
       <td>UCSC</td>
     </tr>
     <tr>
-      <th>20</th>
+      <th>21</th>
       <td>Chicken</td>
       <td>galGal5</td>
       <td>UCSC</td>
     </tr>
     <tr>
-      <th>21</th>
+      <th>22</th>
       <td>Chicken</td>
       <td>galGal6</td>
       <td>UCSC</td>
     </tr>
     <tr>
-      <th>22</th>
+      <th>23</th>
       <td>Guinea_Pig</td>
       <td>Cavpor3.0</td>
       <td>Ensembl</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>Axolotl</td>
+      <td>AmexG_v6.0-DD</td>
+      <td>Axolotl-omics.org</td>
     </tr>
   </tbody>
 </table>

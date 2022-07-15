@@ -18,7 +18,7 @@
     </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Overview &mdash; celloracle 0.9.1 documentation</title>
+  <title>Overview &mdash; celloracle 0.10.7 documentation</title>
   
 
   
@@ -488,7 +488,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -499,25 +499,13 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-2022-07-13 16:35:31,299 [2261] WARNING  py.warnings:99: [JupyterRequire] /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages/requests/__init__.py:91: RequestsDependencyWarning:
-
-urllib3 (1.26.9) or chardet (3.0.4) doesn&#39;t match a supported version!
-
-
-</pre></div></div>
-</div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&#39;0.10.6&#39;
+&#39;0.10.7&#39;
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -538,7 +526,7 @@ urllib3 (1.26.9) or chardet (3.0.4) doesn&#39;t match a supported version!
 <h1>1. Rerefence genome data preparation<a class="headerlink" href="#1.-Rerefence-genome-data-preparation" title="Permalink to this headline">¶</a></h1>
 <p>Before starting the analysis, we need to make sure the reference genome data is installed. If not, please install the correct reference genome using the instructions below.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -562,6 +550,198 @@ mm10 installation:  True
 <p>If your reference genome is not in the list, please send a request to us through CellOracle GitHub issue page.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ma</span><span class="o">.</span><span class="n">SUPPORTED_REF_GENOME</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>species</th>
+      <th>ref_genome</th>
+      <th>provider</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Human</td>
+      <td>hg38</td>
+      <td>UCSC</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Human</td>
+      <td>hg19</td>
+      <td>UCSC</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Mouse</td>
+      <td>mm39</td>
+      <td>UCSC</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Mouse</td>
+      <td>mm10</td>
+      <td>UCSC</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Mouse</td>
+      <td>mm9</td>
+      <td>UCSC</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>S.cerevisiae</td>
+      <td>sacCer2</td>
+      <td>UCSC</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>S.cerevisiae</td>
+      <td>sacCer3</td>
+      <td>UCSC</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Zebrafish</td>
+      <td>danRer7</td>
+      <td>UCSC</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Zebrafish</td>
+      <td>danRer10</td>
+      <td>UCSC</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Zebrafish</td>
+      <td>danRer11</td>
+      <td>UCSC</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Xenopus</td>
+      <td>xenTro2</td>
+      <td>UCSC</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Xenopus</td>
+      <td>xenTro3</td>
+      <td>UCSC</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Rat</td>
+      <td>rn4</td>
+      <td>UCSC</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Rat</td>
+      <td>rn5</td>
+      <td>UCSC</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Rat</td>
+      <td>rn6</td>
+      <td>UCSC</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Drosophila</td>
+      <td>dm3</td>
+      <td>UCSC</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Drosophila</td>
+      <td>dm6</td>
+      <td>UCSC</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>C.elegans</td>
+      <td>ce6</td>
+      <td>UCSC</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>C.elegans</td>
+      <td>ce10</td>
+      <td>UCSC</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Arabidopsis</td>
+      <td>TAIR10</td>
+      <td>Ensembl</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>Chicken</td>
+      <td>galGal4</td>
+      <td>UCSC</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>Chicken</td>
+      <td>galGal5</td>
+      <td>UCSC</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>Chicken</td>
+      <td>galGal6</td>
+      <td>UCSC</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>Guinea_Pig</td>
+      <td>Cavpor3.0</td>
+      <td>Ensembl</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>Axolotl</td>
+      <td>AmexG_v6.0-DD</td>
+      <td>Axolotl-omics.org</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -589,9 +769,9 @@ mm10 is installed.
 <p><a class="reference external" href="https://morris-lab.github.io/CellOracle.documentation/tutorials/base_grn.html#step1-scatac-seq-analysis-with-cicero">https://morris-lab.github.io/CellOracle.documentation/tutorials/base_grn.html#step1-scatac-seq-analysis-with-cicero</a></p>
 <p>The scATAC-seq file needs to be converted in a csv file three columns: - The first column is index. - The second column is peak_id. - The third column is gene_short_name.</p>
 <p>A correctly formatted file will look like this:</p>
-<p><img alt="8b26cfc0328e43a1af2d05a52c1f0921" src="https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/processed_peak_csv.png" /></p>
+<p><img alt="840a1d92bf4445feb09dc4efd4590c84" src="https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/processed_peak_csv.png" /></p>
 <p>We will load the .csv file as a <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code> using pd.read_csv().</p>
-<p><img alt="8e9e412866c649c9b56f560291125291" src="https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/processed_peak_df.png" /></p>
+<p><img alt="788108611d4541b39e221c4c63d304c2" src="https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/processed_peak_df.png" /></p>
 <p>You can download the demo file by running the following command.</p>
 <p>Note: If the file download fails, please manually download and unzip the data.</p>
 <p><a class="reference external" href="https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/processed_peak_file.csv">https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/processed_peak_file.csv</a></p>
