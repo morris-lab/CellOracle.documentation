@@ -169,7 +169,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../../../_sources/notebooks/01_ATAC-seq_data_processing/option1_scATAC-seq_data_analysis_with_cicero/misc/Make tss reference datafile from Ensembl database/1_make_tss_referenece_from_ensemble_gff3_file.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../../../../../_sources/notebooks/01_ATAC-seq_data_processing/option1_scATAC-seq_data_analysis_with_cicero/misc/Make tss reference datafile from Xenbase database/1_make_tss_referenece_from_Xenbase_gff3_file.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -485,9 +485,8 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-2022-12-27 16:40:15,172 [11281] WARNING  py.warnings:99: [JupyterRequire] /home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.9) or chardet (3.0.4) doesn&#39;t match a supported version!
+/home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.9) or chardet (3.0.4) doesn&#39;t match a supported version!
   RequestsDependencyWarning)
-
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -516,7 +515,7 @@ div.rendered_html tbody tr:hover {
 <h1>1. Define custom functions to process gene annotation data.<a class="headerlink" href="#1.-Define-custom-functions-to-process-gene-annotation-data." title="Permalink to this headline">¶</a></h1>
 <p>Extract TSS information from gff3 file and get a bed file.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -565,9 +564,7 @@ div.rendered_html tbody tr:hover {
 
     <span class="k">return</span> <span class="n">df_</span>
 
-
-
-<span class="k">def</span> <span class="nf">load_and_process_ensembl_gff3_file</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">n_downstream</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">n_upstream</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">transcript_filtering</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">,</span> <span class="n">clip_negative</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">load_and_process_ensembl_gff3_file</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">n_downstream</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">n_upstream</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">clip_negative</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
     <span class="c1"># Load gff file. Comments rows are skipped.</span>
     <span class="n">lines</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -578,7 +575,6 @@ div.rendered_html tbody tr:hover {
                 <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">l</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">))</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
 
-
     <span class="c1"># Data format adjustment 1</span>
     <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;seqname&quot;</span><span class="p">,</span> <span class="s2">&quot;source&quot;</span><span class="p">,</span> <span class="s2">&quot;feature&quot;</span><span class="p">,</span> <span class="s2">&quot;start&quot;</span><span class="p">,</span> <span class="s2">&quot;end&quot;</span><span class="p">,</span> <span class="s2">&quot;score&quot;</span><span class="p">,</span>
                   <span class="s2">&quot;strand&quot;</span><span class="p">,</span> <span class="s2">&quot;frame&quot;</span><span class="p">,</span> <span class="s2">&quot;attribute&quot;</span><span class="p">]</span>
@@ -586,51 +582,19 @@ div.rendered_html tbody tr:hover {
     <span class="n">df</span><span class="p">[</span><span class="s2">&quot;start&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;start&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;int&quot;</span><span class="p">)</span>
     <span class="n">df</span><span class="p">[</span><span class="s2">&quot;end&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;end&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;int&quot;</span><span class="p">)</span>
 
+
     <span class="c1"># Data format adjustment 2</span>
     <span class="c1">## The attribute column includes detailed information. Let&#39;s extract information and store them as new columns.</span>
     <span class="n">annot</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">parse_ens</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;attribute&quot;</span><span class="p">])])</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">,</span> <span class="n">annot</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
-    <span class="c1"># Data format adjustment 2</span>
-    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Parent_feature&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">Parent</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s2">&quot;na:na&quot;</span><span class="p">)]</span>
-    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Parent_id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">Parent</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s2">&quot;na:na&quot;</span><span class="p">)]</span>
 
-
-    <span class="c1"># Data format adjustment 3</span>
-    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;gene_id_unified&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;gene_id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
-    <span class="n">rows_non_gene</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;gene_id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span>
-    <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">rows_non_gene</span><span class="p">],</span> <span class="s2">&quot;gene_id_unified&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">rows_non_gene</span><span class="p">][</span><span class="s2">&quot;Parent_id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
-
-    <span class="c1">#return df</span>
     <span class="c1"># Split data into gene entry and transcript entry.</span>
-    <span class="n">df_gene</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="n">rows_non_gene</span><span class="p">]</span>
-    <span class="n">df_gene</span> <span class="o">=</span> <span class="n">df_gene</span><span class="p">[[</span><span class="s2">&quot;Name&quot;</span><span class="p">,</span> <span class="s2">&quot;gene_id&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="s2">&quot;gene_symbol&quot;</span><span class="p">,</span> <span class="s2">&quot;gene_id&quot;</span><span class="p">:</span> <span class="s2">&quot;gene_id_unified&quot;</span><span class="p">})</span>
-    <span class="n">df_transcript</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">Parent_feature</span> <span class="o">==</span> <span class="s2">&quot;gene&quot;</span><span class="p">]</span>
-    <span class="n">df_transcript</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_transcript</span><span class="p">,</span> <span class="n">df_gene</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;gene_id_unified&quot;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
+    <span class="n">df_gene</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">feature</span><span class="o">==</span><span class="s2">&quot;gene&quot;</span><span class="p">]</span>
+    <span class="n">df_gene</span><span class="p">[</span><span class="s2">&quot;gene_symbol&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_gene</span><span class="o">.</span><span class="n">gene</span>
 
-    <span class="c1"># We only use basic transcript, major mRNA isoform.</span>
-
-    <span class="k">if</span> <span class="n">transcript_filtering</span> <span class="o">==</span> <span class="s2">&quot;auto&quot;</span><span class="p">:</span>
-        <span class="k">if</span> <span class="s2">&quot;tag&quot;</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span> <span class="c1"># We only use basic transcript, major mRNA isoform.</span>
-            <span class="n">df_transcript</span> <span class="o">=</span> <span class="n">df_transcript</span><span class="p">[</span><span class="n">df_transcript</span><span class="o">.</span><span class="n">tag</span> <span class="o">==</span> <span class="s2">&quot;basic&quot;</span><span class="p">]</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Found transcriptome tag information. Only &#39;basic&#39; transcripts are used.&quot;</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No transcriptome tag information found. Transfript filtering step is skipped. All transcripts are used.&quot;</span><span class="p">)</span>
-
-    <span class="k">elif</span> <span class="n">transcript_filtering</span> <span class="o">==</span> <span class="s2">&quot;basic&quot;</span><span class="p">:</span>
-        <span class="k">if</span> <span class="s2">&quot;tag&quot;</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span> <span class="c1"># We only use basic transcript, major mRNA isoform.</span>
-            <span class="n">df_transcript</span> <span class="o">=</span> <span class="n">df_transcript</span><span class="p">[</span><span class="n">df_transcript</span><span class="o">.</span><span class="n">tag</span> <span class="o">==</span> <span class="s2">&quot;basic&quot;</span><span class="p">]</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Found transcriptome tag information. Only &#39;basic&#39; transcripts are used.&quot;</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Could not perform basic transcript filtering because the gff3 file not contain &#39;tag&#39; information. </span><span class="se">\n\</span>
-<span class="s2">                  Please set transcript_filtering=&#39;auto&#39;.</span><span class="se">\n\</span>
-<span class="s2">                  With this mode, transcript filtering is not performed and all transcripts are used.&quot;</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;transcript_filtering, </span><span class="si">{</span><span class="n">transcript_filtering</span><span class="si">}</span><span class="s2"> is not implemented&quot;</span><span class="p">)</span>
-
-
-    <span class="c1"># Remove transcripts that are not annotated gene name.</span>
-    <span class="n">df_transcript</span> <span class="o">=</span> <span class="n">df_transcript</span><span class="p">[</span><span class="o">~</span><span class="n">df_transcript</span><span class="o">.</span><span class="n">gene_symbol</span><span class="o">.</span><span class="n">isna</span><span class="p">()]</span>
+    <span class="n">df_transcript</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">feature</span> <span class="o">==</span> <span class="s2">&quot;mRNA&quot;</span><span class="p">]</span>
+    <span class="n">df_transcript</span><span class="p">[</span><span class="s2">&quot;gene_symbol&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_transcript</span><span class="o">.</span><span class="n">gene</span>
 
 
     <span class="c1"># Add PromoterTSS location.</span>
@@ -641,17 +605,17 @@ div.rendered_html tbody tr:hover {
     <span class="n">result</span> <span class="o">=</span> <span class="n">df_transcript</span><span class="p">[[</span><span class="s2">&quot;seqname&quot;</span><span class="p">,</span> <span class="s2">&quot;promTSS_left&quot;</span><span class="p">,</span> <span class="s2">&quot;promTSS_right&quot;</span><span class="p">,</span>
                         <span class="s2">&quot;gene_symbol&quot;</span><span class="p">,</span> <span class="s2">&quot;score&quot;</span><span class="p">,</span> <span class="s2">&quot;strand&quot;</span><span class="p">]]</span>
 
-    <span class="sd">&quot;&quot;&quot;# Merge overlapping peaks</span>
-<span class="sd">    li = []</span>
-<span class="sd">    for i in tqdm(result.gene_symbol.unique()):</span>
-<span class="sd">        df_ = result[result.gene_symbol == i]</span>
-<span class="sd">        if len(df_) == 1:</span>
-<span class="sd">            li.append(df_)</span>
-<span class="sd">        else:</span>
-<span class="sd">            li.append(merge_overlapping_peaks(df_))</span>
-<span class="sd">    result_merged = pd.concat(li, axis=0)&quot;&quot;&quot;</span>
+    <span class="c1"># Merge overlapping peaks</span>
+    <span class="n">li</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">gene_symbol</span><span class="o">.</span><span class="n">unique</span><span class="p">()):</span>
+        <span class="n">df_</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="n">result</span><span class="o">.</span><span class="n">gene_symbol</span> <span class="o">==</span> <span class="n">i</span><span class="p">]</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">li</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df_</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">li</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">merge_overlapping_peaks</span><span class="p">(</span><span class="n">df_</span><span class="p">))</span>
+    <span class="n">result_merged</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">li</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
-    <span class="k">return</span> <span class="n">result</span>
+    <span class="k">return</span> <span class="n">result_merged</span>
 </pre></div>
 </div>
 </div>
@@ -668,7 +632,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Search for reference genome name and provider</span>
-<span class="o">!</span>genomepy search <span class="s2">&quot;Cavia porcellus&quot;</span>
+<span class="o">!</span>genomepy search <span class="s2">&quot;Xenopus laevis&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -677,43 +641,32 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-bold">name         provider    accession          species            tax_id    other_info                                                  </span>
-Cavpor3.0    Ensembl     GCA_000151735.1    Cavia porcellus    10141     2016-12-ensembl/2017-07
-cavPor3      UCSC        na                 Cavia porcellus    10141     Feb. 2008 (Broad/cavPor3)
-Cavpor3.0    NCBI        GCA_000151735.1    Cavia porcellus    10141     The Genome Sequencing Platform, The Genome Assembly Team
+/home/k/anaconda3/envs/pandas1/lib/python3.6/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.9) or chardet (3.0.4) doesn&#39;t match a supported version!
+  RequestsDependencyWarning)
+<span class="ansi-bold">name                    provider    accession          species                                      tax_id    other_info                                     </span>
+xenLae2                 UCSC        GCA_001663975.1    Xenopus laevis                               8355      Aug. 2016 (Xenopus_laevis_v2/xenLae2)
+Xenopus_laevis_v2       NCBI        GCA_001663975.1    Xenopus laevis                               8355      International Xenopus Sequencing Consortium
+ViralProj30173          NCBI        GCA_000875345.1    Xenopus laevis endogenous retrovirus Xen1    204873    NCBI
+Xenopus_laevis_v10.1    NCBI        GCA_017654675.1    Xenopus laevis                               8355      International Xenopus Sequencing Consortium
 <span class="ansi-green-fg"> ^</span>
 <span class="ansi-green-fg"> Use name for </span><span class="ansi-cyan-fg">genomepy install</span>
 
 </pre></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Install reference genome. You can skip this step if you already installed reference genome.</span>
-<span class="n">ref_genome</span> <span class="o">=</span> <span class="s2">&quot;Cavpor3.0&quot;</span>
-<span class="n">provider</span> <span class="o">=</span> <span class="s2">&quot;Ensembl&quot;</span>
+<span class="n">ref_genome</span> <span class="o">=</span> <span class="s2">&quot;Xenopus_laevis_v10.1&quot;</span>
+<span class="n">provider</span> <span class="o">=</span> <span class="s2">&quot;NCBI&quot;</span>
 <span class="n">genomepy</span><span class="o">.</span><span class="n">install_genome</span><span class="p">(</span><span class="n">ref_genome</span><span class="p">,</span> <span class="n">provider</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-Using version 108
-Downloading genome from http://ftp.ensembl.org/pub/release-108/fasta/cavia_porcellus/dna/Cavia_porcellus.Cavpor3.0.dna_sm.toplevel.fa.gz...
-Genome download successful, starting post processing...
-
-name: Cavpor3.0
-local name: Cavpor3.0
-fasta: /home/k/.local/share/genomes/Cavpor3.0/Cavpor3.0.fa
-</pre></div></div>
-</div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -724,7 +677,7 @@ fasta: /home/k/.local/share/genomes/Cavpor3.0/Cavpor3.0.fa
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -733,15 +686,16 @@ True
 </pre></div></div>
 </div>
 </div>
-<div class="section" id="3.-Download-genome-annotation-file;-gff3-file,-from-Ensemble-server.">
-<h1>3. Download genome annotation file; gff3 file, from Ensemble server.<a class="headerlink" href="#3.-Download-genome-annotation-file;-gff3-file,-from-Ensemble-server." title="Permalink to this headline">¶</a></h1>
-<p><a class="reference external" href="https://useast.ensembl.org/Cavia_porcellus/Info/Index?db=core">https://useast.ensembl.org/Cavia_porcellus/Info/Index?db=core</a></p>
+<div class="section" id="3.-Download-genome-annotation-file;-gff3-file,-from-Xenbase-server.">
+<h1>3. Download genome annotation file; gff3 file, from Xenbase server.<a class="headerlink" href="#3.-Download-genome-annotation-file;-gff3-file,-from-Xenbase-server." title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://www.xenbase.org/">https://www.xenbase.org/</a></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="o">!</span>wget http://ftp.ensembl.org/pub/release-105/gff3/cavia_porcellus/Cavia_porcellus.Cavpor3.0.105.gff3.gz
+<span></span><span class="o">!</span>wget https://ftp.xenbase.org/pub/Genomics/JGI/Xenla10.1/XENLA_10.1_GCF_XBmodels.gff3
+<span class="c1">#!wget https://ftp.xenbase.org/pub/Genomics/JGI/Xenla10.1/XENLA_10.1_GCF.gff3</span>
 </pre></div>
 </div>
 </div>
@@ -750,42 +704,32 @@ True
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
---2022-12-27 17:04:32--  http://ftp.ensembl.org/pub/release-105/gff3/cavia_porcellus/Cavia_porcellus.Cavpor3.0.105.gff3.gz
-Resolving ftp.ensembl.org (ftp.ensembl.org)... 193.62.193.139
-Connecting to ftp.ensembl.org (ftp.ensembl.org)|193.62.193.139|:80... connected.
+--2022-12-27 14:05:01--  https://ftp.xenbase.org/pub/Genomics/JGI/Xenla10.1/XENLA_10.1_GCF_XBmodels.gff3
+Resolving ftp.xenbase.org (ftp.xenbase.org)... 136.159.155.151
+Connecting to ftp.xenbase.org (ftp.xenbase.org)|136.159.155.151|:443... connected.
 HTTP request sent, awaiting response... 200 OK
-Length: 12447679 (12M) [application/x-gzip]
-Saving to: ‘Cavia_porcellus.Cavpor3.0.105.gff3.gz’
+Length: 614234189 (586M) [text/gff3]
+Saving to: ‘XENLA_10.1_GCF_XBmodels.gff3’
 
-Cavia_porcellus.Cav 100%[===================&gt;]  11.87M   620KB/s    in 20s
+XENLA_10.1_GCF_XBmo 100%[===================&gt;] 585.78M  28.7MB/s    in 21s
 
-2022-12-27 17:04:52 (617 KB/s) - ‘Cavia_porcellus.Cavpor3.0.105.gff3.gz’ saved [12447679/12447679]
+2022-12-27 14:05:23 (28.0 MB/s) - ‘XENLA_10.1_GCF_XBmodels.gff3’ saved [614234189/614234189]
 
 </pre></div></div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="o">!</span>gunzip Cavia_porcellus.Cavpor3.0.105.gff3.gz
-</pre></div>
-</div>
 </div>
 </div>
 <div class="section" id="4.-Process-data-to-get-TSS-file.">
 <h1>4. Process data to get TSS file.<a class="headerlink" href="#4.-Process-data-to-get-TSS-file." title="Permalink to this headline">¶</a></h1>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Load and process gff3 file.</span>
 
-<span class="n">file</span> <span class="o">=</span> <span class="s2">&quot;Cavia_porcellus.Cavpor3.0.105.gff3&quot;</span>
+<span class="n">file</span> <span class="o">=</span> <span class="s2">&quot;XENLA_10.1_GCF_XBmodels.gff3&quot;</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">load_and_process_ensembl_gff3_file</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">n_downstream</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
-                                            <span class="n">n_upstream</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
-                                            <span class="n">transcript_filtering</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">)</span>
+                                            <span class="n">n_upstream</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -793,29 +737,25 @@ Cavia_porcellus.Cav 100%[===================&gt;]  11.87M   620KB/s    in 20s
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "a7d7f67eca244dc2be62ce78f2d9b4b4", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "e22e715cf5d542f2a4c5357cee03beda", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div class="highlight"><pre>
-
-No transcriptome tag information found. Transfript filtering step is skipped. All transcripts are used.
-</pre></div></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "3581d19e6eb9429aaf15c4fe1f8e7a44", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Check result</span>
-<span class="n">result</span>
+<span></span><span class="n">result</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -847,49 +787,49 @@ No transcriptome tag information found. Transfript filtering step is skipped. Al
   </thead>
   <tbody>
     <tr>
-      <th>4</th>
-      <td>DS562855.1</td>
-      <td>546865</td>
-      <td>547965</td>
-      <td>TMEM74</td>
+      <th>0</th>
+      <td>Chr1L</td>
+      <td>45901</td>
+      <td>47001</td>
+      <td>LOC108704873</td>
       <td>.</td>
       <td>+</td>
     </tr>
     <tr>
-      <th>6</th>
-      <td>DS562855.1</td>
-      <td>867637</td>
-      <td>868737</td>
-      <td>EMC2</td>
+      <th>41</th>
+      <td>Chr1L</td>
+      <td>124971</td>
+      <td>126071</td>
+      <td>LOC108704861</td>
+      <td>.</td>
+      <td>+</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>Chr1L</td>
+      <td>165766</td>
+      <td>166866</td>
+      <td>dok1.L</td>
       <td>.</td>
       <td>-</td>
     </tr>
     <tr>
-      <th>7</th>
-      <td>DS562855.1</td>
-      <td>849313</td>
-      <td>850413</td>
-      <td>EMC2</td>
+      <th>1</th>
+      <td>Chr1L</td>
+      <td>171675</td>
+      <td>172775</td>
+      <td>dok1.L</td>
       <td>.</td>
       <td>-</td>
     </tr>
     <tr>
-      <th>8</th>
-      <td>DS562855.1</td>
-      <td>933093</td>
-      <td>934193</td>
-      <td>5S_rRNA</td>
+      <th>78</th>
+      <td>Chr1L</td>
+      <td>182964</td>
+      <td>184064</td>
+      <td>mrps26.L</td>
       <td>.</td>
-      <td>+</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>DS562855.1</td>
-      <td>1132436</td>
-      <td>1133536</td>
-      <td>RSPO2</td>
-      <td>.</td>
-      <td>+</td>
+      <td>-</td>
     </tr>
     <tr>
       <th>...</th>
@@ -901,57 +841,57 @@ No transcriptome tag information found. Transfript filtering step is skipped. Al
       <td>...</td>
     </tr>
     <tr>
-      <th>34835</th>
-      <td>MT</td>
-      <td>8879</td>
-      <td>9979</td>
-      <td>ND4L</td>
+      <th>0</th>
+      <td>Chr9_10S</td>
+      <td>117182648</td>
+      <td>117184109</td>
+      <td>mgrn1.S</td>
       <td>.</td>
       <td>+</td>
     </tr>
     <tr>
-      <th>34836</th>
-      <td>MT</td>
-      <td>9169</td>
-      <td>10269</td>
-      <td>ND4</td>
+      <th>0</th>
+      <td>Chr9_10S</td>
+      <td>117202519</td>
+      <td>117203908</td>
+      <td>ccdc78.S</td>
       <td>.</td>
       <td>+</td>
     </tr>
     <tr>
-      <th>34840</th>
-      <td>MT</td>
-      <td>10748</td>
-      <td>11848</td>
-      <td>ND5</td>
-      <td>.</td>
-      <td>+</td>
-    </tr>
-    <tr>
-      <th>34841</th>
-      <td>MT</td>
-      <td>13986</td>
-      <td>15086</td>
-      <td>ND6</td>
+      <th>2145038</th>
+      <td>Chr9_10S</td>
+      <td>117230153</td>
+      <td>117231253</td>
+      <td>fbxl16.S</td>
       <td>.</td>
       <td>-</td>
     </tr>
     <tr>
-      <th>34843</th>
-      <td>MT</td>
-      <td>13164</td>
-      <td>14264</td>
-      <td>CYTB</td>
+      <th>2145055</th>
+      <td>Sca23</td>
+      <td>10015</td>
+      <td>11115</td>
+      <td>LOC108698152</td>
+      <td>.</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>2145077</th>
+      <td>Sca37</td>
+      <td>0</td>
+      <td>105</td>
+      <td>LOC108706079</td>
       <td>.</td>
       <td>+</td>
     </tr>
   </tbody>
 </table>
-<p>24875 rows × 6 columns</p>
+<p>41925 rows × 6 columns</p>
 </div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -974,7 +914,7 @@ No transcriptome tag information found. Transfript filtering step is skipped. Al
 <h1>Test<a class="headerlink" href="#Test" title="Permalink to this headline">¶</a></h1>
 <p>Try to load DNA sequence using genomepy</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -985,7 +925,7 @@ No transcriptome tag information found. Transfript filtering step is skipped. Al
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1018,73 +958,55 @@ No transcriptome tag information found. Transfript filtering step is skipped. Al
   <tbody>
     <tr>
       <th>0</th>
-      <td>DS562855.1</td>
-      <td>546865</td>
-      <td>547965</td>
-      <td>TMEM74</td>
+      <td>Chr1L</td>
+      <td>45901</td>
+      <td>47001</td>
+      <td>LOC108704873</td>
       <td>.</td>
       <td>+</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>DS562855.1</td>
-      <td>867637</td>
-      <td>868737</td>
-      <td>EMC2</td>
+      <td>Chr1L</td>
+      <td>124971</td>
+      <td>126071</td>
+      <td>LOC108704861</td>
       <td>.</td>
-      <td>-</td>
+      <td>+</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>DS562855.1</td>
-      <td>849313</td>
-      <td>850413</td>
-      <td>EMC2</td>
+      <td>Chr1L</td>
+      <td>165766</td>
+      <td>166866</td>
+      <td>dok1.L</td>
       <td>.</td>
       <td>-</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>DS562855.1</td>
-      <td>933093</td>
-      <td>934193</td>
-      <td>5S_rRNA</td>
+      <td>Chr1L</td>
+      <td>171675</td>
+      <td>172775</td>
+      <td>dok1.L</td>
       <td>.</td>
-      <td>+</td>
+      <td>-</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>DS562855.1</td>
-      <td>1132436</td>
-      <td>1133536</td>
-      <td>RSPO2</td>
+      <td>Chr1L</td>
+      <td>182964</td>
+      <td>184064</td>
+      <td>mrps26.L</td>
       <td>.</td>
-      <td>+</td>
+      <td>-</td>
     </tr>
   </tbody>
 </table>
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">tss_file</span><span class="o">.</span><span class="n">shape</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-(24875, 6)
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1099,16 +1021,16 @@ No transcriptome tag information found. Transfript filtering step is skipped. Al
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-24875 sequences
+41925 sequences
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1128,20 +1050,30 @@ No transcriptome tag information found. Transfript filtering step is skipped. Al
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-DS562855.1_546866_547965
- TTTGACTGGCTAAAAGAAAAACATGGGAAGAGTCAGTTGTGgtaatcccagcactcacaagtttgaggcaggaggattacctcaacttcgaatccagcctgggatacacagtgcattcaaggccaggctgaactacatagtgagaccctatctcaaaaaacctgggagagaaagagagagggcaagacTAAAAAAGAGGAGAAGGAAACAGGAAAAAAGACTTTGAAGGGAACAGGTTGCAAAGTCCCCGGAACCATGAGCTTATGACCTCTGTCCAACATAAAGGAAAATCAATGCAATAGTTAGTATAGGAAAGACAAACAACGAAAACAAGAAACGGGAGCATTTATTGAAGCTACTCACAAGCAGCTGAgtaccagcaatcgaactcatgccctagtgcttgtcaggcaggcgcttatgccgctgattaaatccccagcccCCTCATACTGTTTTGACTCATTATCATTCCTGCATCCCACAGATATTGCACACTGCACTAAGCAGAGTAACTTGGTGGAAGGACAACTTCCTCCTCTGAGGTCACCTTCCCTCATCTATGGGGAAAGCAATGGCTTTGGAAGCAAATTCCTCGATGCCATTTTAGAAGTGGCCGTTCATTGACActgtacctttgcttcctcctctgaaaaatgaggattaataaaatcaatctattttgatgacttcttaactatgaagacaaaacatgcaaattacctggcaagttgttgtaactaaatacacactcCTTCCAGCCAGTCCCTCCCTCATTCTGTGACCACCCTTGAAGTTGCAGGACCCCAAGGCAAGAGAGAAGTCATGGCTTTCCCCAGTGTAGGTAGGATCTACAGTGCAAGAGGACGTAATCCTGCCCCCAGGAGCCAGGCGGGATGCTCGGCGCCCTAGACTACAACTCCCAGGATGCTCGGCGGGAGGGGCCTAAccccgccctcaggccccgccccccgtgcccagccacgcccggctcccggcctcgcccacccgCGGGCCCTGTCGCTGCCTGGTGAGTGCGGAACGTGCTCGGTTGCGGTGCTGCGCGGGCGCCTGGCGGAAGGTGAGTGCAAGAGCCGGCG
+Chr1L_45902_47001
+ TTCCGGGGTGAATTATACAAGGGTGCCTTATTCAGGGAAGGGCTATAGTGAGTTATTCAGAGGTGGATTATACATGGGAGAATTTTTTCAGTGAGAATTATTGAGGTTTGAGTTATATAGAAAgggtaaatatatatgtaaaggcAAGTGATTGATGTTCCCCAACGCCACAGAGAAGATTGGCTTATAGGAAAGGAACCATGGGAAACCTTCTAAACCCCCTCCCTTATCAAAATTCTAACATAGATATAAGACAAAGACCACTTGACTGATGGTGGAGAAAggcatttattaattcatttgaTAATATTAGTAATCAACAGTTTTAGACAACTTAATTATAATCAGTCTAATGAAAATCAATAGAATTGTACATATTGTCTCTCTTACCCGCCCACATTTTTTGGTGGGAGTGTTAGCTCTAAACCAGTAAAACAATAGATCTGGGATACAGAACTGGCACTGGGATGATAGCGGCCAGCAGGGAAACCTTGTGTGTGACCCACAGGCCATTGGCTTGTGATACATAAGGAGCAATAGTTCTAGTAGAATATGTAAGTAGAGCACAGTTAGCCAGTAGGCCGCTCCATATCCCTGGGCAGTACCTCTGGGCTCAAGCGCTGATACAGTACATGACACAGGGGTGTGGCCTAAAACTGCTTGTCAGTATGGGATCAATTCCCACCCCCCGTGCCCTGTGATGTTCCTCTATTCATCAATAAAGGCAATATGTATCCCAGTAGAAAGTTTGTAGGGCCCCaatctataaaaaggaaaagCTCCTAGGTGTGACCATCATATCTCACTGGGGGTCATGACAGGGGGTTAAGGAAACTGGGATATATTTCTGGGATATTTTTCTTTAGTCTAGACTCTAGGGAAAGGCAAGGTCTGCCAATTCCACTCCCGTATCTCATTATGGGACACTTCTGGCTAGAGAATGGGGATGGGGCGGGGCtagtattggggggggggagtttcaTAGTGAGAATAAAACATAAAGTCATAGTGGTCAATTATTGTCATTCACTTGTTAACTAGTTAACATGAGGTGGCTCATACTTTTACTCTGGGGGGCAATAGGCCAAGGACTAGAACGG
 
-DS562855.1_867638_868737
- TGGGGCGGCGTGATCACGTGGCGTGAAGTGGGCAGGGCCTGTGACGAAATCGCTTCTTATTGGCCAAGTGGGCGGGGTCAGTGTCCACCGAGCACGTGCGCAGAGCTAAGCAGAGAGGATGGGAAAGGGGACGCAGCCGCGGGGCGGGGCTGCTGGAGCCCGGCTGACGGCGTTTGAAGGTGGAGGCGGCCCGGAGACCCGGCCCGCTGTAGGGGCGGGGCCTACGGTACTCCGCCCTGCGTCCGCCCCGTCGCTGTCCGCTTCCGGCACCAGTCGGTGCCGCGGGGTCCTTACCTGGCTAGCGGTCTTCTGCCGCTCCCAGTGATCTGCGAGGTCCGAGTCTACCGAAGCCGCCGTCTTGCTGGGTCTGGCGGAGTGCAGCGGCCGGCTCGGCCGAGGACCTCTTCGGCGTCGCCCCGGGCGTCTGCGCCTCCACCTCGCCGCACCACCAGCCTAGGACCCCAAAGCTGAGCTGCTGCGGACGGAGGGACGGGCCACAGCGCGGACTCAGCGCTTGGAGGCTGCAGCTTGTCCTCCACCCAGGTCTGCGGGAGCTACGGGGCCTGCCCGCGGCCCGCCTGACTCGGCCTCCTGCTCCATCTGTACAAGCTCCCGGGGTCCTCAGGACACACCGGGGTCAGCTGAGACCCGCGTCCTCTGCGTGGAACAATCCGGACATACAGGCTTACACCCTGCCCAGCCTCTCAGAAGCGTTGACACAGAGAGAGAAGGAGGGGGCAGGGAAGGAAAAAACGGGCTCAGTTGTGTCACGCCAGGCGCGTGAACACACCTACTGCACACATACTAATAAAATTTTAAGGGAGGAAAAAAGAGGCAAGTATTAGTGCTATCTGCCACAGGAAAGTCTTGCGAAAATAAAAGACTAGTGAATTTTTAGACTTAAGAGTCTGAATAAGTTTCATTCTCTCGAGACTAAACACAACTTTTTAAAGGAACATCAAATTCAAAACTTTAAAAATGCTCTGTAAAGAAACCCACACACTCTCCCAAGGCATCCGAGCCTGCGAGCCTGGGGTTCAGTGAGACTCAGGTTGGATCCGGGTCCCGTCCTTAAGAACTGGTGACTTTCTACAATTAGC
+Chr1L_124972_126071
+ TTATAGTGCAGGTGGCATTTAGTTGCCGCCCCCCAACACTGCACATCATTGGTTGCTGGGAGCAATGCCCTTGGCTTGGGCAGGATTATGTGTTATGGGCAATTATCCCATGGGGTCAGAGCCAAGGGTTAGCGCATTTCAGCCAAGGCAGGTGAATTGCACCAGGAATTGGGATGGGGGTGGGGAAGTAATTGCAGGCCCCAAGACCATCATAAAGCAGCAGAATCATTTTACTGGGACCCTATAAAGTGAGAAAGGAAACGATCATCCGGAAAGAATTTTTACAGAGGAAAATGTGCCAAAAGTAACAAATTTGGGGCTAAAAAAGTGAAATTAGATAATAGGGAAAATGAAGGGTTGGAGAAAGGCAACAAATTCACGTGGATTTTAGTGAGTCTGTTAAACAGGCAATTGAGTTTGCAATGGGGggagaaatatttaaatatatccaCCATGATCTACATCTGATTCCTTCTACCAtcatctctccctctctctctctctctctctctctctctctctctcccccctctctctctctctttctctctccctctctctctctctctctctctctctctctctctctctctttctctctctctctctctctctctctctctctctctctctctctctctctctctctctctctctctccctctctctctctctctctctctctctctctctccctctctctctctctctctctctccctctctctctctctctctctctctctctctctctctctctctctctctctctgccctctgTTGAACCCATGATATTGATCCTGTAGGTTTTGTTGCTCTGCCCccagtgctgctgctgctcctcagAGTTCCCAGTTGGACGGACAGTCTGTTCTCAGACTCTGCCCAGTCCCAGATCCCTTAAACACAATATTTCTGCGTCCAGCACAATGCATCAGCGGGTGTGGTGAGACGTTCAGGTCCACCCTGTTACAGCTTTTATATCCTCCCCACTGCACTCAAATATCTCACACCATATAGGAACAGAGACTGACAGTGACTCACATACAGTGAATGACACAATCACACACTGTAGAAATCGAGACCATATTGTTGAGGCAT
 
-DS562855.1_849314_850413
- CCCCAGCCAACATCATCACTGCCCTGAAAAGCAGTGCAGGGCTCAGTCTGCAACAGCCCCTGAACCCATGGAAATGGTAGTTCTCCACTGTCTTTGCTGTTTTGGGAGGATATTGGCTATTTTTAGAGTTTGATAAAAGCTGGGGATTGTTTTCCCAGAATCCAGTAATATGGACAATTATATTCAGATATGTCAAAGTGTTCCTAAAGTTCACTCACTAATCCAAGAACATATAATTTTTATAATCAGAATATCACATATAGGTGATCCACACTAAAGGGATCCATCACAAACTTCCTTCATGACAGTGCTATGCAAAAAGAGTAAAAGAATTAAAGGAAAACTTTTTTATTATATTGAAACAAATAAGGAATAATATGAGTAATGTAAAATAAGATCAAGAACTCTGACAACATAAGTGAGCTATCACAGAACAAGGAATCATGCAAGTTTTAAGAACAGCACTAGACTAAAGCCATCTCCCACAAGGCACATGTTTGCAGTtgtctcggttactttcctctcattgctgggacaaaatacacaacactcaaaatgaaggaaagaaaggtttatttcttacagtttttggtggtttcagtccataaccaactggctccaaggcagtggggcacggcactggggcagcacttcacaaagcagcagccagagcaaagggggagtgaacaagccttttctcttggcttacactgtacacaaatcaccatctaccttcagggcaggtgtagcattcacaaaatctccttaccctcctttgtacaggatgaggatatttacaaagtaaaaacccaggctccctgctcaagtctgtcagcgactcaatttatcaagttgacacaatttatcaaccataacaAtccaccccttgtcaacttggcaaccagacatatttctttaaatcaGCCTCCAGATACAAAGGCATGCTCAAGCTTAATGTTTTGCAACTTGTACattataacacagcttaagaattataacaattcttaagaaACAGCATTAAATCTATCAATATTatattatattagaaacataacacttgtccttggacccccaaagactcatacacatccctttatgca
+Chr1L_165767_166866
+ GACtggttgggattgaggaatacggaccactgaacaaagTTGTACTTTTACAAGCGCAAATCAGCAGACGGCCGTGCGTTCTCATGAGTACGTATCAGAACAAGCCCtgctaagatcactgtgtctgtgtatatgtatattaccgggggaagtgccttttgtcctggtgtcttttgtttgcctaggacagactacctttccccccccctcttctatggacatgtgtctgtgtgctggttccaccaattgattcatagcataacatgctcattgattggatatattgtaagaccaccttcTGTCTTGGtctataataaaccactggccattgtagagggaggcagaatactggaccccagctaagaacgactgctgtgacgttatttccgggggattgcgcaacatcaccacgcgatacatcaaggtttccggatcgattgtccattaaggcaaAAGATCGTTTTTCCTACTATAACAGactctaaggggtaaatttatcagagtgaaattccgcagctcttaattcatttctatgggattttgaaaggcgtatttatcaatgggtgaaagtgaaagttcaccctttgataaatacgcttagAGAGATTGGGGTACAGCTGGGGCTCTAGAGAGAAAGTTTGGGGTACAGCTGGGGCTCTAGAGAGAAAGTTTGGGGTACAGCTGGggttctagagagagagagagagagagagattgaggtaCAGCTGGggttctagagagagagagagagagagagattggggcACAGATGGGGCTCTAGAGAGAGCTTGGGGTACAGCTggggctctagagagagagattggggtaCAGCTGGGGCTGTAGAGAGAGACTTTGGGGTACAGCTGGGGCTGTAGAGAGAGAGACTTTGGGGTACAGCTGGGCTCTAGAGAGAGTTTGGGGTACAGCTGGGCTCTAGAGAGATTGGGGTACAGCTggggctctagagagagagattggggtaCAGCTGGGGCTCTAGAGAGAGATTGGGGTACAGCTGGGGCTCTTGAGAGACACTTTGGGGTACAGCTGGGGCTCTAGAGAGAGACTTTGGGGTACAGCTGGGGCTCTAGAGAGAGACT
 
 </pre></div></div>
 </div>
 <p>Looks good</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Remove gff3 file.</span>
+<span class="o">!</span>rm ./*gff3
+</pre></div>
+</div>
+</div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1154,10 +1086,8 @@ DS562855.1_849314_850413
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-1_make_tss_referenece_from_ensemble_gff3_file.ipynb
-Cavpor3.0_tss_info.bed
-peaks_example.csv
-tss_annotation_using_custom_tss_data.ipynb
+1_make_tss_referenece_from_Xenbase_gff3_file.ipynb
+Xenopus_laevis_v10.1_tss_info.bed
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
