@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <script type="text/javascript">
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<script type="text/javascript">
 
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-214970391-3']);
@@ -18,7 +19,7 @@
     </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Overview &mdash; celloracle 0.10.13 documentation</title>
+  <title>Overview &mdash; celloracle 0.12.1 documentation</title>
   
 
   
@@ -459,15 +460,15 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<div class="section" id="Overview">
+<section id="Overview">
 <h1>Overview<a class="headerlink" href="#Overview" title="Permalink to this headline">¶</a></h1>
 <p>This notebook describes how to construct GRN models in CellOracle. Please read our paper first to know about the CellOracle’s GRN modeling algorithm.</p>
 <p>Last update: 4/13/2022, Kenji Kamimoto</p>
-<div class="section" id="Notebook-file">
+<section id="Notebook-file">
 <h2>Notebook file<a class="headerlink" href="#Notebook-file" title="Permalink to this headline">¶</a></h2>
 <p>Notebook file is available on CellOracle’s GitHub page. <a class="reference external" href="https://github.com/morris-lab/CellOracle/blob/master/docs/notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.ipynb">https://github.com/morris-lab/CellOracle/blob/master/docs/notebooks/04_Network_analysis/Network_analysis_with_Paul_etal_2015_data.ipynb</a></p>
-</div>
-<div class="section" id="Data">
+</section>
+<section id="Data">
 <h2>Data<a class="headerlink" href="#Data" title="Permalink to this headline">¶</a></h2>
 <p>CellOracle uses two types of input data during the GRN model construction.</p>
 <ul>
@@ -480,8 +481,8 @@ div.rendered_html tbody tr:hover {
 </li>
 <li><p>We provide multiple options for pre-built base GRN. For analyses in mice, we recommend using a base GRN built from the mouse sciATAC-seq Atlas dataset. It includes various tissues and various cell types. Another option is using base GRN constructed from promoter database. We provide promoter base GRNs for ten species.</p></li>
 </ul>
-</div>
-<div class="section" id="What-you-can-do">
+</section>
+<section id="What-you-can-do">
 <h2>What you can do<a class="headerlink" href="#What-you-can-do" title="Permalink to this headline">¶</a></h2>
 <p>After constructing the CellOracle GRN models, you can do two analyses.</p>
 <ol class="arabic simple">
@@ -492,8 +493,8 @@ div.rendered_html tbody tr:hover {
 <li><p>CellOracle construct cluster-wise GRN models. You can compare the GRN model structure between clusters, which allows you to investigate the cell type-specific GRN configurations and explore structual changes as GRNs are rewired along the cell differentiation trajectory.</p></li>
 <li><p>You can also export the network models and analyze the GRN models using external packages or softwares.</p></li>
 </ul>
-</div>
-<div class="section" id="Custom-data-classes-/-objects">
+</section>
+<section id="Custom-data-classes-/-objects">
 <h2>Custom data classes / objects<a class="headerlink" href="#Custom-data-classes-/-objects" title="Permalink to this headline">¶</a></h2>
 <p>In this notebook, CellOracle uses two custom classes, <code class="docutils literal notranslate"><span class="pre">Oracle</span></code> and <code class="docutils literal notranslate"><span class="pre">Links</span></code>.</p>
 <ul class="simple">
@@ -509,9 +510,9 @@ div.rendered_html tbody tr:hover {
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Links</span></code> is a class to store GRN data. It also conteins many functions for network analysis and visualization.</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="0.-Import-libraries">
+</section>
+</section>
+<section id="0.-Import-libraries">
 <h1>0. Import libraries<a class="headerlink" href="#0.-Import-libraries" title="Permalink to this headline">¶</a></h1>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
@@ -575,8 +576,8 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="1.-Load-data">
+</section>
+<section id="1.-Load-data">
 <h1>1. Load data<a class="headerlink" href="#1.-Load-data" title="Permalink to this headline">¶</a></h1>
 <p>Please refer to the previous notebook to learn about scRNA-seq data processing. <a class="reference external" href="https://morris-lab.github.io/CellOracle.documentation/tutorials/scrnaprocess.html">https://morris-lab.github.io/CellOracle.documentation/tutorials/scrnaprocess.html</a></p>
 <p>The scRNA-seq data must be in the anndata format.</p>
@@ -873,8 +874,8 @@ Cell number is :2671
 <p>5 rows × 1095 columns</p>
 </div></div>
 </div>
-</div>
-<div class="section" id="2.-Make-Oracle-object">
+</section>
+<section id="2.-Make-Oracle-object">
 <h1>2. Make Oracle object<a class="headerlink" href="#2.-Make-Oracle-object" title="Permalink to this headline">¶</a></h1>
 <p>We will use an Oracle object during the data preprocessing and GRN inference steps. Using its internal functions, the Oracle object computes and stores all of the necessary information for these calculations. To begin, we will instantiate a new Oracle object and input our gene expression data (anndata) and TF info (base GRN).</p>
 <div class="nbinput nblast docutils container">
@@ -942,7 +943,7 @@ dimensional reduction:  [&#39;X_diffmap&#39;, &#39;X_draw_graph_fa&#39;, &#39;X_
 </div>
 <p>We can add additional TF-target gene pairs manually.</p>
 <p>For example, if there is a study or database that includes specific TF-target pairs, you can include this information using a python dictionary.</p>
-<div class="section" id="2.3.1.-Make-dictionary">
+<section id="2.3.1.-Make-dictionary">
 <h2>2.3.1. Make dictionary<a class="headerlink" href="#2.3.1.-Make-dictionary" title="Permalink to this headline">¶</a></h2>
 <p>Here, we will introduce how to manually add TF-target gene pair data.</p>
 <p>As an example, we will use TF binding data from supplemental table 4 in the Paul et al., (2015) paper. (<a class="reference external" href="http://doi.org/10.1016/j.cell.2015.11.013">http://doi.org/10.1016/j.cell.2015.11.013</a>).</p>
@@ -1073,8 +1074,8 @@ TF_data_in_Paul15.c 100%[===================&gt;]   1.73K  --.-KB/s    in 0s
 <div class="output_area docutils container">
 <script type="application/vnd.jupyter.widget-view+json">{"model_id": "3ccd72003e0347369518fa8c5b00eb57", "version_major": 2, "version_minor": 0}</script></div>
 </div>
-</div>
-<div class="section" id="2.3.2.-Add-TF-information-dictionary-into-the-oracle-object">
+</section>
+<section id="2.3.2.-Add-TF-information-dictionary-into-the-oracle-object">
 <h2>2.3.2. Add TF information dictionary into the oracle object<a class="headerlink" href="#2.3.2.-Add-TF-information-dictionary-into-the-oracle-object" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
@@ -1086,9 +1087,9 @@ TF_data_in_Paul15.c 100%[===================&gt;]   1.73K  --.-KB/s    in 0s
 </pre></div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="3.-KNN-imputation">
+</section>
+</section>
+<section id="3.-KNN-imputation">
 <h1>3. KNN imputation<a class="headerlink" href="#3.-KNN-imputation" title="Permalink to this headline">¶</a></h1>
 <p>CellOracle uses the same strategy as velocyto for visualizing cell transitions. This process requires KNN imputation in advance.</p>
 <p>For the KNN imputation, we first need to calculate and select PCs.</p>
@@ -1164,8 +1165,8 @@ Auto-selected k is :66
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="4.-Save-and-Load.">
+</section>
+<section id="4.-Save-and-Load.">
 <h1>4. Save and Load.<a class="headerlink" href="#4.-Save-and-Load." title="Permalink to this headline">¶</a></h1>
 <p>You can save your <code class="docutils literal notranslate"><span class="pre">Oracle</span></code> object using <code class="docutils literal notranslate"><span class="pre">Oracle.to_hdf5(FILE_NAME.celloracle.oracle)</span></code>.</p>
 <p>Pleasae use <code class="docutils literal notranslate"><span class="pre">co.load_hdf5(FILE_NAME.celloracle.oracle)</span></code> to load the saved file.</p>
@@ -1189,8 +1190,8 @@ Auto-selected k is :66
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="5.-GRN-calculation">
+</section>
+<section id="5.-GRN-calculation">
 <h1>5. GRN calculation<a class="headerlink" href="#5.-GRN-calculation" title="Permalink to this headline">¶</a></h1>
 <p>The next step constructs a cluster-specific GRN for all clusters.</p>
 <ul class="simple">
@@ -1848,8 +1849,8 @@ dict_keys([&#39;Ery_0&#39;, &#39;Ery_1&#39;, &#39;Ery_2&#39;, &#39;Ery_3&#39;, &
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="6.-Network-preprocessing">
+</section>
+<section id="6.-Network-preprocessing">
 <h1>6. Network preprocessing<a class="headerlink" href="#6.-Network-preprocessing" title="Permalink to this headline">¶</a></h1>
 <p>Using the base GRN, CellOracle constructs the GRN models as a lits of directed edges between a TF and its target genes. We need to remove the weak edges or insignificant edges before doing network structure analysis.</p>
 <p>We filter the network edges as follows.</p>
@@ -2215,8 +2216,8 @@ dict_keys([&#39;Ery_0&#39;, &#39;Ery_1&#39;, &#39;Ery_2&#39;, &#39;Ery_3&#39;, &
 </div>
 <p><strong>If you are not interested in network analysis you can skip the steps described below. Please go to the next step: in silico gene perturbation with GRNs</strong></p>
 <p><a class="reference external" href="https://morris-lab.github.io/CellOracle.documentation/tutorials/simulation.html">https://morris-lab.github.io/CellOracle.documentation/tutorials/simulation.html</a></p>
-</div>
-<div class="section" id="7.-Network-analysis;-Network-score-for-each-gene">
+</section>
+<section id="7.-Network-analysis;-Network-score-for-each-gene">
 <h1>7. Network analysis; Network score for each gene<a class="headerlink" href="#7.-Network-analysis;-Network-score-for-each-gene" title="Permalink to this headline">¶</a></h1>
 <p>The <code class="docutils literal notranslate"><span class="pre">Links</span></code> class has many functions to visualize network score. See the web documentation to learn more about these functions.</p>
 <p>We have calculated several network scores using different centrality metrics. &gt;Centrality matrics are is one of the important indicators of network structure (<a class="reference external" href="https://en.wikipedia.org/wiki/Centrality">https://en.wikipedia.org/wiki/Centrality</a>).</p>
@@ -2554,8 +2555,8 @@ dict_keys([&#39;Ery_0&#39;, &#39;Ery_1&#39;, &#39;Ery_2&#39;, &#39;Ery_3&#39;, &
 </table>
 </div></div>
 </div>
-</div>
-<div class="section" id="8.-Network-analysis;-network-score-distribution">
+</section>
+<section id="8.-Network-analysis;-network-score-distribution">
 <h1>8. Network analysis; network score distribution<a class="headerlink" href="#8.-Network-analysis;-network-score-distribution" title="Permalink to this headline">¶</a></h1>
 <p>Next, we visualize the network score distributions to get insight into the global network trends.</p>
 <div class="nbinput nblast docutils container">
@@ -2645,7 +2646,7 @@ dict_keys([&#39;Ery_0&#39;, &#39;Ery_1&#39;, &#39;Ery_2&#39;, &#39;Ery_3&#39;, &
 </pre></div>
 </div>
 </div>
-</div>
+</section>
 
 
            </div>

@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <script type="text/javascript">
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<script type="text/javascript">
 
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-214970391-3']);
@@ -18,7 +19,7 @@
     </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Overview &mdash; celloracle 0.10.13 documentation</title>
+  <title>Overview &mdash; celloracle 0.12.1 documentation</title>
   
 
   
@@ -437,32 +438,32 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<div class="section" id="Overview">
+<section id="Overview">
 <h1>Overview<a class="headerlink" href="#Overview" title="Permalink to this headline">¶</a></h1>
 <p>In this notebook, we will make TSS annotation data that are used for the scATAC-seq peak annotation.</p>
 <ul class="simple">
 <li><p>First, we download gene annotation gff3 file from Ensembl database.</p></li>
 <li><p>Second, we convert gff3 file into bed file. During this process, the TSS information is extracted.</p></li>
 </ul>
-</div>
-<div class="section" id="!!-Caution!!">
+</section>
+<section id="!!-Caution!!">
 <h1>!! Caution!!<a class="headerlink" href="#!!-Caution!!" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="1)-This-is-NOT-part-of-CellOracle-tutorial.">
+<section id="1)-This-is-NOT-part-of-CellOracle-tutorial.">
 <h2>1) This is NOT part of CellOracle tutorial.<a class="headerlink" href="#1)-This-is-NOT-part-of-CellOracle-tutorial." title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>This notebook includes unusual usage of CellOracle.</p></li>
 <li><p>The analysis might require expertise of python and DNA sequence analysis, but this notebook does not aim to explain them all, and please use this notebook by your responsibility.</p></li>
 </ul>
-</div>
-<div class="section" id="2)-This-notebook-was-tested-with-Ensembl-Guinea-Pig-data,-but-we-do-not-guarantee-the-function-works-with-other-species-or-other-database.">
+</section>
+<section id="2)-This-notebook-was-tested-with-Ensembl-Guinea-Pig-data,-but-we-do-not-guarantee-the-function-works-with-other-species-or-other-database.">
 <h2>2) This notebook was tested with Ensembl Guinea Pig data, but we do not guarantee the function works with other species or other database.<a class="headerlink" href="#2)-This-notebook-was-tested-with-Ensembl-Guinea-Pig-data,-but-we-do-not-guarantee-the-function-works-with-other-species-or-other-database." title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Please let us know using git hub issue if you have problem with this notebook.</p></li>
 <li><p>We can construct TSS annotation data and add them to CellOracle package. Please just let us know if you have a request for new reference genome.</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="0.-Import-libraries">
+</section>
+</section>
+<section id="0.-Import-libraries">
 <h1>0. Import libraries<a class="headerlink" href="#0.-Import-libraries" title="Permalink to this headline">¶</a></h1>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
@@ -511,8 +512,8 @@ div.rendered_html tbody tr:hover {
 &#39;0.10.13&#39;
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="1.-Define-custom-functions-to-process-gene-annotation-data.">
+</section>
+<section id="1.-Define-custom-functions-to-process-gene-annotation-data.">
 <h1>1. Define custom functions to process gene annotation data.<a class="headerlink" href="#1.-Define-custom-functions-to-process-gene-annotation-data." title="Permalink to this headline">¶</a></h1>
 <p>Extract TSS information from gff3 file and get a bed file.</p>
 <div class="nbinput nblast docutils container">
@@ -655,8 +656,8 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="2.-Install-reference-genome-first.">
+</section>
+<section id="2.-Install-reference-genome-first.">
 <h1>2. Install reference genome first.<a class="headerlink" href="#2.-Install-reference-genome-first." title="Permalink to this headline">¶</a></h1>
 <p>We use genomepy to get genomic DNA sequence. The first step is to install reference genome data.</p>
 <p>We will use the genomepy function. <code class="docutils literal notranslate"><span class="pre">genomepy.install_genome()</span></code></p>
@@ -732,8 +733,8 @@ fasta: /home/k/.local/share/genomes/Cavpor3.0/Cavpor3.0.fa
 True
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="3.-Download-genome-annotation-file;-gff3-file,-from-Ensemble-server.">
+</section>
+<section id="3.-Download-genome-annotation-file;-gff3-file,-from-Ensemble-server.">
 <h1>3. Download genome annotation file; gff3 file, from Ensemble server.<a class="headerlink" href="#3.-Download-genome-annotation-file;-gff3-file,-from-Ensemble-server." title="Permalink to this headline">¶</a></h1>
 <p><a class="reference external" href="https://useast.ensembl.org/Cavia_porcellus/Info/Index?db=core">https://useast.ensembl.org/Cavia_porcellus/Info/Index?db=core</a></p>
 <div class="nbinput docutils container">
@@ -772,8 +773,8 @@ Cavia_porcellus.Cav 100%[===================&gt;]  11.87M   620KB/s    in 20s
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="4.-Process-data-to-get-TSS-file.">
+</section>
+<section id="4.-Process-data-to-get-TSS-file.">
 <h1>4. Process data to get TSS file.<a class="headerlink" href="#4.-Process-data-to-get-TSS-file." title="Permalink to this headline">¶</a></h1>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
@@ -969,8 +970,8 @@ No transcriptome tag information found. Transfript filtering step is skipped. Al
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="Test">
+</section>
+<section id="Test">
 <h1>Test<a class="headerlink" href="#Test" title="Permalink to this headline">¶</a></h1>
 <p>Try to load DNA sequence using genomepy</p>
 <div class="nbinput docutils container">
@@ -1169,7 +1170,7 @@ tss_annotation_using_custom_tss_data.ipynb
 </pre></div>
 </div>
 </div>
-</div>
+</section>
 
 
            </div>

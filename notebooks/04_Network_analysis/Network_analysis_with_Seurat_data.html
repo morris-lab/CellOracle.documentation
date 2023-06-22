@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <script type="text/javascript">
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<script type="text/javascript">
 
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-214970391-3']);
@@ -18,7 +19,7 @@
     </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>0. Import libraries &mdash; celloracle 0.10.13 documentation</title>
+  <title>0. Import libraries &mdash; celloracle 0.12.1 documentation</title>
   
 
   
@@ -437,7 +438,7 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<div class="section" id="0.-Import-libraries">
+<section id="0.-Import-libraries">
 <h1>0. Import libraries<a class="headerlink" href="#0.-Import-libraries" title="Permalink to this headline">¶</a></h1>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
@@ -492,7 +493,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="section" id="0.1.-Check-installation">
+<section id="0.1.-Check-installation">
 <h2>0.1. Check installation<a class="headerlink" href="#0.1.-Check-installation" title="Permalink to this headline">¶</a></h2>
 <p>Celloracle uses some R libraries in network analysis. Please make sure that all dependent R libraries are installed on your computer. You can test the installation with the following command.</p>
 <div class="nbinput docutils container">
@@ -515,8 +516,8 @@ checking R library installation: linkcomm -&gt; OK
 checking R library installation: rnetcarto -&gt; OK
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="0.2.-Make-a-folder-to-save-graph">
+</section>
+<section id="0.2.-Make-a-folder-to-save-graph">
 <h2>0.2. Make a folder to save graph<a class="headerlink" href="#0.2.-Make-a-folder-to-save-graph" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
@@ -528,13 +529,13 @@ checking R library installation: rnetcarto -&gt; OK
 </pre></div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="1.-Prepare-data">
+</section>
+</section>
+<section id="1.-Prepare-data">
 <h1>1. Prepare data<a class="headerlink" href="#1.-Prepare-data" title="Permalink to this headline">¶</a></h1>
 <p>In this notebook, we will use scRNA-seq data processed with Seurat. Data preprocessing and several scRNA-seq analysis, including Clustering and Dimensional Reduction shoud be done with Seurat V2 or V3. Please go to Satija Lab’s instruction for more information about Seurat(<a class="reference external" href="https://satijalab.org/seurat/">https://satijalab.org/seurat/</a>).</p>
 <p>Seurat object should be saved as Rds file.</p>
-<div class="section" id="1.0.-Convert-Sertat-object-into-anndata.">
+<section id="1.0.-Convert-Sertat-object-into-anndata.">
 <h2>1.0. Convert Sertat object into anndata.<a class="headerlink" href="#1.0.-Convert-Sertat-object-into-anndata." title="Permalink to this headline">¶</a></h2>
 <p>In celloracle, we need to prepare scRNA-seq data as an anndata object. Please go to web documentation for more information about anndata (<a class="reference external" href="https://anndata.readthedocs.io/en/latest/">https://anndata.readthedocs.io/en/latest/</a>) and scanpy (<a class="reference external" href="https://scanpy.readthedocs.io/en/stable/">https://scanpy.readthedocs.io/en/stable/</a>).</p>
 <p>We provide the function that can convert seurat object into anndata object.</p>
@@ -548,8 +549,8 @@ checking R library installation: rnetcarto -&gt; OK
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="1.1.-Load-processed-gene-expression-data-(anndata)">
+</section>
+<section id="1.1.-Load-processed-gene-expression-data-(anndata)">
 <h2>1.1. Load processed gene expression data (anndata)<a class="headerlink" href="#1.1.-Load-processed-gene-expression-data-(anndata)" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
@@ -561,9 +562,9 @@ checking R library installation: rnetcarto -&gt; OK
 </pre></div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="!!-CHECK-scRNA-seq-DATA-!!">
+</section>
+</section>
+<section id="!!-CHECK-scRNA-seq-DATA-!!">
 <h1>!! CHECK scRNA-seq DATA !!<a class="headerlink" href="#!!-CHECK-scRNA-seq-DATA-!!" title="Permalink to this headline">¶</a></h1>
 <p>For the celloracle network analysis and simulation, scRNA-seq data format should meet some requirements. If you followed our tutorial notebook for the preprocessing of scRNA-seq data, the processed scRNA-seq data already should meet this requirements.</p>
 <p>However if you made your scRNA-seq data in another method such as Seurat pipeline, please check your scRNA-seq data to make sure your scRNA-seq data meets celloracle’s requiments below.</p>
@@ -588,7 +589,7 @@ Number of cell :  27662
 Number of gene :  3000
 </pre></div></div>
 </div>
-<div class="section" id="1.-Check-gene-expression-value-type">
+<section id="1.-Check-gene-expression-value-type">
 <h2>1. Check gene expression value type<a class="headerlink" href="#1.-Check-gene-expression-value-type" title="Permalink to this headline">¶</a></h2>
 <p>Celloracle input should be non-negative values WITHOUT log transformation and scaling.</p>
 <p>You need to get your scRNA-seq data back into raw gene expression data.</p>
@@ -602,8 +603,8 @@ Number of gene :  3000
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="2.-Gene-selection:-Number-of-genes-should-be-~3000-or-lower.">
+</section>
+<section id="2.-Gene-selection:-Number-of-genes-should-be-~3000-or-lower.">
 <h2>2. Gene selection: Number of genes should be ~3000 or lower.<a class="headerlink" href="#2.-Gene-selection:-Number-of-genes-should-be-~3000-or-lower." title="Permalink to this headline">¶</a></h2>
 <p>Gene selection should be done in the scRNA-seq gene expression matrix. If your scRNA-seq still contains a lot of genes more than 3000, please do gene selection now.</p>
 <p>In a general seurat analysis, highly variable genes are picked up and stored in your scRNA-seq data. Please remove genes that are not in the variable gene list.</p>
@@ -628,8 +629,8 @@ Number of gene :  3000
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="3.-[Optional-step]-Downsampling-cells-if-you-have-too-many-cells">
+</section>
+<section id="3.-[Optional-step]-Downsampling-cells-if-you-have-too-many-cells">
 <h2>3. [Optional step] Downsampling cells if you have too many cells<a class="headerlink" href="#3.-[Optional-step]-Downsampling-cells-if-you-have-too-many-cells" title="Permalink to this headline">¶</a></h2>
 <p>Calculation time and memory can be too long / large if you have too many cells. We recommend downsampling your data if you have scRNA-seq dasta with more than 20k cells.</p>
 <div class="nbinput nblast docutils container">
@@ -667,8 +668,8 @@ Number of cell :  20000
 Number of gene :  3000
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="4.-Check-dimensional-reduction-and-clustering-data">
+</section>
+<section id="4.-Check-dimensional-reduction-and-clustering-data">
 <h2>4. Check dimensional reduction and clustering data<a class="headerlink" href="#4.-Check-dimensional-reduction-and-clustering-data" title="Permalink to this headline">¶</a></h2>
 <p>When you load a scRNA-seq data, please enter the name of clustering data and dimensional reduction data. The clustering data should be to be stored in the attribute of “obs” in the anndata. Dimensional reduction data suppose to be stored in the attribute of “obsm” in the anndata. You can check these data by the following command.</p>
 <p>If you are not familiar with anndata, please look at the documentation of annata (<a class="reference external" href="https://anndata.readthedocs.io/en/stable/">https://anndata.readthedocs.io/en/stable/</a>) or Scanpy (<a class="reference external" href="https://scanpy.readthedocs.io/en/stable/">https://scanpy.readthedocs.io/en/stable/</a>).</p>
@@ -742,7 +743,7 @@ dimensional reduction:  [&#39;X_diffmap&#39;, &#39;X_draw_graph_fa&#39;, &#39;X_
 </pre></div>
 </div>
 </div>
-<div class="section" id="!!-Important:-Please-check-your-clustering-and-dimensional-reduction-by-visualizing-them">
+<section id="!!-Important:-Please-check-your-clustering-and-dimensional-reduction-by-visualizing-them">
 <h3>!! Important: Please check your clustering and dimensional reduction by visualizing them<a class="headerlink" href="#!!-Important:-Please-check-your-clustering-and-dimensional-reduction-by-visualizing-them" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
@@ -777,9 +778,9 @@ dimensional reduction:  [&#39;X_diffmap&#39;, &#39;X_draw_graph_fa&#39;, &#39;X_
 </pre></div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="1.2.-Load-TF-data.">
+</section>
+</section>
+<section id="1.2.-Load-TF-data.">
 <h2>1.2. Load TF data.<a class="headerlink" href="#1.2.-Load-TF-data." title="Permalink to this headline">¶</a></h2>
 <p>For the GRN inference, celloracle needs TF information, which contains lists of the regulatory candidate genes. There are several ways to make such TF information. We can generate TF information from scATAC-seq data or bulk ATAC-seq data. Please refer to the first step of the tutorial for the details of this process.</p>
 <p>If you do not have your scATAC-seq data, you can use some built-in data in celloracle. The built-in TFinfo wqs made using various tissue/cell-types from the mouse ATAC-seq atlas dataset (<a class="reference external" href="http://atlas.gs.washington.edu/mouse-atac/">http://atlas.gs.washington.edu/mouse-atac/</a>).</p>
@@ -978,9 +979,9 @@ dimensional reduction:  [&#39;X_diffmap&#39;, &#39;X_draw_graph_fa&#39;, &#39;X_
 </pre></div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="2.-Initiate-Oracle-object">
+</section>
+</section>
+<section id="2.-Initiate-Oracle-object">
 <h1>2. Initiate Oracle object<a class="headerlink" href="#2.-Initiate-Oracle-object" title="Permalink to this headline">¶</a></h1>
 <p>Celloracle has a custom called Oracle. We can use Oracle for the data preprocessing and GRN inference steps. The Oracle object stores all of necessary information and does the calculations with its internal functions. We instantiate an Oracle object, then input the gene expression data (anndata) and a TFinfo into the Oracle object.</p>
 <div class="nbinput nblast docutils container">
@@ -993,7 +994,7 @@ dimensional reduction:  [&#39;X_diffmap&#39;, &#39;X_draw_graph_fa&#39;, &#39;X_
 </pre></div>
 </div>
 </div>
-<div class="section" id="2.1.-load-gene-expression-data-into-oracle-object.">
+<section id="2.1.-load-gene-expression-data-into-oracle-object.">
 <h2>2.1. load gene expression data into oracle object.<a class="headerlink" href="#2.1.-load-gene-expression-data-into-oracle-object." title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
@@ -1008,8 +1009,8 @@ dimensional reduction:  [&#39;X_diffmap&#39;, &#39;X_draw_graph_fa&#39;, &#39;X_
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="2.2.-Load-TFinfo-into-oracle-object">
+</section>
+<section id="2.2.-Load-TFinfo-into-oracle-object">
 <h2>2.2. Load TFinfo into oracle object<a class="headerlink" href="#2.2.-Load-TFinfo-into-oracle-object" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
@@ -1024,13 +1025,13 @@ dimensional reduction:  [&#39;X_diffmap&#39;, &#39;X_draw_graph_fa&#39;, &#39;X_
 </pre></div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="3.-Knn-imputation">
+</section>
+</section>
+<section id="3.-Knn-imputation">
 <h1>3. Knn imputation<a class="headerlink" href="#3.-Knn-imputation" title="Permalink to this headline">¶</a></h1>
 <p>Celloracle uses almost the same strategy as velocyto for visualizing cell transitions. This process requires KNN imputation in advance.</p>
 <p>For the KNN imputation, we need PCA and PC selection first.</p>
-<div class="section" id="3.1.-PCA">
+<section id="3.1.-PCA">
 <h2>3.1. PCA<a class="headerlink" href="#3.1.-PCA" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
@@ -1056,8 +1057,8 @@ dimensional reduction:  [&#39;X_diffmap&#39;, &#39;X_draw_graph_fa&#39;, &#39;X_
 <img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Seurat_data_40_0.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Seurat_data_40_0.png" style="width: 380px; height: 278px;" />
 </div>
 </div>
-</div>
-<div class="section" id="3.2.-KNN-imputation">
+</section>
+<section id="3.2.-KNN-imputation">
 <h2>3.2. KNN imputation<a class="headerlink" href="#3.2.-KNN-imputation" title="Permalink to this headline">¶</a></h2>
 <p>Estimate the optimal number of nearest neighbors for KNN imputation.</p>
 <div class="nbinput docutils container">
@@ -1106,9 +1107,9 @@ Auto-selected k is :66
 </pre></div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="4.-Save-and-Load.">
+</section>
+</section>
+<section id="4.-Save-and-Load.">
 <h1>4. Save and Load.<a class="headerlink" href="#4.-Save-and-Load." title="Permalink to this headline">¶</a></h1>
 <p>Celloracle has some custom-classes: Links, Oracle and TFinfo. You can save such an object using “to_hdf5”.</p>
 <p>Pleasae use “load_hdf5” function to load the file.</p>
@@ -1132,8 +1133,8 @@ Auto-selected k is :66
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="5.-GRN-calculation">
+</section>
+<section id="5.-GRN-calculation">
 <h1>5. GRN calculation<a class="headerlink" href="#5.-GRN-calculation" title="Permalink to this headline">¶</a></h1>
 <p>The next step is constructing a cluster-specific GRN for all clusters.</p>
 <p>You can calculate GRNs with the “get_links” function, and the function returns GRNs as a Links object. The Links object stores inferred GRNs and the corresponding metadata. You can do network analysis with the Links object.</p>
@@ -1156,7 +1157,7 @@ Auto-selected k is :66
 <img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Seurat_data_50_0.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Seurat_data_50_0.png" style="width: 516px; height: 288px;" />
 </div>
 </div>
-<div class="section" id="5.1.-Get-GRNs">
+<section id="5.1.-Get-GRNs">
 <h2>5.1. Get GRNs<a class="headerlink" href="#5.1.-Get-GRNs" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">n_jobs</span></code> parameter in <code class="docutils literal notranslate"><span class="pre">get_links</span></code> function controls number of jobs to run in parallel. -1 means using all processors. !!This <code class="docutils literal notranslate"><span class="pre">n_jobs</span></code> parameter is only available on celloracle &gt;= 0.9.1.</p>
 <div class="nbinput nblast docutils container">
@@ -1175,8 +1176,8 @@ Auto-selected k is :66
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="5.2.-(Optional)-Export-GRNs">
+</section>
+<section id="5.2.-(Optional)-Export-GRNs">
 <h2>5.2. (Optional) Export GRNs<a class="headerlink" href="#5.2.-(Optional)-Export-GRNs" title="Permalink to this headline">¶</a></h2>
 <p>Although celloracle has many functions for network analysis, you can analyze GRNs by hand if you choose. The raw GRN data is stored in the attribute of “links_dict”.</p>
 <p>For example, you can get the GRN for the “Ery_0” cluster with the following commands.</p>
@@ -1357,8 +1358,8 @@ dict_keys([&#39;Ery_0&#39;, &#39;Ery_1&#39;, &#39;Ery_2&#39;, &#39;Ery_3&#39;, &
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="5.3.-(Optional)-Change-order">
+</section>
+<section id="5.3.-(Optional)-Change-order">
 <h2>5.3. (Optional) Change order<a class="headerlink" href="#5.3.-(Optional)-Change-order" title="Permalink to this headline">¶</a></h2>
 <p>The links object has a color information in an attribute, “palette”. This information is used for the visualization</p>
 <p>The sample will be visualized in that order. Here we can change the order.</p>
@@ -1608,11 +1609,11 @@ dict_keys([&#39;Ery_0&#39;, &#39;Ery_1&#39;, &#39;Ery_2&#39;, &#39;Ery_3&#39;, &
 </table>
 </div></div>
 </div>
-</div>
-</div>
-<div class="section" id="6.-Network-preprocessing">
+</section>
+</section>
+<section id="6.-Network-preprocessing">
 <h1>6. Network preprocessing<a class="headerlink" href="#6.-Network-preprocessing" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="6.1.-Filter-network-edges">
+<section id="6.1.-Filter-network-edges">
 <h2>6.1. Filter network edges<a class="headerlink" href="#6.1.-Filter-network-edges" title="Permalink to this headline">¶</a></h2>
 <p>Celloracle utilizes bagging ridge or Bayesian ridge regression to infer gene regulatory networks. These methods provide a network edge strength as a distribution rather than a point value. We can use the distribution to know the certainness of the connection.</p>
 <p>We filter the network edges as follows.</p>
@@ -1630,8 +1631,8 @@ dict_keys([&#39;Ery_0&#39;, &#39;Ery_1&#39;, &#39;Ery_2&#39;, &#39;Ery_3&#39;, &
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="6.2.-Degree-distribution">
+</section>
+<section id="6.2.-Degree-distribution">
 <h2>6.2. Degree distribution<a class="headerlink" href="#6.2.-Degree-distribution" title="Permalink to this headline">¶</a></h2>
 <p>In the first step, we examine the network degree distribution. Network degree, which is the number of edges for each node, is one of the important metrics used to investigate the network structure (<a class="reference external" href="https://en.wikipedia.org/wiki/Degree_distribution">https://en.wikipedia.org/wiki/Degree_distribution</a>).</p>
 <p>Please keep in mind that the degree distribution may change depending on the filtering threshold.</p>
@@ -1804,8 +1805,8 @@ dict_keys([&#39;Ery_0&#39;, &#39;Ery_1&#39;, &#39;Ery_2&#39;, &#39;Ery_3&#39;, &
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="5.3.-Calculate-netowrk-score">
+</section>
+<section id="5.3.-Calculate-netowrk-score">
 <h2>5.3. Calculate netowrk score<a class="headerlink" href="#5.3.-Calculate-netowrk-score" title="Permalink to this headline">¶</a></h2>
 <p>Next, we calculate several network score using some R libraries. Please make sure that R libraries are installed in your PC before running the command below.</p>
 <p><code class="docutils literal notranslate"><span class="pre">n_jobs</span></code> parameter in <code class="docutils literal notranslate"><span class="pre">get_score</span></code> function controls number of jobs to run in parallel. -1 means using all processors. !!This parameter is only available on celloracle &gt;= 0.9.1.</p>
@@ -2024,8 +2025,8 @@ Mo_1: finished.
 </table>
 </div></div>
 </div>
-</div>
-<div class="section" id="6.4.-Save">
+</section>
+<section id="6.4.-Save">
 <h2>6.4. Save<a class="headerlink" href="#6.4.-Save" title="Permalink to this headline">¶</a></h2>
 <p>Save processed GRN. We use this file in the next notebook; “in silico perturbation with GRNs”.</p>
 <div class="nbinput nblast docutils container">
@@ -2049,12 +2050,12 @@ Mo_1: finished.
 </pre></div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="7.-Network-analysis;-Network-score-for-each-gene">
+</section>
+</section>
+<section id="7.-Network-analysis;-Network-score-for-each-gene">
 <h1>7. Network analysis; Network score for each gene<a class="headerlink" href="#7.-Network-analysis;-Network-score-for-each-gene" title="Permalink to this headline">¶</a></h1>
 <p>The Links class has many functions to visualize network score. See the documentation for the details of the functions.</p>
-<div class="section" id="7.1.-Network-score-in-each-cluster">
+<section id="7.1.-Network-score-in-each-cluster">
 <h2>7.1. Network score in each cluster<a class="headerlink" href="#7.1.-Network-score-in-each-cluster" title="Permalink to this headline">¶</a></h2>
 <p>We have calculated several network scores using different centrality metrics. We can use the centrality score to identify key regulatory genes because centrality is one of the important indicators of network structure (<a class="reference external" href="https://en.wikipedia.org/wiki/Centrality">https://en.wikipedia.org/wiki/Centrality</a>).</p>
 <p>Let’s visualize genes with high network centrality.</p>
@@ -2148,8 +2149,8 @@ Mo_1: finished.
 <img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Seurat_data_78_5.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Seurat_data_78_5.png" style="width: 342px; height: 318px;" />
 </div>
 </div>
-</div>
-<div class="section" id="7.2.-Network-score-comparison-between-two-clusters">
+</section>
+<section id="7.2.-Network-score-comparison-between-two-clusters">
 <h2>7.2. Network score comparison between two clusters<a class="headerlink" href="#7.2.-Network-score-comparison-between-two-clusters" title="Permalink to this headline">¶</a></h2>
 <p>By comparing network scores between two clusters, we can analyze differences in GRN structure.</p>
 <div class="nbinput docutils container">
@@ -2210,8 +2211,8 @@ Mo_1: finished.
 <img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Seurat_data_83_0.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Seurat_data_83_0.png" style="width: 392px; height: 304px;" />
 </div>
 </div>
-</div>
-<div class="section" id="7.3.-Network-score-dynamics">
+</section>
+<section id="7.3.-Network-score-dynamics">
 <h2>7.3. Network score dynamics<a class="headerlink" href="#7.3.-Network-score-dynamics" title="Permalink to this headline">¶</a></h2>
 <p>In the following session, we focus on how a gene’s network score changes during the differentiation.</p>
 <p>Using Gata2, we will demonstrate how you can visualize networks scores for a single gene.</p>
@@ -2389,8 +2390,8 @@ Mo_1: finished.
 </table>
 </div></div>
 </div>
-</div>
-<div class="section" id="7.4.-Gene-cartography-analysis">
+</section>
+<section id="7.4.-Gene-cartography-analysis">
 <h2>7.4. Gene cartography analysis<a class="headerlink" href="#7.4.-Gene-cartography-analysis" title="Permalink to this headline">¶</a></h2>
 <p>Gene cartography is a method for gene network analysis. The method classifies gene into several groups using the network module structure and connections. It provides us an insight about the role and regulatory mechanism for each gene. For more information on gene cartography, please refer to the following paper (<a class="reference external" href="https://www.nature.com/articles/nature03288">https://www.nature.com/articles/nature03288</a>).</p>
 <p>The gene cartography will be calculated for the GRN in each cluster. Thus we can know how the gene cartography change by comparing the the score between clusters.</p>
@@ -2566,12 +2567,12 @@ Mo_1: finished.
 <img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Seurat_data_94_0.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Seurat_data_94_0.png" style="width: 408px; height: 346px;" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="8.-Network-analysis;-network-score-distribution">
+</section>
+</section>
+<section id="8.-Network-analysis;-network-score-distribution">
 <h1>8. Network analysis; network score distribution<a class="headerlink" href="#8.-Network-analysis;-network-score-distribution" title="Permalink to this headline">¶</a></h1>
 <p>Next, we visualize the distribution of network score to get insight into the global trend of the GRNs.</p>
-<div class="section" id="8.1.-Distribution-of-network-degree">
+<section id="8.1.-Distribution-of-network-degree">
 <h2>8.1. Distribution of network degree<a class="headerlink" href="#8.1.-Distribution-of-network-degree" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
@@ -2614,8 +2615,8 @@ Mo_1: finished.
 <img alt="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Seurat_data_98_0.png" class="no-scaled-link" src="../../_images/notebooks_04_Network_analysis_Network_analysis_with_Seurat_data_98_0.png" style="width: 383px; height: 263px;" />
 </div>
 </div>
-</div>
-<div class="section" id="8.2.-Distribution-of-netowrk-entropy">
+</section>
+<section id="8.2.-Distribution-of-netowrk-entropy">
 <h2>8.2. Distribution of netowrk entropy<a class="headerlink" href="#8.2.-Distribution-of-netowrk-entropy" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[62]:
@@ -2648,8 +2649,8 @@ Mo_1: finished.
 </pre></div>
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>

@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <script type="text/javascript">
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<script type="text/javascript">
 
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-214970391-3']);
@@ -18,7 +19,7 @@
     </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>0. Import libraries &mdash; celloracle 0.10.13 documentation</title>
+  <title>0. Import libraries &mdash; celloracle 0.12.1 documentation</title>
   
 
   
@@ -437,9 +438,9 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<div class="section" id="0.-Import-libraries">
+<section id="0.-Import-libraries">
 <h1>0. Import libraries<a class="headerlink" href="#0.-Import-libraries" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="0.1.-Import-public-libraries">
+<section id="0.1.-Import-public-libraries">
 <h2>0.1. Import public libraries<a class="headerlink" href="#0.1.-Import-public-libraries" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
@@ -482,8 +483,8 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="0.1.-Make-a-folder-to-save-graph">
+</section>
+<section id="0.1.-Make-a-folder-to-save-graph">
 <h2>0.1. Make a folder to save graph<a class="headerlink" href="#0.1.-Make-a-folder-to-save-graph" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
@@ -496,11 +497,11 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="1.-Load-data">
+</section>
+</section>
+<section id="1.-Load-data">
 <h1>1. Load data<a class="headerlink" href="#1.-Load-data" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="1.1.-Load-processed-oracle-object">
+<section id="1.1.-Load-processed-oracle-object">
 <h2>1.1. Load processed oracle object<a class="headerlink" href="#1.1.-Load-processed-oracle-object" title="Permalink to this headline">¶</a></h2>
 <p>Load the oracle object. See the previous notebook for the notes on how to prepare the oracle object.</p>
 <div class="nbinput docutils container">
@@ -524,8 +525,8 @@ Trying to unpickle estimator PCA from version 0.23.1 when using version 0.24.2. 
 
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="1.2.-Load-inferred-GRNs">
+</section>
+<section id="1.2.-Load-inferred-GRNs">
 <h2>1.2. Load inferred GRNs<a class="headerlink" href="#1.2.-Load-inferred-GRNs" title="Permalink to this headline">¶</a></h2>
 <p>In the previous notebook, we calculated GRNs. Now, we will use these GRNs for simulation. We import GRNs which were saved in the Links object.</p>
 <div class="nbinput nblast docutils container">
@@ -537,9 +538,9 @@ Trying to unpickle estimator PCA from version 0.23.1 when using version 0.24.2. 
 </pre></div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="2.-Make-predictive-models-for-simulation">
+</section>
+</section>
+<section id="2.-Make-predictive-models-for-simulation">
 <h1>2. Make predictive models for simulation<a class="headerlink" href="#2.-Make-predictive-models-for-simulation" title="Permalink to this headline">¶</a></h1>
 <p>We will fit ridge regression models again. This process takes less time than the GRN inference in the previous notebook because we only use significant TFs to predict target gene instead of all regulatory candidate TFs.</p>
 <div class="nbinput docutils container">
@@ -673,14 +674,14 @@ Trying to unpickle estimator PCA from version 0.23.1 when using version 0.24.2. 
 <div class="output_area docutils container">
 <script type="application/vnd.jupyter.widget-view+json">{"model_id": "8e273fc908444c899b18064489973ec9", "version_major": 2, "version_minor": 0}</script></div>
 </div>
-</div>
-<div class="section" id="3.-in-silico-Perturbation-simulation">
+</section>
+<section id="3.-in-silico-Perturbation-simulation">
 <h1>3. in silico Perturbation-simulation<a class="headerlink" href="#3.-in-silico-Perturbation-simulation" title="Permalink to this headline">¶</a></h1>
 <p>Next, we will simulate the effects of perturbing a single TF to investigate its function and regulatory mechanism. See the celloracle paper for the details and scientific premise on the algorithm.</p>
 <p>In this notebook, we’ll show an example of the simulation; we’ll simulate knock-out of Gata1 gene in the hematopoiesis.</p>
 <p>Previous studies have shown that Gata1 is one of the TFs that regulates cell fate decisions in myeloid progenitors. Additionally, Gata1 has been shown to affect erythroid cell differentiation.</p>
 <p>Here, we will analyze Gata1 for the demonstration of celloracle; Celloracle try to recapitulate the previous findings of Gata1 gene above.</p>
-<div class="section" id="3.1.-Check-gene-expression-pattern.">
+<section id="3.1.-Check-gene-expression-pattern.">
 <h2>3.1. Check gene expression pattern.<a class="headerlink" href="#3.1.-Check-gene-expression-pattern." title="Permalink to this headline">¶</a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
@@ -719,8 +720,8 @@ Trying to unpickle estimator PCA from version 0.23.1 when using version 0.24.2. 
 <img alt="../../../_images/notebooks_05_simulation_misc_Analyze_transition_probability_with_Paul_etal_2015_data_16_0.png" class="no-scaled-link" src="../../../_images/notebooks_05_simulation_misc_Analyze_transition_probability_with_Paul_etal_2015_data_16_0.png" style="width: 381px; height: 263px;" />
 </div>
 </div>
-</div>
-<div class="section" id="3.2.-calculate-future-gene-expression-after-perturbation.">
+</section>
+<section id="3.2.-calculate-future-gene-expression-after-perturbation.">
 <h2>3.2. calculate future gene expression after perturbation.<a class="headerlink" href="#3.2.-calculate-future-gene-expression-after-perturbation." title="Permalink to this headline">¶</a></h2>
 <p>Although you can use any gene expression value for the input of in silico perturbation, we recommend avoiding extreme values which are far from natural gene expression ranges. If you set Gata1 gene expression to 100, for example, it may lead to biologically infeasible results.</p>
 <p>Here we simulate Gata1 KO; we predict what happens to the cells if Gata1 gene expression changed into 0.</p>
@@ -735,8 +736,8 @@ Trying to unpickle estimator PCA from version 0.23.1 when using version 0.24.2. 
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="3.3.-calculate-transition-probability-between-cells">
+</section>
+<section id="3.3.-calculate-transition-probability-between-cells">
 <h2>3.3. calculate transition probability between cells<a class="headerlink" href="#3.3.-calculate-transition-probability-between-cells" title="Permalink to this headline">¶</a></h2>
 <p>In the step above, we simulated simulated future gene expression values after perturbation. This prediction is based on itelative calculations of signal propagations within the GRN.</p>
 <p>Next step, we will calculate the probabilityof a cell state transition based on the simulated data. Using the transition probability between cells, we can predict how a cell changes after perturbation.</p>
@@ -759,9 +760,9 @@ Trying to unpickle estimator PCA from version 0.23.1 when using version 0.24.2. 
 </pre></div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="3.4-Extract-transition-probability-data">
+</section>
+</section>
+<section id="3.4-Extract-transition-probability-data">
 <h1>3.4 Extract transition probability data<a class="headerlink" href="#3.4-Extract-transition-probability-data" title="Permalink to this headline">¶</a></h1>
 <p>You can get transition probability data as follows.</p>
 <div class="nbinput nblast docutils container">
@@ -1291,8 +1292,8 @@ Selected cell_name is  1026
 </div>
 </div>
 <p>This is Gata1 KO. Gata1 is knownt to promote cell differentiation toward MEP lineage. As expected celloracle simulated that cells transitin probabilities are high at GMP side and the transition probabilities are low at the MEP side.</p>
-</div>
-<div class="section" id="NOTE">
+</section>
+<section id="NOTE">
 <h1>NOTE<a class="headerlink" href="#NOTE" title="Permalink to this headline">¶</a></h1>
 <ol class="arabic simple">
 <li><p>CellOracle calculate transition probability between neighbors. The number of neighbors can be adjusted by the parameter, <code class="docutils literal notranslate"><span class="pre">n_neighbors</span></code>.</p></li>
@@ -1418,7 +1419,7 @@ neighbors for the calculation of transition probabilities.</p></li>
 </pre></div>
 </div>
 </div>
-</div>
+</section>
 
 
            </div>

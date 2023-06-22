@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <script type="text/javascript">
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<script type="text/javascript">
 
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-214970391-3']);
@@ -18,7 +19,7 @@
     </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>1 Import motifs from gimmemotifs dataset. &mdash; celloracle 0.10.13 documentation</title>
+  <title>1 Import motifs from gimmemotifs dataset. &mdash; celloracle 0.12.1 documentation</title>
   
 
   
@@ -437,10 +438,10 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<div class="section" id="1-Import-motifs-from-gimmemotifs-dataset.">
+<section id="1-Import-motifs-from-gimmemotifs-dataset.">
 <h1>1 Import motifs from gimmemotifs dataset.<a class="headerlink" href="#1-Import-motifs-from-gimmemotifs-dataset." title="Permalink to this headline">¶</a></h1>
 <p>Gimmemotifs provides many motif dataset that was generated from public motif database including CisDB, ENCODE, HOMER, and JASPAR. <a class="reference external" href="https://gimmemotifs.readthedocs.io/en/master/overview.html">https://gimmemotifs.readthedocs.io/en/master/overview.html</a></p>
-<div class="section" id="1.1-gimme.vertebrate.v5.0.">
+<section id="1.1-gimme.vertebrate.v5.0.">
 <h2>1.1 gimme.vertebrate.v5.0.<a class="headerlink" href="#1.1-gimme.vertebrate.v5.0." title="Permalink to this headline">¶</a></h2>
 <p>By default GimmeMotifs uses a non-redundant, clustered database of known vertebrate motifs. These motifs come from CIS-BP (<a class="reference external" href="http://cisbp.ccbr.utoronto.ca/">http://cisbp.ccbr.utoronto.ca/</a>) and other sources. This motif dataset can be easily loaded with the following command.</p>
 <p>If your dataset is Mouse or Human, this one will be a good default choice.</p>
@@ -476,12 +477,12 @@ div.rendered_html tbody tr:hover {
  GM.5.0.GATA.0001_TTATCTsnnnnnnnCA]
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="1.2-Another-motif-that-is-provided-with-gimmemotifs-package">
+</section>
+<section id="1.2-Another-motif-that-is-provided-with-gimmemotifs-package">
 <h2>1.2 Another motif that is provided with gimmemotifs package<a class="headerlink" href="#1.2-Another-motif-that-is-provided-with-gimmemotifs-package" title="Permalink to this headline">¶</a></h2>
 <p>Many other motifs are provided by GimmeMotifs</p>
 <p>You can load them as follows.</p>
-<div class="section" id="1.2.1.-Get-motif-data-list">
+<section id="1.2.1.-Get-motif-data-list">
 <h3>1.2.1. Get motif data list<a class="headerlink" href="#1.2.1.-Get-motif-data-list" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
@@ -529,13 +530,6 @@ div.rendered_html tbody tr:hover {
  &#39;JASPAR2020_plants.pfm&#39;,
  &#39;JASPAR2020_urochordates.pfm&#39;,
  &#39;JASPAR2020_vertebrates.pfm&#39;,
- &#39;JASPAR2022.pfm&#39;,
- &#39;JASPAR2022_fungi.pfm&#39;,
- &#39;JASPAR2022_insects.pfm&#39;,
- &#39;JASPAR2022_nematodes.pfm&#39;,
- &#39;JASPAR2022_plants.pfm&#39;,
- &#39;JASPAR2022_urochordates.pfm&#39;,
- &#39;JASPAR2022_vertebrates.pfm&#39;,
  &#39;RSAT_insects.pfm&#39;,
  &#39;RSAT_plants.pfm&#39;,
  &#39;RSAT_vertebrates.pfm&#39;,
@@ -544,9 +538,9 @@ div.rendered_html tbody tr:hover {
  &#39;gimme.vertebrate.v5.0.pfm&#39;]
 </pre></div></div>
 </div>
-</div>
-</div>
-<div class="section" id="1.2.2.-Load-motifs">
+</section>
+</section>
+<section id="1.2.2.-Load-motifs">
 <h2>1.2.2. Load motifs<a class="headerlink" href="#1.2.2.-Load-motifs" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
@@ -556,7 +550,7 @@ div.rendered_html tbody tr:hover {
 <span></span><span class="c1"># You can load motif files with &quot;read_motifs&quot;</span>
 <span class="kn">from</span> <span class="nn">gimmemotifs.motif</span> <span class="kn">import</span> <span class="n">read_motifs</span>
 
-<span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">motif_dir</span><span class="p">,</span> <span class="s2">&quot;JASPAR2018_plants.pfm&quot;</span><span class="p">)</span>
+<span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">motif_dir</span><span class="p">,</span> <span class="s2">&quot;JASPAR2020_vertebrates.pfm&quot;</span><span class="p">)</span>
 <span class="n">motifs</span> <span class="o">=</span> <span class="n">read_motifs</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 
 <span class="c1"># Check first 10 motifs</span>
@@ -570,19 +564,46 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[MA0020.1_Dof2_AAAGCn,
- MA0021.1_Dof3_AAAGyn,
- MA0034.1_Gam1_nnyAACCGmC,
- MA0044.1_HMG-1_sTTGTnyTy,
- MA0045.1_HMG-I/Y_nwAnAAAnrnmrAmAy,
- MA0053.1_MNB1A_AAAGC,
- MA0054.1_myb.Ph3_TAACnGTTw,
- MA0064.1_PBF_AAAGy,
- MA0082.1_squamosa_mCAwAwATrGwAAn,
- MA0096.1_bZIP910_mTGACGT]
+[MA0006.1_Ahr::Arnt_yGCGTG,
+ MA0854.1_Alx1_nGnnyTAATTArTnnnn,
+ MA0634.1_ALX3_nnyAATTAnn,
+ MA0853.1_Alx4_CGnnyTAATTArnnnnn,
+ MA0007.3_Ar_rGGwACAynGTGTwCyn,
+ MA1463.1_ARGFX_nCTAATTArn,
+ MA0151.1_Arid3a_ATyAAA,
+ MA0601.1_Arid3b_nTATTAATwnn,
+ MA0602.1_Arid5a_nyAATATTGnnAnn,
+ MA0004.1_Arnt_CACGTG]
 </pre></div></div>
 </div>
 <p>You can use this motif data for CallOracle motif analysis.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">m</span> <span class="o">=</span> <span class="n">motifs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">m</span><span class="o">.</span><span class="n">factors</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;direct&#39;: [&#39;Arnt&#39;, &#39;Ahr&#39;], &#39;indirect\nor predicted&#39;: []}
+</pre></div></div>
+</div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
@@ -592,8 +613,8 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>

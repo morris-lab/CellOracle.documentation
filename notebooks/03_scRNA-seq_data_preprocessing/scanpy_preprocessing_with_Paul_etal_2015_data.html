@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <script type="text/javascript">
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<script type="text/javascript">
 
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-214970391-3']);
@@ -18,7 +19,7 @@
     </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Overview &mdash; celloracle 0.10.13 documentation</title>
+  <title>Overview &mdash; celloracle 0.12.1 documentation</title>
   
 
   
@@ -443,15 +444,15 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<div class="section" id="Overview">
+<section id="Overview">
 <h1>Overview<a class="headerlink" href="#Overview" title="Permalink to this headline">¶</a></h1>
 <p>This notebook will demonstrate scRNA-seq preprocessing using data from hematopoiesis. (Paul, F., Arkin, Y., Giladi, A., Jaitin, D. A., Kenigsberg, E., Keren-Shaul, H., et al. (2015). Transcriptional Heterogeneity and Lineage Commitment in Myeloid Progenitors. Cell, 163(7), 1663–1677. <a class="reference external" href="http://doi.org/10.1016/j.cell.2015.11.013">http://doi.org/10.1016/j.cell.2015.11.013</a>).</p>
 <p>You can easily download this scRNA-seq data using Scanpy.</p>
-<div class="section" id="Notebook-file">
+<section id="Notebook-file">
 <h2>Notebook file<a class="headerlink" href="#Notebook-file" title="Permalink to this headline">¶</a></h2>
 <p>Notebook file is available on CellOracle’s GitHub page. <a class="reference external" href="https://github.com/morris-lab/CellOracle/blob/master/docs/notebooks/03_scRNA-seq_data_preprocessing/scanpy_preprocessing_with_Paul_etal_2015_data.ipynb">https://github.com/morris-lab/CellOracle/blob/master/docs/notebooks/03_scRNA-seq_data_preprocessing/scanpy_preprocessing_with_Paul_etal_2015_data.ipynb</a></p>
-</div>
-<div class="section" id="Steps">
+</section>
+<section id="Steps">
 <h2>Steps<a class="headerlink" href="#Steps" title="Permalink to this headline">¶</a></h2>
 <p>To preprocess the scRNA-seq data, we will do the following:</p>
 <ol class="arabic simple">
@@ -460,8 +461,8 @@ div.rendered_html tbody tr:hover {
 <li><p><strong>Cell clustering.</strong></p></li>
 <li><p><strong>Dimensional reduction.</strong> We need to prepare the 2D embedding data. Please make sure that the 2D embedding properly represents the cell identities and processes of interest. Also, please consider the resolution and continuity of the data. CellOracle’s simulation results are only informative when the embedding is consistent with the questions being investigated.</p></li>
 </ol>
-</div>
-<div class="section" id="Caution">
+</section>
+<section id="Caution">
 <h2>Caution<a class="headerlink" href="#Caution" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>This notebook is intended to help users <strong>prepare the input data for CellOracle analysis</strong>. This is <strong>NOT</strong> the CellOracle analysis itself. Also, this notebook does NOT use <code class="docutils literal notranslate"><span class="pre">celloracle</span></code> in this notebook.</p></li>
@@ -469,15 +470,15 @@ div.rendered_html tbody tr:hover {
 <li><p><code class="docutils literal notranslate"><span class="pre">Scanpy</span></code> documentation: <a class="reference external" href="https://scanpy.readthedocs.io/en/stable/">https://scanpy.readthedocs.io/en/stable/</a></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Anndata</span></code> documentation: <a class="reference external" href="https://anndata.readthedocs.io/en/latest/">https://anndata.readthedocs.io/en/latest/</a></p></li>
 </ul>
-</div>
-<div class="section" id="Acknowledgement">
+</section>
+<section id="Acknowledgement">
 <h2>Acknowledgement<a class="headerlink" href="#Acknowledgement" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>This scRNA-seq preprocessing notebook was made based on the Scanpy’s tutorial. <a class="reference external" href="https://scanpy-tutorials.readthedocs.io/en/latest/paga-paul15.html">https://scanpy-tutorials.readthedocs.io/en/latest/paga-paul15.html</a></p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="0.-Import-libraries">
+</section>
+</section>
+<section id="0.-Import-libraries">
 <h1>0. Import libraries<a class="headerlink" href="#0.-Import-libraries" title="Permalink to this headline">¶</a></h1>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
@@ -504,8 +505,8 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="1.-Load-data">
+</section>
+<section id="1.-Load-data">
 <h1>1. Load data<a class="headerlink" href="#1.-Load-data" title="Permalink to this headline">¶</a></h1>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
@@ -534,8 +535,8 @@ WARNING: In Scanpy 0.*, this returned logarithmized data. Now it returns non-log
 Trying to set attribute `.uns` of view, making a copy.
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="2.-Filtering">
+</section>
+<section id="2.-Filtering">
 <h1>2. Filtering<a class="headerlink" href="#2.-Filtering" title="Permalink to this headline">¶</a></h1>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
@@ -548,8 +549,8 @@ Trying to set attribute `.uns` of view, making a copy.
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="3.-Normalization">
+</section>
+<section id="3.-Normalization">
 <h1>3. Normalization<a class="headerlink" href="#3.-Normalization" title="Permalink to this headline">¶</a></h1>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
@@ -561,8 +562,8 @@ Trying to set attribute `.uns` of view, making a copy.
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="4.-Identification-of-highly-variable-genes">
+</section>
+<section id="4.-Identification-of-highly-variable-genes">
 <h1>4. Identification of highly variable genes<a class="headerlink" href="#4.-Identification-of-highly-variable-genes" title="Permalink to this headline">¶</a></h1>
 <p><strong>This step is essential. Please do not skip this step.</strong></p>
 <blockquote>
@@ -595,8 +596,8 @@ Trying to set attribute `.uns` of view, making a copy.
 Trying to set attribute `.obs` of view, making a copy.
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="5.-Log-transformation">
+</section>
+<section id="5.-Log-transformation">
 <h1>5. Log transformation<a class="headerlink" href="#5.-Log-transformation" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><ul>
@@ -621,8 +622,8 @@ Trying to set attribute `.obs` of view, making a copy.
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="6.-PCA-and-neighbor-calculations">
+</section>
+<section id="6.-PCA-and-neighbor-calculations">
 <h1>6. PCA and neighbor calculations<a class="headerlink" href="#6.-PCA-and-neighbor-calculations" title="Permalink to this headline">¶</a></h1>
 <p>These calculations are necessary to perform the dimensionality reduction and clustering steps.</p>
 <div class="nbinput nblast docutils container">
@@ -642,8 +643,8 @@ Trying to set attribute `.obs` of view, making a copy.
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="7.-Cell-clustering">
+</section>
+<section id="7.-Cell-clustering">
 <h1>7. Cell clustering<a class="headerlink" href="#7.-Cell-clustering" title="Permalink to this headline">¶</a></h1>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
@@ -654,8 +655,8 @@ Trying to set attribute `.obs` of view, making a copy.
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="8.-Dimensionality-reduction-using-PAGA-and-force-directed-graphs">
+</section>
+<section id="8.-Dimensionality-reduction-using-PAGA-and-force-directed-graphs">
 <h1>8. Dimensionality reduction using PAGA and force-directed graphs<a class="headerlink" href="#8.-Dimensionality-reduction-using-PAGA-and-force-directed-graphs" title="Permalink to this headline">¶</a></h1>
 <p>The dimensionality reduction step requires careful consideration when preparing data for a CellOracle analysis. For a successful analysis, the embedding should recapitulate the cellular transition of interest.</p>
 <p>Please choose an algorithm that can accurately represent the developmental trajectory of your data. We recommend using one of the following dimensional reduction algorithms (or trajectory inference algorithms). - UMAP: <a class="reference external" href="https://scanpy.readthedocs.io/en/stable/generated/scanpy.tl.umap.html#scanpy.tl.umap">https://scanpy.readthedocs.io/en/stable/generated/scanpy.tl.umap.html#scanpy.tl.umap</a> - TSNE: <a class="reference external" href="https://scanpy.readthedocs.io/en/stable/generated/scanpy.tl.tsne.html#scanpy.tl.tsne">https://scanpy.readthedocs.io/en/stable/generated/scanpy.tl.tsne.html#scanpy.tl.tsne</a> - Diffusion map:
@@ -721,8 +722,8 @@ Trying to set attribute `.obs` of view, making a copy.
 <img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_23_0.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_23_0.png" style="width: 364px; height: 288px;" />
 </div>
 </div>
-</div>
-<div class="section" id="9.-Check-data">
+</section>
+<section id="9.-Check-data">
 <h1>9. Check data<a class="headerlink" href="#9.-Check-data" title="Permalink to this headline">¶</a></h1>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
@@ -797,8 +798,8 @@ Trying to set attribute `.obs` of view, making a copy.
 <img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_26_5.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_26_5.png" style="width: 644px; height: 292px;" />
 </div>
 </div>
-</div>
-<div class="section" id="10.-[Optional-step]-Cluster-annotation">
+</section>
+<section id="10.-[Optional-step]-Cluster-annotation">
 <h1>10. [Optional step] Cluster annotation<a class="headerlink" href="#10.-[Optional-step]-Cluster-annotation" title="Permalink to this headline">¶</a></h1>
 <p>We will annotate the clusters based on the marker gene expression.</p>
 <div class="nbinput docutils container">
@@ -1002,8 +1003,8 @@ Categories (23, object): [5, 2, 12, 13, ..., 20, 14, 15, 21]
 <img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_41_0.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_41_0.png" style="width: 615px; height: 292px;" />
 </div>
 </div>
-</div>
-<div class="section" id="11.-[Optional-step]-Subset-cells">
+</section>
+<section id="11.-[Optional-step]-Subset-cells">
 <h1>11. [Optional step] Subset cells<a class="headerlink" href="#11.-[Optional-step]-Subset-cells" title="Permalink to this headline">¶</a></h1>
 <p>During the CellOracle analysis, we will focus on the myeloid lineage. Since the othre clusters (i.e. the DC and lymphoid clusters) will not be analyzed, we will choose to remove them now.</p>
 <p>It is also important to ensure that the differentiation trajectories are smoothly connected; CellOracle works best with continuous trajectories. If there is discrete cell cluster or non-related cell contamination, please remove them prior to celloracle analysis.</p>
@@ -1054,8 +1055,8 @@ Categories (9, object): [MEP, Monocytes, Erythroids, Granulocytes, ..., GMP, Meg
 <img alt="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_45_0.png" class="no-scaled-link" src="../../_images/notebooks_03_scRNA-seq_data_preprocessing_scanpy_preprocessing_with_Paul_etal_2015_data_45_0.png" style="width: 615px; height: 292px;" />
 </div>
 </div>
-</div>
-<div class="section" id="12.-Save-processed-data">
+</section>
+<section id="12.-Save-processed-data">
 <h1>12. Save processed data<a class="headerlink" href="#12.-Save-processed-data" title="Permalink to this headline">¶</a></h1>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
@@ -1066,7 +1067,7 @@ Categories (9, object): [MEP, Monocytes, Erythroids, Granulocytes, ..., GMP, Meg
 </pre></div>
 </div>
 </div>
-</div>
+</section>
 
 
            </div>

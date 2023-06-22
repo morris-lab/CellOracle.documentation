@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <script type="text/javascript">
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<script type="text/javascript">
 
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-214970391-3']);
@@ -18,7 +19,7 @@
     </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Overview &mdash; celloracle 0.10.13 documentation</title>
+  <title>Overview &mdash; celloracle 0.12.1 documentation</title>
   
 
   
@@ -443,15 +444,15 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<div class="section" id="Overview">
+<section id="Overview">
 <h1>Overview<a class="headerlink" href="#Overview" title="Permalink to this headline">¶</a></h1>
 <p>Before building the base GRN, we need to annotate the coaccessible peaks and filter our active promoter/enhancer elements. First, we will identify the peaks around transcription starting sites (TSS). We will then merge the Cicero data with the TSS peak information and filter any peaks with weak connections to the TSS peaks. As such, the filtered peak data will only include TSS peaks and peaks with strong TSS connections. These will be our active promoter/enhancer elements for our base GRN.</p>
-<div class="section" id="Notebook-file">
+<section id="Notebook-file">
 <h2>Notebook file<a class="headerlink" href="#Notebook-file" title="Permalink to this headline">¶</a></h2>
 <p>Notebook file is available on CellOracle GitHub page. <a class="reference external" href="https://github.com/morris-lab/CellOracle/blob/master/docs/notebooks/01_ATAC-seq_data_processing/option1_scATAC-seq_data_analysis_with_cicero/02_preprocess_peak_data.ipynb">https://github.com/morris-lab/CellOracle/blob/master/docs/notebooks/01_ATAC-seq_data_processing/option1_scATAC-seq_data_analysis_with_cicero/02_preprocess_peak_data.ipynb</a></p>
-</div>
-</div>
-<div class="section" id="0.-Import-libraries">
+</section>
+</section>
+<section id="0.-Import-libraries">
 <h1>0. Import libraries<a class="headerlink" href="#0.-Import-libraries" title="Permalink to this headline">¶</a></h1>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
@@ -516,8 +517,8 @@ urllib3 (1.26.9) or chardet (3.0.4) doesn&#39;t match a supported version!
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="1.-Load-scATAC-peak-data-and-peak-connection-data-made-with-Cicero">
+</section>
+<section id="1.-Load-scATAC-peak-data-and-peak-connection-data-made-with-Cicero">
 <h1>1. Load scATAC peak data and peak connection data made with Cicero<a class="headerlink" href="#1.-Load-scATAC-peak-data-and-peak-connection-data-made-with-Cicero" title="Permalink to this headline">¶</a></h1>
 <p>In this notebook, we will annotate and filter output from Cicero. Please refer to the previous step to learn about data preparation with Cicero. <a class="reference external" href="https://morris-lab.github.io/CellOracle.documentation/tutorials/base_grn.html#step1-scatac-seq-analysis-with-cicero">https://morris-lab.github.io/CellOracle.documentation/tutorials/base_grn.html#step1-scatac-seq-analysis-with-cicero</a></p>
 <p>Here, we will use the preprocessed fetal brain scATAC-seq data from step 1.</p>
@@ -666,8 +667,8 @@ array([&#39;chr10_100006139_100006389&#39;, &#39;chr10_100015291_100017830&#39;,
 </table>
 </div></div>
 </div>
-</div>
-<div class="section" id="2.-Annotate-transcription-start-sites-(TSSs)¶">
+</section>
+<section id="2.-Annotate-transcription-start-sites-(TSSs)¶">
 <h1>2. Annotate transcription start sites (TSSs)¶<a class="headerlink" href="#2.-Annotate-transcription-start-sites-(TSSs)¶" title="Permalink to this headline">¶</a></h1>
 <p>If your scATAC-seq data was generated with mm10 reference genome, please set <code class="docutils literal notranslate"><span class="pre">ref_genome=&quot;mm10&quot;</span></code>.</p>
 <p>You can check supported reference genome using <code class="docutils literal notranslate"><span class="pre">ma.SUPPORTED_REF_GENOME</span></code></p>
@@ -961,8 +962,8 @@ tss peaks in que: 17238
 </table>
 </div></div>
 </div>
-</div>
-<div class="section" id="3.-Integrate-TSS-info-and-cicero-connections">
+</section>
+<section id="3.-Integrate-TSS-info-and-cicero-connections">
 <h1>3. Integrate TSS info and cicero connections<a class="headerlink" href="#3.-Integrate-TSS-info-and-cicero-connections" title="Permalink to this headline">¶</a></h1>
 <p>The output file after the integration process has three columns: <code class="docutils literal notranslate"><span class="pre">[&quot;peak_id&quot;,</span> <span class="pre">&quot;gene_short_name&quot;,</span> <span class="pre">&quot;coaccess&quot;</span></code>].</p>
 <ul class="simple">
@@ -1053,8 +1054,8 @@ tss peaks in que: 17238
 </table>
 </div></div>
 </div>
-</div>
-<div class="section" id="4.-Filter-peaks">
+</section>
+<section id="4.-Filter-peaks">
 <h1>4. Filter peaks<a class="headerlink" href="#4.-Filter-peaks" title="Permalink to this headline">¶</a></h1>
 <p>Remove peaks with weak coaccessibility scores.</p>
 <div class="nbinput nblast docutils container">
@@ -1142,8 +1143,8 @@ tss peaks in que: 17238
 </table>
 </div></div>
 </div>
-</div>
-<div class="section" id="5.-Save-data">
+</section>
+<section id="5.-Save-data">
 <h1>5. Save data<a class="headerlink" href="#5.-Save-data" title="Permalink to this headline">¶</a></h1>
 <p>Save the promoter/enhancer peaks.</p>
 <div class="nbinput nblast docutils container">
@@ -1166,7 +1167,7 @@ tss peaks in que: 17238
 </pre></div>
 </div>
 </div>
-</div>
+</section>
 
 
            </div>

@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <script type="text/javascript">
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<script type="text/javascript">
 
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-214970391-3']);
@@ -18,7 +19,7 @@
     </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Tutorial &mdash; celloracle 0.10.13 documentation</title>
+  <title>Tutorial &mdash; celloracle 0.12.1 documentation</title>
   
 
   
@@ -240,13 +241,13 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="tutorial">
+<section id="tutorial">
 <span id="id1"></span><h1>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">¶</a></h1>
 <p>This tutorial demonstrates how to use CellOracle functions with a demo dataset.
 Once you are familiar with CellOracle’s workflow, please replace the demo data with your own data to begin your analysis.</p>
-<div class="section" id="what-the-tutorial-covers">
+<section id="what-the-tutorial-covers">
 <h2>What the tutorial covers<a class="headerlink" href="#what-the-tutorial-covers" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="main-celloracle-analysis">
+<section id="main-celloracle-analysis">
 <h3>1. Main CellOracle analysis<a class="headerlink" href="#main-celloracle-analysis" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference internal" href="networkanalysis.html"><span class="doc">GRN model construction and network analysis</span></a>: This notebook introduces how to construct sample-specific GRN models. It also contains examples of network analyses that use graph theory.</p></li>
@@ -256,8 +257,8 @@ Once you are familiar with CellOracle’s workflow, please replace the demo data
 <p class="admonition-title">Note</p>
 <p>A demo dataset is available for each of the tutorial notebooks above. These datasets allow you to begin exploring CellOracle even if you do not have any data at any step in the analysis pipeline.</p>
 </div>
-</div>
-<div class="section" id="how-to-prepare-input-data">
+</section>
+<section id="how-to-prepare-input-data">
 <h3>2. How to prepare input data<a class="headerlink" href="#how-to-prepare-input-data" title="Permalink to this headline">¶</a></h3>
 <p>We recommend getting started with CellOracle using the provided demo dataset.
 When you want to apply CellOracle to your own scRNA-seq or scATAC-seq dataset, please refer to the following tutorials to learn how to prepare input data.</p>
@@ -273,9 +274,9 @@ However, please note these precursor notebooks are not considered part of CellOr
 They are intended to help users leverage pre-existing tools in a way that is consistent with CellOracle’s workflow.
 <strong>CellOracle is NOT a pipeline for scRNA-seq or scATAC-seq data preprocessing</strong>.</p>
 </div>
-</div>
-</div>
-<div class="section" id="prerequisites">
+</section>
+</section>
+<section id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>This tutorial assumes that you have adequate <strong>Python programming experience</strong>. In particular, we assume you are familiar with the following python data science libraries: <strong>jupyter, pandas, and matplotlib</strong>.</p></li>
@@ -283,16 +284,16 @@ They are intended to help users leverage pre-existing tools in a way that is con
 <li><p>CellOracle provides pre-build base-GRNs, and it is not necessary to construct a custom base-GRN. However, if you would like to use a custom base-GRN constructed using your scATAC-seq data, we recommend doing basic scATAC-seq data analysis using <a class="reference external" href="https://cole-trapnell-lab.github.io/cicero-release/">Cicero</a>.　In this case, please learn the basic usage Cicero prior to start constructing your base-GRN.</p></li>
 <li><p>CellOracle is a python package. For the installation of CellOracle, we recommend using <a class="reference external" href="https://anaconda.org">Anaconda</a> , If you are not familiar with Anaconda or python environment management, please use <a class="reference external" href="https://morris-lab.github.io/CellOracle.documentation/installation/index.html#docker-image">our pre-built docker image</a>.</p></li>
 </ul>
-</div>
-<div class="section" id="code-and-data-availability">
+</section>
+<section id="code-and-data-availability">
 <h2>Code and data availability<a class="headerlink" href="#code-and-data-availability" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>We provide links for the notebook in each section.</p></li>
 <li><p>You can download the demo input data using CellOracle data loading function in the notebooks.</p></li>
 <li><p>We provide intermediate files. You may begin the demo at any point in the pipeline.</p></li>
 </ul>
-</div>
-<div class="section" id="getting-started">
+</section>
+<section id="getting-started">
 <h2>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
 <p>If you are running CellOracle for the first time, we recommend getting started with the <a class="reference internal" href="networkanalysis.html"><span class="doc">GRN model construction and network analysis</span></a> and then, proceed to <a class="reference internal" href="simulation.html"><span class="doc">In silico gene perturbation with GRNs</span></a>.
 We provide demo scRNA-seq dataset and base-GRN data as follows.
@@ -303,10 +304,10 @@ The demo scRNA-seq dataset and base GRN data can be loaded within the notebook.<
 </ul>
 <p>Using these tutorials, you can easily start CellOracle analysis with this dataset.
 You can reproduce hematopoiesis network analysis and perturbation simulation results that are shown in <a class="reference external" href="https://www.biorxiv.org/content/10.1101/2020.02.17.947416v3">our bioRxiv preprint</a> .</p>
-</div>
-<div class="section" id="index">
+</section>
+<section id="index">
 <h2>Index<a class="headerlink" href="#index" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="grn-model-construction-and-network-analysis">
+<section id="grn-model-construction-and-network-analysis">
 <h3>GRN model construction and network analysis<a class="headerlink" href="#grn-model-construction-and-network-analysis" title="Permalink to this headline">¶</a></h3>
 <div class="toctree-wrapper compound">
 <ul>
@@ -325,8 +326,8 @@ You can reproduce hematopoiesis network analysis and perturbation simulation res
 </li>
 </ul>
 </div>
-</div>
-<div class="section" id="in-silico-gene-perturbation-with-grns">
+</section>
+<section id="in-silico-gene-perturbation-with-grns">
 <h3>In silico gene perturbation with GRNs<a class="headerlink" href="#in-silico-gene-perturbation-with-grns" title="Permalink to this headline">¶</a></h3>
 <div class="toctree-wrapper compound">
 <ul>
@@ -343,8 +344,8 @@ You can reproduce hematopoiesis network analysis and perturbation simulation res
 </li>
 </ul>
 </div>
-</div>
-<div class="section" id="prepare-input-data">
+</section>
+<section id="prepare-input-data">
 <h3>Prepare input data<a class="headerlink" href="#prepare-input-data" title="Permalink to this headline">¶</a></h3>
 <div class="toctree-wrapper compound">
 <ul>
@@ -370,8 +371,8 @@ You can reproduce hematopoiesis network analysis and perturbation simulation res
 </li>
 </ul>
 </div>
-</div>
-<div class="section" id="tf-motif-scan-for-base-grn-construction">
+</section>
+<section id="tf-motif-scan-for-base-grn-construction">
 <h3>TF motif scan for base-GRN construction<a class="headerlink" href="#tf-motif-scan-for-base-grn-construction" title="Permalink to this headline">¶</a></h3>
 <div class="toctree-wrapper compound">
 <ul>
@@ -387,9 +388,9 @@ You can reproduce hematopoiesis network analysis and perturbation simulation res
 </li>
 </ul>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>

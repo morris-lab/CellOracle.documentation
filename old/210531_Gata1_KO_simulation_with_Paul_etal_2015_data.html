@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <script type="text/javascript">
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<script type="text/javascript">
 
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-214970391-3']);
@@ -18,7 +19,7 @@
     </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>0. Import libraries &mdash; celloracle 0.10.13 documentation</title>
+  <title>0. Import libraries &mdash; celloracle 0.12.1 documentation</title>
   
 
   
@@ -437,9 +438,9 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<div class="section" id="0.-Import-libraries">
+<section id="0.-Import-libraries">
 <h1>0. Import libraries<a class="headerlink" href="#0.-Import-libraries" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="0.1.-Import-public-libraries">
+<section id="0.1.-Import-public-libraries">
 <h2>0.1. Import public libraries<a class="headerlink" href="#0.1.-Import-public-libraries" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
@@ -493,8 +494,8 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="0.1.-Make-a-folder-to-save-graph">
+</section>
+<section id="0.1.-Make-a-folder-to-save-graph">
 <h2>0.1. Make a folder to save graph<a class="headerlink" href="#0.1.-Make-a-folder-to-save-graph" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
@@ -507,11 +508,11 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="1.-Load-data">
+</section>
+</section>
+<section id="1.-Load-data">
 <h1>1. Load data<a class="headerlink" href="#1.-Load-data" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="1.1.-Load-processed-oracle-object">
+<section id="1.1.-Load-processed-oracle-object">
 <h2>1.1. Load processed oracle object<a class="headerlink" href="#1.1.-Load-processed-oracle-object" title="Permalink to this headline">¶</a></h2>
 <p>Load the oracle object. See the previous notebook for the notes on how to prepare the oracle object.</p>
 <div class="nbinput nblast docutils container">
@@ -523,8 +524,8 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="1.2.-Load-inferred-GRNs">
+</section>
+<section id="1.2.-Load-inferred-GRNs">
 <h2>1.2. Load inferred GRNs<a class="headerlink" href="#1.2.-Load-inferred-GRNs" title="Permalink to this headline">¶</a></h2>
 <p>In the previous notebook, we calculated GRNs. Now, we will use these GRNs for simulation. We import GRNs which were saved in the Links object.</p>
 <div class="nbinput nblast docutils container">
@@ -536,9 +537,9 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="2.-Make-predictive-models-for-simulation">
+</section>
+</section>
+<section id="2.-Make-predictive-models-for-simulation">
 <h1>2. Make predictive models for simulation<a class="headerlink" href="#2.-Make-predictive-models-for-simulation" title="Permalink to this headline">¶</a></h1>
 <p>We will fit ridge regression models again. This process takes less time than the GRN inference in the previous notebook because we only use significant TFs to predict target gene instead of all regulatory candidate TFs.</p>
 <div class="nbinput docutils container">
@@ -558,14 +559,14 @@ div.rendered_html tbody tr:hover {
 <div class="output_area docutils container">
 <script type="application/vnd.jupyter.widget-view+json">{"model_id": "570b6d93107748889dd38300b4c1229a", "version_major": 2, "version_minor": 0}</script></div>
 </div>
-</div>
-<div class="section" id="3.-in-silico-Perturbation-simulation">
+</section>
+<section id="3.-in-silico-Perturbation-simulation">
 <h1>3. in silico Perturbation-simulation<a class="headerlink" href="#3.-in-silico-Perturbation-simulation" title="Permalink to this headline">¶</a></h1>
 <p>Next, we will simulate the effects of perturbing a single TF to investigate its function and regulatory mechanism. See the celloracle paper for the details and scientific premise on the algorithm.</p>
 <p>In this notebook, we’ll show an example of the simulation; we’ll simulate knock-out of Gata1 gene in the hematopoiesis.</p>
 <p>Previous studies have shown that Gata1 is one of the TFs that regulates cell fate decisions in myeloid progenitors. Additionally, Gata1 has been shown to affect erythroid cell differentiation.</p>
 <p>Here, we will analyze Gata1 for the demonstration of celloracle; Celloracle try to recapitulate the previous findings of Gata1 gene above.</p>
-<div class="section" id="3.1.-Check-gene-expression-pattern.">
+<section id="3.1.-Check-gene-expression-pattern.">
 <h2>3.1. Check gene expression pattern.<a class="headerlink" href="#3.1.-Check-gene-expression-pattern." title="Permalink to this headline">¶</a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
@@ -604,8 +605,8 @@ div.rendered_html tbody tr:hover {
 <img alt="../_images/old_210531_Gata1_KO_simulation_with_Paul_etal_2015_data_17_0.png" class="no-scaled-link" src="../_images/old_210531_Gata1_KO_simulation_with_Paul_etal_2015_data_17_0.png" style="width: 381px; height: 263px;" />
 </div>
 </div>
-</div>
-<div class="section" id="3.2.-calculate-future-gene-expression-after-perturbation.">
+</section>
+<section id="3.2.-calculate-future-gene-expression-after-perturbation.">
 <h2>3.2. calculate future gene expression after perturbation.<a class="headerlink" href="#3.2.-calculate-future-gene-expression-after-perturbation." title="Permalink to this headline">¶</a></h2>
 <p>Although you can use any gene expression value for the input of in silico perturbation, we recommend avoiding extreme values which are far from natural gene expression ranges. If you set Gata1 gene expression to 100, for example, it may lead to biologically infeasible results.</p>
 <p>Here we simulate Gata1 KO; we predict what happens to the cells if Gata1 gene expression changed into 0.</p>
@@ -620,8 +621,8 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="3.3.-calculate-transition-probability-between-cells">
+</section>
+<section id="3.3.-calculate-transition-probability-between-cells">
 <h2>3.3. calculate transition probability between cells<a class="headerlink" href="#3.3.-calculate-transition-probability-between-cells" title="Permalink to this headline">¶</a></h2>
 <p>In the step above, we simulated simulated future gene expression values after perturbation. This prediction is based on itelative calculations of signal propagations within the GRN.</p>
 <p>Next step, we will calculate the probabilityof a cell state transition based on the simulated data. Using the transition probability between cells, we can predict how a cell changes after perturbation.</p>
@@ -644,11 +645,11 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="4.-Visualization">
+</section>
+</section>
+<section id="4.-Visualization">
 <h1>4. Visualization<a class="headerlink" href="#4.-Visualization" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="4.1.-Quiver-plot:-Show-the-direction-of-cell-transition-at-single-cell-resolution">
+<section id="4.1.-Quiver-plot:-Show-the-direction-of-cell-transition-at-single-cell-resolution">
 <h2>4.1. Quiver plot: Show the direction of cell transition at single cell resolution<a class="headerlink" href="#4.1.-Quiver-plot:-Show-the-direction-of-cell-transition-at-single-cell-resolution" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
@@ -677,8 +678,8 @@ div.rendered_html tbody tr:hover {
 <img alt="../_images/old_210531_Gata1_KO_simulation_with_Paul_etal_2015_data_23_0.png" class="no-scaled-link" src="../_images/old_210531_Gata1_KO_simulation_with_Paul_etal_2015_data_23_0.png" style="width: 851px; height: 410px;" />
 </div>
 </div>
-</div>
-<div class="section" id="4.2.-Vector-field-graph">
+</section>
+<section id="4.2.-Vector-field-graph">
 <h2>4.2. Vector field graph<a class="headerlink" href="#4.2.-Vector-field-graph" title="Permalink to this headline">¶</a></h2>
 <p>We can visualize simulation result as a vector field graph. Single cell transition vectors are grouped by grid point.</p>
 <ul class="simple">
@@ -743,13 +744,13 @@ div.rendered_html tbody tr:hover {
 <img alt="../_images/old_210531_Gata1_KO_simulation_with_Paul_etal_2015_data_28_0.png" class="no-scaled-link" src="../_images/old_210531_Gata1_KO_simulation_with_Paul_etal_2015_data_28_0.png" style="width: 460px; height: 449px;" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="5.-Markov-simulation-to-analyze-the-effects-of-perturbation-on-cell-fate-transition">
+</section>
+</section>
+<section id="5.-Markov-simulation-to-analyze-the-effects-of-perturbation-on-cell-fate-transition">
 <h1>5. Markov simulation to analyze the effects of perturbation on cell fate transition<a class="headerlink" href="#5.-Markov-simulation-to-analyze-the-effects-of-perturbation-on-cell-fate-transition" title="Permalink to this headline">¶</a></h1>
 <p>We can also simulate cell state transition using Markof simulation.</p>
-</div>
-<div class="section" id="5.1.-Do-Markov-simulation">
+</section>
+<section id="5.1.-Do-Markov-simulation">
 <h1>5.1. Do Markov simulation<a class="headerlink" href="#5.1.-Do-Markov-simulation" title="Permalink to this headline">¶</a></h1>
 <p>We will simulate using the parameters, “n_steps=200” and “n_duplication=5” in the following example.</p>
 <p>To elaborate, this means:</p>
@@ -778,7 +779,7 @@ CPU times: user 15.7 s, sys: 4.1 ms, total: 15.7 s
 Wall time: 15.7 s
 </pre></div></div>
 </div>
-<div class="section" id="5.2.-Check-the-results-of-the-simulation-for-specific-cells">
+<section id="5.2.-Check-the-results-of-the-simulation-for-specific-cells">
 <h2>5.2. Check the results of the simulation for specific cells<a class="headerlink" href="#5.2.-Check-the-results-of-the-simulation-for-specific-cells" title="Permalink to this headline">¶</a></h2>
 <p>Check the results of simulation. Pick up some cells and visualize their transition trajectory.</p>
 <div class="nbinput docutils container">
@@ -824,8 +825,8 @@ Wall time: 15.7 s
 <img alt="../_images/old_210531_Gata1_KO_simulation_with_Paul_etal_2015_data_36_2.png" class="no-scaled-link" src="../_images/old_210531_Gata1_KO_simulation_with_Paul_etal_2015_data_36_2.png" style="width: 516px; height: 192px;" />
 </div>
 </div>
-</div>
-<div class="section" id="5.3.-Summarize-the-results-of-simulation-by-plotting-sankey-diagram">
+</section>
+<section id="5.3.-Summarize-the-results-of-simulation-by-plotting-sankey-diagram">
 <h2>5.3. Summarize the results of simulation by plotting sankey diagram<a class="headerlink" href="#5.3.-Summarize-the-results-of-simulation-by-plotting-sankey-diagram" title="Permalink to this headline">¶</a></h2>
 <p>Sankey diagrams are useful when you want to visualize proportional cell transitions between some groups.</p>
 <p>For the grouping of cells, you can use arbitrary cluster unit.</p>
@@ -906,8 +907,8 @@ Wall time: 15.7 s
 <li><p>Gata1 KO also induced cell state transitions from granulocytes to late GMP, suggesting Gata1’s involvement in Granulocytes differentiation.</p></li>
 </ol>
 <p>These results agree with previous reports about Gata1 and recapitulate Gata1’s cell-type-specific function regarding the cell fate decisions in hematopoiesis.</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>

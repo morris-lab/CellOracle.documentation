@@ -1,0 +1,1055 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-214970391-3']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Read Me Before starting &mdash; celloracle 0.12.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home" alt="Documentation Home"> celloracle
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../index.html">Welcome to CellOracle’s documentation!</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/index.html">Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/index.html">Tutorial</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modules/index.html">API</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../changelog/index.html">Changelog</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../license/index.html">License</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../citation/index.html">Authors and citations</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../contact/index.html">Contact</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">celloracle</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Read Me Before starting</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/notebooks/05_simulation/misc/scale_up_simulation/01_Systematic_KO_simulations_Calculate_and_save_results.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="Read-Me-Before-starting">
+<h1>Read Me Before starting<a class="headerlink" href="#Read-Me-Before-starting" title="Permalink to this headline">¶</a></h1>
+<p>In this notebook, we will perform in silico perturbation for many genes. The systematic perturbation simulation will require more knowledge about the operation of celloracle software. Here are several notes we recommend considering before starting the systematic simulation.</p>
+<ul class="simple">
+<li><p>It is a bad idea to start with this notebook if you are unfamiliar with CellOracle analysis. Please try our tutorial first.</p></li>
+<li><p>Please perform in silico perturbation simulation focusing on just one gene. We need to decide on several hyperparameters. Analyzing just a single gene to find the appropriate hyperparameters is highly recommended.</p></li>
+<li><p>In the codes below, we will perform in silico TF perturbation for each gene and save the result in the original data format. This may take a very long time. The hyperparameter tuning needs to be done before this step. Otherwise, you will waste your time.</p></li>
+<li><p>We need to use <code class="docutils literal notranslate"><span class="pre">Oracle</span></code> object, <code class="docutils literal notranslate"><span class="pre">Links</span></code> object, and <code class="docutils literal notranslate"><span class="pre">Gradient</span></code> object. Please see our tutorial for more information on how to prepare them.</p></li>
+<li><p>In this notebook, we will use Paul et al. 2015 hematopoiesis dataset. Some of the parts, especially step 4.1, need to be adjusted to your scRNA-seq data and the purpose of your analysis.</p></li>
+<li><p>The systematic simulation results made with this notebook will be analyzed in the following notebook.</p></li>
+</ul>
+</section>
+<section id="0.-Import-libraries">
+<h1>0. Import libraries<a class="headerlink" href="#0.-Import-libraries" title="Permalink to this headline">¶</a></h1>
+<section id="0.1.-Import-public-libraries">
+<h2>0.1. Import public libraries<a class="headerlink" href="#0.1.-Import-public-libraries" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">copy</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">importlib</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">importlib</span> <span class="kn">import</span> <span class="n">reload</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.colors</span> <span class="k">as</span> <span class="nn">colors</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">scanpy</span> <span class="k">as</span> <span class="nn">sc</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">tqdm.notebook</span> <span class="kn">import</span> <span class="n">tqdm</span>
+
+<span class="c1">#import time</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="0.2.-Import-our-library">
+<h2>0.2. Import our library<a class="headerlink" href="#0.2.-Import-our-library" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">celloracle</span> <span class="k">as</span> <span class="nn">co</span>
+<span class="kn">from</span> <span class="nn">celloracle.applications</span> <span class="kn">import</span> <span class="n">Oracle_development_module</span>
+<span class="n">co</span><span class="o">.</span><span class="n">__version__</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;0.12.0&#39;
+</pre></div></div>
+</div>
+</section>
+<section id="0.3.-Plotting-parameter-setting">
+<h2>0.3. Plotting parameter setting<a class="headerlink" href="#0.3.-Plotting-parameter-setting" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#plt.rcParams[&quot;font.family&quot;] = &quot;arial&quot;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;retina&#39;
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;savefig.dpi&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">300</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="1.-Load-data">
+<h1>1. Load data<a class="headerlink" href="#1.-Load-data" title="Permalink to this headline">¶</a></h1>
+<section id="1.1.-Load-oracle-object">
+<h2>1.1. Load oracle object<a class="headerlink" href="#1.1.-Load-oracle-object" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">oracle</span> <span class="o">=</span> <span class="n">co</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">load_tutorial_oracle_object</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="1.2.-Load-inferred-GRNs">
+<h2>1.2. Load inferred GRNs<a class="headerlink" href="#1.2.-Load-inferred-GRNs" title="Permalink to this headline">¶</a></h2>
+<p>In the previous notebook, we calculated GRNs. Now, we will use these GRNs for simulation. We import GRNs which were saved in the Links object.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">links</span> <span class="o">=</span> <span class="n">co</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">load_tutorial_links_object</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="1.3.-Load-gradient-object">
+<h2>1.3. Load gradient object<a class="headerlink" href="#1.3.-Load-gradient-object" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">gradient</span> <span class="o">=</span> <span class="n">co</span><span class="o">.</span><span class="n">load_hdf5</span><span class="p">(</span><span class="s2">&quot;./Paul_etal.celloracle.gradient&quot;</span><span class="p">)</span>
+
+<span class="c1"># Please make sure that the number of cells and dimensional reduction data is exact same between oracle object and gradient object</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">oracle</span><span class="o">.</span><span class="n">adata</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">gradient</span><span class="o">.</span><span class="n">embedding</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="k">assert</span><span class="p">((</span><span class="n">oracle</span><span class="o">.</span><span class="n">adata</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="n">oracle</span><span class="o">.</span><span class="n">embedding_name</span><span class="p">]</span> <span class="o">==</span> <span class="n">gradient</span><span class="o">.</span><span class="n">embedding</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(2671, 1999) (2671, 2)
+</pre></div></div>
+</div>
+</section>
+</section>
+<section id="2.-Process-GRNs-to-make-predictive-models-for-simulation">
+<h1>2. Process GRNs to make predictive models for simulation<a class="headerlink" href="#2.-Process-GRNs-to-make-predictive-models-for-simulation" title="Permalink to this headline">¶</a></h1>
+<section id="2.1.-Fit-lineat-model-again">
+<h2>2.1. Fit lineat model again<a class="headerlink" href="#2.1.-Fit-lineat-model-again" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">links</span><span class="o">.</span><span class="n">filter_links</span><span class="p">()</span>
+<span class="n">oracle</span><span class="o">.</span><span class="n">get_cluster_specific_TFdict_from_Links</span><span class="p">(</span><span class="n">links_object</span><span class="o">=</span><span class="n">links</span><span class="p">)</span>
+<span class="n">oracle</span><span class="o">.</span><span class="n">fit_GRN_for_simulation</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">use_cluster_specific_TFdict</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "74dc393601eb4e798c485a48239fe2c2", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+</section>
+</section>
+<section id="3.-Check-TF-list-that-can-be-used-for-simulation.">
+<h1>3. Check TF list that can be used for simulation.<a class="headerlink" href="#3.-Check-TF-list-that-can-be-used-for-simulation." title="Permalink to this headline">¶</a></h1>
+<p>Celloracle’s simulation uses GRNs for the signal propagation. It means it is not possible if TF have no connection in the inferred GRN. Before starting systematic simulation, let’s check which TF exist in the GRN.</p>
+<p>If your gene of interest is not in the list below, you cannot use that gene for celloracle perturbation-simulation. There are several possibilities why the gene is not in the list. For example, celloracle’s GRN inference method may fail to detect a gene regulatory connection in the following cases.</p>
+<ul class="simple">
+<li><p>The gene is not in the gene expression marix after gene filtering.</p></li>
+<li><p>Valiability level is too low.</p></li>
+<li><p>Gene expression level is too low or gene expression contains too many dropout.</p></li>
+<li><p>The gene does not have DNA-binding motifs</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># You can get the list of genes that have at least one regulatory connection in the inferred GRNs.</span>
+<span class="n">genes</span> <span class="o">=</span> <span class="n">oracle</span><span class="o">.</span><span class="n">active_regulatory_genes</span>
+<span class="n">genes</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;Arhgef12&#39;,
+ &#39;Arid5a&#39;,
+ &#39;Batf3&#39;,
+ &#39;Bcl11a&#39;,
+ &#39;Bdp1&#39;,
+ &#39;Bhlha15&#39;,
+ &#39;Bptf&#39;,
+ &#39;Brf1&#39;,
+ &#39;Cbx5&#39;,
+ &#39;Cebpa&#39;,
+ &#39;Cebpe&#39;,
+ &#39;Chd2&#39;,
+ &#39;Cux1&#39;,
+ &#39;Cxxc1&#39;,
+ &#39;E2f4&#39;,
+ &#39;Egr1&#39;,
+ &#39;Elf1&#39;,
+ &#39;Elk3&#39;,
+ &#39;Ets1&#39;,
+ &#39;Etv6&#39;,
+ &#39;Ezh2&#39;,
+ &#39;Fli1&#39;,
+ &#39;Foxo1&#39;,
+ &#39;Foxp1&#39;,
+ &#39;Gata1&#39;,
+ &#39;Gata2&#39;,
+ &#39;Gfi1&#39;,
+ &#39;Gfi1b&#39;,
+ &#39;Herpud1&#39;,
+ &#39;Hivep2&#39;,
+ &#39;Hlf&#39;,
+ &#39;Hnf4a&#39;,
+ &#39;Hoxa5&#39;,
+ &#39;Hoxa7&#39;,
+ &#39;Id2&#39;,
+ &#39;Ikzf2&#39;,
+ &#39;Irf1&#39;,
+ &#39;Irf2&#39;,
+ &#39;Irf7&#39;,
+ &#39;Irf8&#39;,
+ &#39;Irf9&#39;,
+ &#39;Itgb2&#39;,
+ &#39;Klf1&#39;,
+ &#39;Klf2&#39;,
+ &#39;Klf4&#39;,
+ &#39;Klf6&#39;,
+ &#39;Lmo2&#39;,
+ &#39;Mef2c&#39;,
+ &#39;Meis1&#39;,
+ &#39;Myb&#39;,
+ &#39;Myc&#39;,
+ &#39;Mycn&#39;,
+ &#39;Nfat5&#39;,
+ &#39;Nfatc2&#39;,
+ &#39;Nfatc3&#39;,
+ &#39;Nfe2&#39;,
+ &#39;Nfe2l2&#39;,
+ &#39;Nfia&#39;,
+ &#39;Nfic&#39;,
+ &#39;Nfkb1&#39;,
+ &#39;Nfya&#39;,
+ &#39;Nr3c1&#39;,
+ &#39;Pbx1&#39;,
+ &#39;Phf21a&#39;,
+ &#39;Prdm5&#39;,
+ &#39;Rara&#39;,
+ &#39;Rel&#39;,
+ &#39;Rreb1&#39;,
+ &#39;Runx1&#39;,
+ &#39;Runx2&#39;,
+ &#39;Smarca5&#39;,
+ &#39;Smarcc1&#39;,
+ &#39;Smarcc2&#39;,
+ &#39;Sox13&#39;,
+ &#39;Sox4&#39;,
+ &#39;Sp100&#39;,
+ &#39;Spi1&#39;,
+ &#39;Stat1&#39;,
+ &#39;Stat3&#39;,
+ &#39;Stat4&#39;,
+ &#39;Stat5a&#39;,
+ &#39;Tcf7&#39;,
+ &#39;Tcfec&#39;,
+ &#39;Ybx1&#39;,
+ &#39;Zbtb1&#39;,
+ &#39;Zbtb16&#39;,
+ &#39;Zbtb4&#39;,
+ &#39;Zbtb7a&#39;,
+ &#39;Zfhx3&#39;,
+ &#39;Zfp238&#39;]
+</pre></div></div>
+</div>
+</section>
+<section id="4.-Systematic-simulation">
+<h1>4. Systematic simulation<a class="headerlink" href="#4.-Systematic-simulation" title="Permalink to this headline">¶</a></h1>
+<p>We will do simulations for the all TFs listed above. The results will be saved in the local folder as a hdf5 format so that we can access to the results quickly after finishing all calculations.</p>
+<p>Here, we will do simulation per TF KO for five conditions.</p>
+<ol class="arabic simple">
+<li><p>Simulate TF KO using whole cells.</p></li>
+<li><p>Simulate TF KO focusing on Lineage_GM.</p></li>
+<li><p>Simulate TF KO focusing on Lineage_ME.</p></li>
+<li><p>Simulate TF KO focusing on Granurocyte cluster.</p></li>
+<li><p>Simulate TF KO focusing on Monocyte cluster.</p></li>
+</ol>
+<section id="4.1-Make-cell-index-list">
+<h2>4.1 Make cell index list<a class="headerlink" href="#4.1-Make-cell-index-list" title="Permalink to this headline">¶</a></h2>
+<p>For the simulation conditions #2~5, we will do simulation with a subset of cells. We need to get cell index list first.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Check data first</span>
+<span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">draw_graph</span><span class="p">(</span><span class="n">oracle</span><span class="o">.</span><span class="n">adata</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;louvain_annot&quot;</span><span class="p">,</span> <span class="n">legend_loc</span><span class="o">=</span><span class="s2">&quot;on data&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../../_images/notebooks_05_simulation_misc_scale_up_simulation_01_Systematic_KO_simulations_Calculate_and_save_results_19_0.png" class="no-scaled-link" src="../../../../_images/notebooks_05_simulation_misc_scale_up_simulation_01_Systematic_KO_simulations_Calculate_and_save_results_19_0.png" style="width: 362px; height: 260px;" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># List of cluster name</span>
+<span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">oracle</span><span class="o">.</span><span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s2">&quot;louvain_annot&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;Ery_0&#39;,
+ &#39;Ery_1&#39;,
+ &#39;Ery_2&#39;,
+ &#39;Ery_3&#39;,
+ &#39;Ery_4&#39;,
+ &#39;Ery_5&#39;,
+ &#39;Ery_6&#39;,
+ &#39;Ery_7&#39;,
+ &#39;Ery_8&#39;,
+ &#39;Ery_9&#39;,
+ &#39;GMP_0&#39;,
+ &#39;GMP_1&#39;,
+ &#39;GMP_2&#39;,
+ &#39;GMPl_0&#39;,
+ &#39;GMPl_1&#39;,
+ &#39;Gran_0&#39;,
+ &#39;Gran_1&#39;,
+ &#39;Gran_2&#39;,
+ &#39;Gran_3&#39;,
+ &#39;MEP_0&#39;,
+ &#39;Mk_0&#39;,
+ &#39;Mo_0&#39;,
+ &#39;Mo_1&#39;,
+ &#39;Mo_2&#39;]
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Get cell_id</span>
+
+<span class="n">cell_idx_Lineage_GMP</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">oracle</span><span class="o">.</span><span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s2">&quot;louvain_annot&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span>
+    <span class="s1">&#39;GMP_0&#39;</span><span class="p">,</span> <span class="s1">&#39;GMP_1&#39;</span><span class="p">,</span> <span class="s1">&#39;GMP_2&#39;</span><span class="p">,</span> <span class="s1">&#39;GMPl_0&#39;</span><span class="p">,</span> <span class="s1">&#39;GMPl_1&#39;</span><span class="p">,</span> <span class="s1">&#39;Gran_0&#39;</span><span class="p">,</span> <span class="s1">&#39;Gran_1&#39;</span><span class="p">,</span> <span class="s1">&#39;Gran_2&#39;</span><span class="p">,</span> <span class="s1">&#39;Gran_3&#39;</span><span class="p">,</span> <span class="s1">&#39;Mo_0&#39;</span><span class="p">,</span> <span class="s1">&#39;Mo_1&#39;</span><span class="p">,</span> <span class="s1">&#39;Mo_2&#39;</span><span class="p">]))[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">cell_idx_Lineage_MEP</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">oracle</span><span class="o">.</span><span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s2">&quot;louvain_annot&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span>
+    <span class="s1">&#39;Ery_0&#39;</span><span class="p">,</span> <span class="s1">&#39;Ery_1&#39;</span><span class="p">,</span> <span class="s1">&#39;Ery_2&#39;</span><span class="p">,</span> <span class="s1">&#39;Ery_3&#39;</span><span class="p">,</span> <span class="s1">&#39;Ery_4&#39;</span><span class="p">,</span> <span class="s1">&#39;Ery_5&#39;</span><span class="p">,</span> <span class="s1">&#39;Ery_6&#39;</span><span class="p">,</span> <span class="s1">&#39;Ery_7&#39;</span><span class="p">,</span> <span class="s1">&#39;Ery_8&#39;</span><span class="p">,</span> <span class="s1">&#39;Ery_9&#39;</span><span class="p">,</span> <span class="s1">&#39;MEP_0&#39;</span><span class="p">,</span> <span class="s1">&#39;Mk_0&#39;</span><span class="p">]))[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">cell_idx_granulocytes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">oracle</span><span class="o">.</span><span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s2">&quot;louvain_annot&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span>
+    <span class="s1">&#39;GMPl_1&#39;</span><span class="p">,</span> <span class="s1">&#39;Gran_0&#39;</span><span class="p">,</span> <span class="s1">&#39;Gran_1&#39;</span><span class="p">,</span> <span class="s1">&#39;Gran_2&#39;</span><span class="p">,</span> <span class="s1">&#39;Gran_3&#39;</span><span class="p">]))[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">cell_idx_monocytes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">oracle</span><span class="o">.</span><span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s2">&quot;louvain_annot&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span>
+    <span class="s1">&#39;GMPl_0&#39;</span><span class="p">,</span>  <span class="s1">&#39;Mo_0&#39;</span><span class="p">,</span> <span class="s1">&#39;Mo_1&#39;</span><span class="p">,</span> <span class="s1">&#39;Mo_2&#39;</span><span class="p">]))[</span><span class="mi">0</span><span class="p">]</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Make dictionary to store the cell index list</span>
+
+<span class="n">index_dictionary</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Whole_cells&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                    <span class="s2">&quot;Lineage_GM&quot;</span><span class="p">:</span> <span class="n">cell_idx_Lineage_GMP</span><span class="p">,</span>
+                    <span class="s2">&quot;Lineage_ME&quot;</span><span class="p">:</span> <span class="n">cell_idx_Lineage_MEP</span><span class="p">,</span>
+                    <span class="s2">&quot;Granulocytes&quot;</span><span class="p">:</span> <span class="n">cell_idx_granulocytes</span><span class="p">,</span>
+                    <span class="s2">&quot;Monocytes&quot;</span><span class="p">:</span> <span class="n">cell_idx_monocytes</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="4.2.-Make-a-custom-function-for-the-systematic-KO-workflow">
+<h2>4.2. Make a custom function for the systematic KO workflow<a class="headerlink" href="#4.2.-Make-a-custom-function-for-the-systematic-KO-workflow" title="Permalink to this headline">¶</a></h2>
+<p>We will do many simulations, and all results will be saved in a single hdf5 file. Using <code class="docutils literal notranslate"><span class="pre">Oracle_development_module</span></code>. This is custom class to save and load simulation results. With this class, data will be stored hierarchically in one hdf5 file.</p>
+<p>When save the results, please enter two parameters: gene and misc. These two parameters are used as a key to save/load files into/from hdf5.</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>gene (str): name of gene used in the perturb-simulation.</p></li>
+<li><p>misc (str): name of the simulation, name of cell population or KO condition or etc.</p></li>
+</ol>
+</div></blockquote>
+<p>For example, you can save and load analysis resuts as follows.</p>
+<p>Save data into hdf file</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dev</span><span class="o">.</span><span class="n">set_hdf_path</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">file_path</span><span class="p">)</span>
+<span class="n">dev</span><span class="o">.</span><span class="n">dump_hdf5</span><span class="p">(</span><span class="n">gene</span><span class="o">=</span><span class="s2">&quot;Gata1&quot;</span><span class="p">,</span> <span class="n">misc</span><span class="o">=</span><span class="s2">&quot;Lineage_GMP&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Load data from hdf file</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dev</span> <span class="o">=</span> <span class="n">Oracle_development_module</span><span class="p">()</span>
+<span class="n">dev</span><span class="o">.</span><span class="n">set_hdf_path</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">file_path</span><span class="p">)</span>
+<span class="n">dev</span><span class="o">.</span><span class="n">load_hdf5</span><span class="p">(</span><span class="n">gene</span><span class="o">=</span><span class="s2">&quot;Gata1&quot;</span><span class="p">,</span> <span class="n">misc</span><span class="o">=</span><span class="s2">&quot;Lineage_GMP&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># 0. Define parameters</span>
+<span class="n">n_propagation</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">n_neighbors</span><span class="o">=</span><span class="mi">200</span>
+
+<span class="n">file_path</span> <span class="o">=</span> <span class="s2">&quot;Systematic_simulation_results_Paul_data.celloracle.hdf5&quot;</span> <span class="c1"># Please use .hdf5 for extension.</span>
+
+
+<span class="k">def</span> <span class="nf">pipeline</span><span class="p">(</span><span class="n">gene_for_KO</span><span class="p">):</span>
+
+    <span class="c1"># 1. Simulate KO</span>
+    <span class="n">oracle</span><span class="o">.</span><span class="n">simulate_shift</span><span class="p">(</span><span class="n">perturb_condition</span><span class="o">=</span><span class="p">{</span><span class="n">gene_for_KO</span><span class="p">:</span> <span class="mi">0</span><span class="p">},</span>
+                                 <span class="n">ignore_warning</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                 <span class="n">n_propagation</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">oracle</span><span class="o">.</span><span class="n">estimate_transition_prob</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="n">n_neighbors</span><span class="p">,</span> <span class="n">knn_random</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sampled_fraction</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">oracle</span><span class="o">.</span><span class="n">calculate_embedding_shift</span><span class="p">(</span><span class="n">sigma_corr</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
+
+    <span class="c1"># Do simulation for all conditions.</span>
+    <span class="k">for</span> <span class="n">lineage_name</span><span class="p">,</span> <span class="n">cell_idx</span> <span class="ow">in</span> <span class="n">index_dictionary</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+
+        <span class="n">dev</span> <span class="o">=</span> <span class="n">Oracle_development_module</span><span class="p">()</span>
+        <span class="c1"># Load development flow</span>
+        <span class="n">dev</span><span class="o">.</span><span class="n">load_differentiation_reference_data</span><span class="p">(</span><span class="n">gradient_object</span><span class="o">=</span><span class="n">gradient</span><span class="p">)</span>
+        <span class="c1"># Load simulation result</span>
+        <span class="n">dev</span><span class="o">.</span><span class="n">load_perturb_simulation_data</span><span class="p">(</span><span class="n">oracle_object</span><span class="o">=</span><span class="n">oracle</span><span class="p">,</span> <span class="n">cell_idx_use</span><span class="o">=</span><span class="n">cell_idx</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">lineage_name</span><span class="p">)</span>
+        <span class="c1"># Calculate inner product</span>
+        <span class="n">dev</span><span class="o">.</span><span class="n">calculate_inner_product</span><span class="p">()</span>
+        <span class="n">dev</span><span class="o">.</span><span class="n">calculate_digitized_ip</span><span class="p">(</span><span class="n">n_bins</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+        <span class="c1"># Save results in a hdf5 file.</span>
+        <span class="n">dev</span><span class="o">.</span><span class="n">set_hdf_path</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">file_path</span><span class="p">)</span>
+        <span class="n">dev</span><span class="o">.</span><span class="n">dump_hdf5</span><span class="p">(</span><span class="n">gene</span><span class="o">=</span><span class="n">gene_for_KO</span><span class="p">,</span> <span class="n">misc</span><span class="o">=</span><span class="n">lineage_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#os.remove(file_path)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="4.3.-Test">
+<h2>4.3. Test<a class="headerlink" href="#4.3.-Test" title="Permalink to this headline">¶</a></h2>
+<p>Try function for one gene to check the function above is working.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%%time</span>
+<span class="c1"># Test pipeline with Gata1 gene</span>
+<span class="n">pipeline</span><span class="p">(</span><span class="n">gene_for_KO</span><span class="o">=</span><span class="s2">&quot;Gata1&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+No hdf file found in the path. New hdf5 file was created.
+CPU times: user 1min 13s, sys: 28.2 s, total: 1min 41s
+Wall time: 31.6 s
+</pre></div></div>
+</div>
+</section>
+<section id="4.4.-Check-result-of-test">
+<h2>4.4. Check result of test<a class="headerlink" href="#4.4.-Check-result-of-test" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Make a new Oracle_developmennt_module object to read calculation result</span>
+<span class="n">dev_test</span> <span class="o">=</span> <span class="n">Oracle_development_module</span><span class="p">()</span>
+
+<span class="c1"># Read result</span>
+<span class="n">dev_test</span><span class="o">.</span><span class="n">set_hdf_path</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">file_path</span><span class="p">)</span>
+<span class="n">dev_test</span><span class="o">.</span><span class="n">load_hdf5</span><span class="p">(</span><span class="n">gene</span><span class="o">=</span><span class="s2">&quot;Gata1&quot;</span><span class="p">,</span> <span class="n">misc</span><span class="o">=</span><span class="s2">&quot;Whole_cells&quot;</span><span class="p">)</span>
+
+<span class="c1"># Visualize result</span>
+<span class="n">dev_test</span><span class="o">.</span><span class="n">visualize_development_module_layout_0</span><span class="p">(</span><span class="n">s</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">scale_for_simulation</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">s_grid</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+                                          <span class="n">scale_for_pseudotime</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">vm</span><span class="o">=</span><span class="mf">0.04</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../../_images/notebooks_05_simulation_misc_scale_up_simulation_01_Systematic_KO_simulations_Calculate_and_save_results_30_0.png" class="no-scaled-link" src="../../../../_images/notebooks_05_simulation_misc_scale_up_simulation_01_Systematic_KO_simulations_Calculate_and_save_results_30_0.png" style="width: 1130px; height: 794px;" />
+</div>
+</div>
+</section>
+<section id="4.5.-Run-pipeline-for-all-genes.">
+<h2>4.5. Run pipeline for all genes.<a class="headerlink" href="#4.5.-Run-pipeline-for-all-genes." title="Permalink to this headline">¶</a></h2>
+<p>It might take long time.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%%time</span>
+<span class="k">for</span> <span class="n">gene</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">genes</span><span class="p">):</span>
+    <span class="n">pipeline</span><span class="p">(</span><span class="n">gene_for_KO</span><span class="o">=</span><span class="n">gene</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "69bb98cde8ad4a51b255251ccb044cda", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ls</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+01_Systematic_KO_simulations_Calculate_and_save_results.ipynb
+06_Systematic_KO_simulations_IP_score_analysis_220630.ipynb
+Paul_etal.celloracle.gradient
+Systematic_simulation_results_Paul_data.celloracle.hdf5
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Samantha Morris Lab
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

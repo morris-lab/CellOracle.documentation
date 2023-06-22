@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <script type="text/javascript">
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<script type="text/javascript">
 
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-214970391-3']);
@@ -18,7 +19,7 @@
     </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Overview &mdash; celloracle 0.10.13 documentation</title>
+  <title>Overview &mdash; celloracle 0.12.1 documentation</title>
   
 
   
@@ -437,25 +438,25 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<div class="section" id="Overview">
+<section id="Overview">
 <h1>Overview<a class="headerlink" href="#Overview" title="Permalink to this headline">¶</a></h1>
 <p>In this notebook, we will make TSS annotation in the Cicero coaccessible peak data to get input data of base-GRN construction. - First, we pick up peaks around the transcription starting site (TSS). - Second, we merge cicero data with the peaks around TSS. - Then we remove peaks that have a weak connection to TSS peak so that the final product includes TSS peaks and peaks that have a strong connection with the TSS peaks. We use this information as an active promoter/enhancer elements.</p>
-<div class="section" id="Although-CellOracle-supports-basic-model-organisms-and-reference-genomes,-you-may-want-to-use-a-different-reference-genome-that-is-not-in-the-supported-reference-genome-list.">
+<section id="Although-CellOracle-supports-basic-model-organisms-and-reference-genomes,-you-may-want-to-use-a-different-reference-genome-that-is-not-in-the-supported-reference-genome-list.">
 <h2>Although CellOracle supports basic model organisms and reference genomes, you may want to use a different reference genome that is not in the supported reference genome list.<a class="headerlink" href="#Although-CellOracle-supports-basic-model-organisms-and-reference-genomes,-you-may-want-to-use-a-different-reference-genome-that-is-not-in-the-supported-reference-genome-list." title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="Here,-we-introduce-how-to-use-custom-TSS-database-for-the-annotation-process-the-reference-genome-not-in-the-default-CellOracle.">
+</section>
+<section id="Here,-we-introduce-how-to-use-custom-TSS-database-for-the-annotation-process-the-reference-genome-not-in-the-default-CellOracle.">
 <h2>Here, we introduce how to use custom TSS database for the annotation process the reference genome not in the default CellOracle.<a class="headerlink" href="#Here,-we-introduce-how-to-use-custom-TSS-database-for-the-annotation-process-the-reference-genome-not-in-the-default-CellOracle." title="Permalink to this headline">¶</a></h2>
 <p>Please lookt at another notebook for the detailed process to make the custom TSS database for your species of interest.</p>
-</div>
-</div>
-<div class="section" id="!!-Caution!!-This-is-NOT-part-of-CellOracle-tutorial.">
+</section>
+</section>
+<section id="!!-Caution!!-This-is-NOT-part-of-CellOracle-tutorial.">
 <h1>!! Caution!! This is NOT part of CellOracle tutorial.<a class="headerlink" href="#!!-Caution!!-This-is-NOT-part-of-CellOracle-tutorial." title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p>This notebook includes unusual usage of CellOracle.</p></li>
 <li><p>The analysis might require expertise of python and DNA sequence analysis, but this notebook does not aim to explain them all, and please use this notebook by your responsibility.</p></li>
 </ul>
-</div>
-<div class="section" id="0.-Import-libraries">
+</section>
+<section id="0.-Import-libraries">
 <h1>0. Import libraries<a class="headerlink" href="#0.-Import-libraries" title="Permalink to this headline">¶</a></h1>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
@@ -507,8 +508,8 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="1.-Load-ATAC-seq-peak-data">
+</section>
+<section id="1.-Load-ATAC-seq-peak-data">
 <h1>1. Load ATAC-seq peak data<a class="headerlink" href="#1.-Load-ATAC-seq-peak-data" title="Permalink to this headline">¶</a></h1>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
@@ -631,8 +632,8 @@ array([&#39;DS562855.1_17325102_17326202&#39;, &#39;DS562855.1_17604709_17605809
       dtype=object)
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="2.-Make-TSS-annotation">
+</section>
+<section id="2.-Make-TSS-annotation">
 <h1>2. Make TSS annotation<a class="headerlink" href="#2.-Make-TSS-annotation" title="Permalink to this headline">¶</a></h1>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[55]:
@@ -751,7 +752,7 @@ tss peaks in que: 130
 </pre></div>
 </div>
 </div>
-</div>
+</section>
 
 
            </div>

@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <script type="text/javascript">
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<script type="text/javascript">
 
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-214970391-3']);
@@ -18,7 +19,7 @@
     </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Installation &mdash; celloracle 0.10.13 documentation</title>
+  <title>Installation &mdash; celloracle 0.12.1 documentation</title>
   
 
   
@@ -225,15 +226,15 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="installation">
+<section id="installation">
 <span id="install"></span><h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
 <p>Please follow the guide below to install CellOracle and its dependent software.</p>
-<div class="section" id="docker-image">
+<section id="docker-image">
 <span id="require"></span><h2>Docker image<a class="headerlink" href="#docker-image" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Pre-built docker image is available through <a class="reference external" href="https://hub.docker.com/repository/docker/kenjikamimoto126/celloracle_ubuntu">Docker Hub</a> .</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">pull</span> <span class="n">kenjikamimoto126</span><span class="o">/</span><span class="n">celloracle_ubuntu</span><span class="p">:</span><span class="n">latest</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">pull</span> <span class="n">kenjikamimoto126</span><span class="o">/</span><span class="n">celloracle_ubuntu</span><span class="p">:</span><span class="mf">0.12</span><span class="o">.</span><span class="mi">0</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -245,10 +246,10 @@
 <li class="toctree-l1"><a class="reference internal" href="docker_additional_information.html">CellOracle docker image quick start and additional notes</a></li>
 </ul>
 </div>
-</div>
-<div class="section" id="install-celloracle">
+</section>
+<section id="install-celloracle">
 <h2>Install CellOracle<a class="headerlink" href="#install-celloracle" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="system-requirements">
+<section id="system-requirements">
 <h3>System Requirements<a class="headerlink" href="#system-requirements" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Operating system: macOS or Linux are highly recommended. CellOracle was developed and tested in Linux and macOS.</p></li>
@@ -257,15 +258,15 @@
 <li><p>Memory: 16 G byte or more.  Memory usage also depends on the size of your scRNA-seq dataset. Please note that in silico perturbation, may require large amount of memory.</p></li>
 <li><p>CPU: Core i5 or better processor. CellOracle’s GRN inference function supports multicore calculation. Utilizing more CPU cores enables faster calculations.</p></li>
 </ul>
-</div>
-<div class="section" id="python-requirements">
+</section>
+<section id="python-requirements">
 <h3>Python Requirements<a class="headerlink" href="#python-requirements" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>CellOracle was developed using python 3.6. It is also tested with python 3.8. We do not support python 2.7x or python &lt;=3.5.</p></li>
 <li><p>CellOracle is available through <a class="reference external" href="https://pypi.org/project/celloracle/">PyPI</a>. You can also download and install celloracle from our <a class="reference external" href="https://github.com/morris-lab/CellOracle">CellOracle  GitHub repository</a> .</p></li>
 </ul>
-</div>
-<div class="section" id="celloracle-installation-using-conda-and-pip">
+</section>
+<section id="celloracle-installation-using-conda-and-pip">
 <h3>CellOracle installation using conda and pip<a class="headerlink" href="#celloracle-installation-using-conda-and-pip" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><p>We recommend installing CellOracle in an independent conda environment to avoid dependent software conflicts.
@@ -290,8 +291,8 @@ We also recommend using our pre-built docker image if you have program conflicts
 <p class="admonition-title">Warning</p>
 <p>Previous version of CellOracle required some R packages. But after celloracle 0.10.0, the R functions were replaced with python codes, and <strong>celloracle does NOT require R packages after version 0.10.0.</strong></p>
 </div>
-</div>
-<div class="section" id="check-installation">
+</section>
+<section id="check-installation">
 <h3>Check installation<a class="headerlink" href="#check-installation" title="Permalink to this headline">¶</a></h3>
 <p>You can check the installed library version as follows. Please make sure that all dependencies are appropriately installed.</p>
 <p>In python console,</p>
@@ -299,8 +300,8 @@ We also recommend using our pre-built docker image if you have program conflicts
 <span class="n">co</span><span class="o">.</span><span class="n">check_python_requirements</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="other-optional-softwares-for-input-data-preparation">
+</section>
+<section id="other-optional-softwares-for-input-data-preparation">
 <h3>Other optional softwares for input data preparation<a class="headerlink" href="#other-optional-softwares-for-input-data-preparation" title="Permalink to this headline">¶</a></h3>
 <p>We provide many working examples for input data preparation.
 These softwares below are not in the part of the CellOracle library itself and not necessary.
@@ -310,9 +311,9 @@ If you just want to try CellOracle main tutorials, <span class="xref std std-doc
 <ul class="simple">
 <li><p><a class="reference external" href="https://cole-trapnell-lab.github.io/cicero-release/docs/#installing-cicero">Cicero</a></p></li>
 </ul>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>

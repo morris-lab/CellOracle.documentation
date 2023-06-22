@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <script type="text/javascript">
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<script type="text/javascript">
 
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-214970391-3']);
@@ -18,7 +19,7 @@
     </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>3. Base GRN input data preparation &mdash; celloracle 0.10.13 documentation</title>
+  <title>3. Base GRN input data preparation &mdash; celloracle 0.12.1 documentation</title>
   
 
   
@@ -210,9 +211,9 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="base-grn-input-data-preparation">
+<section id="base-grn-input-data-preparation">
 <span id="base-grn"></span><h1><span class="section-number">3. </span>Base GRN input data preparation<a class="headerlink" href="#base-grn-input-data-preparation" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="overview">
+<section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>There are several options for CellOracle base-GRN construction.
 These are outlined in the figure below.</p>
@@ -222,8 +223,8 @@ These are outlined in the figure below.</p>
 <li><p>Base GRNs can be assembled using data from a promoter database (option 3). Within the CellOracle package, we provide pre-built promoter base GRNs for 10 species. These can be imported using the CellOracle data loading function.</p></li>
 <li><p>Base GRNs can also be constructed from a user-supplied TF-target gene list (option 4).</p></li>
 </ul>
-</div>
-<div class="section" id="option1-preprocessing-scatac-seq-data">
+</section>
+<section id="option1-preprocessing-scatac-seq-data">
 <h2>Option1. Preprocessing scATAC-seq data<a class="headerlink" href="#option1-preprocessing-scatac-seq-data" title="Permalink to this headline">¶</a></h2>
 <p>If you have scATAC-seq data, you can use scATAC-seq data to obtain the accessible promoter/enhancer DNA sequence.
 The sample-specific promoter/enhancer data will be converted into base GRN in the later process.
@@ -240,7 +241,7 @@ Here, we introduce an example method to extract active promoter/enhancer peaks f
 <li><p>As noted above, you can use totally different software to idntify gene regulatory elements if you have a favorite algorithm / software for scATAC-data analysis.</p></li>
 </ul>
 </div>
-<div class="section" id="step1-scatac-seq-analysis-with-cicero">
+<section id="step1-scatac-seq-analysis-with-cicero">
 <h3>Step1. scATAC-seq analysis with Cicero<a class="headerlink" href="#step1-scatac-seq-analysis-with-cicero" title="Permalink to this headline">¶</a></h3>
 <p>The jupyter notebook file is available <a class="reference external" href="https://github.com/morris-lab/CellOracle/blob/master/docs/notebooks/01_ATAC-seq_data_processing/option1_scATAC-seq_data_analysis_with_cicero/01_atacdata_analysis_with_cicero_and_monocle3.ipynb">here</a> .
 The R notebook file is available <a class="reference external" href="https://github.com/morris-lab/CellOracle/blob/master/docs/notebooks/01_ATAC-seq_data_processing/option1_scATAC-seq_data_analysis_with_cicero/01_atacdata_analysis_with_cicero_and_monocle3.Rmd">here</a> .</p>
@@ -258,8 +259,8 @@ The R notebook file is available <a class="reference external" href="https://git
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/01_ATAC-seq_data_processing/option1_scATAC-seq_data_analysis_with_cicero/01_atacdata_analysis_with_cicero_and_monocle3.html#7.-Save-results-for-the-next-step">7. Save results for the next step</a></li>
 </ul>
 </div>
-</div>
-<div class="section" id="step2-tss-annotation">
+</section>
+<section id="step2-tss-annotation">
 <h3>Step2. TSS annotation<a class="headerlink" href="#step2-tss-annotation" title="Permalink to this headline">¶</a></h3>
 <p>In this step, we will annotate the active/enhancer peaks from step 1 above.</p>
 <p>The jupyter notebook file is available <a class="reference external" href="https://github.com/morris-lab/CellOracle/blob/master/docs/notebooks/01_ATAC-seq_data_processing/option1_scATAC-seq_data_analysis_with_cicero/02_preprocess_peak_data.ipynb">here</a> .</p>
@@ -276,9 +277,9 @@ The R notebook file is available <a class="reference external" href="https://git
 </ul>
 </div>
 <p>Once you get the input data, please go to the Motif scan section.</p>
-</div>
-</div>
-<div class="section" id="option2-data-preprocessing-of-bulk-atac-seq-data">
+</section>
+</section>
+<section id="option2-data-preprocessing-of-bulk-atac-seq-data">
 <h2>Option2. Data preprocessing of bulk ATAC-seq data<a class="headerlink" href="#option2-data-preprocessing-of-bulk-atac-seq-data" title="Permalink to this headline">¶</a></h2>
 <p>Bulk ATAC-seq data can also be used to get the accessible promoter/enhancer sequences.</p>
 <p>The jupyter notebook file is available <a class="reference external" href="https://github.com/morris-lab/CellOracle/blob/master/docs/notebooks/01_ATAC-seq_data_processing/option2_Bulk_ATAC-seq_data/01_preprocess_Bulk_ATAC_seq_peak_data.ipynb">here</a> .</p>
@@ -292,8 +293,8 @@ The R notebook file is available <a class="reference external" href="https://git
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/01_ATAC-seq_data_processing/option2_Bulk_ATAC-seq_data/01_preprocess_Bulk_ATAC_seq_peak_data.html#3.-Save-data">3. Save data</a></li>
 </ul>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>

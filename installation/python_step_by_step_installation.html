@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <script type="text/javascript">
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<script type="text/javascript">
 
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-214970391-3']);
@@ -18,7 +19,7 @@
     </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Python dependent library installation troubleshooting &mdash; celloracle 0.10.13 documentation</title>
+  <title>Python dependent library installation troubleshooting &mdash; celloracle 0.12.1 documentation</title>
   
 
   
@@ -224,9 +225,9 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="python-dependent-library-installation-troubleshooting">
+<section id="python-dependent-library-installation-troubleshooting">
 <span id="python-step-by-step-installation"></span><h1>Python dependent library installation troubleshooting<a class="headerlink" href="#python-dependent-library-installation-troubleshooting" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="id1">
+<section id="id1">
 <h2><a class="reference external" href="http://velocyto.org/velocyto.py/install/index.html">velocyto</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>If you failed CellOracle installation because of velocyto installation error, please try to install velocyto using the following commands or please follow <a class="reference external" href="http://velocyto.org/velocyto.py/install/index.html">the author’s instruction</a> .</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">numpy</span> <span class="n">scipy</span> <span class="n">cython</span> <span class="n">numba</span> <span class="n">matplotlib</span> <span class="n">scikit</span><span class="o">-</span><span class="n">learn</span> <span class="n">h5py</span> <span class="n">click</span> <span class="n">pysam</span> <span class="n">llvm</span> <span class="n">louvain</span>
@@ -245,15 +246,15 @@ You may find the solution for each of these in the links below.</p>
 <li><p><a class="reference external" href="https://github.com/morris-lab/CellOracle/issues/3">Solution 3</a>. This is the solution reported by a CellOracle user. Thank you very much!</p></li>
 <li><p><a class="reference external" href="https://github.com/velocyto-team/velocyto.py/issues?q=">Other solutions on Velocyto GitHub issue page</a></p></li>
 </ul>
-</div>
-<div class="section" id="id2">
+</section>
+<section id="id2">
 <h2><a class="reference external" href="https://scanpy.readthedocs.io/en/stable/installation.html">scanpy</a><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>If you failed CellOracle installation because of Scanpy installation error, please try to install Scanpy using the following commands or <a class="reference external" href="https://scanpy.readthedocs.io/en/stable/installation.html">the author’s instruction</a> .</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">scanpy</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="id4">
+</section>
+<section id="id4">
 <h2><a class="reference external" href="https://daler.github.io/pybedtools/">pybedtools</a><a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <p>If you have an error related to the pybedtools installation, please install pybedtools using anaconda.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">bioconda</span> <span class="n">pybedtools</span>
@@ -266,8 +267,8 @@ You may find the solution for each of these in the links below.</p>
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="install-gimmemotifs-with-conda">
+</section>
+<section id="install-gimmemotifs-with-conda">
 <h2>Install gimmemotifs with conda<a class="headerlink" href="#install-gimmemotifs-with-conda" title="Permalink to this headline">¶</a></h2>
 <p>If you failed installation in the gimmemotifs installation step, please install gimmemotifs solely first.
 We recommend installing gimmemotifs using conda prior to celloracle installation.</p>
@@ -293,8 +294,8 @@ Please uninstall gimmemotifs and re-install gimmemotifs using conda.</p>
 If you fail to install gimmemotifs with anaconda, we recommend installing it using anaconda’s offline mode.
 More information can be found <a class="reference external" href="https://github.com/vanheeringen-lab/gimmemotifs/issues/271">here</a>.</p>
 </div>
-</div>
-<div class="section" id="if-you-encounter-an-error-related-to-certifi">
+</section>
+<section id="if-you-encounter-an-error-related-to-certifi">
 <h2>If you encounter an error related to “certifi”<a class="headerlink" href="#if-you-encounter-an-error-related-to-certifi" title="Permalink to this headline">¶</a></h2>
 <p>If you encounter the following error, it means the error is caused by versiom mismatch of “certifi”.
 See <a class="reference external" href="https://stackoverflow.com/questions/50129762/graphlab-create-2-1-installation-fails-to-uninstall-certifi-a-distutils-insta">this page</a>. for more information.</p>
@@ -305,8 +306,8 @@ See <a class="reference external" href="https://stackoverflow.com/questions/5012
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">celloracle</span> <span class="o">--</span><span class="n">ignore</span><span class="o">-</span><span class="n">installed</span> <span class="n">certifi</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>

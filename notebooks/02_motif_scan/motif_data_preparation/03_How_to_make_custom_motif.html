@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <script type="text/javascript">
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<script type="text/javascript">
 
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-214970391-3']);
@@ -18,7 +19,7 @@
     </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>1. Prepare input data &mdash; celloracle 0.10.13 documentation</title>
+  <title>1. Prepare input data &mdash; celloracle 0.12.1 documentation</title>
   
 
   
@@ -437,11 +438,11 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<div class="section" id="1.-Prepare-input-data">
+<section id="1.-Prepare-input-data">
 <h1>1. Prepare input data<a class="headerlink" href="#1.-Prepare-input-data" title="Permalink to this headline">¶</a></h1>
 <p>If you want to use another motif data source, you need to make a list of <code class="docutils literal notranslate"><span class="pre">motif</span></code> class in gimmemotifs. The easiest way to make such object is to use <code class="docutils literal notranslate"><span class="pre">read_motifs</span></code> function provided by gimmemotifs package.</p>
 <p>This function can load motif data text file. You need to prepare two files, XXX.motif2factors.txt and XXX.pfm.</p>
-<div class="section" id="3.1-XXX.motif2factors.txt">
+<section id="3.1-XXX.motif2factors.txt">
 <h2>3.1 XXX.motif2factors.txt<a class="headerlink" href="#3.1-XXX.motif2factors.txt" title="Permalink to this headline">¶</a></h2>
 <p>The text file, XXX.motif2factors.txt includes TF factor annotation for each motifs. The file should be like a tsv file like below.</p>
 <ul class="simple">
@@ -518,8 +519,8 @@ M00056_2.00     uncx4.1 PBM     N
 
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="3.2-XXX.pfm">
+</section>
+<section id="3.2-XXX.pfm">
 <h2>3.2 XXX.pfm<a class="headerlink" href="#3.2-XXX.pfm" title="Permalink to this headline">¶</a></h2>
 <p>The second file, XXX.pfm. should includes motif pwm information. The file shoud be like below.</p>
 <p>The motif name in this pfm file should exactly match with the motif name in motif2factor.txt file.</p>
@@ -600,8 +601,8 @@ CisBP_ver2_Danio_re 100%[===================&gt;]   3.62M  --.-KB/s    in 0.05s
 
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="3.3-Load-files-as-motif-list">
+</section>
+<section id="3.3-Load-files-as-motif-list">
 <h2>3.3 Load files as motif list<a class="headerlink" href="#3.3-Load-files-as-motif-list" title="Permalink to this headline">¶</a></h2>
 <p>We can load files using read_motifs function in gimmemotifs.</p>
 <p>First, please prepare two files, XXX.motif2factors.txt and XXX.pfm. in the same directly. If you have theses two file in a different place, we cannot use the read_motifs function.</p>
@@ -649,8 +650,8 @@ CisBP_ver2_Danio_rerio.pfm
  M00115_2.00_nnATnAAAn]
 </pre></div></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>

@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <script type="text/javascript">
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<script type="text/javascript">
 
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-214970391-3']);
@@ -18,7 +19,7 @@
     </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Overview &mdash; celloracle 0.10.13 documentation</title>
+  <title>Overview &mdash; celloracle 0.12.1 documentation</title>
   
 
   
@@ -461,13 +462,13 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<div class="section" id="Overview">
+<section id="Overview">
 <h1>Overview<a class="headerlink" href="#Overview" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="Aim">
+<section id="Aim">
 <h2>Aim<a class="headerlink" href="#Aim" title="Permalink to this headline">¶</a></h2>
 <p>To interpret the simulation results, it is essential to compare the direction of the perturbation effect with the developmental flow of the trajectory. This comparison will allow us to assess the perturbation’s overall effect (i.e. block or promote differentiation), and intuitively understand how TF is involved in cell fate determination during development.</p>
-</div>
-<div class="section" id="Method-summary">
+</section>
+<section id="Method-summary">
 <h2>Method summary<a class="headerlink" href="#Method-summary" title="Permalink to this headline">¶</a></h2>
 <p>For that purpose, we will introduce how to calculate the direction of differentiation using “pseudotime estimation” and “gradient calculation”. Here’s an overview of how to do this:</p>
 <ol class="arabic simple">
@@ -483,17 +484,17 @@ div.rendered_html tbody tr:hover {
 <li><p>Calculate pseudotime with DPT algorithm.</p></li>
 <li><p>Re-aggregate scRNA-seq data into one data</p></li>
 </ol>
-</div>
-<div class="section" id="Custom-class-/-object">
+</section>
+<section id="Custom-class-/-object">
 <h2>Custom class / object<a class="headerlink" href="#Custom-class-/-object" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">Pseudotime_calculator</span></code>: This is a class for the pseudotime calculation. This class help us calculate pseudotime from scRNA-seq data. We need to specify a root cell. Also, scRNA-seq need to have a diffusion map. &gt;Under the hood, the <code class="docutils literal notranslate"><span class="pre">Pseudotime_calculator</span></code> uses “dpt” algorithm. For more information of dpt algorithm and root cell, please look at the scanpy web documentation. <a class="reference external" href="https://scanpy.readthedocs.io/en/stable/api/scanpy.tl.dpt.html#scanpy.tl.dpt">https://scanpy.readthedocs.io/en/stable/api/scanpy.tl.dpt.html#scanpy.tl.dpt</a></p>
-</div>
-<div class="section" id="Data">
+</section>
+<section id="Data">
 <h2>Data<a class="headerlink" href="#Data" title="Permalink to this headline">¶</a></h2>
 <p>Pseudo-time calculation requires preprocessed scRNA-seq data in anndata format. You need to do neighbor calculation and diffusion map calculation in advance. If you have processed the scRNA-seq data according to our tutorial, these calculations have already been performed. - Neighbor calculation: <a class="reference external" href="https://scanpy.readthedocs.io/en/stable/generated/scanpy.pp.neighbors.html#scanpy.pp.neighbors">https://scanpy.readthedocs.io/en/stable/generated/scanpy.pp.neighbors.html#scanpy.pp.neighbors</a> - Diffusion map calculation:
 <a class="reference external" href="https://scanpy.readthedocs.io/en/stable/generated/scanpy.tl.diffmap.html#scanpy.tl.diffmap">https://scanpy.readthedocs.io/en/stable/generated/scanpy.tl.diffmap.html#scanpy.tl.diffmap</a></p>
-</div>
-<div class="section" id="Install-additional-python-package-(This-is-an-optional-step.)">
+</section>
+<section id="Install-additional-python-package-(This-is-an-optional-step.)">
 <h2>Install additional python package (This is an optional step.)<a class="headerlink" href="#Install-additional-python-package-(This-is-an-optional-step.)" title="Permalink to this headline">¶</a></h2>
 <p>This notebook we recommend using another python package, <code class="docutils literal notranslate"><span class="pre">plotly</span></code>.</p>
 <p>Please install <code class="docutils literal notranslate"><span class="pre">plotly</span></code> in advance.</p>
@@ -501,15 +502,15 @@ div.rendered_html tbody tr:hover {
 <blockquote>
 <div><p>Plotly is a toolkit for interactive visualization. We recommend using plotly to pick up root cells in this notebook. For more information, please look at plotly web site. <a class="reference external" href="https://plotly.com">https://plotly.com</a></p>
 </div></blockquote>
-</div>
-<div class="section" id="Caution">
+</section>
+<section id="Caution">
 <h2>Caution<a class="headerlink" href="#Caution" title="Permalink to this headline">¶</a></h2>
 <p>Here, we will introduce an example of a pseudotime calculation using the diffusion pseudotime method. This is NOT CellOracle analysis itself, but just a data preparation step. In addition to the dpt method introduced here, CellOracle also accepts output from any pseudotime method.</p>
-</div>
-</div>
-<div class="section" id="0.-Import-libraries">
+</section>
+</section>
+<section id="0.-Import-libraries">
 <h1>0. Import libraries<a class="headerlink" href="#0.-Import-libraries" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="0.1.-Import-public-libraries">
+<section id="0.1.-Import-public-libraries">
 <h2>0.1. Import public libraries<a class="headerlink" href="#0.1.-Import-public-libraries" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
@@ -534,8 +535,8 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="0.2.-Import-our-library">
+</section>
+<section id="0.2.-Import-our-library">
 <h2>0.2. Import our library<a class="headerlink" href="#0.2.-Import-our-library" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
@@ -557,8 +558,8 @@ div.rendered_html tbody tr:hover {
 &#39;0.10.1&#39;
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="0.3.-Plotting-parameter-setting">
+</section>
+<section id="0.3.-Plotting-parameter-setting">
 <h2>0.3. Plotting parameter setting<a class="headerlink" href="#0.3.-Plotting-parameter-setting" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
@@ -574,16 +575,16 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="1.-Load-data">
+</section>
+</section>
+<section id="1.-Load-data">
 <h1>1. Load data<a class="headerlink" href="#1.-Load-data" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p>If you have <code class="docutils literal notranslate"><span class="pre">Oracle</span></code> object, please run <strong>1.1.[Option1] Load oracle data.</strong></p></li>
 <li><p>If you have not made an <code class="docutils literal notranslate"><span class="pre">Oracle</span></code> object yet and want to calculate pseudotime using <code class="docutils literal notranslate"><span class="pre">Anndata</span></code> object, please run <strong>1.2.[Option2] Load anndata.</strong></p></li>
 </ul>
 <p>In this notebook, we will load demo <code class="docutils literal notranslate"><span class="pre">Oracle</span></code> object and add pseudotime information to it.</p>
-<div class="section" id="1.1.-[Option1]-Load-oracle-data">
+<section id="1.1.-[Option1]-Load-oracle-data">
 <h2>1.1. [Option1] Load oracle data<a class="headerlink" href="#1.1.-[Option1]-Load-oracle-data" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
@@ -598,8 +599,8 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="1.2.-[Option2]-Load-anndata">
+</section>
+<section id="1.2.-[Option2]-Load-anndata">
 <h2>1.2. [Option2] Load anndata<a class="headerlink" href="#1.2.-[Option2]-Load-anndata" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
@@ -618,14 +619,14 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="2.-Pseudotime-calculation">
+</section>
+</section>
+<section id="2.-Pseudotime-calculation">
 <h1>2. Pseudotime calculation<a class="headerlink" href="#2.-Pseudotime-calculation" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="2.1.-Add-lineage-information">
+<section id="2.1.-Add-lineage-information">
 <h2>2.1. Add lineage information<a class="headerlink" href="#2.1.-Add-lineage-information" title="Permalink to this headline">¶</a></h2>
 <p>Pseudotime calculation can be done for each lineage. We can define these lineages below.</p>
-<div class="section" id="2.1.1-Check-clustering-unit">
+<section id="2.1.1-Check-clustering-unit">
 <h3>2.1.1 Check clustering unit<a class="headerlink" href="#2.1.1-Check-clustering-unit" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
@@ -663,8 +664,8 @@ Cluster list [&#39;Ery_0&#39;, &#39;Ery_1&#39;, &#39;Ery_2&#39;, &#39;Ery_3&#39;
 <img alt="../../_images/notebooks_05_simulation_Pseudotime_calculation_with_Paul_etal_2015_data_15_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Pseudotime_calculation_with_Paul_etal_2015_data_15_0.png" style="width: 424px; height: 307px;" />
 </div>
 </div>
-</div>
-<div class="section" id="2.1.2.-Define-llineage">
+</section>
+<section id="2.1.2.-Define-llineage">
 <h3>2.1.2. Define llineage<a class="headerlink" href="#2.1.2.-Define-llineage" title="Permalink to this headline">¶</a></h3>
 <p>We will make lineage annotation on the scRNA-seq data. For example, the demo scRNA-seq data include roughly two lineages: megakaryocytes-erythroid (ME) lineage and granulocytes-monocyte (GM) lineage.</p>
 <p>To get better pseudotime information, calculate the pseudotime for each cell lineage individually. Then, all pseudotime information of each lineage are merged into one.</p>
@@ -707,13 +708,13 @@ Cluster list [&#39;Ery_0&#39;, &#39;Ery_1&#39;, &#39;Ery_2&#39;, &#39;Ery_3&#39;
 <img alt="../../_images/notebooks_05_simulation_Pseudotime_calculation_with_Paul_etal_2015_data_17_1.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Pseudotime_calculation_with_Paul_etal_2015_data_17_1.png" style="width: 349px; height: 247px;" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="2.2.-Add-root-cell-information">
+</section>
+</section>
+<section id="2.2.-Add-root-cell-information">
 <h2>2.2. Add root cell information<a class="headerlink" href="#2.2.-Add-root-cell-information" title="Permalink to this headline">¶</a></h2>
 <p>The DPT pseudotime calculation requires the user to specify a root cell. We will manually estimate the root cell for each lineage.</p>
 <p>Please read documentation (<a class="reference external" href="https://scanpy.readthedocs.io/en/stable/api/scanpy.tl.dpt.html#scanpy.tl.dpt">https://scanpy.readthedocs.io/en/stable/api/scanpy.tl.dpt.html#scanpy.tl.dpt</a>) to find detailed information about the DPT algorithm and root cells</p>
-<div class="section" id="2.2.1.-(Optional-step)-Interactive-visualization-of-cell-name">
+<section id="2.2.1.-(Optional-step)-Interactive-visualization-of-cell-name">
 <h3>2.2.1. (Optional step) Interactive visualization of cell name<a class="headerlink" href="#2.2.1.-(Optional-step)-Interactive-visualization-of-cell-name" title="Permalink to this headline">¶</a></h3>
 <p>We recommend using another python package, <code class="docutils literal notranslate"><span class="pre">plotly</span></code> to find the cell id for root cell.</p>
 <p>Please install <code class="docutils literal notranslate"><span class="pre">plotly</span></code> in advance.</p>
@@ -721,7 +722,7 @@ Cluster list [&#39;Ery_0&#39;, &#39;Ery_1&#39;, &#39;Ery_2&#39;, &#39;Ery_3&#39;
 <blockquote>
 <div><p>Plotly is a toolkit for interactive visualization. We recommend using plotly to pick up root cells in this notebook. For more information, please look at plotly web site. <a class="reference external" href="https://plotly.com">https://plotly.com</a></p>
 </div></blockquote>
-<p><strong>Using plotly, we can visualize cell IDs interactively. It helps us pick up a root cell.</strong> This is an example image. <a href="#id2"><span class="problematic" id="id3">|606e0fdf558f43528f3f9079269ed8f9|</span></a></p>
+<p><strong>Using plotly, we can visualize cell IDs interactively. It helps us pick up a root cell.</strong> This is an example image. <a href="#id2"><span class="problematic" id="id3">|a6ca93ffc25148f78fe349087817b5e1|</span></a></p>
 <p><a class="reference external" href="https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/screenshot_01.png">https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/screenshot_01.png</a></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
@@ -749,8 +750,8 @@ Cluster list [&#39;Ery_0&#39;, &#39;Ery_1&#39;, &#39;Ery_2&#39;, &#39;Ery_3&#39;
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="2.2.2.-Select-root-cell-for-each-lineage">
+</section>
+<section id="2.2.2.-Select-root-cell-for-each-lineage">
 <h3>2.2.2. Select root cell for each lineage<a class="headerlink" href="#2.2.2.-Select-root-cell-for-each-lineage" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
@@ -763,8 +764,8 @@ Cluster list [&#39;Ery_0&#39;, &#39;Ery_1&#39;, &#39;Ery_2&#39;, &#39;Ery_3&#39;
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="2.2.3.-Visualize-root-cells">
+</section>
+<section id="2.2.3.-Visualize-root-cells">
 <h3>2.2.3. Visualize root cells<a class="headerlink" href="#2.2.3.-Visualize-root-cells" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
@@ -790,12 +791,12 @@ Cluster list [&#39;Ery_0&#39;, &#39;Ery_1&#39;, &#39;Ery_2&#39;, &#39;Ery_3&#39;
 <img alt="../../_images/notebooks_05_simulation_Pseudotime_calculation_with_Paul_etal_2015_data_26_1.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Pseudotime_calculation_with_Paul_etal_2015_data_26_1.png" style="width: 349px; height: 247px;" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="2.3.-Pseudotime-calculation">
+</section>
+</section>
+<section id="2.3.-Pseudotime-calculation">
 <h2>2.3. Pseudotime calculation<a class="headerlink" href="#2.3.-Pseudotime-calculation" title="Permalink to this headline">¶</a></h2>
 <p>You need to calculate neighbors and the diffusion map before funning DPT. If you have processed the scRNA-seq data according to our tutorial, these calculations have already been performed. - Neighbor calculation: <a class="reference external" href="https://scanpy.readthedocs.io/en/stable/generated/scanpy.pp.neighbors.html#scanpy.pp.neighbors">https://scanpy.readthedocs.io/en/stable/generated/scanpy.pp.neighbors.html#scanpy.pp.neighbors</a> - Diffusion map calculation: <a class="reference external" href="https://scanpy.readthedocs.io/en/stable/generated/scanpy.tl.diffmap.html#scanpy.tl.diffmap">https://scanpy.readthedocs.io/en/stable/generated/scanpy.tl.diffmap.html#scanpy.tl.diffmap</a></p>
-<div class="section" id="2.3.1.-Check-diffusion-map">
+<section id="2.3.1.-Check-diffusion-map">
 <h3>2.3.1. Check diffusion map<a class="headerlink" href="#2.3.1.-Check-diffusion-map" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
@@ -827,8 +828,8 @@ True
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="2.3.2.-Calculate-pseudotime">
+</section>
+<section id="2.3.2.-Calculate-pseudotime">
 <h3>2.3.2. Calculate pseudotime<a class="headerlink" href="#2.3.2.-Calculate-pseudotime" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
@@ -930,12 +931,12 @@ True
 </table>
 </div></div>
 </div>
-</div>
-</div>
-</div>
-<div class="section" id="3.-Save-data">
+</section>
+</section>
+</section>
+<section id="3.-Save-data">
 <h1>3. Save data<a class="headerlink" href="#3.-Save-data" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="3.1.-If-you-started-calculation-with-an-oracle-object">
+<section id="3.1.-If-you-started-calculation-with-an-oracle-object">
 <h2>3.1. If you started calculation with an oracle object<a class="headerlink" href="#3.1.-If-you-started-calculation-with-an-oracle-object" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
@@ -950,8 +951,8 @@ True
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="3.2.-If-you-started-calculation-with-anndata">
+</section>
+<section id="3.2.-If-you-started-calculation-with-anndata">
 <h2>3.2. If you started calculation with anndata<a class="headerlink" href="#3.2.-If-you-started-calculation-with-anndata" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
@@ -966,8 +967,8 @@ True
 </pre></div>
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>

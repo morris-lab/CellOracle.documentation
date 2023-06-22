@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <script type="text/javascript">
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<script type="text/javascript">
 
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-214970391-3']);
@@ -18,7 +19,7 @@
     </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Overview &mdash; celloracle 0.10.13 documentation</title>
+  <title>Overview &mdash; celloracle 0.12.1 documentation</title>
   
 
   
@@ -459,14 +460,14 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<div class="section" id="Overview">
+<section id="Overview">
 <h1>Overview<a class="headerlink" href="#Overview" title="Permalink to this headline">¶</a></h1>
 <p>This notebook describes how to run in silico TF perturbations with the GRN models. Please read our paper to learn more about the CellOracle algorithm.</p>
-<div class="section" id="Notebook-file">
+<section id="Notebook-file">
 <h2>Notebook file<a class="headerlink" href="#Notebook-file" title="Permalink to this headline">¶</a></h2>
 <p>Notebook file is available at CellOracle GitHub. <a class="reference external" href="https://github.com/morris-lab/CellOracle/blob/master/docs/notebooks/05_simulation/Gata1_KO_simulation_with_Paul_etal_2015_data.ipynb">https://github.com/morris-lab/CellOracle/blob/master/docs/notebooks/05_simulation/Gata1_KO_simulation_with_Paul_etal_2015_data.ipynb</a></p>
-</div>
-<div class="section" id="Data">
+</section>
+<section id="Data">
 <h2>Data<a class="headerlink" href="#Data" title="Permalink to this headline">¶</a></h2>
 <p>In this notebook, CellOracle uses two types of input data.</p>
 <ul class="simple">
@@ -478,8 +479,8 @@ div.rendered_html tbody tr:hover {
 <li><p><strong>Input data 2: Links object</strong>. The <code class="docutils literal notranslate"><span class="pre">Links</span></code> oobject stores the GRN data used in the simulations. In this tutorial, we use demo GRNs calculated from the hematopoiesis scRNA-seq data above and one of the mouse sci-ATAC-seq atlas base GRNs. We can load the demo <code class="docutils literal notranslate"><span class="pre">Links</span></code> object with this command.</p></li>
 </ul>
 <p><code class="docutils literal notranslate"><span class="pre">links</span> <span class="pre">=</span> <span class="pre">co.data.load_tutorial_links_object()</span></code></p>
-</div>
-<div class="section" id="What-you-can-do">
+</section>
+<section id="What-you-can-do">
 <h2>What you can do<a class="headerlink" href="#What-you-can-do" title="Permalink to this headline">¶</a></h2>
 <p>In this notebook, we perform two analyses.</p>
 <ol class="arabic simple">
@@ -487,8 +488,8 @@ div.rendered_html tbody tr:hover {
 <li><p><strong>Compare simulation vectors with developmental vectors</strong>. In order to properly interpret the simulation results, it is also important to consider the natural direction of development. First, we will calculate a pseudotime gradient vector field to recapitulate the developmental flow. Then, we will compare the CellOracle TF perturbation vector field with the developmental vector field by calculating the inner product scores. Let’s call the inner product value as <strong>perturbation score (PS)</strong>.
 Please see the <strong>step 5.6</strong> for detail.</p></li>
 </ol>
-</div>
-<div class="section" id="Custom-data-class-/-object">
+</section>
+<section id="Custom-data-class-/-object">
 <h2>Custom data class / object<a class="headerlink" href="#Custom-data-class-/-object" title="Permalink to this headline">¶</a></h2>
 <p>In this notebook, CellOracle uses four custom classes, <code class="docutils literal notranslate"><span class="pre">Oracle</span></code>, <code class="docutils literal notranslate"><span class="pre">Links</span></code>, <code class="docutils literal notranslate"><span class="pre">Gradient_calculator</span></code>, and <code class="docutils literal notranslate"><span class="pre">Oracle_development_module</span></code>.</p>
 <ul class="simple">
@@ -497,9 +498,9 @@ Please see the <strong>step 5.6</strong> for detail.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">Gradient_calculator</span></code> calculates the developmental vector field from the pseudotime results. If you do not have pseudotime data for your trajectory, please see the pseudotime notebook to calculate this information. <a class="reference external" href="https://morris-lab.github.io/CellOracle.documentation/tutorials/pseudotime.html">https://morris-lab.github.io/CellOracle.documentation/tutorials/pseudotime.html</a></p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">Oracle_development_module</span></code> integrates the <code class="docutils literal notranslate"><span class="pre">Oracle</span></code> object data and the <code class="docutils literal notranslate"><span class="pre">Gradient_calculator</span></code> object data to analyze how TF perturbation affects on the developmental process. It also has many visualization functions.</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="0.-Import-libraries">
+</section>
+</section>
+<section id="0.-Import-libraries">
 <h1>0. Import libraries<a class="headerlink" href="#0.-Import-libraries" title="Permalink to this headline">¶</a></h1>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
@@ -575,8 +576,8 @@ urllib3 (1.26.9) or chardet (3.0.4) doesn&#39;t match a supported version!
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="1.-Load-data">
+</section>
+<section id="1.-Load-data">
 <h1>1. Load data<a class="headerlink" href="#1.-Load-data" title="Permalink to this headline">¶</a></h1>
 <p>Load the oracle object. See the previous notebook for information on initializing an <code class="docutils literal notranslate"><span class="pre">Oracle</span></code> object.</p>
 <div class="nbinput docutils container">
@@ -634,8 +635,8 @@ Status
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="2.-Make-predictive-models-for-simulation">
+</section>
+<section id="2.-Make-predictive-models-for-simulation">
 <h1>2. Make predictive models for simulation<a class="headerlink" href="#2.-Make-predictive-models-for-simulation" title="Permalink to this headline">¶</a></h1>
 <p>Here, we will need to fit the ridge regression models again. This process will take less time than the GRN inference in the previous notebook, because we are using the filtered GRN models.</p>
 <div class="nbinput docutils container">
@@ -656,8 +657,8 @@ Status
 <div class="output_area docutils container">
 <script type="application/vnd.jupyter.widget-view+json">{"model_id": "3a8b78ad61df471f8c86b2ead5c6ffbb", "version_major": 2, "version_minor": 0}</script></div>
 </div>
-</div>
-<div class="section" id="3.-In-silico-TF-perturbation-analysis">
+</section>
+<section id="3.-In-silico-TF-perturbation-analysis">
 <h1>3. In silico TF perturbation analysis<a class="headerlink" href="#3.-In-silico-TF-perturbation-analysis" title="Permalink to this headline">¶</a></h1>
 <p>Next, we will simulate the TF perturbation effects on cell identity to investigate its potential functions and regulatory mechanisms. Please see the CellOracle paper for more details on scientific rationale.</p>
 <p>In this notebook, we will simulate the knockout of the Gata1 gene in the hematopoiesis trajectory.</p>
@@ -736,10 +737,10 @@ Status
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="4.-Visualization">
+</section>
+<section id="4.-Visualization">
 <h1>4. Visualization<a class="headerlink" href="#4.-Visualization" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="Caution:-It-is-very-important-to-find-the-optimal-scale-parameter.">
+<section id="Caution:-It-is-very-important-to-find-the-optimal-scale-parameter.">
 <h2>Caution: It is very important to find the optimal <code class="docutils literal notranslate"><span class="pre">scale</span></code> parameter.<a class="headerlink" href="#Caution:-It-is-very-important-to-find-the-optimal-scale-parameter." title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>We will need to adjust the <code class="docutils literal notranslate"><span class="pre">scale</span></code> parameter. Please seek to find the optimal <code class="docutils literal notranslate"><span class="pre">scale</span></code> parameter for the data based on your data.</p></li>
@@ -772,12 +773,12 @@ Status
 <img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_26_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_26_0.png" style="width: 739px; height: 356px;" />
 </div>
 </div>
-<div class="section" id="4.2.-Vector-field-graph">
+<section id="4.2.-Vector-field-graph">
 <h3>4.2. Vector field graph<a class="headerlink" href="#4.2.-Vector-field-graph" title="Permalink to this headline">¶</a></h3>
 <p>We will visualize the simulation results as a vector field on a digitized grid. Single cell transition vectors are grouped by grid point.</p>
-</div>
-</div>
-<div class="section" id="4.2.1-Find-parameters-for-n_grid-and-min_mass">
+</section>
+</section>
+<section id="4.2.1-Find-parameters-for-n_grid-and-min_mass">
 <h2>4.2.1 Find parameters for n_grid and min_mass<a class="headerlink" href="#4.2.1-Find-parameters-for-n_grid-and-min_mass" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">n_grid</span></code>: Number of grid points.</p>
 <p><code class="docutils literal notranslate"><span class="pre">min_mass</span></code>: Threshold value for the cell density. The appropriate values for these parameters depends on the data. Please find appropriate values using the helper functions below.</p>
@@ -828,8 +829,8 @@ Status
 <img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_32_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_32_0.png" style="width: 293px; height: 301px;" />
 </div>
 </div>
-</div>
-<div class="section" id="4.2.2-Plot-vector-fields">
+</section>
+<section id="4.2.2-Plot-vector-fields">
 <h2>4.2.2 Plot vector fields<a class="headerlink" href="#4.2.2-Plot-vector-fields" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Again, we need to adjust the <code class="docutils literal notranslate"><span class="pre">scale</span></code> parameter. Please seek to find the optimal <code class="docutils literal notranslate"><span class="pre">scale</span></code> parameter that provides good visualization.</p></li>
@@ -882,9 +883,9 @@ Status
 <img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_35_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_35_0.png" style="width: 460px; height: 449px;" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="5.-[This-step-is-optional]-Compare-simulation-vector-with-development-vectors">
+</section>
+</section>
+<section id="5.-[This-step-is-optional]-Compare-simulation-vector-with-development-vectors">
 <h1>5. [This step is optional] Compare simulation vector with development vectors<a class="headerlink" href="#5.-[This-step-is-optional]-Compare-simulation-vector-with-development-vectors" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p>As shown above, we can simulate how TF perturbations affect cell identity and visualize the results as a vector field map.</p></li>
@@ -1036,7 +1037,7 @@ Status
 <li><p>The inner product will be a positive value when two vectors are pointing in the same direction.</p></li>
 <li><p>Conversely, the inner product will be a negative value when two vectors are pointing in the opposing directions.</p></li>
 </ul>
-<p><img alt="bf60b2af273340f6a4f1c671168c8de2" src="https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/innerproduct_explantion_1.png" /></p>
+<p><img alt="b4b3f53a5ad94c4fb00a8d2d14e0fd80" src="https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/innerproduct_explantion_1.png" /></p>
 <ul class="simple">
 <li><p>The length of the vectors also affects the magnitude of inner product value.</p></li>
 </ul>
@@ -1137,8 +1138,8 @@ Status
 <img alt="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_57_0.png" class="no-scaled-link" src="../../_images/notebooks_05_simulation_Gata1_KO_simulation_with_Paul_etal_2015_data_57_0.png" style="width: 1130px; height: 794px;" />
 </div>
 </div>
-</div>
-<div class="section" id="6.-Focus-on-a-single-development-lineage-to-interpret-the-results-in-detail">
+</section>
+<section id="6.-Focus-on-a-single-development-lineage-to-interpret-the-results-in-detail">
 <h1>6. Focus on a single development lineage to interpret the results in detail<a class="headerlink" href="#6.-Focus-on-a-single-development-lineage-to-interpret-the-results-in-detail" title="Permalink to this headline">¶</a></h1>
 <p>So far, we have used the <code class="docutils literal notranslate"><span class="pre">Oracle_development_module</span></code> to analyze the whole cell population. However, the <code class="docutils literal notranslate"><span class="pre">Oracle_development_module</span></code> can also analyze specific subpopulations.</p>
 <p>In this example, we will analyze the MEP lineage.</p>
@@ -1248,7 +1249,7 @@ Status
 </pre></div>
 </div>
 </div>
-</div>
+</section>
 
 
            </div>
