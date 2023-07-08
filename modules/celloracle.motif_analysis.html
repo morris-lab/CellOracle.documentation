@@ -19,7 +19,7 @@
     </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>celloracle.motif_analysis module &mdash; celloracle 0.12.1 documentation</title>
+  <title>celloracle.motif_analysis module &mdash; celloracle 0.13.1 documentation</title>
   
 
   
@@ -230,7 +230,7 @@ Then the peak DNA sequence will be subjected to TF motif scan.
 Finally we will get list of TFs that potentially binds to a specific gene.</p>
 <dl class="py class">
 <dt id="celloracle.motif_analysis.TFinfo">
-<em class="property">class </em><code class="sig-prename descclassname">celloracle.motif_analysis.</code><code class="sig-name descname">TFinfo</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">peak_data_frame</span></em>, <em class="sig-param"><span class="n">ref_genome</span></em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.motif_analysis.TFinfo" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">celloracle.motif_analysis.</code><code class="sig-name descname">TFinfo</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">peak_data_frame</span></em>, <em class="sig-param"><span class="n">ref_genome</span></em>, <em class="sig-param"><span class="n">genomes_dir</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.motif_analysis.TFinfo" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>This is a custom class for motif analysis in celloracle.
 TFinfo object performs motif scan using the TF motif database in gimmemotifs and several functions of genomepy.
@@ -450,6 +450,33 @@ If you chose “TF2targetgenes”, it returns a dictionary in which a key is a T
 </dd></dl>
 
 <dl class="py function">
+<dt id="celloracle.motif_analysis.check_peak_format">
+<code class="sig-prename descclassname">celloracle.motif_analysis.</code><code class="sig-name descname">check_peak_format</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">peaks_df</span></em>, <em class="sig-param"><span class="n">ref_genome</span></em>, <em class="sig-param"><span class="n">genomes_dir</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.motif_analysis.check_peak_format" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Check peak format.</dt><dd><ol class="arabic simple">
+<li><p>Check chromosome name.</p></li>
+<li><p>Check peak size (length) and remove sort DNAs (&lt;5bp)</p></li>
+</ol>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>peaks_df</strong> (<em>pandas.DataFrame</em>) – </p></li>
+<li><p><strong>ref_genome</strong> (<em>str</em>) – Reference genome name.   e.g. “mm9”, “mm10”, “hg19” etc</p></li>
+<li><p><strong>genomes_dir</strong> (<em>str</em>) – Installation directory of Genomepy reference genome data.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Peaks data after filtering.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt id="celloracle.motif_analysis.get_tss_info">
 <code class="sig-prename descclassname">celloracle.motif_analysis.</code><code class="sig-name descname">get_tss_info</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">peak_str_list</span></em>, <em class="sig-param"><span class="n">ref_genome</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">custom_tss_file_path</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.motif_analysis.get_tss_info" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get annotation about Transcription Starting Site (TSS).</p>
@@ -488,13 +515,16 @@ Please see the celloracle tutorial for more information.</p>
 
 <dl class="py function">
 <dt id="celloracle.motif_analysis.is_genome_installed">
-<code class="sig-prename descclassname">celloracle.motif_analysis.</code><code class="sig-name descname">is_genome_installed</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ref_genome</span></em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.motif_analysis.is_genome_installed" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">celloracle.motif_analysis.</code><code class="sig-name descname">is_genome_installed</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ref_genome</span></em>, <em class="sig-param"><span class="n">genomes_dir</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.motif_analysis.is_genome_installed" title="Permalink to this definition">¶</a></dt>
 <dd><p>Celloracle motif_analysis module uses gimmemotifs and genomepy internally.
 Reference genome files should be installed in the PC to use gimmemotifs and genomepy.
 This function checks the installation status of the reference genome.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>ref_genome</strong> (<em>str</em>) – names of reference genome. i.e., “mm10”, “hg19”</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ref_genome</strong> (<em>str</em>) – names of reference genome. i.e., “mm10”, “hg19”</p></li>
+<li><p><strong>genomes_dir</strong> (<em>str</em>) – Installation directory of Genomepy reference genome data.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -558,7 +588,7 @@ This function checks the installation status of the reference genome.</p>
 
 <dl class="py function">
 <dt id="celloracle.motif_analysis.peak2fasta">
-<code class="sig-prename descclassname">celloracle.motif_analysis.</code><code class="sig-name descname">peak2fasta</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">peak_ids</span></em>, <em class="sig-param"><span class="n">ref_genome</span></em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.motif_analysis.peak2fasta" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">celloracle.motif_analysis.</code><code class="sig-name descname">peak2fasta</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">peak_ids</span></em>, <em class="sig-param"><span class="n">ref_genome</span></em>, <em class="sig-param"><span class="n">genomes_dir</span></em><span class="sig-paren">)</span><a class="headerlink" href="#celloracle.motif_analysis.peak2fasta" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert peak_id into fasta object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -566,6 +596,7 @@ This function checks the installation status of the reference genome.</p>
 <li><p><strong>peak_id</strong> (<em>str</em><em> or </em><em>list of str</em>) – Peak_id.  e.g. “chr5_0930303_9499409”
 or it can be a list of peak_id.  e.g. [“chr5_0930303_9499409”, “chr11_123445555_123445577”]</p></li>
 <li><p><strong>ref_genome</strong> (<em>str</em>) – Reference genome name.   e.g. “mm9”, “mm10”, “hg19” etc</p></li>
+<li><p><strong>genomes_dir</strong> (<em>str</em>) – Installation directory of Genomepy reference genome data.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>

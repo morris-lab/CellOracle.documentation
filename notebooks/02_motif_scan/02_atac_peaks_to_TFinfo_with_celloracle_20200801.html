@@ -19,7 +19,7 @@
     </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Overview &mdash; celloracle 0.12.1 documentation</title>
+  <title>Overview &mdash; celloracle 0.13.1 documentation</title>
   
 
   
@@ -489,7 +489,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -501,16 +501,16 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&#39;0.10.14&#39;
+&#39;0.13.1&#39;
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -525,16 +525,18 @@ div.rendered_html tbody tr:hover {
 </section>
 <section id="1.-Rerefence-genome-data-preparation">
 <h1>1. Rerefence genome data preparation<a class="headerlink" href="#1.-Rerefence-genome-data-preparation" title="Permalink to this headline">¶</a></h1>
-<p>Before starting the analysis, we need to make sure the reference genome data is installed. If not, please install the correct reference genome using the instructions below.</p>
+<p>Before starting the analysis, we need to make sure the reference genome data is installed with <code class="docutils literal notranslate"><span class="pre">genomepy</span></code>. If not, please install the correct reference genome using the instructions below.</p>
+<p><code class="docutils literal notranslate"><span class="pre">genomepy</span></code> installs reference genome data under home directory. But if you have installed or want to install reference genome to another specific location, please specify the place using <code class="docutils literal notranslate"><span class="pre">genomes_dir</span></code> argument.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># PLEASE make sure reference genome is correct.</span>
 <span class="n">ref_genome</span> <span class="o">=</span> <span class="s2">&quot;mm10&quot;</span>
 
-<span class="n">genome_installation</span> <span class="o">=</span> <span class="n">ma</span><span class="o">.</span><span class="n">is_genome_installed</span><span class="p">(</span><span class="n">ref_genome</span><span class="o">=</span><span class="n">ref_genome</span><span class="p">)</span>
+<span class="n">genome_installation</span> <span class="o">=</span> <span class="n">ma</span><span class="o">.</span><span class="n">is_genome_installed</span><span class="p">(</span><span class="n">ref_genome</span><span class="o">=</span><span class="n">ref_genome</span><span class="p">,</span>
+                                             <span class="n">genomes_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">ref_genome</span><span class="p">,</span> <span class="s2">&quot;installation: &quot;</span><span class="p">,</span> <span class="n">genome_installation</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -550,7 +552,7 @@ mm10 installation:  True
 <p>Before installing the reference genome, please check the refenome is in the celloracle supported reference genome list. You can check supported reference genome using <code class="docutils literal notranslate"><span class="pre">ma.SUPPORTED_REF_GENOME</span></code></p>
 <p>If your reference genome is not in the list, please send a request to us through CellOracle GitHub issue page.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -559,7 +561,7 @@ mm10 installation:  True
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -739,6 +741,12 @@ mm10 installation:  True
     </tr>
     <tr>
       <th>25</th>
+      <td>Pig</td>
+      <td>Sscrofa11.1</td>
+      <td>Ensembl</td>
+    </tr>
+    <tr>
+      <th>26</th>
       <td>Axolotl</td>
       <td>AmexG_v6.0-DD</td>
       <td>Axolotl-omics.org</td>
@@ -748,13 +756,13 @@ mm10 installation:  True
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="k">if</span> <span class="ow">not</span> <span class="n">genome_installation</span><span class="p">:</span>
     <span class="kn">import</span> <span class="nn">genomepy</span>
-    <span class="n">genomepy</span><span class="o">.</span><span class="n">install_genome</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">ref_genome</span><span class="p">,</span> <span class="n">provider</span><span class="o">=</span><span class="s2">&quot;UCSC&quot;</span><span class="p">)</span>
+    <span class="n">genomepy</span><span class="o">.</span><span class="n">install_genome</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">ref_genome</span><span class="p">,</span> <span class="n">provider</span><span class="o">=</span><span class="s2">&quot;UCSC&quot;</span><span class="p">,</span> <span class="n">genomes_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">ref_genome</span><span class="p">,</span> <span class="s2">&quot;is installed.&quot;</span><span class="p">)</span>
 </pre></div>
@@ -776,14 +784,14 @@ mm10 is installed.
 <p><a class="reference external" href="https://morris-lab.github.io/CellOracle.documentation/tutorials/base_grn.html#step1-scatac-seq-analysis-with-cicero">https://morris-lab.github.io/CellOracle.documentation/tutorials/base_grn.html#step1-scatac-seq-analysis-with-cicero</a></p>
 <p>The scATAC-seq file needs to be converted in a csv file three columns: - The first column is index. - The second column is peak_id. - The third column is gene_short_name.</p>
 <p>A correctly formatted file will look like this:</p>
-<p><img alt="bcc295959d844b4e8ac9cfbf6a887117" src="https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/processed_peak_csv.png" /></p>
+<p><img alt="f12a51190492441daf11f028518bfe18" src="https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/processed_peak_csv.png" /></p>
 <p>We will load the .csv file as a <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code> using pd.read_csv().</p>
-<p><img alt="a8d97e4724244075addbf5270efad0bb" src="https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/processed_peak_df.png" /></p>
+<p><img alt="605a4530db4442c08803f5aea1446392" src="https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/processed_peak_df.png" /></p>
 <p>You can download the demo file by running the following command.</p>
 <p>Note: If the file download fails, please manually download and unzip the data.</p>
 <p><a class="reference external" href="https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/processed_peak_file.csv">https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/processed_peak_file.csv</a></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -801,16 +809,16 @@ mm10 is installed.
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
---2022-05-07 18:00:42--  https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/processed_peak_file.csv
-Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.111.133, 185.199.110.133, 185.199.109.133, ...
-Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.111.133|:443... connected.
+--2023-07-08 17:00:17--  https://raw.githubusercontent.com/morris-lab/CellOracle/master/docs/demo_data/processed_peak_file.csv
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.108.133, 185.199.109.133, 185.199.110.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.108.133|:443... connected.
 HTTP request sent, awaiting response... 200 OK
 Length: 569448 (556K) [text/plain]
 Saving to: ‘processed_peak_file.csv’
 
-processed_peak_file 100%[===================&gt;] 556.10K  --.-KB/s    in 0.008s
+processed_peak_file 100%[===================&gt;] 556.10K  --.-KB/s    in 0.01s
 
-2022-05-07 18:00:43 (67.9 MB/s) - ‘processed_peak_file.csv’ saved [569448/569448]
+2023-07-08 17:00:17 (38.0 MB/s) - ‘processed_peak_file.csv’ saved [569448/569448]
 
 </pre></div></div>
 </div>
@@ -882,85 +890,13 @@ processed_peak_file 100%[===================&gt;] 556.10K  --.-KB/s    in 0.008s
 </table>
 </div></div>
 </div>
-<div class="nbinput nblast docutils container">
+<p>Here, the function below will check peak data format, including chromosome name and peak length.</p>
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">decompose_chrstr</span><span class="p">(</span><span class="n">peak_str</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Args:</span>
-<span class="sd">        peak_str (str): peak_str. e.g. &#39;chr1_3094484_3095479&#39;</span>
-
-<span class="sd">    Returns:</span>
-<span class="sd">        tuple: chromosome name, start position, end position</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="o">*</span><span class="n">chr_</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">peak_str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)</span>
-    <span class="n">chr_</span> <span class="o">=</span> <span class="s2">&quot;_&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">chr_</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">chr_</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span>
-
-<span class="kn">from</span> <span class="nn">genomepy</span> <span class="kn">import</span> <span class="n">Genome</span>
-
-<span class="k">def</span> <span class="nf">check_peak_format</span><span class="p">(</span><span class="n">peaks_df</span><span class="p">,</span> <span class="n">ref_genome</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Check peak format.</span>
-<span class="sd">     (1) Check chromosome name.</span>
-<span class="sd">     (2) Check peak size (length) and remove sort DNA sequences (&lt;5bp)</span>
-
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="n">df</span> <span class="o">=</span> <span class="n">peaks_df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-
-    <span class="n">n_peaks_before</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-
-    <span class="c1"># Decompose peaks and make df</span>
-    <span class="n">decomposed</span> <span class="o">=</span> <span class="p">[</span><span class="n">decompose_chrstr</span><span class="p">(</span><span class="n">peak_str</span><span class="p">)</span> <span class="k">for</span> <span class="n">peak_str</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;peak_id&quot;</span><span class="p">]]</span>
-    <span class="n">df_decomposed</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">decomposed</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="n">peaks_df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
-    <span class="n">df_decomposed</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;chr&quot;</span><span class="p">,</span> <span class="s2">&quot;start&quot;</span><span class="p">,</span> <span class="s2">&quot;end&quot;</span><span class="p">]</span>
-    <span class="n">df_decomposed</span><span class="p">[</span><span class="s2">&quot;start&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_decomposed</span><span class="p">[</span><span class="s2">&quot;start&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-    <span class="n">df_decomposed</span><span class="p">[</span><span class="s2">&quot;end&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_decomposed</span><span class="p">[</span><span class="s2">&quot;end&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-
-    <span class="c1"># Load genome data</span>
-    <span class="n">genome_data</span> <span class="o">=</span> <span class="n">Genome</span><span class="p">(</span><span class="n">ref_genome</span><span class="p">)</span>
-    <span class="n">all_chr_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">genome_data</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-
-
-    <span class="c1"># DNA length check</span>
-    <span class="n">lengths</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">df_decomposed</span><span class="p">[</span><span class="s2">&quot;end&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df_decomposed</span><span class="p">[</span><span class="s2">&quot;start&quot;</span><span class="p">])</span>
-
-
-    <span class="c1"># Filter peaks with invalid chromosome name</span>
-    <span class="n">n_threshold</span> <span class="o">=</span> <span class="mi">5</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">lengths</span> <span class="o">&gt;=</span> <span class="n">n_threshold</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">df_decomposed</span><span class="o">.</span><span class="n">chr</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">all_chr_list</span><span class="p">)]</span>
-
-    <span class="c1"># DNA length check</span>
-    <span class="n">lengths</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">df_decomposed</span><span class="p">[</span><span class="s2">&quot;end&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df_decomposed</span><span class="p">[</span><span class="s2">&quot;start&quot;</span><span class="p">])</span>
-
-    <span class="c1"># Data counting</span>
-    <span class="n">n_invalid_length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">lengths</span><span class="p">[</span><span class="n">lengths</span> <span class="o">&lt;</span> <span class="n">n_threshold</span><span class="p">])</span>
-    <span class="n">n_peaks_invalid_chr</span> <span class="o">=</span> <span class="n">n_peaks_before</span> <span class="o">-</span> <span class="n">df_decomposed</span><span class="o">.</span><span class="n">chr</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">all_chr_list</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-    <span class="n">n_peaks_after</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-
-
-    <span class="c1">#</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Peaks before filtering: &quot;</span><span class="p">,</span> <span class="n">n_peaks_before</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Peaks with invalid chr_name: &quot;</span><span class="p">,</span> <span class="n">n_peaks_invalid_chr</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Peaks with invalid length: &quot;</span><span class="p">,</span> <span class="n">n_invalid_length</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Peaks after filtering: &quot;</span><span class="p">,</span> <span class="n">n_peaks_after</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">df</span>
-
-
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">peaks</span> <span class="o">=</span> <span class="n">check_peak_format</span><span class="p">(</span><span class="n">peaks</span><span class="p">,</span> <span class="n">ref_genome</span><span class="p">)</span>
+<span></span><span class="n">peaks</span> <span class="o">=</span> <span class="n">ma</span><span class="o">.</span><span class="n">check_peak_format</span><span class="p">(</span><span class="n">peaks</span><span class="p">,</span> <span class="n">ref_genome</span><span class="p">,</span> <span class="n">genomes_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -998,14 +934,16 @@ Peaks after filtering:  15777
 <li><p>Post-processes the motif scan results.</p></li>
 <li><p>Converts data into appropriate format. You can convert data into base-GRN. The base GRN data can be formatted as either a python dictionary or pandas dataframe. This output will be the final base GRN used in the GRN model construction step.</p></li>
 </ul>
+<p>If your reference genome file are installed in non-default location, please speficy the location using <code class="docutils literal notranslate"><span class="pre">genomes_dir</span></code>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Instantiate TFinfo object</span>
 <span class="n">tfi</span> <span class="o">=</span> <span class="n">ma</span><span class="o">.</span><span class="n">TFinfo</span><span class="p">(</span><span class="n">peak_data_frame</span><span class="o">=</span><span class="n">peaks</span><span class="p">,</span>
-                <span class="n">ref_genome</span><span class="o">=</span><span class="n">ref_genome</span><span class="p">)</span>
+                <span class="n">ref_genome</span><span class="o">=</span><span class="n">ref_genome</span><span class="p">,</span>
+                <span class="n">genomes_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
