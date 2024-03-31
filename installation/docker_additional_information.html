@@ -231,7 +231,7 @@ We highly recommend learning about docker if you are not familiar with it, and m
 <ol class="arabic simple">
 <li><p>Download celloracle docker image from docker Hub.</p></li>
 </ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">pull</span> <span class="n">kenjikamimoto126</span><span class="o">/</span><span class="n">celloracle_ubuntu</span><span class="p">:</span><span class="mf">0.12</span><span class="o">.</span><span class="mi">0</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">pull</span> <span class="n">kenjikamimoto126</span><span class="o">/</span><span class="n">celloracle_ubuntu</span><span class="p">:</span><span class="mf">0.18</span><span class="o">.</span><span class="mi">0</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
@@ -246,7 +246,7 @@ docker run -dit \
   --name celloracle_container \
   -p 8888:8888 \
   -v $(pwd)/data_folder:/root/data_folder \
-  celloracle_ubuntu:0.12.0
+  kenjikamimoto126/celloracle_ubuntu:0.18.0
 </pre></div>
 </div>
 <ol class="arabic simple" start="3">
@@ -276,7 +276,7 @@ You need to enter a token to access jupyter. The token can be found in your term
 <section id="docker-image-build-information">
 <h2>Docker image build information<a class="headerlink" href="#docker-image-build-information" title="Permalink to this headline">¶</a></h2>
 <p>We built our docker image using Dockerfile automatic build function.
-The Dockerfile is available <a class="reference external" href="https://github.com/morris-lab/CellOracle/blob/master/docs/dockerfile">here</a>.
+The Dockerfile is available <a class="reference external" href="https://github.com/morris-lab/CellOracle/blob/master/other_files/Dockerfile">here</a>.
 You can modify it to create custom docker image by yourself.
 If you make custom environment, please do so on your responsibility.</p>
 </section>
